@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Store Finds</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:    #F2EDE3;
+  --parchment:#E8E0D0;
+  --tan:      #D4C9B0;
+  --bark:     #5C4A32;
+  --espresso: #2A1F12;
+  --ink:      #1A1209;
+  --blue:     #1B6EF3;
+  --blue-bright: #3D85FF;
+  --blue-pale:#E8F0FF;
+  --amber:    #C8872A;
+  --muted:    #8C7B65;
+  --border:   rgba(92,74,50,0.12);
+  --white:    #FFFFFF;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 300;
+  height: 58px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  background: var(--ink);
+}
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 900; font-size: 19px;
+  color: var(--cream); letter-spacing: -0.3px; cursor: pointer;
+}
+.logo b { color: var(--blue-bright); }
+.nav-actions { display: flex; align-items: center; gap: 12px; }
+.nav-city {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 600;
+  color: rgba(242,237,227,0.5); cursor: pointer;
+  transition: color 0.2s;
+}
+.nav-city:hover { color: var(--cream); }
+.nav-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--blue-bright);
+  box-shadow: 0 0 6px var(--blue-bright);
+}
+.nav-div { width: 1px; height: 20px; background: rgba(255,255,255,0.1); }
+.btn-list {
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 5px;
+  padding: 8px 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 12px; font-weight: 700;
+  cursor: pointer; transition: background 0.18s, transform 0.15s;
+}
+.btn-list:hover { background: var(--blue-bright); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  padding: 48px 24px 0;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 55% 60% at 90% 20%, rgba(27,110,243,0.1) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 5% 80%, rgba(200,135,42,0.07) 0%, transparent 60%);
+}
+.hero-inner { position: relative; z-index: 1; max-width: 780px; }
+
+.live-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(27,110,243,0.15);
+  border: 1px solid rgba(61,133,255,0.3);
+  border-radius: 20px;
+  padding: 5px 12px 5px 8px;
+  margin-bottom: 22px;
+}
+.live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--blue-bright);
+  box-shadow: 0 0 8px var(--blue-bright);
+  animation: blink 2s ease infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.live-text {
+  font-size: 11px; font-weight: 700;
+  color: var(--blue-bright);
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(42px, 8vw, 78px);
+  font-weight: 900; line-height: 1.0;
+  color: var(--cream);
+  margin-bottom: 16px; letter-spacing: -1px;
+}
+.hero h1 em {
+  font-style: italic; font-weight: 300;
+  color: rgba(242,237,227,0.4);
+}
+.hero-sub {
+  font-size: 15px; font-weight: 400;
+  color: rgba(242,237,227,0.5);
+  line-height: 1.65; max-width: 420px;
+  margin-bottom: 32px;
+}
+
+/* Search */
+.search-row { display: flex; gap: 10px; margin-bottom: 32px; }
+.search-box {
+  flex: 1;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 0 16px;
+  transition: border-color 0.2s;
+}
+.search-box:focus-within {
+  border-color: var(--blue-bright);
+  background: rgba(255,255,255,0.1);
+}
+.search-box input {
+  flex: 1; background: none; border: none; outline: none;
+  font-family: 'Epilogue', sans-serif; font-size: 15px;
+  color: var(--cream); padding: 14px 0;
+}
+.search-box input::placeholder { color: rgba(242,237,227,0.3); }
+.search-go {
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 8px;
+  padding: 0 24px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 14px; font-weight: 700;
+  cursor: pointer; transition: background 0.18s;
+}
+.search-go:hover { background: var(--blue-bright); }
+
+/* Quick filters */
+.qf-row {
+  display: flex; gap: 8px;
+  overflow-x: auto; padding-bottom: 28px;
+  -ms-overflow-style: none; scrollbar-width: none;
+}
+.qf-row::-webkit-scrollbar { display: none; }
+.qf {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 6px; padding: 8px 14px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 13px; font-weight: 600;
+  color: rgba(242,237,227,0.55);
+  cursor: pointer; white-space: nowrap;
+  transition: all 0.18s;
+}
+.qf:hover { background: rgba(255,255,255,0.1); color: var(--cream); }
+.qf.on { background: var(--blue); border-color: var(--blue); color: #fff; }
+
+/* ── SECTION BAR ── */
+.sec-bar {
+  background: var(--parchment);
+  border-bottom: 1px solid var(--border);
+  padding: 13px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sec-bar-l { display: flex; align-items: center; gap: 10px; }
+.sec-city { font-size: 15px; font-weight: 700; color: var(--ink); }
+.sec-count {
+  background: var(--blue-pale); color: var(--blue);
+  font-size: 11px; font-weight: 700;
+  padding: 3px 9px; border-radius: 10px;
+}
+.sec-sort { font-size: 12px; font-weight: 600; color: var(--muted); cursor: pointer; }
+
+/* ── CARDS ── */
+.cards {
+  padding: 20px 16px 16px;
+  max-width: 900px; margin: 0 auto;
+}
+
+.card {
+  background: var(--white);
+  border-radius: 12px; margin-bottom: 13px;
+  overflow: hidden; border: 1px solid var(--border);
+  display: flex; cursor: pointer;
+  transition: box-shadow 0.22s, transform 0.22s;
+  animation: up 0.38s ease both;
+}
+.card:nth-child(2){ animation-delay:.06s }
+.card:nth-child(3){ animation-delay:.12s }
+@keyframes up { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+.card:hover { box-shadow: 0 8px 32px rgba(26,18,9,0.13); transform: translateY(-2px); }
+.card.feat { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
+
+.card-slab {
+  width: 108px; flex-shrink: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  min-height: 138px;
+}
+.slab-emoji { font-size: 40px; position: relative; z-index:1; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3)); }
+.slab-est {
+  position: absolute; bottom: 9px;
+  font-family: 'Fraunces', serif;
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.55); z-index:1;
+}
+
+.card-body {
+  flex: 1; padding: 15px 17px 13px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.card-top { margin-bottom: 8px; }
+.card-head {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 8px; margin-bottom: 3px;
+}
+.card-name {
+  font-family: 'Fraunces', serif;
+  font-size: 18px; font-weight: 700;
+  color: var(--ink); line-height: 1.2;
+}
+.badge {
+  font-size: 9px; font-weight: 800;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 4px;
+  white-space: nowrap; flex-shrink: 0; margin-top: 3px;
+}
+.badge-blue { background: var(--blue); color: #fff; }
+.badge-dark { background: var(--ink); color: var(--amber); }
+.card-loc { font-size: 12px; color: var(--muted); font-weight: 500; margin-bottom: 7px; }
+.card-desc {
+  font-size: 13px; line-height: 1.55; color: #5A4E3C;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.card-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 10px; border-top: 1px solid var(--border); margin-top: 10px;
+}
+.card-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.pill {
+  font-size: 10px; font-weight: 700;
+  padding: 3px 8px; border-radius: 4px;
+}
+.pill-i { background: #F0EDE5; color: var(--bark); }
+.pill-s { background: var(--blue-pale); color: var(--blue); }
+.card-arr { font-size: 20px; color: var(--blue); font-weight: 700; flex-shrink:0; transition: transform 0.18s; }
+.card:hover .card-arr { transform: translateX(4px); }
+
+/* Placeholder card */
+.card-add {
+  background: var(--parchment);
+  border: 2px dashed var(--tan);
+  border-radius: 12px; padding: 26px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  cursor: pointer; margin-bottom: 13px;
+  transition: border-color 0.18s, background 0.18s;
+}
+.card-add:hover { border-color: var(--blue); background: var(--blue-pale); }
+.add-text { font-size: 14px; font-weight: 600; color: var(--muted); }
+.add-text span { color: var(--blue); }
+.add-btn {
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 6px;
+  padding: 9px 16px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.18s;
+}
+.add-btn:hover { background: var(--blue-bright); }
+
+/* ── UPSELL BANNER ── */
+.upsell {
+  background: var(--ink);
+  border-radius: 12px;
+  margin: 4px 16px 32px;
+  padding: 26px 22px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  max-width: 900px; margin-left: auto; margin-right: auto;
+}
+.upsell h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 19px; font-weight: 700; color: var(--cream); margin-bottom: 3px;
+}
+.upsell p { font-size: 13px; color: rgba(242,237,227,0.45); }
+.upsell p b { color: var(--blue-bright); font-weight: 600; }
+.upsell-btn {
+  background: var(--blue); color: #fff;
+  border: none; border-radius: 7px; padding: 11px 18px;
+  font-family: 'Epilogue', sans-serif;
+  font-size: 13px; font-weight: 700;
+  cursor: pointer; white-space: nowrap;
+  transition: background 0.18s, transform 0.15s;
+}
+.upsell-btn:hover { background: var(--blue-bright); transform: translateY(-1px); }
+
+/* ── EMPTY ── */
+.empty { text-align: center; padding: 48px 24px; }
+.empty-icon { font-size: 44px; margin-bottom: 12px; }
+.empty h3 { font-family: 'Fraunces', serif; font-size: 20px; color: var(--ink); margin-bottom: 6px; }
+.empty p { font-size: 14px; color: var(--muted); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--espresso);
+  padding: 28px 24px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+}
+.f-logo { font-family:'Fraunces',serif; font-size:17px; font-weight:900; color:var(--cream); }
+.f-logo b { color:var(--blue-bright); }
+.f-copy { font-size:12px; color:rgba(242,237,227,0.28); }
+
+/* ── BOTTOM SHEET (store profile) ── */
+.overlay {
+  position: fixed; inset: 0; z-index: 400;
+  background: rgba(26,18,9,0.72);
+  backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.25s;
+}
+.overlay.open { opacity:1; pointer-events:all; }
+
+.sheet {
+  width: 100%; max-height: 92vh;
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+}
+.overlay.open .sheet { transform: translateY(0); }
+
+.sheet-handle {
+  width: 36px; height: 4px; background: var(--tan);
+  border-radius: 2px; margin: 14px auto 0;
+}
+.sheet-hd {
+  padding: 18px 22px 0;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 14px;
+}
+.sh-close {
+  width: 32px; height: 32px;
+  background: var(--parchment); border: none; border-radius: 50%;
+  font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top:4px;
+  transition: background 0.18s;
+}
+.sh-close:hover { background: var(--tan); }
+.sh-name {
+  font-family: 'Fraunces', serif; font-size: 27px; font-weight: 900;
+  color: var(--ink); line-height: 1.1;
+}
+.sh-loc { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+.sh-body { padding: 18px 22px 32px; }
+.sh-desc {
+  font-size: 15px; line-height: 1.75; color: var(--bark);
+  margin-bottom: 22px; padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.sh-sec { margin-bottom: 20px; }
+.sh-sec-lbl {
+  font-size: 10px; font-weight: 800; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 9px;
+}
+.sh-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.t-large { font-size: 12px; font-weight: 600; padding: 6px 13px; border-radius: 6px; }
+.t-i { background: #EEEADE; color: var(--bark); }
+.t-s { background: var(--blue-pale); color: var(--blue); }
+
+.sh-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 22px;
+}
+.sh-tile { background: var(--parchment); border-radius: 8px; padding: 12px 14px; }
+.sh-tile-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing:1px; color: var(--muted); margin-bottom: 3px; }
+.sh-tile-val { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+.sh-btns { display: flex; gap: 10px; }
+.btn-prim {
+  flex:1; background: var(--blue); color: #fff;
+  border:none; border-radius:8px; padding:14px;
+  font-family:'Epilogue',sans-serif; font-size:14px; font-weight:700;
+  cursor:pointer; transition: background 0.18s;
+}
+.btn-prim:hover { background: var(--blue-bright); }
+.btn-sec2 {
+  flex:1; background:transparent; color:var(--ink);
+  border: 2px solid var(--border); border-radius:8px; padding:14px;
+  font-family:'Epilogue',sans-serif; font-size:14px; font-weight:700;
+  cursor:pointer; transition: border-color 0.18s;
+}
+.btn-sec2:hover { border-color: var(--ink); }
+
+/* ── SIGNUP SHEET ── */
+.s-sheet {
+  width: 100%; max-height: 92vh;
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  overflow-y: auto;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.32,0.72,0,1);
+}
+.overlay.open .s-sheet { transform: translateY(0); }
+.s-top {
+  background: var(--ink);
+  padding: 28px 22px 22px; border-radius: 20px 20px 0 0; position:relative;
+}
+.s-top h2 { font-family:'Fraunces',serif; font-size:24px; font-weight:900; color:var(--cream); margin-bottom:4px; }
+.s-top p { font-size:13px; color:rgba(242,237,227,0.4); }
+.s-close {
+  position:absolute; top:16px; right:16px;
+  width:32px; height:32px; background:rgba(255,255,255,0.1);
+  border:none; border-radius:50%; color:rgba(242,237,227,0.7);
+  font-size:16px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: background 0.18s;
+}
+.s-close:hover { background:rgba(255,255,255,0.2); }
+.s-form { padding: 22px; }
+.fg { margin-bottom: 15px; }
+.fl { display:block; font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.fi,.fta {
+  width:100%; padding:12px 13px;
+  font-family:'Epilogue',sans-serif; font-size:14px;
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:7px; outline:none; color:var(--ink);
+  transition: border-color 0.18s;
+}
+.fi:focus,.fta:focus { border-color:var(--blue); }
+.fta { min-height:76px; resize:vertical; }
+.f2 { display:grid; grid-template-columns:1fr 1fr; gap:11px; }
+.cb-wrap { display:flex; flex-wrap:wrap; gap:6px; }
+.cb {
+  display:flex; align-items:center; gap:5px;
+  padding:6px 11px;
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:6px; cursor:pointer; font-size:13px; font-weight:500;
+  transition: all 0.15s;
+}
+.cb:hover { border-color:var(--blue); color:var(--blue); }
+.cb input { accent-color:var(--blue); }
+.f-go {
+  width:100%; background:var(--blue); color:#fff;
+  border:none; border-radius:8px; padding:15px;
+  font-family:'Epilogue',sans-serif; font-size:15px; font-weight:700;
+  cursor:pointer; margin-top:8px; transition: background 0.18s;
+}
+.f-go:hover { background:var(--blue-bright); }
+.f-note { text-align:center; font-size:12px; color:var(--muted); margin-top:9px; }
+
+@media(max-width:480px){
+  .hero h1 { font-size:38px; }
+  .search-row { flex-direction:column; }
+  .card-slab { width:86px; }
+  .card-name { font-size:16px; }
+  .sh-grid { grid-template-columns:1fr; }
+  .sh-btns { flex-direction:column; }
+  .upsell { flex-direction:column; text-align:center; }
+  footer { flex-direction:column; text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Music Store <b>Finds</b></div>
+  <div class="nav-actions">
+    <div class="nav-city"><div class="nav-dot"></div> Los Angeles</div>
+    <div class="nav-div"></div>
+    <button class="btn-list" onclick="openSignup()">+ List Store</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="live-badge"><div class="live-dot"></div><span class="live-text">Los Angeles · Live Directory</span></div>
+    <h1>Real stores.<br><em>Real</em> musicians.</h1>
+    <p class="hero-sub">Skip the generic search results. Find music stores by what they actually carry and the services they offer.</p>
+    <div class="search-row">
+      <div class="search-box">
+        <span style="font-size:16px;opacity:0.45">🔍</span>
+        <input type="text" id="si" placeholder="Store name, neighborhood, instrument..." oninput="go()">
+      </div>
+      <button class="search-go" onclick="go()">Search</button>
+    </div>
+    <div class="qf-row">
+      <button class="qf on"  onclick="sf('all',this)">🗂 All</button>
+      <button class="qf" onclick="sf('guitar',this)">🎸 Guitar</button>
+      <button class="qf" onclick="sf('banjo',this)">🪕 Banjo</button>
+      <button class="qf" onclick="sf('ukulele',this)">🎵 Ukulele</button>
+      <button class="qf" onclick="sf('violin',this)">🎻 Strings</button>
+      <button class="qf" onclick="sf('ethnic',this)">🌍 World</button>
+      <button class="qf" onclick="sf('lessons',this)">🎓 Lessons</button>
+      <button class="qf" onclick="sf('repairs',this)">🔧 Repairs</button>
+      <button class="qf" onclick="sf('venue',this)">🎤 Live Venue</button>
+      <button class="qf" onclick="sf('rentals',this)">📋 Rentals</button>
+    </div>
+  </div>
+</div>
+
+<div class="sec-bar">
+  <div class="sec-bar-l">
+    <div class="sec-city">Los Angeles</div>
+    <div class="sec-count" id="cnt">1 store</div>
+  </div>
+  <div class="sec-sort">Sort: Best Match ▾</div>
+</div>
+
+<div class="cards" id="cards"></div>
+
+<div class="upsell" style="margin:4px 16px 32px;">
+  <div>
+    <h3>Own a music store?</h3>
+    <p>Get found by musicians searching right now. <b>Free to list.</b></p>
+  </div>
+  <button class="upsell-btn" onclick="openSignup()">List Your Store →</button>
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<!-- Store Sheet -->
+<div class="overlay" id="storeOv" onclick="maybeClose('storeOv')">
+  <div class="sheet" id="sheetBody">
+    <div class="sheet-handle"></div>
+    <div id="sheetContent"></div>
+  </div>
+</div>
+
+<!-- Signup Sheet -->
+<div class="overlay" id="signupOv" onclick="maybeClose('signupOv')">
+  <div class="s-sheet">
+    <div class="sheet-handle" style="background:rgba(255,255,255,0.15);margin-top:14px;"></div>
+    <div class="s-top">
+      <button class="s-close" onclick="closeSheet('signupOv')">✕</button>
+      <h2>List Your Store</h2>
+      <p>Join the directory built for musicians. Always free to start.</p>
+    </div>
+    <div class="s-form">
+      <div class="f2">
+        <div class="fg"><label class="fl">Store Name *</label><input class="fi" placeholder="e.g. McCabe's Guitar Shop"></div>
+        <div class="fg"><label class="fl">Est. Year</label><input class="fi" placeholder="e.g. 1958"></div>
+      </div>
+      <div class="fg"><label class="fl">Full Address *</label><input class="fi" placeholder="Street, city, state, zip"></div>
+      <div class="f2">
+        <div class="fg"><label class="fl">Phone</label><input class="fi" type="tel" placeholder="(310) 000-0000"></div>
+        <div class="fg"><label class="fl">Website</label><input class="fi" placeholder="https://..."></div>
+      </div>
+      <div class="fg"><label class="fl">About Your Store *</label><textarea class="fta" placeholder="Tell musicians what makes your store unique..."></textarea></div>
+      <div class="fg">
+        <label class="fl">Instruments You Carry</label>
+        <div class="cb-wrap">
+          <label class="cb"><input type="checkbox"> Guitar</label>
+          <label class="cb"><input type="checkbox"> Bass</label>
+          <label class="cb"><input type="checkbox"> Piano / Keys</label>
+          <label class="cb"><input type="checkbox"> Drums</label>
+          <label class="cb"><input type="checkbox"> Banjo</label>
+          <label class="cb"><input type="checkbox"> Ukulele</label>
+          <label class="cb"><input type="checkbox"> Violin</label>
+          <label class="cb"><input type="checkbox"> Mandolin</label>
+          <label class="cb"><input type="checkbox"> World / Ethnic</label>
+          <label class="cb"><input type="checkbox"> Accessories</label>
+        </div>
+      </div>
+      <div class="fg">
+        <label class="fl">Services</label>
+        <div class="cb-wrap">
+          <label class="cb"><input type="checkbox"> Sales</label>
+          <label class="cb"><input type="checkbox"> Repairs</label>
+          <label class="cb"><input type="checkbox"> Lessons</label>
+          <label class="cb"><input type="checkbox"> Rentals</label>
+          <label class="cb"><input type="checkbox"> Live Venue</label>
+          <label class="cb"><input type="checkbox"> Layaway</label>
+          <label class="cb"><input type="checkbox"> Recording</label>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Your Email *</label><input class="fi" type="email" placeholder="you@yourstore.com"></div>
+      <button class="f-go" onclick="submitForm(this)">Submit My Store →</button>
+      <p class="f-note">We'll review and publish your listing within 48 hours.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const stores = [
+  {
+    id: 1,
+    name: "McCabe's Guitar Shop",
+    hood: "Santa Monica",
+    address: "3101 Pico Blvd, Santa Monica, CA 90405",
+    phone: "(310) 828-4497",
+    website: "mccabes.com",
+    hours: "Mon–Sun · 11am – 7pm",
+    est: 1958,
+    emoji: "🎸",
+    color: "linear-gradient(155deg,#2A1F12,#111008)",
+    badge: "LA Icon",
+    feat: false,
+    short: "Legendary acoustic & folk instrument store and intimate live music venue. An LA institution since 1958.",
+    full: "McCabe's Guitar Shop is one of the most storied instrument stores in the country. Founded in 1958, it specializes in acoustic and folk instruments — from ouds and sitars to hammered dulcimers, fiddles, and ethnic percussion. Since 1969 the intimate 150-seat back room has hosted thousands of concerts with artists like Jackson Browne, Tom Waits, and Ry Cooder. This isn't just a store — it's a musical community.",
+    instruments: ["Guitar","Banjo","Ukulele","Mandolin","Violin / Fiddle","World / Ethnic"],
+    services: ["Instrument Sales","Repairs","Lessons","Rentals","Live Venue","Layaway"],
+    tags: ["guitar","banjo","ukulele","violin","ethnic","lessons","repairs","venue","rentals"]
+  }
+];
+
+let active = 'all';
+
+function render(list) {
+  const real = list.filter(s => !s._add);
+  document.getElementById('cnt').textContent = `${real.length} store${real.length!==1?'s':''}`;
+  const wrap = document.getElementById('cards');
+
+  if (!real.length) {
+    wrap.innerHTML = `<div class="empty"><div class="empty-icon">🎵</div><h3>No stores found</h3><p>Try a different filter or search.</p></div>`;
+    return;
+  }
+
+  wrap.innerHTML = list.map(s => {
+    if (s._add) return `
+      <div class="card-add" onclick="openSignup()">
+        <div class="add-text">Know a great store? <span>Add it to the directory →</span></div>
+        <button class="add-btn">+ List a Store</button>
+      </div>`;
+    return `
+    <div class="card${s.feat?' feat':''}" onclick="openStore(${s.id})">
+      <div class="card-slab" style="background:${s.color}">
+        <div class="slab-emoji">${s.emoji}</div>
+        <div class="slab-est">Est. ${s.est}</div>
+      </div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-head">
+            <div class="card-name">${s.name}</div>
+            <span class="badge ${s.feat?'badge-blue':'badge-dark'}">${s.feat?'Featured':s.badge}</span>
+          </div>
+          <div class="card-loc">📍 ${s.hood}, LA</div>
+          <div class="card-desc">${s.short}</div>
+        </div>
+        <div class="card-foot">
+          <div class="card-pills">
+            ${s.instruments.slice(0,2).map(i=>`<span class="pill pill-i">${i}</span>`).join('')}
+            ${s.services.slice(0,1).map(sv=>`<span class="pill pill-s">${sv}</span>`).join('')}
+          </div>
+          <div class="card-arr">›</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function go() {
+  const q = document.getElementById('si').value.toLowerCase().trim();
+  let list = stores.filter(s => {
+    const mF = active==='all' || s.tags.includes(active);
+    const mQ = !q || s.name.toLowerCase().includes(q) || s.hood.toLowerCase().includes(q) || s.instruments.some(i=>i.toLowerCase().includes(q));
+    return mF && mQ;
+  });
+  list.push({_add:true});
+  render(list);
+}
+
+function sf(f, el) {
+  document.querySelectorAll('.qf').forEach(c=>c.classList.remove('on'));
+  el.classList.add('on');
+  active = f;
+  go();
+}
+
+function openStore(id) {
+  const s = stores.find(x=>x.id===id);
+  if (!s) return;
+  document.getElementById('sheetContent').innerHTML = `
+    <div class="sheet-hd">
+      <div>
+        <div class="sh-name">${s.name}</div>
+        <div class="sh-loc">📍 ${s.address}</div>
+      </div>
+      <button class="sh-close" onclick="closeSheet('storeOv')">✕</button>
+    </div>
+    <div class="sh-body">
+      <div class="sh-desc">${s.full}</div>
+      <div class="sh-sec">
+        <div class="sh-sec-lbl">Instruments Carried</div>
+        <div class="sh-tags">${s.instruments.map(i=>`<span class="t-large t-i">${i}</span>`).join('')}</div>
+      </div>
+      <div class="sh-sec">
+        <div class="sh-sec-lbl">Services</div>
+        <div class="sh-tags">${s.services.map(sv=>`<span class="t-large t-s">${sv}</span>`).join('')}</div>
+      </div>
+      <div class="sh-grid">
+        <div class="sh-tile"><div class="sh-tile-lbl">📞 Phone</div><div class="sh-tile-val">${s.phone}</div></div>
+        <div class="sh-tile"><div class="sh-tile-lbl">🕐 Hours</div><div class="sh-tile-val">${s.hours}</div></div>
+        <div class="sh-tile"><div class="sh-tile-lbl">🌐 Website</div><div class="sh-tile-val">${s.website}</div></div>
+        <div class="sh-tile"><div class="sh-tile-lbl">📅 Since</div><div class="sh-tile-val">${s.est}</div></div>
+      </div>
+      <div class="sh-btns">
+        <button class="btn-prim" onclick="window.open('https://${s.website}','_blank')">Visit Website →</button>
+        <button class="btn-sec2">Get Directions</button>
+      </div>
+    </div>`;
+  openSheet('storeOv');
+}
+
+function openSignup() { openSheet('signupOv'); }
+
+function openSheet(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function maybeClose(id) {
+  if (event.target === document.getElementById(id)) closeSheet(id);
+}
+function submitForm(btn) {
+  btn.textContent = '✓ Submitted! We\'ll be in touch within 48 hrs.';
+  btn.style.background = '#2A6B3C';
+  setTimeout(()=>closeSheet('signupOv'), 2200);
+}
+
+go();
+</script>
+</body>
+</html>
