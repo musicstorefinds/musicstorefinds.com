@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Drum Shop — Hollywood, Los Angeles | Music Store Finds</title>
+<meta name="description" content="Hollywood's legendary drum shop since 1959. Every top drummer in LA has been through these doors. New, used, and custom percussion. Located at 854 Vine St, Los Angeles, CA 90038.">
+<link rel="canonical" href="https://musicstorefinds.com/stores/professional-drum-shop/">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream:#F2EDE3; --parchment:#E8E0D0; --tan:#D4C9B0;
+  --bark:#5C4A32; --espresso:#2A1F12; --ink:#1A1209;
+  --blue:#1B6EF3; --blue-bright:#3D85FF; --blue-pale:#E8F0FF;
+  --amber:#C8872A; --muted:#8C7B65; --border:rgba(92,74,50,0.12); --white:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Epilogue',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+nav{position:sticky;top:0;z-index:300;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--ink);}
+.logo{font-family:'Fraunces',serif;font-weight:900;font-size:19px;color:var(--cream);letter-spacing:-0.3px;text-decoration:none;}
+.logo b{color:var(--blue-bright);}
+.nav-back{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:rgba(242,237,227,0.5);cursor:pointer;text-decoration:none;transition:color 0.2s;}
+.nav-back:hover{color:var(--cream);}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 16px;font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:background 0.18s;}
+.btn-list:hover{background:var(--blue-bright);}
+
+.store-hero{background:var(--ink);padding:40px 24px 36px;position:relative;overflow:hidden;}
+.store-hero::before{content:'';position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 60% 80% at 100% 0%, rgba(27,110,243,0.12) 0%,transparent 70%);}
+.hero-inner{position:relative;z-index:1;max-width:780px;}
+.breadcrumb{font-size:12px;color:rgba(242,237,227,0.35);margin-bottom:16px;}
+.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
+.hero-top{display:flex;align-items:flex-start;gap:20px;margin-bottom:16px;}
+.hero-slab{width:80px;height:80px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:36px;background:linear-gradient(155deg,#3d1a1a,#1f0d0d);flex-shrink:0;box-shadow:0 4px 20px rgba(0,0,0,0.4);}
+.hero-meta{}
+.hero-badge{display:inline-block;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;background:var(--ink);color:var(--amber);border:1px solid rgba(200,135,42,0.3);margin-bottom:8px;}
+.store-name{font-family:'Fraunces',serif;font-size:clamp(28px,6vw,44px);font-weight:900;color:var(--cream);line-height:1.05;letter-spacing:-0.5px;}
+.store-loc{font-size:14px;color:rgba(242,237,227,0.45);margin-top:6px;}
+.store-desc-hero{font-size:15px;line-height:1.7;color:rgba(242,237,227,0.55);max-width:580px;}
+
+.store-body{max-width:780px;margin:0 auto;padding:28px 20px 48px;}
+
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px;}
+.info-tile{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 16px;}
+.info-lbl{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px;}
+.info-val{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4;}
+.info-val a{color:var(--blue);text-decoration:none;}
+.info-val a:hover{text-decoration:underline;}
+
+.section{margin-bottom:28px;}
+.section-lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.about-text{font-size:15px;line-height:1.8;color:var(--bark);}
+.tags{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{font-size:13px;font-weight:600;padding:7px 14px;border-radius:7px;}
+.tag-i{background:#EEEADE;color:var(--bark);}
+.tag-s{background:var(--blue-pale);color:var(--blue);}
+
+.cta-row{display:flex;gap:10px;margin-top:32px;}
+.btn-prim{flex:1;background:var(--blue);color:#fff;border:none;border-radius:9px;padding:15px;font-family:'Epilogue',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:background 0.18s;text-decoration:none;text-align:center;display:block;}
+.btn-prim:hover{background:var(--blue-bright);}
+.btn-sec{flex:1;background:transparent;color:var(--ink);border:2px solid var(--border);border-radius:9px;padding:15px;font-family:'Epilogue',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:border-color 0.18s;text-decoration:none;text-align:center;display:block;}
+.btn-sec:hover{border-color:var(--ink);}
+
+.back-link{display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;transition:color 0.18s;}
+.back-link:hover{color:var(--blue);}
+
+footer{background:var(--espresso);padding:28px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-logo{font-family:'Fraunces',serif;font-size:17px;font-weight:900;color:var(--cream);}
+.f-logo b{color:var(--blue-bright);}
+.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
+
+@media(max-width:480px){
+  .info-grid{grid-template-columns:1fr;}
+  .cta-row{flex-direction:column;}
+  .hero-top{flex-direction:column;gap:12px;}
+  footer{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Music Store <b>Finds</b></a>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="/" class="nav-back">← All Stores</a>
+    <button class="btn-list" onclick="document.getElementById('signupOv').classList.add('open');document.body.style.overflow='hidden'">+ List Store</button>
+  </div>
+</nav>
+
+<div class="store-hero">
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="/">Music Store Finds</a> › <a href="/">Los Angeles</a> › Professional Drum Shop</div>
+    <div class="hero-top">
+      <div class="hero-slab">🥁</div>
+      <div class="hero-meta">
+        <div class="hero-badge">Drum Mecca</div>
+        <h1 class="store-name">Professional Drum Shop</h1>
+        <div class="store-loc">📍 Hollywood, Los Angeles · Est. 1959</div>
+      </div>
+    </div>
+    <p class="store-desc-hero">Hollywood's legendary drum shop since 1959. Every top drummer in LA has been through these doors. New, used, and custom percussion.</p>
+  </div>
+</div>
+
+<div class="store-body">
+  <a href="/" class="back-link">← Back to directory</a>
+
+  <div class="info-grid">
+    <div class="info-tile">
+      <div class="info-lbl">📍 Address</div>
+      <div class="info-val"><a href="https://maps.google.com/?q=854%20Vine%20St%2C%20Los%20Angeles%2C%20CA%2090038" target="_blank">854 Vine St, Los Angeles, CA 90038</a></div>
+    </div>
+    <div class="info-tile">
+      <div class="info-lbl">🕐 Hours</div>
+      <div class="info-val">Mon–Sat · 9:30am – 5pm · Sun Closed</div>
+    </div>
+    <div class="info-tile">
+      <div class="info-lbl">📞 Phone</div>
+      <div class="info-val">(323) 469-6285</div>
+    </div>
+    <div class="info-tile">
+      <div class="info-lbl">🌐 Website</div>
+      <div class="info-val"><a href="https://prodrumshop.com" target="_blank">prodrumshop.com</a></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-lbl">About</div>
+    <p class="about-text">Pro Drum Shop is a Hollywood institution, serving professional and amateur drummers since 1959. Their showroom is stocked with drum sets, cymbals, snares, hardware, mallets, hand percussion, and ethnic percussion from top brands like Ludwig and DW. They offer expert repairs, drum tuning, custom builds, lesson referrals, and workshops. If it involves drums, Pro Drum has it.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-lbl">Instruments Carried</div>
+    <div class="tags"><span class="tag tag-i">Drums</span><span class="tag tag-i">Percussion</span><span class="tag tag-i">Cymbals</span><span class="tag tag-i">Mallets</span><span class="tag tag-i">World / Ethnic</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-lbl">Services</div>
+    <div class="tags"><span class="tag tag-s">Instrument Sales</span><span class="tag tag-s">Repairs</span><span class="tag tag-s">Custom Builds</span><span class="tag tag-s">Used & Vintage</span><span class="tag tag-s">Workshops</span></div>
+  </div>
+
+  <div class="cta-row">
+    <a class="btn-prim" href="https://prodrumshop.com" target="_blank">Visit Website →</a>
+    <a class="btn-sec" href="https://maps.google.com/?q=854%20Vine%20St%2C%20Los%20Angeles%2C%20CA%2090038" target="_blank">Get Directions</a>
+  </div>
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<!-- Signup Sheet (reused from main) -->
+<div style="position:fixed;inset:0;z-index:400;background:rgba(26,18,9,0.72);backdrop-filter:blur(6px);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 0.25s;" id="signupOv" onclick="if(event.target===this){this.classList.remove('open');document.body.style.overflow='';this.style.opacity='0';this.style.pointerEvents='none';}">
+  <div style="width:100%;max-height:92vh;background:var(--cream);border-radius:20px 20px 0 0;overflow-y:auto;transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);" id="sSheet">
+    <div style="width:36px;height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin:14px auto 0;"></div>
+    <div style="background:var(--ink);padding:28px 22px 22px;border-radius:20px 20px 0 0;position:relative;">
+      <button onclick="document.getElementById('signupOv').classList.remove('open');document.getElementById('sSheet').style.transform='translateY(100%)';document.body.style.overflow='';" style="position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.1);border:none;border-radius:50%;color:rgba(242,237,227,0.7);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+      <h2 style="font-family:'Fraunces',serif;font-size:24px;font-weight:900;color:var(--cream);margin-bottom:4px;">List Your Store</h2>
+      <p style="font-size:13px;color:rgba(242,237,227,0.4);">Join the directory built for musicians. Always free to start.</p>
+    </div>
+    <div style="padding:22px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-bottom:15px;">
+        <div><label style="display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Store Name *</label><input style="width:100%;padding:12px 13px;font-family:'Epilogue',sans-serif;font-size:14px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;outline:none;color:var(--ink);" placeholder="e.g. McCabe's Guitar Shop"></div>
+        <div><label style="display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Est. Year</label><input style="width:100%;padding:12px 13px;font-family:'Epilogue',sans-serif;font-size:14px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;outline:none;color:var(--ink);" placeholder="e.g. 1958"></div>
+      </div>
+      <div style="margin-bottom:15px;"><label style="display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Your Email *</label><input type="email" style="width:100%;padding:12px 13px;font-family:'Epilogue',sans-serif;font-size:14px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;outline:none;color:var(--ink);" placeholder="you@yourstore.com"></div>
+      <button onclick="this.textContent='✓ Submitted!';this.style.background='#2A6B3C';" style="width:100%;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:15px;font-family:'Epilogue',sans-serif;font-size:15px;font-weight:700;cursor:pointer;margin-top:8px;">Submit My Store →</button>
+      <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:9px;">We'll review and publish your listing within 48 hours.</p>
+    </div>
+  </div>
+</div>
+<script>
+const ov = document.getElementById('signupOv');
+const sh = document.getElementById('sSheet');
+const obs = new MutationObserver(()=>{
+  if(ov.classList.contains('open')){ov.style.opacity='1';ov.style.pointerEvents='all';sh.style.transform='translateY(0)';}
+  else{ov.style.opacity='0';ov.style.pointerEvents='none';sh.style.transform='translateY(100%)';}
+});
+obs.observe(ov,{attributes:true,attributeFilter:['class']});
+</script>
+</body>
+</html>
