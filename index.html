@@ -1,1 +1,376 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Store Map — Los Angeles | Music Store Finds</title>
+<meta name="description" content="Explore all independent music stores in Los Angeles on an interactive map. Find guitar shops, drum stores, vintage gear, lessons, and more.">
+<link rel="canonical" href="https://musicstorefinds.com/map/">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+:root {
+  --cream:#F2EDE3; --parchment:#E8E0D0; --tan:#D4C9B0;
+  --bark:#5C4A32; --espresso:#2A1F12; --ink:#1A1209;
+  --blue:#1B6EF3; --blue-bright:#3D85FF; --blue-pale:#E8F0FF;
+  --amber:#C8872A; --muted:#8C7B65; --border:rgba(92,74,50,0.12); --white:#FFFFFF;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;font-family:'Epilogue',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--ink);}
+.logo{font-family:'Fraunces',serif;font-weight:900;font-size:19px;color:var(--cream);letter-spacing:-0.3px;text-decoration:none;}
+.logo b{color:var(--blue-bright);}
+.nav-actions{display:flex;align-items:center;gap:12px;}
+.nav-back{font-size:13px;font-weight:600;color:rgba(242,237,227,0.5);text-decoration:none;transition:color 0.2s;}
+.nav-back:hover{color:var(--cream);}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 16px;font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:background 0.18s;}
+.btn-list:hover{background:var(--blue-bright);}
+
+/* LAYOUT */
+.page{display:flex;height:calc(100vh - 58px);}
+
+/* SIDEBAR */
+.sidebar{
+  width:340px;flex-shrink:0;
+  background:var(--cream);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  z-index:100;
+}
+.sidebar-head{
+  padding:16px 18px 12px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.sidebar-title{
+  font-family:'Fraunces',serif;font-size:20px;font-weight:900;
+  color:var(--ink);margin-bottom:2px;
+}
+.sidebar-sub{font-size:12px;color:var(--muted);}
+.search-wrap{
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  flex-shrink:0;
+}
+.search-inner{
+  display:flex;align-items:center;gap:8px;
+  background:var(--white);border:1.5px solid var(--border);
+  border-radius:7px;padding:0 12px;
+  transition:border-color 0.2s;
+}
+.search-inner:focus-within{border-color:var(--blue);}
+.search-inner input{
+  flex:1;background:none;border:none;outline:none;
+  font-family:'Epilogue',sans-serif;font-size:13px;
+  color:var(--ink);padding:9px 0;
+}
+.search-inner input::placeholder{color:var(--muted);}
+
+/* Filter chips */
+.filters{
+  display:flex;gap:6px;padding:10px 14px;
+  overflow-x:auto;flex-shrink:0;
+  border-bottom:1px solid var(--border);
+  -ms-overflow-style:none;scrollbar-width:none;
+}
+.filters::-webkit-scrollbar{display:none;}
+.chip{
+  padding:5px 11px;border-radius:20px;
+  font-size:11px;font-weight:700;
+  background:var(--parchment);color:var(--bark);
+  border:1.5px solid transparent;
+  cursor:pointer;white-space:nowrap;transition:all 0.15s;
+}
+.chip:hover{border-color:var(--blue);color:var(--blue);}
+.chip.on{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+/* Store list */
+.store-list{overflow-y:auto;flex:1;}
+.store-item{
+  padding:13px 16px;
+  border-bottom:1px solid var(--border);
+  cursor:pointer;
+  transition:background 0.15s;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.store-item:hover,.store-item.active{background:var(--blue-pale);}
+.store-item.active{border-left:3px solid var(--blue);}
+.item-slab{
+  width:44px;height:44px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.item-body{flex:1;min-width:0;}
+.item-name{
+  font-family:'Fraunces',serif;font-size:14px;font-weight:700;
+  color:var(--ink);line-height:1.2;margin-bottom:2px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.item-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.item-pills{display:flex;gap:4px;flex-wrap:wrap;}
+.ipill{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;}
+.ipill-i{background:#F0EDE5;color:var(--bark);}
+.ipill-s{background:var(--blue-pale);color:var(--blue);}
+.no-results{padding:32px 16px;text-align:center;color:var(--muted);font-size:13px;}
+
+/* MAP */
+#map{flex:1;z-index:1;}
+
+/* Custom marker */
+.msf-marker{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  border:2.5px solid white;
+  box-shadow:0 2px 10px rgba(0,0,0,0.35);
+  cursor:pointer;transition:transform 0.15s;
+}
+.msf-marker:hover,.msf-marker.active{transform:scale(1.25);}
+
+/* Popup */
+.leaflet-popup-content-wrapper{
+  border-radius:12px!important;
+  box-shadow:0 8px 30px rgba(0,0,0,0.18)!important;
+  padding:0!important;overflow:hidden;
+  font-family:'Epilogue',sans-serif;
+}
+.leaflet-popup-content{margin:0!important;width:240px!important;}
+.leaflet-popup-tip-container{margin-top:-1px;}
+.popup-top{padding:14px 16px 10px;}
+.popup-emoji{font-size:22px;margin-bottom:6px;}
+.popup-name{font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--ink);margin-bottom:2px;line-height:1.2;}
+.popup-hood{font-size:11px;color:var(--muted);margin-bottom:8px;}
+.popup-desc{font-size:12px;line-height:1.55;color:var(--bark);}
+.popup-foot{
+  padding:10px 16px;
+  background:var(--parchment);
+  display:flex;gap:8px;align-items:center;
+  border-top:1px solid var(--border);
+}
+.popup-btn{
+  flex:1;background:var(--blue);color:#fff;
+  border:none;border-radius:6px;padding:8px;
+  font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;
+  cursor:pointer;text-decoration:none;text-align:center;display:block;
+  transition:background 0.15s;
+}
+.popup-btn:hover{background:var(--blue-bright);}
+.popup-dir{
+  background:transparent;color:var(--ink);
+  border:1.5px solid var(--border);border-radius:6px;padding:7px 10px;
+  font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;
+  cursor:pointer;text-decoration:none;text-align:center;display:block;
+  transition:border-color 0.15s;white-space:nowrap;
+}
+.popup-dir:hover{border-color:var(--ink);}
+
+/* Mobile */
+@media(max-width:680px){
+  .page{flex-direction:column;}
+  .sidebar{width:100%;height:260px;border-right:none;border-bottom:1px solid var(--border);}
+  #map{flex:1;min-height:300px;}
+  .filters{padding:8px 10px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="logo">Music Store <b>Finds</b></a>
+  <div class="nav-actions">
+    <a href="../" class="nav-back">← Directory</a>
+    <button class="btn-list">+ List Store</button>
+  </div>
+</nav>
+
+<div class="page">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-head">
+      <div class="sidebar-title">LA Music Stores</div>
+      <div class="sidebar-sub" id="countLabel">14 stores mapped</div>
+    </div>
+    <div class="search-wrap">
+      <div class="search-inner">
+        <span style="font-size:14px;opacity:0.4">🔍</span>
+        <input type="text" id="si" placeholder="Search stores..." oninput="filterStores()">
+      </div>
+    </div>
+    <div class="filters" id="filters">
+      <button class="chip on" onclick="setFilter('all',this)">All</button>
+      <button class="chip" onclick="setFilter('guitar',this)">🎸 Guitar</button>
+      <button class="chip" onclick="setFilter('banjo',this)">🪕 Banjo</button>
+      <button class="chip" onclick="setFilter('violin',this)">🎻 Strings</button>
+      <button class="chip" onclick="setFilter('ethnic',this)">🌍 World</button>
+      <button class="chip" onclick="setFilter('lessons',this)">🎓 Lessons</button>
+      <button class="chip" onclick="setFilter('repairs',this)">🔧 Repairs</button>
+      <button class="chip" onclick="setFilter('venue',this)">🎤 Venue</button>
+      <button class="chip" onclick="setFilter('rentals',this)">📋 Rentals</button>
+      <button class="chip" onclick="setFilter('drums',this)">🥁 Drums</button>
+    </div>
+    <div class="store-list" id="storeList"></div>
+  </div>
+
+  <!-- MAP -->
+  <div id="map"></div>
+</div>
+
+<script>
+const stores = [
+  { id:1,  name:"McCabe's Guitar Shop",        slug:"mccabes-guitar-shop",         hood:"Santa Monica",   lat:34.0237, lng:-118.4695, est:1958, emoji:"🎸", color:"#2A1F12", short:"Legendary acoustic & folk store and live venue. An LA institution since 1958.", instruments:["Guitar","Banjo","Ukulele","Mandolin","Violin / Fiddle","World / Ethnic"], services:["Repairs","Lessons","Live Venue","Rentals"], tags:["guitar","banjo","ukulele","violin","ethnic","lessons","repairs","venue","rentals"] },
+  { id:2,  name:"Truetone Music",               slug:"truetone-music",               hood:"Santa Monica",   lat:34.0161, lng:-118.4901, est:1993, emoji:"🎵", color:"#1a3a5c", short:"Three decades of premium guitars, amps, and pedals on the Westside.", instruments:["Guitar","Bass","Ukulele"], services:["Repairs","Lessons","Used & Vintage"], tags:["guitar","bass","ukulele","lessons","repairs"] },
+  { id:3,  name:"Westwood Music",               slug:"westwood-music",               hood:"Westwood",       lat:34.0590, lng:-118.4410, est:1947, emoji:"🎼", color:"#2d1b4e", short:"An LA institution since 1947. Neil Young and Dolly Parton have shopped here.", instruments:["Guitar","Bass","Banjo","Dobro","Ukulele"], services:["Repairs","Lessons","Used & Vintage"], tags:["guitar","bass","banjo","ukulele","lessons","repairs"] },
+  { id:4,  name:"Boulevard Music",              slug:"boulevard-music",              hood:"Culver City",    lat:33.9990, lng:-118.3958, est:1998, emoji:"🎶", color:"#1f3d2a", short:"Retail store, music school, and intimate concert venue in Culver City.", instruments:["Guitar","Bass","Banjo","Ukulele","Band & Orchestra"], services:["Repairs","Lessons","Rentals","Live Venue"], tags:["guitar","bass","banjo","ukulele","violin","lessons","repairs","rentals","venue"] },
+  { id:5,  name:"Professional Drum Shop",       slug:"professional-drum-shop",       hood:"Hollywood",      lat:34.0979, lng:-118.3264, est:1959, emoji:"🥁", color:"#3d1a1a", short:"Hollywood's legendary drum shop since 1959. New, used, and custom percussion.", instruments:["Drums","Percussion","Cymbals","Mallets","World / Ethnic"], services:["Repairs","Custom Builds","Used & Vintage","Workshops"], tags:["drums","ethnic","repairs"] },
+  { id:6,  name:"Marina Music Center",          slug:"marina-music-center",          hood:"Mar Vista",      lat:33.9942, lng:-118.4196, est:1980, emoji:"🪕", color:"#2a3d1f", short:"A hidden gem specializing in stringed instruments from around the world.", instruments:["Guitar","Mandolin","Violin","Oud","Bouzouki","World / Ethnic"], services:["Repairs","Setups","Used & Vintage"], tags:["guitar","violin","ethnic","banjo","repairs"] },
+  { id:7,  name:"Adam's Music",                 slug:"adams-music",                  hood:"West LA",        lat:34.0358, lng:-118.4452, est:1989, emoji:"🎹", color:"#1a2a3d", short:"West LA's one-stop shop since 1989. Instruments, rentals, repairs, and lessons.", instruments:["Guitar","Bass","Drums","Piano / Keys","Violin","Brass","Woodwinds","Ukulele"], services:["Repairs","Lessons","Rentals","Sheet Music"], tags:["guitar","bass","drums","piano","violin","lessons","repairs","rentals","ukulele"] },
+  { id:8,  name:"Caveman Vintage Music",        slug:"caveman-vintage-music",        hood:"Downtown LA",    lat:34.0614, lng:-118.2387, est:1990, emoji:"🎙️", color:"#2d2010", short:"Downtown LA's vintage gear destination. Classic guitars, rare mics, on-site repairs.", instruments:["Guitar","Bass","Vintage Amps","Keyboards","Vinyl"], services:["Repairs","Buy & Sell","Used & Vintage"], tags:["guitar","bass","repairs"] },
+  { id:9,  name:"Culver City Music Center",     slug:"culver-city-music-center",     hood:"Culver City",    lat:34.0211, lng:-118.3962, est:1985, emoji:"🎺", color:"#1f1a3d", short:"47+ instructors teaching everything from voice and guitar to accordion and violin.", instruments:["Guitar","Piano / Keys","Violin","Brass","Woodwinds","Drums","Voice"], services:["Lessons","Sheet Music"], tags:["guitar","violin","piano","lessons","repairs"] },
+  { id:10, name:"Norman's Rare Guitars",        slug:"normans-rare-guitars",         hood:"Tarzana",        lat:34.1664, lng:-118.5485, est:1975, emoji:"🎸", color:"#3d2a0a", short:"World-famous vintage guitar destination. A pilgrimage for serious players.", instruments:["Guitar","Bass","Vintage Amps"], services:["Repairs","Appraisals","Buy & Sell","Used & Vintage"], tags:["guitar","bass","repairs"] },
+  { id:11, name:"Angel City Guitars",           slug:"angel-city-guitars",           hood:"Woodland Hills", lat:34.1727, lng:-118.5985, est:2010, emoji:"⚡", color:"#1a1a3d", short:"Boutique high-end guitars, amps, and pedals in the Valley. A destination store.", instruments:["Guitar","Bass"], services:["Used & Vintage","Buy & Sell"], tags:["guitar","bass","repairs"] },
+  { id:12, name:"Perfect Circuit",              slug:"perfect-circuit",              hood:"Burbank",        lat:34.1760, lng:-118.3285, est:2011, emoji:"🎛️", color:"#0d2a1a", short:"LA's premier synth and electronic music destination. Everything is demo-able in store.", instruments:["Synthesizers","Drum Machines","Effects Pedals","Studio Gear","Eurorack"], services:["Used & Vintage","Buy & Sell"], tags:["drums","repairs"] },
+  { id:13, name:"Voltage Guitars",              slug:"voltage-guitars",              hood:"Toluca Lake",    lat:34.1490, lng:-118.3629, est:1982, emoji:"⚡", color:"#2d1a0a", short:"Hollywood's oldest vintage guitar store. Clapton, Page, McCartney — all shopped here.", instruments:["Guitar","Bass","Vintage Amps"], services:["Appraisals","Buy & Sell","Used & Vintage"], tags:["guitar","bass"] },
+  { id:14, name:"International House of Music", slug:"international-house-of-music", hood:"Downtown LA",    lat:34.0430, lng:-118.2551, est:1902, emoji:"🎵", color:"#1a2d3d", short:"Downtown LA's oldest music store since 1902. Every instrument imaginable.", instruments:["Guitar","Bass","Drums","Piano / Keys","Brass","Woodwinds","Accordion","DJ Gear"], services:["Repairs","Rentals","Layaway","DJ & Audio"], tags:["guitar","bass","drums","piano","violin","lessons","repairs","rentals"] }
+];
+
+let activeFilter = 'all';
+let activeStoreId = null;
+const markers = {};
+
+// Init map centered on LA
+const map = L.map('map', { zoomControl: false }).setView([34.06, -118.38], 11);
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  maxZoom: 19
+}).addTo(map);
+
+// Zoom control bottom-right
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+function getFilteredStores() {
+  const q = document.getElementById('si').value.toLowerCase().trim();
+  return stores.filter(s => {
+    const mF = activeFilter === 'all' || s.tags.includes(activeFilter);
+    const mQ = !q || s.name.toLowerCase().includes(q) || s.hood.toLowerCase().includes(q);
+    return mF && mQ;
+  });
+}
+
+function makePinIcon(s, isActive) {
+  return L.divIcon({
+    className: '',
+    html: `<div class="msf-marker${isActive?' active':''}" style="background:${s.color};">${s.emoji}</div>`,
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+    popupAnchor: [0, -20]
+  });
+}
+
+function makePopup(s) {
+  return `
+    <div class="popup-top">
+      <div class="popup-emoji">${s.emoji}</div>
+      <div class="popup-name">${s.name}</div>
+      <div class="popup-hood">📍 ${s.hood} · Est. ${s.est}</div>
+      <div class="popup-desc">${s.short}</div>
+    </div>
+    <div class="popup-foot">
+      <a class="popup-btn" href="../stores/${s.slug}/">View Profile →</a>
+      <a class="popup-dir" href="https://maps.google.com/?q=${encodeURIComponent(s.name+' '+s.hood+' Los Angeles')}" target="_blank">Directions</a>
+    </div>`;
+}
+
+function renderAll() {
+  const filtered = getFilteredStores();
+  const filteredIds = new Set(filtered.map(s => s.id));
+
+  // Update sidebar list
+  const list = document.getElementById('storeList');
+  if (!filtered.length) {
+    list.innerHTML = `<div class="no-results">No stores match your search.</div>`;
+  } else {
+    list.innerHTML = filtered.map(s => `
+      <div class="store-item${s.id === activeStoreId ? ' active' : ''}" id="item-${s.id}" onclick="selectStore(${s.id})">
+        <div class="item-slab" style="background:${s.color}">${s.emoji}</div>
+        <div class="item-body">
+          <div class="item-name">${s.name}</div>
+          <div class="item-hood">${s.hood}</div>
+          <div class="item-pills">
+            ${s.instruments.slice(0,2).map(i=>`<span class="ipill ipill-i">${i}</span>`).join('')}
+            ${s.services.slice(0,1).map(sv=>`<span class="ipill ipill-s">${sv}</span>`).join('')}
+          </div>
+        </div>
+      </div>`).join('');
+  }
+
+  // Update count
+  document.getElementById('countLabel').textContent =
+    `${filtered.length} store${filtered.length !== 1 ? 's' : ''} mapped`;
+
+  // Show/hide markers
+  stores.forEach(s => {
+    if (!markers[s.id]) return;
+    if (filteredIds.has(s.id)) {
+      if (!map.hasLayer(markers[s.id])) markers[s.id].addTo(map);
+    } else {
+      if (map.hasLayer(markers[s.id])) map.removeLayer(markers[s.id]);
+    }
+  });
+}
+
+function selectStore(id) {
+  const s = stores.find(x => x.id === id);
+  if (!s) return;
+
+  // Update active
+  activeStoreId = id;
+
+  // Fly map to store
+  map.flyTo([s.lat, s.lng], 15, { duration: 0.8 });
+
+  // Open popup
+  if (markers[id]) {
+    markers[id].openPopup();
+  }
+
+  // Update sidebar highlight
+  document.querySelectorAll('.store-item').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById(`item-${id}`);
+  if (el) { el.classList.add('active'); el.scrollIntoView({ block:'nearest', behavior:'smooth' }); }
+}
+
+function setFilter(f, el) {
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+  activeFilter = f;
+  renderAll();
+}
+
+function filterStores() { renderAll(); }
+
+// Create markers for all stores
+stores.forEach(s => {
+  const marker = L.marker([s.lat, s.lng], { icon: makePinIcon(s, false) })
+    .bindPopup(makePopup(s), { maxWidth: 260, minWidth: 240 });
+
+  marker.on('click', () => {
+    activeStoreId = s.id;
+    document.querySelectorAll('.store-item').forEach(el => el.classList.remove('active'));
+    const el = document.getElementById(`item-${s.id}`);
+    if (el) { el.classList.add('active'); el.scrollIntoView({ block:'nearest', behavior:'smooth' }); }
+  });
+
+  marker.addTo(map);
+  markers[s.id] = marker;
+});
+
+// Initial render
+renderAll();
+</script>
+</body>
+</html>
