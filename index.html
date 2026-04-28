@@ -3,256 +3,568 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Music Store Map — Los Angeles | Music Store Finds</title>
-<meta name="description" content="Explore all independent music stores in Los Angeles on an interactive map. Find guitar shops, drum stores, vintage gear, lessons, and more.">
-<link rel="canonical" href="https://musicstorefinds.com/map/">
+<title>Music Store Finds · Find Your Local Music Store</title>
+<meta name="description" content="Discover the best independent music stores across the US. Bringing Music & Communities Together.">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-:root {
-  --cream:#F2EDE3; --parchment:#E8E0D0; --tan:#D4C9B0;
-  --bark:#5C4A32; --espresso:#2A1F12; --ink:#1A1209;
-  --blue:#1B6EF3; --blue-bright:#3D85FF; --blue-pale:#E8F0FF;
-  --amber:#C8872A; --muted:#8C7B65; --border:rgba(92,74,50,0.12); --white:#FFFFFF;
-}
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--bark:#5C4A32;--espresso:#2A1F12;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--border:rgba(92,74,50,0.12);--white:#fff;}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html,body{height:100%;font-family:'Epilogue',sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
-nav{position:sticky;top:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--ink);}
-.logo{font-family:'Fraunces',serif;font-weight:900;font-size:19px;color:var(--cream);letter-spacing:-0.3px;text-decoration:none;}
-.logo b{color:var(--blue-bright);}
-.nav-actions{display:flex;align-items:center;gap:12px;}
-.nav-back{font-size:13px;font-weight:600;color:rgba(242,237,227,0.5);text-decoration:none;transition:color 0.2s;}
-.nav-back:hover{color:var(--cream);}
-.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 16px;font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:background 0.18s;}
-.btn-list:hover{background:var(--blue-bright);}
-
-/* LAYOUT */
+nav{position:sticky;top:0;z-index:1000;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 18px;background:var(--ink);}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.logo img{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+.logo-words{display:flex;flex-direction:column;}
+.logo-name{font-family:'Fraunces',serif;font-weight:900;font-size:16px;color:var(--cream);letter-spacing:-0.3px;line-height:1.1;}
+.logo-name b{color:var(--bb);}
+.logo-tag{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;letter-spacing:0.3px;}
+.nav-r{display:flex;align-items:center;gap:8px;}
+.city-sel{background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);border-radius:6px;color:var(--cream);font-family:'Epilogue',sans-serif;font-size:12px;font-weight:600;padding:7px 10px;cursor:pointer;outline:none;max-width:160px;}
+.city-sel option{background:var(--ink);}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.btn-list:hover{background:var(--bb);}
 .page{display:flex;height:calc(100vh - 58px);}
-
-/* SIDEBAR */
-.sidebar{
-  width:340px;flex-shrink:0;
-  background:var(--cream);
-  border-right:1px solid var(--border);
-  display:flex;flex-direction:column;
-  overflow:hidden;
-  z-index:100;
-}
-.sidebar-head{
-  padding:16px 18px 12px;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-}
-.sidebar-title{
-  font-family:'Fraunces',serif;font-size:20px;font-weight:900;
-  color:var(--ink);margin-bottom:2px;
-}
-.sidebar-sub{font-size:12px;color:var(--muted);}
-.search-wrap{
-  padding:10px 14px;
-  border-bottom:1px solid var(--border);
-  flex-shrink:0;
-}
-.search-inner{
-  display:flex;align-items:center;gap:8px;
-  background:var(--white);border:1.5px solid var(--border);
-  border-radius:7px;padding:0 12px;
-  transition:border-color 0.2s;
-}
-.search-inner:focus-within{border-color:var(--blue);}
-.search-inner input{
-  flex:1;background:none;border:none;outline:none;
-  font-family:'Epilogue',sans-serif;font-size:13px;
-  color:var(--ink);padding:9px 0;
-}
-.search-inner input::placeholder{color:var(--muted);}
-
-/* Filter chips */
-.filters{
-  display:flex;gap:6px;padding:10px 14px;
-  overflow-x:auto;flex-shrink:0;
-  border-bottom:1px solid var(--border);
-  -ms-overflow-style:none;scrollbar-width:none;
-}
+.sidebar{width:310px;flex-shrink:0;background:var(--cream);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;z-index:100;}
+.sb-head{padding:13px 15px 9px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.sb-title{font-family:'Fraunces',serif;font-size:17px;font-weight:900;color:var(--ink);}
+.sb-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.search-wrap{padding:8px 12px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.search-inn{display:flex;align-items:center;gap:7px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;padding:0 10px;}
+.search-inn:focus-within{border-color:var(--blue);}
+.search-inn input{flex:1;background:none;border:none;outline:none;font-family:'Epilogue',sans-serif;font-size:13px;color:var(--ink);padding:8px 0;}
+.search-inn input::placeholder{color:var(--muted);}
+.filters{display:flex;gap:5px;padding:8px 12px;overflow-x:auto;flex-shrink:0;border-bottom:1px solid var(--border);scrollbar-width:none;}
 .filters::-webkit-scrollbar{display:none;}
-.chip{
-  padding:5px 11px;border-radius:20px;
-  font-size:11px;font-weight:700;
-  background:var(--parchment);color:var(--bark);
-  border:1.5px solid transparent;
-  cursor:pointer;white-space:nowrap;transition:all 0.15s;
-}
+.chip{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;background:var(--parchment);color:var(--bark);border:1.5px solid transparent;cursor:pointer;white-space:nowrap;transition:all 0.15s;}
 .chip:hover{border-color:var(--blue);color:var(--blue);}
 .chip.on{background:var(--blue);color:#fff;border-color:var(--blue);}
-
-/* Store list */
 .store-list{overflow-y:auto;flex:1;}
-.store-item{
-  padding:13px 16px;
-  border-bottom:1px solid var(--border);
-  cursor:pointer;
-  transition:background 0.15s;
-  display:flex;gap:12px;align-items:flex-start;
-}
-.store-item:hover,.store-item.active{background:var(--blue-pale);}
+.store-item{padding:10px 13px;border-bottom:1px solid var(--border);cursor:pointer;transition:background 0.15s;display:flex;gap:10px;align-items:flex-start;}
+.store-item:hover,.store-item.active{background:var(--pale);}
 .store-item.active{border-left:3px solid var(--blue);}
-.item-slab{
-  width:44px;height:44px;border-radius:9px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:20px;flex-shrink:0;
-}
+.item-slab{width:38px;height:38px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;}
 .item-body{flex:1;min-width:0;}
-.item-name{
-  font-family:'Fraunces',serif;font-size:14px;font-weight:700;
-  color:var(--ink);line-height:1.2;margin-bottom:2px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.item-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.item-pills{display:flex;gap:4px;flex-wrap:wrap;}
-.ipill{font-size:9px;font-weight:700;padding:2px 6px;border-radius:3px;}
-.ipill-i{background:#F0EDE5;color:var(--bark);}
-.ipill-s{background:var(--blue-pale);color:var(--blue);}
-.no-results{padding:32px 16px;text-align:center;color:var(--muted);font-size:13px;}
-
-/* MAP */
+.item-name{font-family:'Fraunces',serif;font-size:13px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.item-hood{font-size:10px;color:var(--muted);margin-bottom:3px;}
+.item-pills{display:flex;gap:3px;flex-wrap:wrap;}
+.ip{font-size:9px;font-weight:700;padding:2px 5px;border-radius:3px;}
+.ip-i{background:#F0EDE5;color:var(--bark);}
+.ip-s{background:var(--pale);color:var(--blue);}
+.no-results{padding:28px 14px;text-align:center;color:var(--muted);font-size:13px;}
 #map{flex:1;z-index:1;}
-
-/* Custom marker */
-.msf-marker{
-  width:36px;height:36px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:16px;
-  border:2.5px solid white;
-  box-shadow:0 2px 10px rgba(0,0,0,0.35);
-  cursor:pointer;transition:transform 0.15s;
-}
-.msf-marker:hover,.msf-marker.active{transform:scale(1.25);}
-
-/* Popup */
-.leaflet-popup-content-wrapper{
-  border-radius:12px!important;
-  box-shadow:0 8px 30px rgba(0,0,0,0.18)!important;
-  padding:0!important;overflow:hidden;
-  font-family:'Epilogue',sans-serif;
-}
-.leaflet-popup-content{margin:0!important;width:240px!important;}
-.leaflet-popup-tip-container{margin-top:-1px;}
-.popup-top{padding:14px 16px 10px;}
-.popup-emoji{font-size:22px;margin-bottom:6px;}
-.popup-name{font-family:'Fraunces',serif;font-size:15px;font-weight:900;color:var(--ink);margin-bottom:2px;line-height:1.2;}
-.popup-hood{font-size:11px;color:var(--muted);margin-bottom:8px;}
-.popup-desc{font-size:12px;line-height:1.55;color:var(--bark);}
-.popup-foot{
-  padding:10px 16px;
-  background:var(--parchment);
-  display:flex;gap:8px;align-items:center;
-  border-top:1px solid var(--border);
-}
-.popup-btn{
-  flex:1;background:var(--blue);color:#fff !important;
-  border:none;border-radius:6px;padding:8px;
-  font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;
-  cursor:pointer;text-decoration:none !important;text-align:center;display:block;
-  transition:background 0.15s;
-}
-.popup-btn:hover{background:var(--blue-bright);color:#fff !important;}
-.popup-dir{
-  background:transparent;color:var(--ink);
-  border:1.5px solid var(--border);border-radius:6px;padding:7px 10px;
-  font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;
-  cursor:pointer;text-decoration:none;text-align:center;display:block;
-  transition:border-color 0.15s;white-space:nowrap;
-}
-.popup-dir:hover{border-color:var(--ink);}
-
-/* Mobile */
-@media(max-width:680px){
-  .page{flex-direction:column;}
-  .sidebar{width:100%;height:260px;border-right:none;border-bottom:1px solid var(--border);}
-  #map{flex:1;min-height:300px;}
-  .filters{padding:8px 10px;}
-}
+.msf-pin{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;border:2.5px solid white;box-shadow:0 2px 10px rgba(0,0,0,0.35);cursor:pointer;transition:transform 0.15s;}
+.msf-pin:hover,.msf-pin.active{transform:scale(1.25);}
+.leaflet-popup-content-wrapper{border-radius:12px!important;box-shadow:0 8px 30px rgba(0,0,0,0.18)!important;padding:0!important;overflow:hidden;font-family:'Epilogue',sans-serif;}
+.leaflet-popup-content{margin:0!important;width:230px!important;}
+.pu-top{padding:12px 14px 8px;}
+.pu-icon{font-size:20px;margin-bottom:4px;}
+.pu-name{font-family:'Fraunces',serif;font-size:14px;font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:2px;}
+.pu-hood{font-size:10px;color:var(--muted);margin-bottom:6px;}
+.pu-desc{font-size:11px;line-height:1.5;color:var(--bark);}
+.pu-foot{padding:8px 14px;background:var(--parchment);display:flex;gap:7px;border-top:1px solid var(--border);}
+.pu-btn{flex:1;background:var(--blue);color:#fff!important;border:none;border-radius:5px;padding:7px;font-family:'Epilogue',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-align:center;display:block;text-decoration:none!important;transition:background 0.15s;}
+.pu-btn:hover{background:var(--bb);}
+.pu-dir{background:transparent;color:var(--ink);border:1.5px solid var(--border);border-radius:5px;padding:6px 8px;font-family:'Epilogue',sans-serif;font-size:11px;font-weight:700;cursor:pointer;text-decoration:none;text-align:center;display:block;white-space:nowrap;}
+.pu-dir:hover{border-color:var(--ink);}
+.pu-profile{width:100%;background:var(--ink);color:rgba(242,237,227,0.75)!important;border:none;padding:7px;font-family:'Epilogue',sans-serif;font-size:10px;font-weight:700;cursor:pointer;text-align:center;display:block;letter-spacing:0.5px;}
+.pu-profile:hover{background:#2a1f12;color:var(--cream)!important;}
+/* PROFILE PAGE */
+.prof-page{position:fixed;inset:0;z-index:2000;background:var(--cream);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);overflow-y:auto;}
+.prof-page.open{transform:translateX(0);}
+.prof-nav{position:sticky;top:0;z-index:10;height:52px;background:var(--ink);display:flex;align-items:center;padding:0 18px;gap:12px;}
+.prof-back{display:flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;font-family:'Epilogue',sans-serif;font-size:13px;font-weight:700;color:rgba(242,237,227,0.6);padding:0;flex-shrink:0;}
+.prof-back:hover{color:var(--cream);}
+.prof-nav-name{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--cream);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.prof-hero{height:200px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.prof-hero-bg{position:absolute;inset:0;}
+.prof-hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.05),rgba(0,0,0,0.6));}
+.prof-hero-icon{position:relative;z-index:1;font-size:60px;filter:drop-shadow(0 4px 18px rgba(0,0,0,0.4));}
+.prof-badge{position:absolute;top:14px;right:14px;z-index:2;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;background:var(--amber);color:#fff;}
+.prof-est{position:absolute;bottom:12px;left:18px;z-index:2;font-family:'Fraunces',serif;font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);}
+.prof-content{max-width:640px;margin:0 auto;padding:0 20px 56px;}
+.prof-title-row{padding:20px 0 14px;border-bottom:1px solid var(--border);margin-bottom:18px;}
+.prof-name{font-family:'Fraunces',serif;font-size:26px;font-weight:900;color:var(--ink);line-height:1.05;margin-bottom:4px;}
+.prof-meta{font-size:12px;color:var(--muted);}
+.prof-btns{display:flex;gap:9px;margin-bottom:20px;}
+.pb-p{flex:1;background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px;font-family:'Epilogue',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;display:block;}
+.pb-p:hover{background:var(--bb);}
+.pb-p.dim{opacity:0.38;cursor:not-allowed;pointer-events:none;}
+.pb-s{flex:1;background:transparent;color:var(--ink);border:2px solid var(--border);border-radius:8px;padding:12px;font-family:'Epilogue',sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-align:center;text-decoration:none;display:block;}
+.pb-s:hover{border-color:var(--ink);}
+.prof-about{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--border);}
+.psec{margin-bottom:18px;}
+.psec-lbl{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.ptags{display:flex;flex-wrap:wrap;gap:6px;}
+.ti{font-size:11px;font-weight:600;padding:5px 11px;border-radius:5px;background:#EEEADE;color:var(--bark);}
+.ts{font-size:11px;font-weight:600;padding:5px 11px;border-radius:5px;background:var(--pale);color:var(--blue);}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:18px 0;}
+.ptile{background:var(--parchment);border-radius:8px;padding:11px 13px;}
+.ptile-l{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:3px;}
+.ptile-v{font-size:12px;font-weight:600;color:var(--ink);line-height:1.4;}
+.pmap-btn{width:100%;background:var(--parchment);border:1px solid var(--border);border-radius:8px;padding:15px;text-align:center;cursor:pointer;margin-bottom:18px;font-family:'Epilogue',sans-serif;}
+.pmap-btn:hover{background:var(--tan);}
+.pmap-l{font-size:13px;font-weight:700;color:var(--blue);margin-bottom:2px;}
+.pmap-a{font-size:11px;color:var(--muted);}
+.pclaim{background:var(--ink);border-radius:10px;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.pclaim h4{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--cream);margin-bottom:2px;}
+.pclaim p{font-size:11px;color:rgba(242,237,227,0.4);}
+.pclaim-btn{background:var(--blue);color:#fff;border:none;border-radius:6px;padding:8px 14px;font-family:'Epilogue',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.pclaim-btn:hover{background:var(--bb);}
+/* SIGNUP */
+.overlay{position:fixed;inset:0;z-index:3000;background:rgba(26,18,9,0.72);backdrop-filter:blur(6px);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.overlay.open{opacity:1;pointer-events:all;}
+.s-sheet{width:100%;max-height:92vh;background:var(--cream);border-radius:20px 20px 0 0;overflow-y:auto;transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);}
+.overlay.open .s-sheet{transform:translateY(0);}
+.s-hdl{width:36px;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;margin:12px auto 0;}
+.s-top{background:var(--ink);padding:18px 20px 20px;position:relative;}
+.s-top h2{font-family:'Fraunces',serif;font-size:20px;font-weight:900;color:var(--cream);margin-bottom:3px;}
+.s-top p{font-size:12px;color:rgba(242,237,227,0.4);}
+.s-x{position:absolute;top:14px;right:14px;width:30px;height:30px;background:rgba(255,255,255,0.1);border:none;border-radius:50%;color:rgba(242,237,227,0.7);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.s-form{padding:18px 20px;}
+.fg{margin-bottom:13px;}
+.fl{display:block;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+.fi,.fta{width:100%;padding:10px 12px;font-family:'Epilogue',sans-serif;font-size:13px;background:var(--white);border:1.5px solid var(--border);border-radius:7px;outline:none;color:var(--ink);}
+.fi:focus,.fta:focus{border-color:var(--blue);}
+.fta{min-height:70px;resize:vertical;}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.cb-wrap{display:flex;flex-wrap:wrap;gap:5px;}
+.cb{display:flex;align-items:center;gap:5px;padding:5px 10px;background:var(--white);border:1.5px solid var(--border);border-radius:6px;cursor:pointer;font-size:12px;font-weight:500;}
+.cb:hover{border-color:var(--blue);color:var(--blue);}
+.cb input{accent-color:var(--blue);}
+.f-go{width:100%;background:var(--blue);color:#fff;border:none;border-radius:7px;padding:13px;font-family:'Epilogue',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-top:6px;}
+.f-go:hover{background:var(--bb);}
+.f-note{text-align:center;font-size:11px;color:var(--muted);margin-top:8px;}
+@media(max-width:680px){.page{flex-direction:column;}.sidebar{width:100%;height:260px;border-right:none;border-bottom:1px solid var(--border);}#map{flex:1;min-height:300px;}.pgrid{grid-template-columns:1fr;}.prof-btns{flex-direction:column;}.pclaim{flex-direction:column;text-align:center;}.logo-tag{display:none;}}
 </style>
 </head>
 <body>
-
 <nav>
-  <a href="/" class="logo">Music Store <b>Finds</b></a>
-  <div class="nav-actions">
-    <a href="/" class="nav-back">← Directory</a>
-    <button class="btn-list">+ List Store</button>
+  <div class="logo" onclick="closeProfile()">
+    <img src="data:image/png;base64,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" alt="Music Store Finds">
+    <div class="logo-words">
+      <div class="logo-name">Music Store <b>Finds</b></div>
+      <div class="logo-tag">Bringing Music &amp; Communities Together</div>
+    </div>
+  </div>
+  <div class="nav-r">
+    <select class="city-sel" id="citySelect" onchange="switchCity(this.value)">
+      <option value="la">Los Angeles, CA</option>
+      <option value="nyc">New York City, NY</option>
+      <option value="nashville">Nashville, TN</option>
+      <option value="chicago">Chicago, IL</option>
+      <option value="austin">Austin, TX</option>
+      <option value="sf">San Francisco, CA</option>
+      <option value="seattle">Seattle, WA</option>
+      <option value="portland">Portland, OR</option>
+      <option value="atlanta">Atlanta, GA</option>
+      <option value="miami">Miami, FL</option>
+      <option value="denver">Denver, CO</option>
+      <option value="neworleans">New Orleans, LA</option>
+      <option value="boston">Boston, MA</option>
+      <option value="detroit">Detroit, MI</option>
+      <option value="minneapolis">Minneapolis, MN</option>
+      <option value="philadelphia">Philadelphia, PA</option>
+      <option value="dallas">Dallas, TX</option>
+      <option value="houston">Houston, TX</option>
+      <option value="phoenix">Phoenix, AZ</option>
+      <option value="sandiego">San Diego, CA</option>
+    </select>
+    <button class="btn-list" onclick="openSignup()">+ List Store</button>
   </div>
 </nav>
-
 <div class="page">
-  <!-- SIDEBAR -->
   <div class="sidebar">
-    <div class="sidebar-head">
-      <div class="sidebar-title">LA Music Stores</div>
-      <div class="sidebar-sub" id="countLabel">14 stores mapped</div>
+    <div class="sb-head">
+      <div class="sb-title" id="sbTitle">LA Music Stores</div>
+      <div class="sb-sub" id="sbCount">Loading...</div>
     </div>
     <div class="search-wrap">
-      <div class="search-inner">
-        <span style="font-size:14px;opacity:0.4">🔍</span>
+      <div class="search-inn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="opacity:0.4;flex-shrink:0"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
         <input type="text" id="si" placeholder="Search stores..." oninput="filterStores()">
       </div>
     </div>
-    <div class="filters" id="filters">
+    <div class="filters">
       <button class="chip on" onclick="setFilter('all',this)">All</button>
-      <button class="chip" onclick="setFilter('guitar',this)">🎸 Guitar</button>
-      <button class="chip" onclick="setFilter('banjo',this)">🪕 Banjo</button>
-      <button class="chip" onclick="setFilter('violin',this)">🎻 Strings</button>
-      <button class="chip" onclick="setFilter('ethnic',this)">🌍 World</button>
-      <button class="chip" onclick="setFilter('lessons',this)">🎓 Lessons</button>
-      <button class="chip" onclick="setFilter('repairs',this)">🔧 Repairs</button>
-      <button class="chip" onclick="setFilter('venue',this)">🎤 Venue</button>
-      <button class="chip" onclick="setFilter('rentals',this)">📋 Rentals</button>
-      <button class="chip" onclick="setFilter('drums',this)">🥁 Drums</button>
+      <button class="chip" onclick="setFilter('guitar',this)">Guitar</button>
+      <button class="chip" onclick="setFilter('drums',this)">Drums</button>
+      <button class="chip" onclick="setFilter('keys',this)">Keys</button>
+      <button class="chip" onclick="setFilter('strings',this)">Strings</button>
+      <button class="chip" onclick="setFilter('synth',this)">Synth</button>
+      <button class="chip" onclick="setFilter('vinyl',this)">Vinyl</button>
+      <button class="chip" onclick="setFilter('lessons',this)">Lessons</button>
+      <button class="chip" onclick="setFilter('repairs',this)">Repairs</button>
+      <button class="chip" onclick="setFilter('vintage',this)">Vintage</button>
+      <button class="chip" onclick="setFilter('venue',this)">Venue</button>
     </div>
     <div class="store-list" id="storeList"></div>
   </div>
-
-  <!-- MAP -->
   <div id="map"></div>
 </div>
 
-<script>
-const stores = [
-  { id:1,  name:"McCabe's Guitar Shop",        slug:"mccabes-guitar-shop",         hood:"Santa Monica",   lat:34.0237, lng:-118.4695, est:1958, emoji:"🎸", color:"#2A1F12", short:"Legendary acoustic & folk store and live venue. An LA institution since 1958.", instruments:["Guitar","Banjo","Ukulele","Mandolin","Violin / Fiddle","World / Ethnic"], services:["Repairs","Lessons","Live Venue","Rentals"], tags:["guitar","banjo","ukulele","violin","ethnic","lessons","repairs","venue","rentals"] },
-  { id:2,  name:"Truetone Music",               slug:"truetone-music",               hood:"Santa Monica",   lat:34.0161, lng:-118.4901, est:1993, emoji:"🎵", color:"#1a3a5c", short:"Three decades of premium guitars, amps, and pedals on the Westside.", instruments:["Guitar","Bass","Ukulele"], services:["Repairs","Lessons","Used & Vintage"], tags:["guitar","bass","ukulele","lessons","repairs"] },
-  { id:3,  name:"Westwood Music",               slug:"westwood-music",               hood:"Westwood",       lat:34.0590, lng:-118.4410, est:1947, emoji:"🎼", color:"#2d1b4e", short:"An LA institution since 1947. Neil Young and Dolly Parton have shopped here.", instruments:["Guitar","Bass","Banjo","Dobro","Ukulele"], services:["Repairs","Lessons","Used & Vintage"], tags:["guitar","bass","banjo","ukulele","lessons","repairs"] },
-  { id:4,  name:"Boulevard Music",              slug:"boulevard-music",              hood:"Culver City",    lat:33.9990, lng:-118.3958, est:1998, emoji:"🎶", color:"#1f3d2a", short:"Retail store, music school, and intimate concert venue in Culver City.", instruments:["Guitar","Bass","Banjo","Ukulele","Band & Orchestra"], services:["Repairs","Lessons","Rentals","Live Venue"], tags:["guitar","bass","banjo","ukulele","violin","lessons","repairs","rentals","venue"] },
-  { id:5,  name:"Professional Drum Shop",       slug:"professional-drum-shop",       hood:"Hollywood",      lat:34.0979, lng:-118.3264, est:1959, emoji:"🥁", color:"#3d1a1a", short:"Hollywood's legendary drum shop since 1959. New, used, and custom percussion.", instruments:["Drums","Percussion","Cymbals","Mallets","World / Ethnic"], services:["Repairs","Custom Builds","Used & Vintage","Workshops"], tags:["drums","ethnic","repairs"] },
-  { id:6,  name:"Marina Music Center",          slug:"marina-music-center",          hood:"Mar Vista",      lat:33.9942, lng:-118.4196, est:1980, emoji:"🪕", color:"#2a3d1f", short:"A hidden gem specializing in stringed instruments from around the world.", instruments:["Guitar","Mandolin","Violin","Oud","Bouzouki","World / Ethnic"], services:["Repairs","Setups","Used & Vintage"], tags:["guitar","violin","ethnic","banjo","repairs"] },
-  { id:7,  name:"Adam's Music",                 slug:"adams-music",                  hood:"West LA",        lat:34.0358, lng:-118.4452, est:1989, emoji:"🎹", color:"#1a2a3d", short:"West LA's one-stop shop since 1989. Instruments, rentals, repairs, and lessons.", instruments:["Guitar","Bass","Drums","Piano / Keys","Violin","Brass","Woodwinds","Ukulele"], services:["Repairs","Lessons","Rentals","Sheet Music"], tags:["guitar","bass","drums","piano","violin","lessons","repairs","rentals","ukulele"] },
-  { id:8,  name:"Caveman Vintage Music",        slug:"caveman-vintage-music",        hood:"Downtown LA",    lat:34.0614, lng:-118.2387, est:1990, emoji:"🎙️", color:"#2d2010", short:"Downtown LA's vintage gear destination. Classic guitars, rare mics, on-site repairs.", instruments:["Guitar","Bass","Vintage Amps","Keyboards","Vinyl"], services:["Repairs","Buy & Sell","Used & Vintage"], tags:["guitar","bass","repairs"] },
-  { id:9,  name:"Culver City Music Center",     slug:"culver-city-music-center",     hood:"Culver City",    lat:34.0211, lng:-118.3962, est:1985, emoji:"🎺", color:"#1f1a3d", short:"47+ instructors teaching everything from voice and guitar to accordion and violin.", instruments:["Guitar","Piano / Keys","Violin","Brass","Woodwinds","Drums","Voice"], services:["Lessons","Sheet Music"], tags:["guitar","violin","piano","lessons","repairs"] },
-  { id:10, name:"Norman's Rare Guitars",        slug:"normans-rare-guitars",         hood:"Tarzana",        lat:34.1664, lng:-118.5485, est:1975, emoji:"🎸", color:"#3d2a0a", short:"World-famous vintage guitar destination. A pilgrimage for serious players.", instruments:["Guitar","Bass","Vintage Amps"], services:["Repairs","Appraisals","Buy & Sell","Used & Vintage"], tags:["guitar","bass","repairs"] },
-  { id:11, name:"Angel City Guitars",           slug:"angel-city-guitars",           hood:"Woodland Hills", lat:34.1727, lng:-118.5985, est:2010, emoji:"⚡", color:"#1a1a3d", short:"Boutique high-end guitars, amps, and pedals in the Valley. A destination store.", instruments:["Guitar","Bass"], services:["Used & Vintage","Buy & Sell"], tags:["guitar","bass","repairs"] },
-  { id:12, name:"Perfect Circuit",              slug:"perfect-circuit",              hood:"Burbank",        lat:34.1760, lng:-118.3285, est:2011, emoji:"🎛️", color:"#0d2a1a", short:"LA's premier synth and electronic music destination. Everything is demo-able in store.", instruments:["Synthesizers","Drum Machines","Effects Pedals","Studio Gear","Eurorack"], services:["Used & Vintage","Buy & Sell"], tags:["drums","repairs"] },
-  { id:13, name:"Voltage Guitars",              slug:"voltage-guitars",              hood:"Toluca Lake",    lat:34.1490, lng:-118.3629, est:1982, emoji:"⚡", color:"#2d1a0a", short:"Hollywood's oldest vintage guitar store. Clapton, Page, McCartney — all shopped here.", instruments:["Guitar","Bass","Vintage Amps"], services:["Appraisals","Buy & Sell","Used & Vintage"], tags:["guitar","bass"] },
-  { id:14, name:"International House of Music", slug:"international-house-of-music", hood:"Downtown LA",    lat:34.0430, lng:-118.2551, est:1902, emoji:"🎵", color:"#1a2d3d", short:"Downtown LA's oldest music store since 1902. Every instrument imaginable.", instruments:["Guitar","Bass","Drums","Piano / Keys","Brass","Woodwinds","Accordion","DJ Gear"], services:["Repairs","Rentals","Layaway","DJ & Audio"], tags:["guitar","bass","drums","piano","violin","lessons","repairs","rentals"] }
-];
+<!-- Profile Page -->
+<div class="prof-page" id="profPage">
+  <nav class="prof-nav">
+    <button class="prof-back" onclick="closeProfile()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Stores
+    </button>
+    <div class="prof-nav-name" id="profNavName"></div>
+  </nav>
+  <div class="prof-hero">
+    <div class="prof-hero-bg" id="profBg"></div>
+    <div class="prof-hero-grad"></div>
+    <div class="prof-hero-icon" id="profIcon"></div>
+    <div class="prof-badge" id="profBadge"></div>
+    <div class="prof-est" id="profEst"></div>
+  </div>
+  <div class="prof-content">
+    <div class="prof-title-row">
+      <div class="prof-name" id="profName"></div>
+      <div class="prof-meta" id="profMeta"></div>
+    </div>
+    <div class="prof-btns" id="profBtns"></div>
+    <div class="prof-about" id="profAbout"></div>
+    <div class="psec"><div class="psec-lbl">Instruments Carried</div><div class="ptags" id="profInst"></div></div>
+    <div class="psec" style="margin-top:14px;"><div class="psec-lbl">Services Offered</div><div class="ptags" id="profSvcs"></div></div>
+    <div class="pgrid" id="profGrid"></div>
+    <button class="pmap-btn" id="profMapBtn">
+      <div class="pmap-l">📍 Open in Google Maps</div>
+      <div class="pmap-a" id="profMapAddr"></div>
+    </button>
+    <div class="pclaim">
+      <div><h4>Is this your store?</h4><p>Claim your listing to update info and add photos.</p></div>
+      <button class="pclaim-btn" onclick="openSignup()">Claim Listing</button>
+    </div>
+  </div>
+</div>
 
+<!-- Signup -->
+<div class="overlay" id="signupOv" onclick="if(event.target===this)closeSignup()">
+  <div class="s-sheet">
+    <div class="s-hdl"></div>
+    <div class="s-top">
+      <button class="s-x" onclick="closeSignup()">✕</button>
+      <h2>List Your Store</h2>
+      <p>Join the directory. Always free to start.</p>
+    </div>
+    <div class="s-form">
+      <div class="f2">
+        <div class="fg"><label class="fl">Store Name *</label><input class="fi" id="f-name" placeholder="e.g. McCabe's Guitar Shop"></div>
+        <div class="fg"><label class="fl">Est. Year</label><input class="fi" id="f-est" placeholder="e.g. 1958"></div>
+      </div>
+      <div class="fg"><label class="fl">Full Address *</label><input class="fi" id="f-addr" placeholder="Street, city, state, zip"></div>
+      <div class="f2">
+        <div class="fg"><label class="fl">Phone</label><input class="fi" id="f-phone" type="tel" placeholder="(310) 000-0000"></div>
+        <div class="fg"><label class="fl">Website</label><input class="fi" id="f-web" placeholder="https://..."></div>
+      </div>
+      <div class="fg"><label class="fl">City / State</label><input class="fi" id="f-city" placeholder="e.g. Nashville, TN"></div>
+      <div class="fg"><label class="fl">About Your Store *</label><textarea class="fta" id="f-about" placeholder="Tell musicians what makes your store unique..."></textarea></div>
+      <div class="fg"><label class="fl">Instruments You Carry</label>
+        <div class="cb-wrap">
+          <label class="cb"><input type="checkbox" value="Guitar"> Guitar</label>
+          <label class="cb"><input type="checkbox" value="Bass"> Bass</label>
+          <label class="cb"><input type="checkbox" value="Piano/Keys"> Piano/Keys</label>
+          <label class="cb"><input type="checkbox" value="Drums"> Drums</label>
+          <label class="cb"><input type="checkbox" value="Violin"> Violin</label>
+          <label class="cb"><input type="checkbox" value="Banjo"> Banjo</label>
+          <label class="cb"><input type="checkbox" value="Ukulele"> Ukulele</label>
+          <label class="cb"><input type="checkbox" value="Synth"> Synth</label>
+          <label class="cb"><input type="checkbox" value="World Instruments"> World</label>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Services</label>
+        <div class="cb-wrap">
+          <label class="cb"><input type="checkbox" value="Sales"> Sales</label>
+          <label class="cb"><input type="checkbox" value="Repairs"> Repairs</label>
+          <label class="cb"><input type="checkbox" value="Lessons"> Lessons</label>
+          <label class="cb"><input type="checkbox" value="Rentals"> Rentals</label>
+          <label class="cb"><input type="checkbox" value="Live Venue"> Live Venue</label>
+          <label class="cb"><input type="checkbox" value="Vintage"> Vintage</label>
+        </div>
+      </div>
+      <div class="fg"><label class="fl">Your Email *</label><input class="fi" id="f-email" type="email" placeholder="you@yourstore.com"></div>
+      <button class="f-go" id="submitBtn" onclick="submitForm()">Submit My Store →</button>
+      <p class="f-note">Sent to musicstorefinds@gmail.com · Published within 48 hours</p>
+    </div>
+  </div>
+</div>
+<script>
+const cityMeta = {
+  la:          { name:"LA Music Stores",           center:[34.05,-118.42], zoom:11 },
+  nyc:         { name:"NYC Music Stores",           center:[40.72,-73.97],  zoom:11 },
+  nashville:   { name:"Nashville Music Stores",     center:[36.15,-86.78],  zoom:12 },
+  chicago:     { name:"Chicago Music Stores",       center:[41.87,-87.65],  zoom:11 },
+  austin:      { name:"Austin Music Stores",        center:[30.27,-97.75],  zoom:12 },
+  sf:          { name:"SF Bay Area Music Stores",   center:[37.76,-122.44], zoom:12 },
+  seattle:     { name:"Seattle Music Stores",       center:[47.60,-122.33], zoom:12 },
+  portland:    { name:"Portland Music Stores",      center:[45.52,-122.68], zoom:12 },
+  atlanta:     { name:"Atlanta Music Stores",       center:[33.75,-84.39],  zoom:12 },
+  miami:       { name:"Miami Music Stores",         center:[25.78,-80.22],  zoom:11 },
+  denver:      { name:"Denver Music Stores",        center:[39.73,-104.99], zoom:12 },
+  neworleans:  { name:"New Orleans Music Stores",   center:[29.96,-90.07],  zoom:12 },
+  boston:      { name:"Boston Music Stores",        center:[42.36,-71.06],  zoom:12 },
+  detroit:     { name:"Detroit Music Stores",       center:[42.33,-83.05],  zoom:12 },
+  minneapolis: { name:"Minneapolis Music Stores",   center:[44.98,-93.27],  zoom:12 },
+  philadelphia:{ name:"Philly Music Stores",        center:[39.95,-75.16],  zoom:12 },
+  dallas:      { name:"Dallas Music Stores",        center:[32.79,-96.80],  zoom:11 },
+  houston:     { name:"Houston Music Stores",       center:[29.76,-95.37],  zoom:11 },
+  phoenix:     { name:"Phoenix Music Stores",       center:[33.45,-112.07], zoom:11 },
+  sandiego:    { name:"San Diego Music Stores",     center:[32.72,-117.15], zoom:12 },
+};
+
+const allStores = {
+la:[
+  {id:"la1",name:"McCabe's Guitar Shop",hood:"Santa Monica",address:"3101 Pico Blvd, Santa Monica, CA 90405",phone:"(310) 828-4497",website:"mccabes.com",hours:"Mon–Sun 11am–7pm",est:1958,lat:34.0237,lng:-118.4695,color:"#3d2410",icon:"🎸",badge:"LA Icon",short:"Legendary acoustic & folk store and live music venue since 1958.",full:"McCabe's Guitar Shop is one of the most storied instrument stores in the country. Founded in 1958, it specializes in acoustic and folk instruments — from ouds and sitars to hammered dulcimers, fiddles, and ethnic percussion. Since 1969 the intimate 150-seat back room has hosted thousands of concerts with artists like Jackson Browne, Tom Waits, and Ry Cooder.",instruments:["Guitar","Banjo","Ukulele","Mandolin","Violin","World Instruments"],services:["Repairs","Lessons","Live Venue","Rentals","Layaway"],tags:["guitar","strings","lessons","repairs","venue"]},
+  {id:"la2",name:"Truetone Music",hood:"Santa Monica",address:"1102 Broadway, Santa Monica, CA 90401",phone:"(310) 393-8232",website:"truetonemusic.com",hours:"Mon–Sat 11am–7pm",est:1993,lat:34.0161,lng:-118.4901,color:"#1a3a5c",icon:"🎵",badge:"Westside",short:"30 years of premium guitars, boutique amps, and pedals on the Westside.",full:"Truetone Music has been a destination for serious players for over 30 years. Their showroom is packed with new, used, and vintage guitars, boutique amps, and effects pedals from top brands like Martin, Gibson, Fender, and rare boutique manufacturers.",instruments:["Guitar","Bass","Ukulele"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","repairs","lessons","vintage"]},
+  {id:"la3",name:"Westwood Music",hood:"Westwood",address:"1627 Westwood Blvd, Los Angeles, CA 90024",phone:"(310) 478-4251",website:"westwoodmusic.com",hours:"Tue–Sat 10am–7pm",est:1947,lat:34.0590,lng:-118.4410,color:"#2d1b4e",icon:"🎼",badge:"Est. 1947",short:"An LA institution since 1947. Neil Young and Dolly Parton have shopped here.",full:"Westwood Music has served LA's music community since 1947, attracting legends like Neil Young, Dolly Parton, and Eric Clapton. They stock premium guitars, amps, and effects in a pressure-free environment, with a niche selection of dobros and banjos.",instruments:["Guitar","Bass","Banjo","Dobro","Ukulele"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"la4",name:"Boulevard Music",hood:"Culver City",address:"4316 Sepulveda Blvd, Culver City, CA 90230",phone:"(310) 398-2583",website:"boulevardmusic.com",hours:"Mon–Sat 11am–6pm",est:1998,lat:33.9990,lng:-118.3958,color:"#1f3d2a",icon:"🎶",badge:"Live Venue",short:"Retail store, music school, and intimate concert venue in Culver City.",full:"Boulevard Music is one of LA's most beloved independent stores, combining a full-service instrument shop with a music school and intimate concert venue. They're an authorized dealer for Martin, Fender, and Deering Banjos.",instruments:["Guitar","Bass","Banjo","Ukulele","Orchestra"],services:["Repairs","Lessons","Rentals","Live Venue"],tags:["guitar","strings","lessons","repairs","rentals","venue"]},
+  {id:"la5",name:"Professional Drum Shop",hood:"Hollywood",address:"854 Vine St, Los Angeles, CA 90038",phone:"(323) 469-6285",website:"prodrumshop.com",hours:"Mon–Sat 9:30am–5pm",est:1959,lat:34.0979,lng:-118.3264,color:"#3d1a1a",icon:"🥁",badge:"Drum Mecca",short:"Hollywood's legendary drum shop since 1959. Every top drummer in LA has been through here.",full:"Pro Drum Shop is a Hollywood institution, serving professional and amateur drummers since 1959. Their showroom is stocked with drum sets, cymbals, snares, hardware, mallets, hand percussion, and ethnic percussion from top brands like Ludwig and DW.",instruments:["Drums","Percussion","Cymbals","Mallets"],services:["Repairs","Custom Builds","Used & Vintage","Workshops"],tags:["drums","repairs","vintage"]},
+  {id:"la6",name:"Norman's Rare Guitars",hood:"Tarzana",address:"18969 Ventura Blvd, Tarzana, CA 91356",phone:"(818) 344-8300",website:"normansrareguitars.com",hours:"Tue/Fri/Sat 11:30am–5:30pm",est:1975,lat:34.1664,lng:-118.5485,color:"#3d2a0a",icon:"🎸",badge:"World Famous",short:"World-famous vintage guitar destination. Clapton, Page, McCartney, Dylan all shopped here.",full:"Norman's Rare Guitars is one of the most famous guitar shops on the planet. Founded in 1975, Norman Harris built an empire on rare and vintage guitars that attracted Eric Clapton, Jimmy Page, Paul McCartney, and Bob Dylan.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Appraisals","Buy & Sell","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"la7",name:"Perfect Circuit",hood:"Burbank",address:"2405 Empire Ave, Burbank, CA 91504",phone:"(877) 909-0303",website:"perfectcircuit.com",hours:"Mon–Sun 12pm–8pm",est:2011,lat:34.1760,lng:-118.3285,color:"#0d2a1a",icon:"🎛️",badge:"Synth Mecca",short:"LA's premier synth and electronic music destination. Everything demo-able in store.",full:"Perfect Circuit started in a garage restoring vintage synthesizers and has grown into one of the world's best electronic music shops. Their Burbank showroom is stocked with synthesizers, Eurorack modular gear, drum machines, MIDI controllers, and effects pedals.",instruments:["Synthesizers","Drum Machines","Effects Pedals","Eurorack"],services:["Used & Vintage","Buy & Sell"],tags:["synth","drums","vintage"]},
+  {id:"la8",name:"Amoeba Music",hood:"Hollywood",address:"6400 Sunset Blvd, Los Angeles, CA 90028",phone:"(323) 245-6400",website:"amoeba.com",hours:"Mon–Sat 11am–9pm · Sun 11am–8pm",est:1990,lat:34.0980,lng:-118.3260,color:"#4a1a1a",icon:"💿",badge:"Record Mecca",short:"One of the world's largest independent music stores. 250,000+ records on Sunset Blvd.",full:"Amoeba Music is a Hollywood institution and one of the largest independent music retailers on the planet. Their massive Sunset Blvd flagship carries over 250,000 new and pre-owned CDs, vinyl records, and cassettes, and hosts frequent in-store performances.",instruments:["Vinyl Records","CDs","Cassettes","Turntables"],services:["Buy & Sell","Used & Vintage","In-Store Events"],tags:["vinyl","vintage"]},
+  {id:"la9",name:"Vintage King LA",hood:"Burbank",address:"2636 N Ontario St, Burbank, CA 91504",phone:"(213) 984-4000",website:"vintageking.com",hours:"Mon–Sat 10am–6pm",est:2012,lat:34.1780,lng:-118.3310,color:"#0a1a2a",icon:"🎙️",badge:"Pro Audio",short:"LA's premier pro audio showroom. Mics, outboard gear, and studio monitors for the pros.",full:"Vintage King Los Angeles is the city's premier pro audio destination, serving Grammy-winning engineers and producers. Their Burbank showroom features microphones, preamps, compressors, and monitors from Neve, API, SSL, and more.",instruments:["Microphones","Outboard Gear","Studio Monitors","Preamps"],services:["Used & Vintage","Buy & Sell","Studio Consultation"],tags:["synth","vintage"]},
+  {id:"la10",name:"Caveman Vintage Music",hood:"Downtown LA",address:"650 N Spring St, Los Angeles, CA 90012",phone:"(213) 625-9999",website:"caveman-vintage.com",hours:"Call for hours",est:1990,lat:34.0614,lng:-118.2387,color:"#2d2010",icon:"🎙️",badge:"Vintage",short:"Downtown LA's vintage gear destination. Classic guitars, rare mics, and on-site repairs.",full:"Caveman Vintage Music is a Downtown LA treasure for collectors and working musicians seeking rare and vintage gear. They buy and sell vinyl records, vintage guitars, combo organs, electric pianos, classic amps, and rare microphones.",instruments:["Guitar","Bass","Vintage Amps","Keyboards","Vinyl"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","vinyl","repairs","vintage"]},
+  {id:"la11",name:"Marina Music Center",hood:"Mar Vista",address:"4564 S Centinela Ave, Los Angeles, CA 90066",phone:"(310) 391-7010",website:"marinamusicla.com",hours:"Mon–Sat 11am–4pm",est:1980,lat:33.9942,lng:-118.4196,color:"#2a3d1f",icon:"🎻",badge:"Hidden Gem",short:"Hidden gem specializing in world stringed instruments — guitars, violins, ouds, and bouzoukis.",full:"Marina Music Center specializes in stringed instruments of all kinds — acoustic guitars, mandolins, violins, ouds, Greek bouzoukis, saz, tar, and ethnic instruments. Expert setups at the best prices in town.",instruments:["Guitar","Mandolin","Violin","Oud","World Instruments"],services:["Repairs","Setups","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"la12",name:"Angel City Guitars",hood:"Woodland Hills",address:"4920 Topanga Canyon Blvd, Woodland Hills, CA 91364",phone:"(747) 259-9900",website:"angelcityguitars.com",hours:"Mon–Fri 11am–6pm · Sat 11am–2pm",est:2010,lat:34.1727,lng:-118.5985,color:"#1a1a4d",icon:"⚡",badge:"Boutique",short:"Boutique high-end guitars and amps in the Valley. A destination store for serious players.",full:"Angel City Guitars is the Valley's premier boutique guitar destination, featuring Nik Huber, Knaggs, Fender Custom Shop, Gibson, Suhr alongside boutique amps from Diezel, Matchless, and Bogner.",instruments:["Guitar","Bass"],services:["Used & Vintage","Buy & Sell"],tags:["guitar","vintage"]},
+  {id:"la13",name:"International House of Music",hood:"Downtown LA",address:"821 S Los Angeles St, Los Angeles, CA 90014",phone:"(213) 628-9161",website:"ihomi.com",hours:"Mon–Sat 9am–7pm · Sun 10am–6pm",est:1902,lat:34.0430,lng:-118.2551,color:"#1a2d3d",icon:"🎺",badge:"Since 1902",short:"Downtown LA's oldest music store since 1902. Every instrument imaginable under one roof.",full:"International House of Music (IHOMI) has been a Downtown LA institution since 1902. They carry guitars, keyboards, drum sets, strings, trumpets, accordions, trombones, tubas, microphones, DJ gear, and lighting equipment.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds","DJ Gear"],services:["Repairs","Rentals","Layaway"],tags:["guitar","keys","drums","repairs","rentals"]},
+  {id:"la14",name:"Voltage Guitars",hood:"Toluca Lake",address:"4430 Forman Ave, Toluca Lake, CA 91602",phone:"(818) 509-1344",website:"voltageguitar.com",hours:"Mon–Sun 10am–8pm",est:1982,lat:34.1490,lng:-118.3629,color:"#3d1f0a",icon:"⚡",badge:"Star Certified",short:"Hollywood's oldest vintage guitar store. Clapton, Page, McCartney, Dylan all shopped here.",full:"Voltage Guitars has been Hollywood's oldest and most established vintage guitar store since 1982. Owner Lloyd Chiate specializes exclusively in fine vintage and premium American guitars.",instruments:["Guitar","Bass","Vintage Amps"],services:["Appraisals","Buy & Sell","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"la15",name:"Culver City Music Center",hood:"Culver City",address:"10862 Washington Blvd, Culver City, CA 90232",phone:"(310) 202-6874",website:"—",hours:"Mon–Fri 12pm–6pm · Sat 10am–5pm",est:1985,lat:34.0211,lng:-118.3962,color:"#1f1a3d",icon:"🎓",badge:"Lessons HQ",short:"47+ instructors teaching everything from voice and guitar to accordion and violin.",full:"Culver City Music Center is a community music hub with over 47 experienced teachers covering voice, brass, woodwind, strings, percussion, guitar, piano, and accordion.",instruments:["Guitar","Piano","Violin","Brass","Woodwinds","Drums"],services:["Lessons","Sheet Music"],tags:["keys","strings","lessons","drums"]}
+],
+nyc:[
+  {id:"nyc1",name:"Rudy's Music",hood:"Midtown West",address:"169 W 48th St, New York, NY 10036",phone:"(212) 391-1699",website:"rudysmusic.com",hours:"Mon–Sat 11am–7pm · Sun 12pm–6pm",est:1978,lat:40.7589,lng:-73.9874,color:"#1a2a4d",icon:"🎸",badge:"NYC Legend",short:"One of the most celebrated guitar shops in NYC. 45+ years of guitars, amps, and expert service.",full:"Rudy's Music has been a go-to destination for guitarists and music lovers of all ages for over 45 years. The store stocks the best brands and provides fantastic advice in a welcoming atmosphere. A true NYC institution on the historic Music Row.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"nyc2",name:"Retrofret Vintage Guitars",hood:"Brooklyn",address:"233 Butler St, Brooklyn, NY 11217",phone:"(718) 576-8864",website:"retrofret.com",hours:"Mon–Fri 12pm–7pm · Sat 12pm–6pm",est:1999,lat:40.6801,lng:-73.9853,color:"#2d1a0a",icon:"🎸",badge:"Brooklyn",short:"Brooklyn's best vintage stringed instrument shop. Guitars, mandolins, banjos, and more.",full:"Retrofret has become Brooklyn's best bet for vintage stringed instruments — not just guitars, but mandolins, banjos, ukuleles, and even the occasional lute. They stock some of the rarest finds alongside standard gear.",instruments:["Guitar","Mandolin","Banjo","Ukulele","Violin"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"nyc3",name:"Main Drag Music",hood:"Williamsburg",address:"330 Wythe Ave, Brooklyn, NY 11211",phone:"(718) 388-6365",website:"maindragmusic.com",hours:"Mon–Sat 12pm–8pm · Sun 12pm–7pm",est:2003,lat:40.7155,lng:-73.9639,color:"#1f3d1a",icon:"🎵",badge:"Williamsburg",short:"Williamsburg's go-to for guitars, drums, keyboards, and boutique effects. Repair shop & events.",full:"Main Drag is an independent musical instrument and supply store, repair shop, and event space in NYC. They have a passion for vintage, used, and new gear that fits the analog ethos — guitars, weird acoustic instruments, effect pedals, and a massive drum collection.",instruments:["Guitar","Bass","Drums","Keyboards","Effects"],services:["Repairs","Used & Vintage","Events"],tags:["guitar","drums","repairs","vintage","venue"]},
+  {id:"nyc4",name:"Control Voltage",hood:"Williamsburg",address:"416 Lorimer St, Brooklyn, NY 11206",phone:"(718) 384-5368",website:"controlvoltage.net",hours:"Tue–Sun 12pm–7pm",est:2012,lat:40.7170,lng:-73.9502,color:"#0d2010",icon:"🎛️",badge:"Synth Gallery",short:"NYC's premier modular synth boutique. Wall-to-wall Eurorack and vintage synthesizers.",full:"Control is a tiny storefront specializing in synthesizers, functioning more like an art gallery than a traditional gear shop. The walls are lined with modular synths and their attendant accessories. The ultimate destination for electronic music makers.",instruments:["Synthesizers","Eurorack","Effects"],services:["Used & Vintage","Buy & Sell"],tags:["synth","vintage"]},
+  {id:"nyc5",name:"30th Street Guitars",hood:"Chelsea",address:"236 W 30th St, New York, NY 10001",phone:"(212) 868-2660",website:"30thstreetguitars.com",hours:"Mon–Sat 11am–7pm",est:1990,lat:40.7485,lng:-73.9957,color:"#3d1a2a",icon:"🎸",badge:"Chelsea",short:"One of the most beautiful guitar stores in NYC. Exceptional vintage and used guitar selection.",full:"30th Street Guitars is one of the most visually stunning and well-curated guitar shops in New York City. They carry an exceptional selection of vintage and used guitars, amps, and effects in a welcoming atmosphere.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"nyc6",name:"Carmine Street Guitars",hood:"Greenwich Village",address:"42 Carmine St, New York, NY 10014",phone:"(212) 691-8400",website:"carminestreetguitars.com",hours:"Mon–Sat 12pm–7pm",est:1990,lat:40.7295,lng:-74.0025,color:"#2a1a0d",icon:"🎸",badge:"Village Icon",short:"Greenwich Village legend. Custom-built guitars and rare vintage instruments.",full:"Carmine Street Guitars is a Greenwich Village institution famous for their custom-built guitars and curated vintage selection. Featured in the documentary 'Carmine Street Guitars' for their extraordinary craftsmanship and community spirit.",instruments:["Guitar","Bass","Custom Builds"],services:["Custom Builds","Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"nyc7",name:"Rivington Guitars",hood:"Lower East Side",address:"174 1st Ave, New York, NY 10009",phone:"(212) 505-6310",website:"rivintonguitars.com",hours:"Mon–Sat 12pm–7pm",est:2005,lat:40.7261,lng:-73.9849,color:"#1a3a1a",icon:"🎸",badge:"LES",short:"The Lower East Side's favorite guitar shop. New, used, and vintage with a great repair shop.",full:"Rivington Guitars is the Lower East Side's go-to guitar shop with heaps of used and vintage equipment alongside the new. They have new and used guitars and amps, a knowledgeable repair shop, lessons, and rentals.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","repairs","lessons","vintage"]},
+  {id:"nyc8",name:"Mandolin Brothers",hood:"Staten Island",address:"629 Forest Ave, Staten Island, NY 10310",phone:"(718) 981-3226",website:"mandoweb.com",hours:"Mon–Sat 11am–5:30pm",est:1971,lat:40.6271,lng:-74.1246,color:"#3d2a10",icon:"🪕",badge:"Est. 1971",short:"Staten Island's legendary acoustic instrument destination since 1971. Guitars, mandolins, folk.",full:"Mandolin Brothers has been delivering an extraordinary selection of fine acoustic guitars and assorted instruments since 1971. One of the world's best acoustic guitar shops, featuring mandolins, banjos, folk instruments and vintage finds.",instruments:["Guitar","Mandolin","Banjo","Ukulele","Violin"],services:["Repairs","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"nyc9",name:"Sam Ash Music",hood:"Midtown",address:"333 W 34th St, New York, NY 10001",phone:"(212) 719-2299",website:"samash.com",hours:"Mon–Sat 10am–8pm · Sun 11am–7pm",est:1924,lat:40.7506,lng:-73.9998,color:"#1a1a3d",icon:"🎵",badge:"Since 1924",short:"Family-owned since 1924. NYC's original full-service music superstore.",full:"Sam Ash Music has been family-owned for over 90 years and operates the largest musical instrument showrooms in New York City. They carry every instrument imaginable with knowledgeable staff who are musicians themselves.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds","DJ Gear"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"nyc10",name:"ProAudioStar",hood:"Brooklyn",address:"4215 18th Ave, Brooklyn, NY 11218",phone:"(718) 435-7820",website:"proaudiostar.com",hours:"Mon–Thu 10am–6pm · Fri 10am–2pm",est:2006,lat:40.6305,lng:-73.9804,color:"#0a1a2d",icon:"🎙️",badge:"Pro Audio",short:"NYC's top pro audio and DJ equipment retailer since 2006.",full:"ProAudioStar is a great local option offering new equipment at competitive prices. The independent retailer has been around since 2006 and serves as a go-to spot especially for producers and DJs seeking pro audio and recording equipment.",instruments:["Studio Gear","DJ Equipment","Microphones","Monitors"],services:["Buy & Sell"],tags:["synth"]}
+],
+nashville:[
+  {id:"nas1",name:"Gruhn Guitars",hood:"Berry Hill",address:"2120 8th Ave S, Nashville, TN 37204",phone:"(615) 256-2033",website:"guitars.com",hours:"Mon–Sat 10am–6pm",est:1970,lat:36.1224,lng:-86.7826,color:"#3d2a0a",icon:"🎸",badge:"World Class",short:"The world's most famous vintage guitar shop. Johnny Cash to Paul McCartney have shopped here.",full:"Gruhn Guitars is probably the best-known Nashville instrument shop, established in 1970. It has provided instruments for some of the biggest names in music, from Johnny Cash to Paul McCartney. If you have a museum-quality instrument to buy or sell, this is the place.",instruments:["Guitar","Banjo","Mandolin","Dobro","Bass"],services:["Repairs","Appraisals","Buy & Sell","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"nas2",name:"Carter Vintage Guitars",hood:"Berry Hill",address:"625 8th Ave S, Nashville, TN 37203",phone:"(615) 915-1851",website:"cartervintage.com",hours:"Mon–Sat 10am–6pm",est:2012,lat:36.1356,lng:-86.7831,color:"#2d1a0a",icon:"🎸",badge:"Vintage Dream",short:"8,000 sq ft of rare vintage instruments. 50+ years of combined expertise.",full:"Carter Vintage Guitars boasts a dreamy 8,000-square-foot showroom. Owners Christie and Walter Carter have a combined 50+ years of experience working with vintage guitars, banjos, mandolins, and all fretted instruments.",instruments:["Guitar","Banjo","Mandolin","Bass","Dobro"],services:["Buy & Sell","Used & Vintage","Appraisals"],tags:["guitar","strings","vintage"]},
+  {id:"nas3",name:"Fanny's House of Music",hood:"East Nashville",address:"1101 Holly St, Nashville, TN 37206",phone:"(615) 750-5746",website:"fannyshouseofmusic.com",hours:"Mon–Sat 10am–6pm · Sun 12pm–5pm",est:2009,lat:36.1775,lng:-86.7453,color:"#4a1a2a",icon:"🎵",badge:"Inclusive",short:"Nashville's most welcoming music store. Voted Best Used Instrument Shop 10 years running.",full:"Named after the all-female band Fanny, this store's mission is to provide a musical instrument store comfortable for ALL, especially women, children, and beginners. Readers of the Nashville Scene voted it Best Used Instrument Shop for 10 consecutive years.",instruments:["Guitar","Bass","Drums","Vintage Gear"],services:["Repairs","Lessons","Buy & Sell","Used & Vintage"],tags:["guitar","drums","repairs","lessons","vintage"]},
+  {id:"nas4",name:"Eastside Music Supply",hood:"East Nashville",address:"107 Woodland St, Nashville, TN 37213",phone:"(615) 730-8717",website:"eastsidemusicnashville.com",hours:"Mon–Sat 11am–7pm",est:2014,lat:36.1724,lng:-86.7484,color:"#1a2d3d",icon:"🎛️",badge:"Pedal Heaven",short:"East Nashville's premier shop for pedals, guitars, and synths. Largest pedal selection in TN.",full:"Eastside Music Supply has the largest selection of pedals in the region, plus guitars, synths, and pro audio gear. Recently expanded to celebrate their 10th anniversary. Rated 'Top Tier in the entire USA' by musicians across the country.",instruments:["Guitar","Bass","Synthesizers","Effects Pedals","Studio Gear"],services:["Used & Vintage","Buy & Sell"],tags:["guitar","synth","vintage"]},
+  {id:"nas5",name:"Rumble Seat Music",hood:"Berry Hill",address:"3015 12th Ave S, Nashville, TN 37204",phone:"(615) 891-8100",website:"rumbleseatmusic.com",hours:"Mon–Sat 11am–6pm",est:2005,lat:36.1178,lng:-86.7963,color:"#2a1a3d",icon:"🎸",badge:"Vintage Trifecta",short:"Part of Nashville's legendary vintage guitar trifecta on 8th Ave. Premium vintage instruments.",full:"Rumble Seat Music joined Carter Vintage and Gruhn Guitars to complete the vintage-guitar trifecta along 8th Avenue South. Owner Eliot Michael curates sought-after premium instruments with discerning taste.",instruments:["Guitar","Bass","Vintage Amps"],services:["Buy & Sell","Used & Vintage"],tags:["guitar","vintage"]},
+  {id:"nas6",name:"Corner Music",hood:"Nashville",address:"1922 Broadway, Nashville, TN 37203",phone:"(615) 321-0047",website:"cornermusic.com",hours:"Mon–Sat 10am–6pm",est:1976,lat:36.1498,lng:-86.8022,color:"#1f3d2a",icon:"🎵",badge:"Est. 1976",short:"Nashville's independent full-service music store. Guitars, drums, keys, and everything in between.",full:"In 1976, Larry Garris opened Corner Music, and over 45 years later it remains one of the most popular music shops in Nashville. You can buy pretty much anything music-related here — a true gearhead's independent go-to.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"nas7",name:"Fork's Drum Closet",hood:"Wedgewood-Houston",address:"2511 Nolensville Pike, Nashville, TN 37211",phone:"(615) 254-5220",website:"forksdrum.com",hours:"Mon–Sat 10am–6pm",est:1982,lat:36.1099,lng:-86.7699,color:"#3d1a1a",icon:"🥁",badge:"Drum Mecca",short:"Nashville's legendary drum destination since 1982. A frequent stop for visiting pros.",full:"Fork's Drum Closet has been providing Nashville drummers with drums and gear ever since 1982. The Wedgewood-Houston location is a frequent destination for both local and visiting musicians seeking everything percussion-related.",instruments:["Drums","Percussion","Cymbals"],services:["Repairs","Used & Vintage"],tags:["drums","repairs","vintage"]},
+  {id:"nas8",name:"Nashville Used & New Music",hood:"Nashville",address:"3813 Nolensville Pike, Nashville, TN 37211",phone:"(615) 832-6001",website:"nashvilleusedmusic.com",hours:"Mon–Sat 10am–6pm",est:1976,lat:36.0881,lng:-86.7529,color:"#2d2010",icon:"🎸",badge:"Full Line",short:"Nashville's oldest operating independent full-line music store since 1976.",full:"Nashville Used & New Music is Nashville's oldest operating independent full-line music store. They offer competitive prices for buying and trading instruments, and their repair services are performed by experienced technicians.",instruments:["Guitar","Bass","Drums","Banjo","Mandolin","Amps"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","strings","drums","repairs","vintage"]},
+  {id:"nas9",name:"Lane Music",hood:"Brentwood",address:"206 Ward Cir, Brentwood, TN 37027",phone:"(615) 377-1800",website:"lanemusic.com",hours:"Mon–Sat 10am–6pm",est:1980,lat:36.0334,lng:-86.7827,color:"#1a3d2a",icon:"🎹",badge:"Piano & Band",short:"Nashville's premier piano and band instrument dealer. Lessons, rentals, and repairs.",full:"Lane Music is a renowned hub for musicians and music enthusiasts. Boasting a wide array of instruments including Kawai pianos, expert repair services, and personalized music lessons. Tennessee's exclusive Kawai dealer and a trusted destination for sourcing instruments.",instruments:["Piano","Guitar","Brass","Woodwinds","Strings"],services:["Lessons","Repairs","Rentals","Sheet Music"],tags:["keys","strings","lessons","repairs","rentals"]},
+  {id:"nas10",name:"Gibson Garage Nashville",hood:"Downtown",address:"209 10th Ave S, Nashville, TN 37203",phone:"(615) 840-2607",website:"gibson.com",hours:"Mon–Sun 10am–7pm",est:2021,lat:36.1570,lng:-86.7911,color:"#3d0a0a",icon:"🎸",badge:"Gibson HQ",short:"Gibson's flagship Nashville experience center. Play every current model in Music City.",full:"The Gibson Garage Nashville is Gibson's flagship retail and experience center in the heart of Music City. Musicians can try every current Gibson model, explore custom shop instruments, and experience the brand's deep Nashville roots firsthand.",instruments:["Guitar","Bass"],services:["Buy & Sell","Used & Vintage"],tags:["guitar"]}
+],
+chicago:[
+  {id:"chi1",name:"Chicago Music Exchange",hood:"Lincoln Square",address:"3270 N Clark St, Chicago, IL 60657",phone:"(773) 525-7773",website:"chicagomusicexchange.com",hours:"Mon–Sat 11am–7pm · Sun 12pm–6pm",est:1993,lat:41.9404,lng:-87.6538,color:"#1a2a4d",icon:"🎸",badge:"Cathedral of Tone",short:"Like walking into a cathedral. An incredible selection of guitars and basses — a pilgrimage for players.",full:"Chicago Music Exchange is legendary in the music world. Described by musicians as 'like walking into a cathedral,' the store has an incredible selection of guitars, basses, amps, and effects. They carry everything from beginner instruments to museum-quality vintage pieces.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"chi2",name:"Rock N Roll Vintage",hood:"Lincoln Park",address:"1958 W Chicago Ave, Chicago, IL 60622",phone:"(773) 235-1958",website:"rocknrollvintage.com",hours:"Mon–Sat 12pm–7pm · Sun 12pm–5pm",est:2006,lat:41.8956,lng:-87.6782,color:"#3d1a0a",icon:"🎸",badge:"Vintage",short:"Chicago's premier vintage guitar destination. Rare guitars, amps, and effects from every era.",full:"Rock N Roll Vintage is Chicago's go-to shop for vintage and used guitars, amps, and effects. Their curated selection spans every era and style, making it a treasure trove for collectors and working musicians alike.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"chi3",name:"Flatts & Sharpe Music Co.",hood:"Hyde Park",address:"1617 E 55th St, Chicago, IL 60615",phone:"(773) 363-0427",website:"flattsandsharpe.com",hours:"Mon–Sat 10am–6pm",est:1970,lat:41.7952,lng:-87.5878,color:"#2d1b4e",icon:"🎵",badge:"Hyde Park",short:"Chicago's beloved independent full-service music store. Serving musicians since 1970.",full:"Flatts & Sharpe Music Co. has been serving Chicago's music community since 1970. A full-service store carrying instruments, accessories, sheet music, and offering lessons and repairs.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"chi4",name:"The Guitar Works",hood:"Evanston",address:"632 Dempster St, Evanston, IL 60201",phone:"(847) 475-2270",website:"theguitarworks.com",hours:"Mon–Sat 11am–6pm",est:1981,lat:42.0450,lng:-87.6875,color:"#1f3d2a",icon:"🎸",badge:"Evanston",short:"North Shore's premier guitar shop and repair center since 1981.",full:"The Guitar Works has been serving the North Shore music community since 1981. They specialize in guitar sales, repairs, and setups, carrying a wide range of acoustic and electric guitars, basses, and amplifiers.",instruments:["Guitar","Bass","Ukulele","Mandolin"],services:["Repairs","Setups","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"chi5",name:"Beaten Path Music",hood:"Wicker Park",address:"1551 N Milwaukee Ave, Chicago, IL 60622",phone:"(773) 395-0960",website:"beatenpathinstruments.com",hours:"Mon–Sat 12pm–7pm",est:2015,lat:41.9085,lng:-87.6680,color:"#3d2a0a",icon:"🎸",badge:"Wicker Park",short:"Wicker Park's boutique instrument shop. New, used, and vintage guitars with a curated touch.",full:"Beaten Path Music is Wicker Park's boutique instrument destination, offering a carefully curated selection of new, used, and vintage guitars, basses, and effects. Known for their knowledgeable and friendly staff.",instruments:["Guitar","Bass","Effects"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"chi6",name:"Evolution Music",hood:"Chicago",address:"2849 N Halsted St, Chicago, IL 60657",phone:"(773) 388-2853",website:"evolutionmusicchicago.com",hours:"Mon–Sat 11am–7pm",est:2005,lat:41.9320,lng:-87.6490,color:"#1a3d2a",icon:"🎵",badge:"Full Service",short:"Full-service instrument store and music school in the heart of Chicago.",full:"Evolution Music is a full-service music store and school offering instrument sales, lessons, and repairs. They carry a wide range of instruments and pride themselves on their community-focused approach.",instruments:["Guitar","Bass","Drums","Piano","Ukulele"],services:["Lessons","Repairs","Rentals"],tags:["guitar","keys","drums","lessons","repairs","rentals"]},
+  {id:"chi7",name:"Guitar Chicago",hood:"Chicago",address:"3823 N Halsted St, Chicago, IL 60613",phone:"(773) 549-1980",website:"guitarchicago.com",hours:"Tue–Sat 11am–6pm",est:2000,lat:41.9500,lng:-87.6486,color:"#2a1a3d",icon:"🎸",badge:"Boutique",short:"Chicago's boutique guitar shop. Handpicked selection of electric, acoustic, and bass guitars.",full:"Guitar Chicago is a boutique guitar shop carrying a handpicked selection of electric, acoustic, and bass guitars. Known for their exceptional customer service and knowledgeable staff who are passionate players themselves.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"chi8",name:"Gordon Woodwinds",hood:"Chicago",address:"6 S Michigan Ave, Chicago, IL 60603",phone:"(312) 566-9777",website:"gordonwoodwinds.com",hours:"Mon–Sat 10am–6pm",est:1994,lat:41.8829,lng:-87.6245,color:"#1a3a5c",icon:"🎺",badge:"Woodwinds",short:"Chicago's specialist woodwind and brass shop. Repairs, sales, and rentals for orchestral players.",full:"Gordon Woodwinds is Chicago's premier destination for woodwind and brass instruments. They specialize in professional-quality instruments, expert repairs, and rentals for orchestral and band musicians.",instruments:["Woodwinds","Brass","Flute","Clarinet","Saxophone"],services:["Repairs","Rentals","Used & Vintage"],tags:["strings","repairs","rentals"]},
+  {id:"chi9",name:"Russo Music Chicago",hood:"Chicago",address:"5300 N Clark St, Chicago, IL 60640",phone:"(773) 271-7700",website:"russomusic.com",hours:"Mon–Sat 10am–6pm",est:1989,lat:41.9770,lng:-87.6685,color:"#2d2a1a",icon:"🎵",badge:"Full Line",short:"Full-service music store serving Chicago's north side with instruments, lessons, and repairs.",full:"Russo Music has been serving Chicago musicians since 1989. A full-service store offering instruments, accessories, lessons, and repairs for musicians of all levels.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Lessons","Repairs","Rentals","Sheet Music"],tags:["guitar","keys","drums","lessons","repairs","rentals"]},
+  {id:"chi10",name:"Acme Guitar Works",hood:"Chicago",address:"1730 W 47th St, Chicago, IL 60609",phone:"(773) 579-1444",website:"acmeguitarworks.com",hours:"Mon–Fri 11am–6pm · Sat 11am–5pm",est:2007,lat:41.8086,lng:-87.6651,color:"#1f2d1a",icon:"🎸",badge:"Repair HQ",short:"Chicago's top guitar repair and restoration shop. Setups, refrets, and custom work.",full:"Acme Guitar Works is Chicago's go-to destination for guitar repair, restoration, and custom work. Their expert luthiers handle everything from basic setups and refrets to full restorations and custom builds.",instruments:["Guitar","Bass"],services:["Repairs","Custom Builds","Setups"],tags:["guitar","repairs"]}
+],
+austin:[
+  {id:"aus1",name:"South Austin Music",hood:"South Austin",address:"1402 S Lamar Blvd, Austin, TX 78704",phone:"(512) 444-5640",website:"southaustinmusic.com",hours:"Mon–Sat 10am–7pm · Sun 12pm–6pm",est:1986,lat:30.2528,lng:-97.7694,color:"#3d2a0a",icon:"🎸",badge:"Austin Icon",short:"The heartbeat of Austin's live music scene since 1986. Premium guitars, repairs, and lessons.",full:"South Austin Music has called Lamar Blvd home for over 35 years. The store strives to support Austin's live music scene by offering quality musical instruments, repair services, and classes covering Blues, Rock, Jazz, Fusion, and Bluegrass.",instruments:["Guitar","Bass","Banjo","Mandolin","Ukulele"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"aus2",name:"Waterloo Records",hood:"The Drag",address:"600A N Lamar Blvd, Austin, TX 78703",phone:"(512) 474-2500",website:"waterloorecords.com",hours:"Mon–Sat 10am–10pm · Sun 11am–9pm",est:1982,lat:30.2759,lng:-97.7498,color:"#4a1a1a",icon:"💿",badge:"36x Award Winner",short:"Winner of 36 consecutive Austin Music Awards. One of the best record stores in the world.",full:"Waterloo Records is the winner of 36 consecutive Austin Music Awards and has been recognized by Buzzfeed as one of the best record stores in the world. Established in 1982, the store covers 6,400 square feet and offers music of every genre with a special focus on Texas artists.",instruments:["Vinyl Records","CDs","Cassettes"],services:["Buy & Sell","In-Store Events"],tags:["vinyl","venue"]},
+  {id:"aus3",name:"Strait Music",hood:"Bee Cave",address:"3201 Bee Cave Rd, Austin, TX 78746",phone:"(512) 327-6840",website:"straitmusic.com",hours:"Mon–Sat 10am–7pm",est:1955,lat:30.2629,lng:-97.8289,color:"#1f3d2a",icon:"🎵",badge:"Est. 1955",short:"Austin's full-service music superstore since 1955. Pianos, guitars, winds, and sheet music.",full:"Strait Music has been serving Austin musicians since 1955. They carry pianos, guitars, wind instruments, sheet music, percussion, and accessories. Strait Music also provides repair services for woodwinds, piano, and string instruments.",instruments:["Piano","Guitar","Brass","Woodwinds","Drums","Strings"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","strings","repairs","lessons","rentals"]},
+  {id:"aus4",name:"Austin Vintage Guitars",hood:"South Austin",address:"805 S Lamar Blvd, Austin, TX 78704",phone:"(512) 692-1155",website:"austinvintageguitars.com",hours:"Mon–Sat 11am–7pm",est:2010,lat:30.2566,lng:-97.7693,color:"#2d1a0a",icon:"🎸",badge:"Vintage",short:"Austin's premier vintage guitar shop. Rare and collectible guitars for serious players.",full:"Austin Vintage Guitars is the go-to destination in Austin for rare and collectible vintage guitars. Their knowledgeable staff helps players find the perfect vintage instrument, from pre-war acoustics to classic electrics.",instruments:["Guitar","Bass","Vintage Amps"],services:["Buy & Sell","Used & Vintage","Appraisals"],tags:["guitar","repairs","vintage"]},
+  {id:"aus5",name:"Guitar Sanctuary",hood:"McKinney",address:"400 S Central Expy, McKinney, TX 75070",phone:"(972) 540-0048",website:"guitarsanctuary.com",hours:"Mon–Sat 10am–7pm · Sun 12pm–5pm",est:2007,lat:33.1973,lng:-96.6390,color:"#1a2a4d",icon:"🎸",badge:"DFW/Austin",short:"Premier boutique guitar destination. Exceptional selection of acoustic, electric, and boutique amps.",full:"Guitar Sanctuary is a premier boutique guitar store carrying an exceptional selection of acoustic, electric, and bass guitars alongside boutique amplifiers and effects. Known for their extraordinary customer service and curated inventory.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"aus6",name:"Lone Star Music",hood:"New Braunfels",address:"2040 I-35 N, New Braunfels, TX 78130",phone:"(830) 629-4300",website:"lonestarmusic.com",hours:"Mon–Sat 10am–7pm",est:2001,lat:29.7235,lng:-97.9800,color:"#3d1a0a",icon:"🎸",badge:"Texas Country",short:"Texas country and Americana instrument destination. Acoustic guitars, banjos, and pedal steel.",full:"Lone Star Music is the premier Texas country and Americana instrument destination. They carry acoustic guitars, banjos, pedal steel guitars, mandolins, and related gear — everything you need for authentic Texas music.",instruments:["Guitar","Banjo","Mandolin","Pedal Steel","Bass"],services:["Repairs","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"aus7",name:"Austin City Music",hood:"Austin",address:"1805 W 35th St, Austin, TX 78703",phone:"(512) 451-9090",website:"austincitymusic.com",hours:"Mon–Sat 11am–6pm",est:1998,lat:30.3053,lng:-97.7461,color:"#1a3d2a",icon:"🎵",badge:"Hyde Park",short:"Austin's neighborhood music store. New and used guitars, drums, and amps for Austin players.",full:"Austin City Music is a beloved neighborhood music store serving Austin musicians with new and used guitars, drums, amplifiers, and accessories. Known for their friendly, knowledgeable staff and fair prices.",instruments:["Guitar","Bass","Drums","Ukulele"],services:["Repairs","Used & Vintage"],tags:["guitar","drums","repairs","vintage"]},
+  {id:"aus8",name:"Tone Shop Guitars",hood:"Addison",address:"4953 Belt Line Rd, Addison, TX 75001",phone:"(972) 239-8663",website:"toneshopguitars.com",hours:"Mon–Sat 11am–7pm",est:2009,lat:32.9597,lng:-96.8308,color:"#2a1a3d",icon:"🎸",badge:"DFW Boutique",short:"DFW's boutique guitar destination. Boutique guitars, amps, and pedals for discerning players.",full:"Tone Shop Guitars is the Dallas-Fort Worth area's premier boutique guitar destination, offering high-end acoustic and electric guitars, boutique amplifiers, and effects pedals. Their knowledgeable staff are serious players who provide expert guidance.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]}
+],
+sf:[
+  {id:"sf1",name:"Guitar Solo",hood:"Mission Bay",address:"1411 Mission St, San Francisco, CA 94103",phone:"(415) 863-7576",website:"guitarsolo.com",hours:"Mon–Sat 11am–6pm",est:1974,lat:37.7740,lng:-122.4098,color:"#2d1b4e",icon:"🎸",badge:"Est. 1974",short:"SF's legendary acoustic and classical guitar destination since 1974. Right next to Oracle Park.",full:"Guitar Solo has earned the trust of every local guitarist since its opening in 1974. They limit their offerings to acoustic and classical guitars — a quality-over-quantity ethos ensuring top-echelon selections including mandolins, ukuleles, and an incredible sheet music collection.",instruments:["Guitar","Mandolin","Ukulele","Classical Guitar"],services:["Repairs","Lessons","Sheet Music"],tags:["guitar","strings","repairs","lessons"]},
+  {id:"sf2",name:"Sunset Music Co.",hood:"Outer Sunset",address:"2116 Irving St, San Francisco, CA 94122",phone:"(415) 665-0660",website:"sunsetmusicco.com",hours:"Mon–Sat 10am–6pm",est:1948,lat:37.7636,lng:-122.4808,color:"#1f3d2a",icon:"🎵",badge:"Est. 1948",short:"SF's oldest music store, founded in 1948. Largest sheet music selection in the city near Golden Gate Park.",full:"Sunset Music takes the cake for historic longevity — founded in 1948, it has remained in its Outer Sunset location just a couple of blocks from Golden Gate Park ever since. They offer the largest selection of sheet music in the city, plus instruments, lessons, repairs, and studio rentals.",instruments:["Guitar","Piano","Brass","Woodwinds","Drums"],services:["Repairs","Lessons","Rentals","Sheet Music","Studio Rental"],tags:["guitar","keys","drums","strings","repairs","lessons","rentals"]},
+  {id:"sf3",name:"ROBOTSPEAk",hood:"Haight-Ashbury",address:"1310 Haight St, San Francisco, CA 94117",phone:"(415) 522-0702",website:"robotspeak.com",hours:"Tue–Sun 12pm–7pm",est:2006,lat:37.7695,lng:-122.4440,color:"#0d2010",icon:"🎛️",badge:"Synth HQ",short:"Northern California's preeminent synth shop. Eurorack, vintage synths, and electronic music.",full:"ROBOTSPEAk in Haight-Ashbury is Northern California's preeminent synthesizer shop. They specialize in Eurorack modular synthesizers, vintage synths, and electronic music equipment — a paradise for producers and experimental musicians.",instruments:["Synthesizers","Eurorack","Effects Pedals"],services:["Used & Vintage","Buy & Sell"],tags:["synth","vintage"]},
+  {id:"sf4",name:"Union Music Company",hood:"Tenderloin",address:"333 Turk St, San Francisco, CA 94102",phone:"(415) 776-1383",website:"unionmusiccompany.com",hours:"Mon–Sat 10am–6pm",est:1922,lat:37.7830,lng:-122.4165,color:"#1a2d3d",icon:"🎺",badge:"Since 1922",short:"SF's premiere music store for band and orchestra instruments since 1922.",full:"Union Music Company has been San Francisco's premiere destination for band and orchestra instruments since 1922. They offer new and used instruments for beginners and professionals, with sales, rentals, repairs, accessories, and private lessons.",instruments:["Brass","Woodwinds","Strings","Percussion","Piano"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["strings","keys","repairs","lessons","rentals"]},
+  {id:"sf5",name:"Berkeley MIEX",hood:"Berkeley",address:"2050 San Pablo Ave, Berkeley, CA 94702",phone:"(510) 644-8484",website:"miex.com",hours:"Mon–Sat 11am–6pm",est:1974,lat:37.8666,lng:-122.2945,color:"#3d2a10",icon:"🎵",badge:"East Bay",short:"East Bay's integral music institution since 1974. Guitars, drums, violins, trumpets, and more.",full:"The Berkeley Musical Instrument Exchange (MIEX) has been an integral institution of the East Bay music scene since 1974. Their guitar selection is impressive, and they also carry drums, violins, trumpets, and all manner of musical paraphernalia.",instruments:["Guitar","Bass","Drums","Violin","Brass","Woodwinds"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","strings","drums","repairs","vintage"]},
+  {id:"sf6",name:"Gryphon Stringed Instruments",hood:"Palo Alto",address:"211 Lambert Ave, Palo Alto, CA 94306",phone:"(650) 493-2131",website:"gryphonstrings.com",hours:"Mon–Sat 10am–6pm",est:1969,lat:37.4275,lng:-122.1431,color:"#2a3d1f",icon:"🎻",badge:"Est. 1969",short:"Peninsula's legendary folk and acoustic instrument shop. Handmade guitars and vintage banjos.",full:"Gryphon Stringed Instruments carries banjos, steel-string acoustic guitars, mandolins, and nylon-string guitars — some handmade by individual luthiers, others vintage models dating to the early 1900s. They feature an extensive events calendar with workshops and classes.",instruments:["Guitar","Mandolin","Banjo","Violin","Ukulele"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"sf7",name:"Gelb Music",hood:"Redwood City",address:"722 El Camino Real, Redwood City, CA 94063",phone:"(650) 369-1432",website:"gelbmusic.com",hours:"Mon–Sat 10am–6pm",est:1948,lat:37.4883,lng:-122.2252,color:"#1a3a5c",icon:"🎵",badge:"Est. 1948",short:"Peninsula full-service music store since 1948. Instruments, lessons, repairs, and rentals.",full:"Gelb Music has been serving Peninsula musicians since 1948. A full-service music store carrying instruments of all kinds alongside accessories, sheet music, lessons, and expert repairs.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"sf8",name:"Bananas at Large",hood:"San Rafael",address:"1504 4th St, San Rafael, CA 94901",phone:"(415) 456-7800",website:"bananasatlarge.com",hours:"Mon–Sat 10am–6pm",est:1972,lat:37.9740,lng:-122.5300,color:"#3d2010",icon:"🎸",badge:"Marin County",short:"Marin County's full-service music store since 1972. Guitars, drums, keys, and pro audio.",full:"Bananas at Large has been a Marin County institution since 1972. Their full-service store carries guitars, basses, drums, keyboards, pro audio equipment, and accessories — one of the Bay Area's most beloved independent music retailers.",instruments:["Guitar","Bass","Drums","Piano","Studio Gear"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","synth","repairs","lessons","rentals"]}
+],
+seattle:[
+  {id:"sea1",name:"Dusty Strings",hood:"Fremont",address:"3406 Fremont Ave N, Seattle, WA 98103",phone:"(206) 634-1662",website:"dustystrings.com",hours:"Mon–Sat 10am–6pm",est:1979,lat:47.6511,lng:-122.3501,color:"#2a3d1f",icon:"🎻",badge:"Fremont",short:"Seattle's beloved folk instrument haven. Guitars, harps, mandolins, ukuleles, and banjos.",full:"Dusty Strings is a locally-owned small business sharing their love of music with beginners and professionals alike. They carry guitars, harps, mandolins, ukuleles, banjos, books, rentals, lessons, and classes — with a huge selection and a pressure-free environment.",instruments:["Guitar","Harp","Mandolin","Ukulele","Banjo","Violin"],services:["Repairs","Lessons","Rentals"],tags:["guitar","strings","lessons","repairs","rentals"]},
+  {id:"sea2",name:"Thunder Road Guitars",hood:"Seattle",address:"2010 NW Market St, Seattle, WA 98107",phone:"(206) 678-5248",website:"thunderroadguitars.com",hours:"Tue–Sat 12pm–6pm",est:2010,lat:47.6685,lng:-122.3765,color:"#3d1a0a",icon:"🎸",badge:"Vintage",short:"Seattle and Portland's finest vintage guitar shop. Buy, sell, and trade quality vintage guitars.",full:"Thunder Road Guitars has two showrooms — Seattle and Portland — offering an incredible selection of the finest vintage and used guitars. They specialize in buying, selling, and trading quality vintage American guitars and are always on the hunt for great instruments.",instruments:["Guitar","Bass","Vintage Amps"],services:["Buy & Sell","Used & Vintage","Appraisals"],tags:["guitar","vintage"]},
+  {id:"sea3",name:"Emerald City Guitars",hood:"Capitol Hill",address:"1511 E Olive Way, Seattle, WA 98122",phone:"(206) 323-8080",website:"emeraldcityguitars.com",hours:"Mon–Sat 11am–6pm",est:1985,lat:47.6197,lng:-122.3215,color:"#1a2a4d",icon:"🎸",badge:"Capitol Hill",short:"Capitol Hill's guitar destination since 1985. Boutique guitars, amps, and effects pedals.",full:"Emerald City Guitars has been Seattle's boutique guitar destination since 1985. They carry a curated selection of boutique electric and acoustic guitars, amplifiers, and effects pedals, with knowledgeable staff who are passionate musicians.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"sea4",name:"Kennelly Keys Music",hood:"Lynnwood",address:"18425 Hwy 99, Lynnwood, WA 98037",phone:"(425) 775-5060",website:"kennellykeys.com",hours:"Mon–Sat 10am–7pm · Sun 12pm–5pm",est:1946,lat:47.8369,lng:-122.2808,color:"#1f3d2a",icon:"🎹",badge:"Est. 1946",short:"Washington's full-service music store since 1946. Pianos, guitars, band instruments, and lessons.",full:"Kennelly Keys Music has been serving Washington musicians since 1946. A full-service music store carrying pianos, guitars, band and orchestra instruments, with lessons, repairs, and rentals.",instruments:["Piano","Guitar","Bass","Brass","Woodwinds","Drums"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","strings","repairs","lessons","rentals"]},
+  {id:"sea5",name:"Easy Street Records",hood:"West Seattle",address:"4559 California Ave SW, Seattle, WA 98116",phone:"(206) 938-3279",website:"easystreetonline.com",hours:"Mon–Sat 9am–9pm · Sun 10am–8pm",est:1988,lat:47.5629,lng:-122.3841,color:"#4a1a1a",icon:"💿",badge:"Record Store",short:"Seattle's beloved independent record store and cafe since 1988. Live in-store performances.",full:"Easy Street Records is Seattle's most beloved independent record store, operating since 1988 in the heart of West Seattle. They carry new and used vinyl, CDs, and host regular live in-store performances from local and national artists.",instruments:["Vinyl Records","CDs"],services:["Buy & Sell","In-Store Events"],tags:["vinyl","venue"]},
+  {id:"sea6",name:"Guitar Center Seattle",hood:"Denny Triangle",address:"2106 5th Ave, Seattle, WA 98121",phone:"(206) 443-9625",website:"guitarcenter.com",hours:"Mon–Sat 10am–9pm · Sun 11am–7pm",est:1998,lat:47.6161,lng:-122.3420,color:"#1a1a3d",icon:"🎸",badge:"Full Line",short:"Seattle's full-service music superstore. Guitars, drums, keys, pro audio, and lessons.",full:"Guitar Center Seattle provides a massive selection of musical instruments and gear for musicians of all levels. Their showroom features guitars, basses, drums, keyboards, pro audio equipment, and recording gear, plus lessons and repairs.",instruments:["Guitar","Bass","Drums","Piano","Studio Gear","DJ Gear"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","synth","repairs","lessons","rentals"]},
+  {id:"sea7",name:"Voltage Guitar & Bass",hood:"Belltown",address:"217 1st Ave N, Seattle, WA 98109",phone:"(206) 441-7600",website:"voltageguitarandbass.com",hours:"Mon–Sat 11am–7pm",est:2002,lat:47.6232,lng:-122.3528,color:"#2a1a3d",icon:"🎸",badge:"Boutique",short:"Seattle's boutique electric guitar and bass shop. Hand-picked selection of premium instruments.",full:"Voltage Guitar & Bass is Seattle's boutique destination for electric guitars and basses. They carry a hand-picked selection of premium instruments from boutique and major brands, with a focus on quality over quantity.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]}
+],
+portland:[
+  {id:"pdx1",name:"Portland Music Company",hood:"Portland",address:"511 SW 10th Ave, Portland, OR 97205",phone:"(503) 228-8571",website:"portlandmusiccompany.com",hours:"Mon–Sat 10am–7pm · Sun 11am–6pm",est:1927,lat:45.5208,lng:-122.6816,color:"#1f3d2a",icon:"🎵",badge:"Est. 1927",short:"Portland's locally owned independent music store since 1927. Three convenient locations.",full:"Portland Music Company is a locally owned independent music instrument store founded in 1927. They carry thousands of products for local and traveling musicians across three Portland area locations.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"pdx2",name:"Thunder Road Guitars Portland",hood:"Portland",address:"4330 SE Hawthorne Blvd, Portland, OR 97215",phone:"(206) 678-5248",website:"thunderroadguitars.com",hours:"Tue–Sat 12pm–6pm",est:2010,lat:45.5123,lng:-122.6161,color:"#3d1a0a",icon:"🎸",badge:"Vintage",short:"Portland showroom of Seattle's premier vintage guitar shop. Fine vintage and used guitars.",full:"Thunder Road Guitars Portland is the sister location of the beloved Seattle vintage guitar shop. They offer an incredible selection of fine vintage and used guitars — always on the hunt for quality instruments.",instruments:["Guitar","Bass","Vintage Amps"],services:["Buy & Sell","Used & Vintage","Appraisals"],tags:["guitar","vintage"]},
+  {id:"pdx3",name:"Artichoke Music",hood:"Southeast Portland",address:"3130 SE Hawthorne Blvd, Portland, OR 97214",phone:"(503) 232-8845",website:"artichokemusic.com",hours:"Mon–Sat 10am–6pm",est:1991,lat:45.5121,lng:-122.6256,color:"#2a3d1f",icon:"🎸",badge:"Folk & Acoustic",short:"SE Portland's acoustic and folk instrument haven. Guitars, mandolins, and community concerts.",full:"Artichoke Music has been Portland's acoustic and folk instrument destination since 1991. They specialize in acoustic guitars, mandolins, ukuleles, and folk instruments, plus lessons, repairs, and community concerts.",instruments:["Guitar","Mandolin","Ukulele","Banjo","Violin"],services:["Repairs","Lessons","Used & Vintage","Events"],tags:["guitar","strings","repairs","lessons","venue"]},
+  {id:"pdx4",name:"Reverb PDX",hood:"NE Portland",address:"1225 NE Alberta St, Portland, OR 97211",phone:"(503) 288-7360",website:"reverbpdx.com",hours:"Tue–Sat 12pm–7pm",est:2008,lat:45.5593,lng:-122.6505,color:"#2d1a0a",icon:"🎸",badge:"Alberta Arts",short:"Alberta Arts District's guitar shop. New, used, and vintage guitars, amps, and effects.",full:"Reverb PDX is the Alberta Arts District's go-to guitar shop, carrying new, used, and vintage guitars, amplifiers, and effects. Known for their friendly staff and fair prices.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"pdx5",name:"Five Star Music",hood:"NW Portland",address:"2027 NW 27th Ave, Portland, OR 97210",phone:"(503) 228-4500",website:"fivestarmusicpdx.com",hours:"Mon–Sat 10am–6pm",est:1995,lat:45.5302,lng:-122.7063,color:"#1a2a4d",icon:"🎵",badge:"Full Service",short:"NW Portland's full-service music store. Instruments, lessons, repairs, and band gear.",full:"Five Star Music is NW Portland's full-service music store offering a comprehensive selection of instruments, accessories, lessons, and expert repairs. They serve musicians of all levels from beginners to professional performers.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]}
+],
+atlanta:[
+  {id:"atl1",name:"Maple Street Guitars",hood:"Buckhead",address:"2375 Peachtree Rd NE, Atlanta, GA 30305",phone:"(404) 261-4440",website:"maplestreetguitars.com",hours:"Mon–Sat 10am–6pm",est:1981,lat:33.8351,lng:-84.3780,color:"#3d2a0a",icon:"🎸",badge:"42 Years",short:"Family-owned acoustic guitar specialist for 42 years. Atlanta's most beloved guitar shop.",full:"Maple Street Guitars has been a mainstay in Atlanta's music scene for 42 years. Specializing primarily in acoustic guitars, this family-owned business has built a reputation for quality and personalized service. The staff and instructors are passionate about connecting musicians with their perfect instrument.",instruments:["Guitar","Bass","Mandolin","Ukulele"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"atl2",name:"Big House Guitars",hood:"Atlanta",address:"1142 Euclid Ave NE, Atlanta, GA 30307",phone:"(404) 577-5111",website:"bighouseguitars.com",hours:"Mon–Sat 12pm–8pm",est:2010,lat:33.7599,lng:-84.3536,color:"#1a2a4d",icon:"🎸",badge:"Little Five Points",short:"Atlanta's coolest guitar shop. Lounge vibes, live performances, and an incredible guitar wall.",full:"Big House Guitars has become a renowned destination for guitar enthusiasts in Atlanta. The store has an atypical retail vibe — it looks almost like a club entrance with leather sofas and a stage where local bands perform weekly. An incredible guitar wall and knowledgeable staff.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage","Events"],tags:["guitar","repairs","vintage","venue"]},
+  {id:"atl3",name:"Earthshaking Music",hood:"Inman Park",address:"461 Moreland Ave NE, Atlanta, GA 30307",phone:"(404) 584-4455",website:"earthshakingmusic.com",hours:"Mon–Sat 11am–7pm",est:1990,lat:33.7554,lng:-84.3513,color:"#2a3d1f",icon:"🥁",badge:"Drums & More",short:"Atlanta's go-to drum and percussion shop. New, used, and vintage drums and cymbals.",full:"Earthshaking Music is Atlanta's premier drum and percussion shop, carrying new, used, and vintage drums, cymbals, hardware, and accessories. They also carry guitars and pro audio gear, making them a full-service destination for Atlanta musicians.",instruments:["Drums","Percussion","Cymbals","Guitar","Studio Gear"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["drums","guitar","repairs","vintage"]},
+  {id:"atl4",name:"Atlanta Discount Music",hood:"Norcross",address:"6215 McDonough Dr, Norcross, GA 30093",phone:"(770) 446-3506",website:"atlantadiscountmusic.com",hours:"Mon–Fri 10am–6pm · Sat 10am–5pm",est:1985,lat:33.9412,lng:-84.2051,color:"#1f1a3d",icon:"🎸",badge:"Best Value",short:"Atlanta's best-value music store. Guitars, amps, and accessories at great prices.",full:"Atlanta Discount Music has been serving metro Atlanta musicians since 1985 with a great selection of guitars, amps, and accessories at competitive prices. Known for their Nash and Lakland guitar selection and knowledgeable staff.",instruments:["Guitar","Bass","Amps","Accessories"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"atl5",name:"Atlanta Musicians Exchange",hood:"Atlanta",address:"3193 Maple Dr NE, Atlanta, GA 30305",phone:"(404) 352-3810",website:"atlantamusiciansexchange.com",hours:"Tue–Sat 11am–6pm",est:2000,lat:33.8410,lng:-84.3797,color:"#2d2010",icon:"🎵",badge:"Buy & Sell",short:"Atlanta's buy/sell/trade music hub. Instruments, repairs, and PA rentals.",full:"Atlanta Musicians Exchange is the go-to spot for buying, selling, and trading musical instruments and gear in Atlanta. They offer guitar and drum repairs, PA system sales and rentals, and a solid stock of drum heads, guitar strings, and parts.",instruments:["Guitar","Bass","Drums","PA Systems"],services:["Repairs","Buy & Sell","Rentals"],tags:["guitar","drums","repairs","rentals"]},
+  {id:"atl6",name:"Sandy Springs Music",hood:"Sandy Springs",address:"6320 Roswell Rd, Sandy Springs, GA 30328",phone:"(404) 256-7744",website:"sandyspringsmusic.com",hours:"Mon–Sat 10am–6pm",est:1975,lat:33.9316,lng:-84.3637,color:"#1a3d2a",icon:"🎹",badge:"Est. 1975",short:"Sandy Springs full-service music store since 1975. Instruments, lessons, and repairs.",full:"Sandy Springs Music has been serving Atlanta's north side since 1975. A full-service music store offering instruments of all kinds, music lessons, and expert repairs for students and professionals.",instruments:["Guitar","Piano","Drums","Brass","Woodwinds"],services:["Lessons","Repairs","Rentals","Sheet Music"],tags:["guitar","keys","drums","lessons","repairs","rentals"]}
+],
+miami:[
+  {id:"mia1",name:"Charlie's Guitars",hood:"Miami",address:"2100 S Dixie Hwy, Miami, FL 33133",phone:"(305) 856-2777",website:"charliesguitars.com",hours:"Mon–Sat 10am–6pm",est:1995,lat:25.7419,lng:-80.2345,color:"#3d2a0a",icon:"🎸",badge:"Miami's Best",short:"Miami's premier guitar shop. New, used, and vintage guitars with expert repair service.",full:"Charlie's Guitars is Miami's premier destination for guitarists, offering a carefully curated selection of new, used, and vintage guitars and amplifiers. Their expert repair technicians handle everything from basic setups to full restorations.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"mia2",name:"Miami Music Inc.",hood:"Little Havana",address:"1500 SW 8th St, Miami, FL 33135",phone:"(305) 649-5222",website:"miamimusicinc.com",hours:"Mon–Sat 10am–7pm",est:1975,lat:25.7673,lng:-80.2192,color:"#4a1a2a",icon:"🎵",badge:"Little Havana",short:"Little Havana's legendary music store. Latin instruments, guitars, and percussion since 1975.",full:"Miami Music Inc. is a Little Havana institution, serving Miami's vibrant Latin music community since 1975. They specialize in Latin percussion instruments, acoustic guitars, and a wide range of instruments reflecting Miami's musical diversity.",instruments:["Guitar","Bass","Latin Percussion","Brass","World Instruments"],services:["Repairs","Lessons","Rentals"],tags:["guitar","drums","strings","repairs","lessons","rentals"]},
+  {id:"mia3",name:"Sam Ash Miami",hood:"Miami",address:"4301 N State Rd 7, Hollywood, FL 33021",phone:"(954) 894-9400",website:"samash.com",hours:"Mon–Sat 10am–9pm · Sun 11am–7pm",est:1990,lat:26.0112,lng:-80.1808,color:"#1a1a3d",icon:"🎵",badge:"Full Line",short:"South Florida's full-service music superstore. Everything a musician needs under one roof.",full:"Sam Ash Miami is South Florida's comprehensive music superstore, carrying instruments of every kind along with pro audio, recording equipment, and accessories. Expert lessons and repair services available.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds","DJ Gear"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"mia4",name:"Spec's Music",hood:"Coral Gables",address:"2515 Ponce de Leon Blvd, Coral Gables, FL 33134",phone:"(305) 446-5500",website:"specsmusic.com",hours:"Mon–Sat 10am–7pm",est:1948,lat:25.7465,lng:-80.2572,color:"#1f3d2a",icon:"🎵",badge:"Est. 1948",short:"South Florida's legendary music retailer since 1948. Records, instruments, and community.",full:"Spec's Music has been a South Florida institution since 1948, originally focusing on records before expanding to instruments and gear. They remain a beloved destination for Miami musicians seeking quality instruments and a knowledgeable staff.",instruments:["Guitar","Piano","Drums","Vinyl Records"],services:["Repairs","Used & Vintage"],tags:["guitar","keys","vinyl","repairs"]},
+  {id:"mia5",name:"World Music Miami",hood:"Wynwood",address:"2900 NW 2nd Ave, Miami, FL 33127",phone:"(305) 438-9910",website:"worldmusicmiami.com",hours:"Mon–Sat 11am–7pm",est:2005,lat:25.8014,lng:-80.2003,color:"#2a1a0d",icon:"🌍",badge:"World Music",short:"Miami's world music instrument specialist. Latin, Caribbean, Afro-Cuban, and global instruments.",full:"World Music Miami is Miami's premier destination for world music instruments, reflecting the city's extraordinary cultural diversity. They specialize in Latin, Caribbean, Afro-Cuban, and global instruments including percussion, strings, and wind instruments.",instruments:["Latin Percussion","World Instruments","Guitar","Brass"],services:["Lessons","Repairs"],tags:["strings","drums","lessons","repairs"]}
+],
+denver:[
+  {id:"den1",name:"Denver Folklore Center",hood:"Capitol Hill",address:"1893 S Pearl St, Denver, CO 80210",phone:"(303) 777-4786",website:"denverfolklorecenter.com",hours:"Mon–Sat 11am–6pm",est:1962,lat:39.6867,lng:-104.9617,color:"#2a3d1f",icon:"🪕",badge:"Est. 1962",short:"Denver's legendary folk and acoustic instrument shop since 1962. A true community institution.",full:"Denver Folklore Center has been Denver's folk and acoustic instrument destination since 1962. They specialize in acoustic guitars, banjos, mandolins, ukuleles, and folk instruments, plus lessons and repairs. A true community hub for Denver's folk music scene.",instruments:["Guitar","Banjo","Mandolin","Ukulele","Violin"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"den2",name:"Intermission Music",hood:"Denver",address:"2255 S Oneida St, Denver, CO 80224",phone:"(303) 756-3535",website:"intermissionmusic.com",hours:"Mon–Sat 10am–6pm",est:1985,lat:39.6915,lng:-104.9228,color:"#1a2a4d",icon:"🎵",badge:"Full Service",short:"Denver's full-service music store. Instruments, lessons, and repairs for all musicians.",full:"Intermission Music has been serving Denver musicians since 1985. A full-service music store offering instruments of all kinds, music lessons for all ages, and expert repair services.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"den3",name:"Drum City Guitarland",hood:"Wheat Ridge",address:"7101 W Colfax Ave, Lakewood, CO 80214",phone:"(303) 238-1900",website:"drumcityguitarland.com",hours:"Mon–Sat 10am–6pm",est:1972,lat:39.7373,lng:-105.0725,color:"#3d1a1a",icon:"🥁",badge:"Drum & Guitar",short:"Denver's legendary drum and guitar destination since 1972. New, used, and vintage.",full:"Drum City Guitarland is one of Denver's most beloved independent music stores, known for their exceptional drum and guitar selection. They carry new, used, and vintage instruments and are a go-to destination for serious musicians in the Denver metro area.",instruments:["Drums","Guitar","Bass","Percussion","Cymbals"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","drums","repairs","vintage"]},
+  {id:"den4",name:"WildWood Guitars",hood:"Louisville",address:"851 W South Boulder Rd, Louisville, CO 80027",phone:"(303) 665-7171",website:"wildwoodguitars.com",hours:"Mon–Sat 10am–6pm",est:1992,lat:39.9778,lng:-105.1456,color:"#1f3d2a",icon:"🎸",badge:"World Class",short:"One of the world's top acoustic guitar dealers. Taylor, Martin, Santa Cruz, and boutique builders.",full:"WildWood Guitars is one of the world's most respected acoustic guitar dealers, known for their extraordinary selection of high-end acoustic guitars from Taylor, Martin, Santa Cruz, Collings, and boutique builders. Musicians travel from across the country to visit.",instruments:["Guitar","Bass","Mandolin","Ukulele"],services:["Used & Vintage","Buy & Sell","Appraisals"],tags:["guitar","strings","vintage"]},
+  {id:"den5",name:"Peak Music",hood:"Fort Collins",address:"213 Linden St, Fort Collins, CO 80524",phone:"(970) 484-5656",website:"peakmusicfc.com",hours:"Mon–Sat 10am–6pm",est:2001,lat:40.5882,lng:-105.0749,color:"#2d1b4e",icon:"🎵",badge:"Fort Collins",short:"Fort Collins' beloved independent music store. Guitars, drums, and full repair services.",full:"Peak Music is Fort Collins' go-to independent music store, serving the northern Colorado music community with quality instruments, repairs, and lessons since 2001.",instruments:["Guitar","Bass","Drums","Piano"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","drums","repairs","lessons","vintage"]}
+],
+neworleans:[
+  {id:"no1",name:"Werlein's for Music",hood:"Canal Street",address:"605 Canal St, New Orleans, LA 70130",phone:"(504) 581-4321",website:"werleins.com",hours:"Mon–Sat 10am–6pm",est:1842,lat:29.9534,lng:-90.0706,color:"#2d1b4e",icon:"🎵",badge:"Since 1842",short:"One of America's oldest music stores, operating since 1842 in New Orleans.",full:"Werlein's for Music has been a New Orleans institution since 1842, making it one of the oldest music stores in the United States. They carry a comprehensive range of instruments and accessories reflecting New Orleans' extraordinary musical heritage.",instruments:["Guitar","Brass","Woodwinds","Piano","Drums"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","strings","repairs","lessons","rentals"]},
+  {id:"no2",name:"Euclid Records",hood:"Bywater",address:"3301 Chartres St, New Orleans, LA 70117",phone:"(504) 947-4348",website:"euclidrecords.com",hours:"Mon–Sat 11am–7pm · Sun 11am–6pm",est:2000,lat:29.9624,lng:-90.0488,color:"#4a1a1a",icon:"💿",badge:"Bywater",short:"New Orleans' beloved independent record store. Vinyl spanning every genre in the Bywater.",full:"Euclid Records is New Orleans' most beloved independent record store, carrying an extensive selection of vinyl records spanning every genre. Located in the funky Bywater neighborhood, they're a hub for New Orleans' vibrant music community.",instruments:["Vinyl Records","CDs"],services:["Buy & Sell","In-Store Events"],tags:["vinyl","venue"]},
+  {id:"no3",name:"Uptown Music",hood:"Uptown",address:"4827 Magazine St, New Orleans, LA 70115",phone:"(504) 895-6217",website:"uptownmusic.com",hours:"Mon–Sat 10am–6pm",est:1988,lat:29.9272,lng:-90.0997,color:"#1f3d2a",icon:"🎸",badge:"Magazine St",short:"Uptown New Orleans' independent music shop. Guitars, bass, and brass on Magazine Street.",full:"Uptown Music has been serving New Orleans musicians on the iconic Magazine Street since 1988. They carry guitars, basses, brass instruments, and accessories, reflecting the diverse musical needs of one of America's most musical cities.",instruments:["Guitar","Bass","Brass","Woodwinds","Accessories"],services:["Repairs","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"no4",name:"Piety Street Recordings",hood:"Bywater",address:"400 Piety St, New Orleans, LA 70117",phone:"(504) 943-1100",website:"pietystreetrecordings.com",hours:"By appointment",est:2010,lat:29.9591,lng:-90.0479,color:"#0d2010",icon:"🎙️",badge:"Studio/Store",short:"Bywater recording studio and instrument shop. New Orleans' coolest music destination.",full:"Piety Street Recordings is a Bywater recording studio and boutique instrument shop, representing the intersection of New Orleans' creative and musical communities. A unique destination combining recording services with instrument sales.",instruments:["Guitar","Bass","Studio Gear"],services:["Recording","Used & Vintage"],tags:["guitar","synth","venue"]},
+  {id:"no5",name:"New Orleans Music Exchange",hood:"Mid-City",address:"3342 Tulane Ave, New Orleans, LA 70119",phone:"(504) 488-7458",website:"neworleansmusic.com",hours:"Mon–Sat 10am–6pm",est:1995,lat:29.9699,lng:-90.0835,color:"#3d2010",icon:"🎵",badge:"Mid-City",short:"New Orleans' buy/sell/trade music exchange. Guitars, amps, and all manner of musical gear.",full:"New Orleans Music Exchange is the city's go-to destination for buying, selling, and trading musical instruments and gear. Located in Mid-City, they carry guitars, amps, drums, and all manner of musical equipment at fair prices.",instruments:["Guitar","Bass","Drums","Amps"],services:["Buy & Sell","Used & Vintage","Repairs"],tags:["guitar","drums","repairs","vintage"]}
+],
+boston:[
+  {id:"bos1",name:"Old South Music",hood:"Jamaica Plain",address:"313 Centre St, Jamaica Plain, MA 02130",phone:"(617) 522-8989",website:"oldsouthmusic.com",hours:"Mon–Sat 10am–6pm",est:1978,lat:42.3095,lng:-71.1088,color:"#1f3d2a",icon:"🎸",badge:"JP Classic",short:"Jamaica Plain's legendary guitar and folk instrument shop since 1978.",full:"Old South Music has been Jamaica Plain's beloved music store since 1978. They specialize in acoustic guitars, folk instruments, and provide excellent repair services. A true neighborhood music institution.",instruments:["Guitar","Mandolin","Banjo","Ukulele","Bass"],services:["Repairs","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"bos2",name:"Mass Vintage",hood:"Somerville",address:"349 Highland Ave, Somerville, MA 02144",phone:"(617) 776-0006",website:"massvintage.com",hours:"Tue–Sat 12pm–6pm",est:2005,lat:42.3881,lng:-71.0994,color:"#2d1a0a",icon:"🎸",badge:"Vintage",short:"Boston's premier vintage guitar shop. Rare and vintage guitars, amps, and effects.",full:"Mass Vintage is Boston's go-to destination for vintage and used guitars, amplifiers, and effects. Their carefully curated selection attracts serious collectors and working musicians from across New England.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"bos3",name:"Daddy's Junky Music",hood:"Boston",address:"1716 Massachusetts Ave, Cambridge, MA 02138",phone:"(617) 354-4524",website:"daddys.com",hours:"Mon–Sat 10am–7pm",est:1969,lat:42.3841,lng:-71.1139,color:"#3d1a0a",icon:"🎸",badge:"Est. 1969",short:"New England's beloved used instrument chain since 1969. Guitars, drums, and more.",full:"Daddy's Junky Music has been a New England institution since 1969, offering a fantastic selection of used and vintage musical instruments and gear. They carry guitars, drums, keyboards, and all manner of musical equipment.",instruments:["Guitar","Bass","Drums","Keyboards","Vintage Amps"],services:["Repairs","Buy & Sell","Used & Vintage"],tags:["guitar","drums","keys","repairs","vintage"]},
+  {id:"bos4",name:"Guitar Stop",hood:"Brookline",address:"1306 Commonwealth Ave, Boston, MA 02134",phone:"(617) 738-3666",website:"guitarstoponline.com",hours:"Mon–Sat 11am–6pm",est:1992,lat:42.3533,lng:-71.1280,color:"#1a2a4d",icon:"🎸",badge:"Brookline",short:"Brookline's go-to guitar shop. New, used, and vintage guitars with expert setups.",full:"Guitar Stop is Brookline's beloved guitar shop, offering new, used, and vintage guitars and basses. Their expert technicians provide top-notch setups and repairs, making it a favorite among Boston's guitar community.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Setups","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"bos5",name:"Ted's Keyboard World",hood:"Waltham",address:"545 Main St, Waltham, MA 02452",phone:"(781) 899-8600",website:"tedskeyboardworld.com",hours:"Mon–Sat 10am–6pm",est:1976,lat:42.3764,lng:-71.2473,color:"#1f1a3d",icon:"🎹",badge:"Keys Specialist",short:"New England's premier keyboard and piano specialist since 1976.",full:"Ted's Keyboard World is New England's go-to destination for keyboards, synthesizers, and pianos since 1976. They carry an exceptional selection of new and used keyboards, with expert repair and restoration services.",instruments:["Piano","Synthesizers","Keyboards","Organs"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["keys","synth","repairs","vintage"]}
+],
+detroit:[
+  {id:"det1",name:"Elderly Instruments",hood:"Lansing",address:"1100 N Washington Ave, Lansing, MI 48906",phone:"(517) 372-7890",website:"elderly.com",hours:"Mon–Sat 10am–6pm",est:1972,lat:42.7370,lng:-84.5467,color:"#2a3d1f",icon:"🎸",badge:"World Famous",short:"One of America's most respected instrument dealers since 1972. Vintage, folk, and acoustic.",full:"Elderly Instruments is one of America's most respected instrument dealers, known worldwide for their extraordinary selection of vintage, folk, and acoustic instruments. Founded in 1972, they carry everything from rare vintage Martin guitars to world instruments.",instruments:["Guitar","Banjo","Mandolin","Violin","Ukulele","World Instruments"],services:["Repairs","Appraisals","Buy & Sell","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"det2",name:"Huber & Breese Music",hood:"Royal Oak",address:"723 W 11 Mile Rd, Royal Oak, MI 48067",phone:"(248) 542-3300",website:"huberbreesemusic.com",hours:"Mon–Sat 10am–6pm",est:1949,lat:42.4892,lng:-83.1519,color:"#1a2d3d",icon:"🎵",badge:"Est. 1949",short:"Metro Detroit's full-service music store since 1949. Instruments, lessons, and repairs.",full:"Huber & Breese Music has been serving Metro Detroit musicians since 1949. A full-service music store carrying instruments of all kinds with lessons, repairs, and rentals.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"det3",name:"Found Sound",hood:"Detroit",address:"6445 Woodward Ave, Detroit, MI 48202",phone:"(313) 873-1975",website:"foundsounddetroit.com",hours:"Tue–Sat 12pm–7pm",est:2010,lat:42.3710,lng:-83.0635,color:"#3d1a1a",icon:"🎸",badge:"New Center",short:"Detroit's independent music hub in New Center. New, used, and vintage instruments.",full:"Found Sound is Detroit's independent music hub in the New Center neighborhood, carrying new, used, and vintage instruments with a focus on supporting the local Detroit music scene.",instruments:["Guitar","Bass","Drums","Synthesizers"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","drums","synth","repairs","vintage"]},
+  {id:"det4",name:"Liberty Music",hood:"Plymouth",address:"804 Penniman Ave, Plymouth, MI 48170",phone:"(734) 451-2600",website:"libertymusic.com",hours:"Mon–Sat 10am–6pm",est:1962,lat:42.3712,lng:-83.4699,color:"#1f3d2a",icon:"🎵",badge:"Est. 1962",short:"Metro Detroit's beloved independent music store since 1962. Full-service and family-owned.",full:"Liberty Music has been serving Metro Detroit musicians since 1962. This family-owned, full-service music store carries instruments of all kinds, offers lessons, repairs, and rentals, and remains a beloved community institution.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals"],tags:["guitar","keys","drums","repairs","lessons","rentals"]}
+],
+minneapolis:[
+  {id:"mpls1",name:"Homestead Pickin' Parlor",hood:"Minneapolis",address:"6625 Penn Ave S, Minneapolis, MN 55423",phone:"(612) 869-3276",website:"homesteadpickin.com",hours:"Mon–Sat 10am–6pm",est:1978,lat:44.8782,lng:-93.3253,color:"#2a3d1f",icon:"🪕",badge:"Folk Haven",short:"Minneapolis' beloved folk and acoustic instrument shop since 1978.",full:"Homestead Pickin' Parlor has been Minneapolis' folk and acoustic instrument destination since 1978. They specialize in acoustic guitars, banjos, mandolins, and folk instruments, plus lessons and repairs for the folk music community.",instruments:["Guitar","Banjo","Mandolin","Ukulele","Violin"],services:["Repairs","Lessons","Used & Vintage"],tags:["guitar","strings","repairs","lessons","vintage"]},
+  {id:"mpls2",name:"Groth Music",hood:"Bloomington",address:"8056 Brooklyn Blvd, Brooklyn Park, MN 55445",phone:"(763) 566-2777",website:"grothmusic.com",hours:"Mon–Sat 10am–6pm",est:1982,lat:45.0941,lng:-93.3735,color:"#1a2a4d",icon:"🎵",badge:"Full Line",short:"Twin Cities' full-service music superstore. Band instruments, guitars, and lessons.",full:"Groth Music is a Twin Cities institution offering a comprehensive selection of band instruments, guitars, keyboards, and accessories. They serve students and professionals alike with lessons, repairs, and rentals.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"mpls3",name:"Minnehaha Music",hood:"Minneapolis",address:"4455 Hiawatha Ave, Minneapolis, MN 55406",phone:"(612) 721-7741",website:"minnehahamusic.com",hours:"Mon–Sat 10am–6pm",est:1999,lat:44.9193,lng:-93.2162,color:"#3d2a0a",icon:"🎸",badge:"South Mpls",short:"South Minneapolis' independent guitar shop. New, used, and vintage guitars and amps.",full:"Minnehaha Music is South Minneapolis' go-to guitar shop, carrying new, used, and vintage guitars and amplifiers. Known for their knowledgeable staff and fair prices.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"mpls4",name:"Schmitt Music",hood:"Minneapolis",address:"88 S 10th St, Minneapolis, MN 55403",phone:"(612) 339-7531",website:"schmittmusic.com",hours:"Mon–Sat 10am–6pm",est:1896,lat:44.9766,lng:-93.2708,color:"#1f1a3d",icon:"🎹",badge:"Since 1896",short:"One of America's oldest music retailers since 1896. Pianos, instruments, and lessons.",full:"Schmitt Music has been serving musicians since 1896, making it one of America's oldest music retailers. They specialize in pianos and all instruments, offer lessons, and provide expert repair services.",instruments:["Piano","Guitar","Bass","Brass","Woodwinds","Drums"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["keys","guitar","drums","repairs","lessons","rentals"]}
+],
+philadelphia:[
+  {id:"phi1",name:"Philadelphia Guitar & Bass",hood:"Philadelphia",address:"2038 Sansom St, Philadelphia, PA 19103",phone:"(215) 563-6021",website:"philaguitar.com",hours:"Mon–Sat 11am–6pm",est:1985,lat:39.9505,lng:-75.1753,color:"#2d1a0a",icon:"🎸",badge:"Center City",short:"Philadelphia's premier guitar boutique since 1985. New, used, and vintage guitars.",full:"Philadelphia Guitar & Bass has been the city's go-to guitar boutique since 1985. They carry a carefully curated selection of new, used, and vintage guitars and basses with expert repair services.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"phi2",name:"Riff's Music",hood:"South Philly",address:"1808 S Broad St, Philadelphia, PA 19145",phone:"(215) 468-3700",website:"riffsmusic.com",hours:"Mon–Sat 10am–6pm",est:1975,lat:39.9219,lng:-75.1673,color:"#1a2a4d",icon:"🎵",badge:"South Philly",short:"South Philly's independent music store since 1975. Guitars, drums, and full repairs.",full:"Riff's Music has been South Philly's beloved music store since 1975. A full-service shop carrying guitars, drums, and accessories with expert repair services and a knowledgeable staff.",instruments:["Guitar","Bass","Drums","Accessories"],services:["Repairs","Used & Vintage"],tags:["guitar","drums","repairs","vintage"]},
+  {id:"phi3",name:"House of Guitars",hood:"Cheltenham",address:"60 W Cheltenham Ave, Cheltenham, PA 19012",phone:"(215) 379-5757",website:"houseofguitars.net",hours:"Mon–Sat 10am–6pm",est:1980,lat:40.0656,lng:-75.1098,color:"#3d2010",icon:"🎸",badge:"Guitar Specialist",short:"Philadelphia area guitar specialist since 1980. Acoustic, electric, and bass guitars.",full:"House of Guitars has been serving the Philadelphia area since 1980, specializing in acoustic, electric, and bass guitars. Their knowledgeable staff helps players of all levels find their perfect instrument.",instruments:["Guitar","Bass","Ukulele","Mandolin"],services:["Repairs","Used & Vintage"],tags:["guitar","strings","repairs","vintage"]},
+  {id:"phi4",name:"Medley Music",hood:"Bryn Mawr",address:"809 W Lancaster Ave, Bryn Mawr, PA 19010",phone:"(610) 527-2500",website:"medleymusic.com",hours:"Mon–Sat 10am–6pm",est:1953,lat:40.0195,lng:-75.3128,color:"#1f3d2a",icon:"🎵",badge:"Est. 1953",short:"Main Line's full-service music store since 1953. Instruments, lessons, and repairs.",full:"Medley Music has been serving Main Line musicians since 1953. A full-service music store offering instruments of all kinds, music lessons for students of all ages, and expert repair services.",instruments:["Guitar","Piano","Drums","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]}
+],
+dallas:[
+  {id:"dal1",name:"Guitar Sanctuary",hood:"McKinney",address:"400 S Central Expy, McKinney, TX 75070",phone:"(972) 540-0048",website:"guitarsanctuary.com",hours:"Mon–Sat 10am–7pm · Sun 12pm–5pm",est:2007,lat:33.1973,lng:-96.6390,color:"#1a2a4d",icon:"🎸",badge:"DFW Premier",short:"DFW's premier boutique guitar shop. Exceptional selection of acoustic, electric, and amps.",full:"Guitar Sanctuary is a premier boutique guitar store carrying an exceptional selection of acoustic, electric, and bass guitars alongside boutique amplifiers. Known for extraordinary customer service and a curated inventory.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"dal2",name:"Tone Shop Guitars",hood:"Addison",address:"4953 Belt Line Rd, Addison, TX 75001",phone:"(972) 239-8663",website:"toneshopguitars.com",hours:"Mon–Sat 11am–7pm",est:2009,lat:32.9597,lng:-96.8308,color:"#2a1a3d",icon:"🎸",badge:"Boutique",short:"Dallas' boutique guitar destination. High-end acoustic, electric, and boutique amps.",full:"Tone Shop Guitars is the Dallas-Fort Worth area's premier boutique guitar destination, offering high-end acoustic and electric guitars, boutique amplifiers, and effects pedals. Their knowledgeable staff provides expert guidance.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"dal3",name:"Brook Mays Music",hood:"Dallas",address:"5005 LBJ Fwy, Dallas, TX 75244",phone:"(972) 387-3700",website:"brookmays.com",hours:"Mon–Sat 10am–7pm",est:1924,lat:32.9177,lng:-96.8220,color:"#1f3d2a",icon:"🎵",badge:"Since 1924",short:"Texas music institution since 1924. Full-service music store and lessons center.",full:"Brook Mays Music has been a Texas music institution since 1924. A full-service music store carrying instruments of all kinds with a comprehensive lessons program and expert repair services.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]},
+  {id:"dal4",name:"Blue Guitar",hood:"Dallas",address:"4111 Lomo Alto Dr, Dallas, TX 75219",phone:"(214) 526-0500",website:"blueguitar.com",hours:"Mon–Sat 11am–6pm",est:1995,lat:32.8250,lng:-96.8092,color:"#1a1a4d",icon:"🎸",badge:"Highland Park",short:"Highland Park's boutique guitar shop. New and vintage guitars in an intimate setting.",full:"Blue Guitar is Highland Park's intimate boutique guitar shop, carrying a curated selection of new and vintage guitars and amplifiers. Known for their exceptional customer service and knowledgeable staff.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"dal5",name:"D'Guitar Works",hood:"Irving",address:"3014 N Belt Line Rd, Irving, TX 75062",phone:"(972) 256-1995",website:"dguitarworks.com",hours:"Mon–Sat 10am–6pm",est:1988,lat:32.8382,lng:-96.9822,color:"#3d2010",icon:"🔧",badge:"Repair Specialist",short:"DFW's most trusted guitar repair shop since 1988. Expert luthiers and setups.",full:"D'Guitar Works is the Dallas-Fort Worth area's most trusted guitar repair and restoration shop since 1988. Their expert luthiers handle everything from basic setups to full custom builds and restorations.",instruments:["Guitar","Bass"],services:["Repairs","Custom Builds","Setups"],tags:["guitar","repairs"]}
+],
+houston:[
+  {id:"hou1",name:"Texas Music Emporium",hood:"Houston",address:"11440 Westheimer Rd, Houston, TX 77077",phone:"(281) 496-1212",website:"texasmusicemporium.com",hours:"Mon–Sat 10am–7pm",est:1980,lat:29.7350,lng:-95.5713,color:"#3d2a0a",icon:"🎸",badge:"TX Institution",short:"Houston's legendary independent guitar shop. Expert staff and exceptional selection.",full:"Texas Music Emporium in northwest Houston is a go-to destination for serious guitar players. Their knowledgeable and friendly staff hold their own against any big-box store. Expert setups, repairs, and rewiring by Robert Hampton.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"hou2",name:"Rockin' Robin Guitars",hood:"Houston",address:"3619 S Shepherd Dr, Houston, TX 77098",phone:"(713) 529-5442",website:"rockinrobinguitars.com",hours:"Mon–Sat 10am–6pm",est:1978,lat:29.7373,lng:-95.4008,color:"#2d1a0a",icon:"🎸",badge:"Shepherd",short:"Houston's beloved guitar shop since 1978. New, used, and vintage guitars in the Museum District.",full:"Rockin' Robin Guitars has been Houston's go-to guitar shop since 1978, located near the Museum District. They carry new, used, and vintage guitars and amplifiers with expert repair services.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"hou3",name:"Drum Center of Houston",hood:"Houston",address:"2612 Fondren Rd, Houston, TX 77063",phone:"(713) 334-8100",website:"drumcenterhouston.com",hours:"Mon–Sat 10am–6pm",est:1995,lat:29.7338,lng:-95.4786,color:"#3d1a1a",icon:"🥁",badge:"Drum Specialist",short:"Houston's premier drum shop. New, used, and custom drums and cymbals.",full:"Drum Center of Houston is the city's go-to destination for all things percussion. They carry new, used, and vintage drum sets, cymbals, hardware, and accessories from top brands.",instruments:["Drums","Cymbals","Percussion","Hardware"],services:["Repairs","Used & Vintage","Custom Builds"],tags:["drums","repairs","vintage"]},
+  {id:"hou4",name:"Spacetone Music",hood:"San Antonio",address:"5309 Blanco Rd, San Antonio, TX 78216",phone:"(210) 340-1300",website:"spacetonemusic.com",hours:"Mon–Sat 11am–6pm",est:2003,lat:29.5266,lng:-98.4906,color:"#1a2a4d",icon:"🎸",badge:"San Antonio",short:"San Antonio's premier boutique guitar shop. Exceptional selection of vintage and boutique gear.",full:"Spacetone Music is San Antonio's premier boutique guitar destination, known for their exceptional selection of vintage and boutique guitars, amplifiers, and effects. A beloved destination for serious Texas musicians.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]}
+],
+phoenix:[
+  {id:"phx1",name:"Vintage Instruments",hood:"Phoenix",address:"2800 N 24th St, Phoenix, AZ 85008",phone:"(602) 956-6751",website:"vintageinstrumentsphx.com",hours:"Mon–Sat 10am–6pm",est:1978,lat:33.4723,lng:-112.0220,color:"#3d2a0a",icon:"🎸",badge:"Est. 1978",short:"Phoenix's vintage instrument destination since 1978. Rare guitars, amps, and gear.",full:"Vintage Instruments has been Phoenix's go-to destination for vintage and used guitars, amplifiers, and musical gear since 1978. Their curated selection attracts serious collectors and working musicians from across the Southwest.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Buy & Sell","Used & Vintage","Appraisals"],tags:["guitar","repairs","vintage"]},
+  {id:"phx2",name:"Rainbow Guitars",hood:"Tucson",address:"914 E 8th St, Tucson, AZ 85719",phone:"(520) 882-3938",website:"rainbowguitars.com",hours:"Mon–Sat 10am–6pm",est:1978,lat:32.2285,lng:-110.9565,color:"#1a2a4d",icon:"🎸",badge:"Tucson",short:"Tucson's legendary guitar shop since 1978. New, used, and vintage guitars and basses.",full:"Rainbow Guitars is Tucson's most beloved guitar shop, operating since 1978. They carry new, used, and vintage guitars and basses with expert repair services and a knowledgeable staff that helps players of all levels.",instruments:["Guitar","Bass","Vintage Amps"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"phx3",name:"GC's Guitars & More",hood:"Scottsdale",address:"7326 E Stetson Dr, Scottsdale, AZ 85251",phone:"(480) 994-9001",website:"gcsguitars.com",hours:"Mon–Sat 10am–6pm",est:1992,lat:33.4944,lng:-111.9238,color:"#2d1a0a",icon:"🎸",badge:"Scottsdale",short:"Scottsdale's go-to guitar shop. Premium guitars, amps, and expert repair service.",full:"GC's Guitars & More is Scottsdale's premier guitar shop, carrying premium acoustic and electric guitars, amplifiers, and accessories. Known for their expert repair service and friendly, knowledgeable staff.",instruments:["Guitar","Bass","Ukulele","Amps"],services:["Repairs","Setups","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"phx4",name:"Phoenix Guitar Company",hood:"Phoenix",address:"3815 N 24th St, Phoenix, AZ 85016",phone:"(602) 957-3522",website:"phoenixguitar.com",hours:"Mon–Sat 10am–6pm",est:1985,lat:33.4847,lng:-112.0220,color:"#1f3d2a",icon:"🎸",badge:"Luthier Shop",short:"Phoenix's premier guitar builder and repair shop. Custom guitars and expert restorations.",full:"Phoenix Guitar Company is the Valley's premier luthier shop, specializing in custom guitar building and expert repairs and restorations. Their skilled craftsmen handle everything from basic setups to complex custom builds.",instruments:["Guitar","Bass","Custom Builds"],services:["Custom Builds","Repairs","Restorations"],tags:["guitar","repairs"]}
+],
+sandiego:[
+  {id:"sd1",name:"Guitar Trader",hood:"San Diego",address:"7380 Clairemont Mesa Blvd, San Diego, CA 92111",phone:"(858) 279-8100",website:"guitartradersd.com",hours:"Mon–Sat 10am–7pm · Sun 11am–6pm",est:1975,lat:32.8221,lng:-117.1495,color:"#3d2a0a",icon:"🎸",badge:"Est. 1975",short:"San Diego's premier guitar shop since 1975. New, used, and vintage guitars and amps.",full:"Guitar Trader has been San Diego's go-to guitar shop since 1975. They carry a comprehensive selection of new, used, and vintage guitars, basses, and amplifiers with expert repair services.",instruments:["Guitar","Bass","Vintage Amps","Effects"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"sd2",name:"Subway Guitars",hood:"Berkeley",address:"1800 Cedar St, Berkeley, CA 94703",phone:"(510) 841-4106",website:"subwayguitars.com",hours:"Mon–Sat 12pm–6pm",est:1979,lat:37.8773,lng:-122.2894,color:"#1a2a4d",icon:"🎸",badge:"Berkeley Icon",short:"Berkeley's legendary budget guitar shop since 1979. Cheap guitars that actually play well.",full:"Subway Guitars is a Berkeley institution carrying a huge selection of affordable new and used guitars. Known for guitars that actually play well at budget prices, it's a beloved destination for students and collectors alike.",instruments:["Guitar","Bass","Ukulele"],services:["Repairs","Used & Vintage"],tags:["guitar","repairs","vintage"]},
+  {id:"sd3",name:"Blue Meannie Music",hood:"San Diego",address:"3845 Fairmount Ave, San Diego, CA 92105",phone:"(619) 283-0590",website:"bluemeanniesandiego.com",hours:"Tue–Sat 11am–6pm",est:1998,lat:32.7519,lng:-117.1102,color:"#2d1b4e",icon:"🎸",badge:"East Village",short:"San Diego's beloved independent guitar and used instrument shop.",full:"Blue Meannie Music is San Diego's beloved independent music store, carrying new, used, and vintage guitars, basses, and accessories. Known for their knowledgeable staff and welcoming atmosphere.",instruments:["Guitar","Bass","Effects","Accessories"],services:["Repairs","Used & Vintage","Buy & Sell"],tags:["guitar","repairs","vintage"]},
+  {id:"sd4",name:"Intermission Music San Diego",hood:"San Diego",address:"7475 Mission Gorge Rd, San Diego, CA 92120",phone:"(619) 283-9990",website:"intermissionsd.com",hours:"Mon–Sat 10am–6pm",est:1990,lat:32.7874,lng:-117.0786,color:"#1f3d2a",icon:"🎵",badge:"Full Service",short:"San Diego's full-service music store. Instruments, lessons, and repairs for all musicians.",full:"Intermission Music is San Diego's full-service music store, carrying instruments of all kinds alongside accessories, sheet music, lessons, and expert repairs. Serving musicians of all levels since 1990.",instruments:["Guitar","Bass","Drums","Piano","Brass","Woodwinds"],services:["Repairs","Lessons","Rentals","Sheet Music"],tags:["guitar","keys","drums","repairs","lessons","rentals"]}
+]
+};
+
+// ── APP STATE ──
+let currentCity = 'la';
 let activeFilter = 'all';
 let activeStoreId = null;
 const markers = {};
+let map;
 
-// Init map centered on LA
-const map = L.map('map', { zoomControl: false }).setView([34.06, -118.38], 11);
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-  maxZoom: 19
-}).addTo(map);
+// ── INIT MAP ──
+function initMap() {
+  map = L.map('map', { zoomControl: false });
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    maxZoom: 19
+  }).addTo(map);
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+  switchCity('la');
+}
 
-// Zoom control bottom-right
-L.control.zoom({ position: 'bottomright' }).addTo(map);
+function makePinIcon(s, isActive) {
+  return L.divIcon({
+    className: '',
+    html: `<div class="msf-pin${isActive?' active':''}" style="background:${s.color}">${s.icon}</div>`,
+    iconSize: [32,32], iconAnchor: [16,16], popupAnchor: [0,-18]
+  });
+}
 
-function getFilteredStores() {
+function makePopup(s) {
+  const hasWeb = s.website && s.website !== '—';
+  return `
+    <div class="pu-top">
+      <div class="pu-icon">${s.icon}</div>
+      <div class="pu-name">${s.name}</div>
+      <div class="pu-hood">📍 ${s.hood} · Est. ${s.est}</div>
+      <div class="pu-desc">${s.short}</div>
+    </div>
+    <div class="pu-foot">
+      ${hasWeb
+        ? `<a class="pu-btn" href="https://${s.website}" target="_blank" rel="noopener">Visit Website →</a>`
+        : `<span class="pu-btn" style="opacity:0.4;cursor:default">No Website</span>`}
+      <a class="pu-dir" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address)}" target="_blank" rel="noopener">Directions</a>
+    </div>
+    <button class="pu-profile" onclick="openProfile('${s.id}')">VIEW FULL PROFILE →</button>`;
+}
+
+function switchCity(city) {
+  currentCity = city;
+  activeFilter = 'all';
+  activeStoreId = null;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  document.querySelector('.chip').classList.add('on');
+  document.getElementById('si').value = '';
+
+  // Remove old markers
+  Object.values(markers).forEach(m => { if (map.hasLayer(m)) map.removeLayer(m); });
+  for (const k in markers) delete markers[k];
+
+  const meta = cityMeta[city];
+  map.setView(meta.center, meta.zoom);
+  document.getElementById('sbTitle').textContent = meta.name;
+  document.getElementById('citySelect').value = city;
+
+  // Add new markers
+  const stores = allStores[city] || [];
+  stores.forEach(s => {
+    const marker = L.marker([s.lat, s.lng], { icon: makePinIcon(s, false) })
+      .bindPopup(makePopup(s), { maxWidth: 260, minWidth: 230 });
+    marker.on('click', () => {
+      activeStoreId = s.id;
+      highlightListItem(s.id);
+    });
+    marker.addTo(map);
+    markers[s.id] = marker;
+  });
+
+  filterStores();
+}
+
+function getFiltered() {
   const q = document.getElementById('si').value.toLowerCase().trim();
+  const stores = allStores[currentCity] || [];
   return stores.filter(s => {
     const mF = activeFilter === 'all' || s.tags.includes(activeFilter);
     const mQ = !q || s.name.toLowerCase().includes(q) || s.hood.toLowerCase().includes(q);
@@ -260,117 +572,128 @@ function getFilteredStores() {
   });
 }
 
-function makePinIcon(s, isActive) {
-  return L.divIcon({
-    className: '',
-    html: `<div class="msf-marker${isActive?' active':''}" style="background:${s.color};">${s.emoji}</div>`,
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
-    popupAnchor: [0, -20]
-  });
-}
-
-function makePopup(s) {
-  return `
-    <div class="popup-top">
-      <div class="popup-emoji">${s.emoji}</div>
-      <div class="popup-name">${s.name}</div>
-      <div class="popup-hood">📍 ${s.hood} · Est. ${s.est}</div>
-      <div class="popup-desc">${s.short}</div>
-    </div>
-    <div class="popup-foot">
-      ${s.website !== '—' ? `<a class="popup-btn" href="https://${s.website}" target="_blank">Visit Website →</a>` : `<span class="popup-btn" style="opacity:0.4;cursor:default;">No Website</span>`}
-      <a class="popup-dir" href="https://maps.google.com/?q=${encodeURIComponent(s.name+' '+s.hood+' Los Angeles')}" target="_blank">Directions</a>
-    </div>`;
-}
-
-function renderAll() {
-  const filtered = getFilteredStores();
+function filterStores() {
+  const filtered = getFiltered();
   const filteredIds = new Set(filtered.map(s => s.id));
 
-  // Update sidebar list
+  // Update sidebar
   const list = document.getElementById('storeList');
   if (!filtered.length) {
     list.innerHTML = `<div class="no-results">No stores match your search.</div>`;
   } else {
     list.innerHTML = filtered.map(s => `
-      <div class="store-item${s.id === activeStoreId ? ' active' : ''}" id="item-${s.id}" onclick="selectStore(${s.id})">
-        <div class="item-slab" style="background:${s.color}">${s.emoji}</div>
+      <div class="store-item${s.id === activeStoreId ? ' active':''}" id="item-${s.id}" onclick="selectStore('${s.id}')">
+        <div class="item-slab" style="background:${s.color}">${s.icon}</div>
         <div class="item-body">
           <div class="item-name">${s.name}</div>
           <div class="item-hood">${s.hood}</div>
           <div class="item-pills">
-            ${s.instruments.slice(0,2).map(i=>`<span class="ipill ipill-i">${i}</span>`).join('')}
-            ${s.services.slice(0,1).map(sv=>`<span class="ipill ipill-s">${sv}</span>`).join('')}
+            ${s.instruments.slice(0,2).map(i=>`<span class="ip ip-i">${i}</span>`).join('')}
+            ${s.services.slice(0,1).map(sv=>`<span class="ip ip-s">${sv}</span>`).join('')}
           </div>
         </div>
       </div>`).join('');
   }
 
-  // Update count
-  document.getElementById('countLabel').textContent =
-    `${filtered.length} store${filtered.length !== 1 ? 's' : ''} mapped`;
+  document.getElementById('sbCount').textContent = `${filtered.length} store${filtered.length!==1?'s':''} mapped`;
 
   // Show/hide markers
-  stores.forEach(s => {
+  (allStores[currentCity]||[]).forEach(s => {
     if (!markers[s.id]) return;
-    if (filteredIds.has(s.id)) {
-      if (!map.hasLayer(markers[s.id])) markers[s.id].addTo(map);
-    } else {
-      if (map.hasLayer(markers[s.id])) map.removeLayer(markers[s.id]);
-    }
+    if (filteredIds.has(s.id)) { if (!map.hasLayer(markers[s.id])) markers[s.id].addTo(map); }
+    else { if (map.hasLayer(markers[s.id])) map.removeLayer(markers[s.id]); }
   });
 }
 
-function selectStore(id) {
-  const s = stores.find(x => x.id === id);
-  if (!s) return;
-
-  // Update active
-  activeStoreId = id;
-
-  // Fly map to store
-  map.flyTo([s.lat, s.lng], 15, { duration: 0.8 });
-
-  // Open popup
-  if (markers[id]) {
-    markers[id].openPopup();
-  }
-
-  // Update sidebar highlight
+function highlightListItem(id) {
   document.querySelectorAll('.store-item').forEach(el => el.classList.remove('active'));
   const el = document.getElementById(`item-${id}`);
   if (el) { el.classList.add('active'); el.scrollIntoView({ block:'nearest', behavior:'smooth' }); }
+}
+
+function selectStore(id) {
+  const stores = allStores[currentCity] || [];
+  const s = stores.find(x => x.id === id);
+  if (!s) return;
+  activeStoreId = id;
+  map.flyTo([s.lat, s.lng], 15, { duration: 0.8 });
+  if (markers[id]) markers[id].openPopup();
+  highlightListItem(id);
 }
 
 function setFilter(f, el) {
   document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
   el.classList.add('on');
   activeFilter = f;
-  renderAll();
+  filterStores();
 }
 
-function filterStores() { renderAll(); }
+// ── PROFILE PAGE ──
+function openProfile(id) {
+  const stores = allStores[currentCity] || [];
+  const s = stores.find(x => x.id === id);
+  if (!s) return;
 
-// Create markers for all stores
-stores.forEach(s => {
-  const marker = L.marker([s.lat, s.lng], { icon: makePinIcon(s, false) })
-    .bindPopup(makePopup(s), { maxWidth: 260, minWidth: 240 });
+  document.getElementById('profBg').style.background = s.color;
+  document.getElementById('profIcon').textContent = s.icon;
+  document.getElementById('profBadge').textContent = s.badge;
+  document.getElementById('profEst').textContent = 'Est. ' + s.est;
+  document.getElementById('profNavName').textContent = s.name;
+  document.getElementById('profName').textContent = s.name;
+  document.getElementById('profMeta').textContent = '📍 ' + s.address;
 
-  marker.on('click', () => {
-    activeStoreId = s.id;
-    document.querySelectorAll('.store-item').forEach(el => el.classList.remove('active'));
-    const el = document.getElementById(`item-${s.id}`);
-    if (el) { el.classList.add('active'); el.scrollIntoView({ block:'nearest', behavior:'smooth' }); }
-  });
+  const hasWeb = s.website && s.website !== '—';
+  document.getElementById('profBtns').innerHTML = `
+    <a class="pb-p${hasWeb?'':' dim'}" ${hasWeb?`href="https://${s.website}" target="_blank" rel="noopener"`:''}>${hasWeb ? 'Visit Website →' : 'No Website Listed'}</a>
+    <a class="pb-s" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(s.address)}" target="_blank" rel="noopener">Get Directions</a>`;
 
+  document.getElementById('profAbout').textContent = s.full;
+  document.getElementById('profInst').innerHTML = s.instruments.map(i=>`<span class="ti">${i}</span>`).join('');
+  document.getElementById('profSvcs').innerHTML = s.services.map(sv=>`<span class="ts">${sv}</span>`).join('');
+  document.getElementById('profGrid').innerHTML = `
+    <div class="ptile"><div class="ptile-l">Phone</div><div class="ptile-v">${s.phone}</div></div>
+    <div class="ptile"><div class="ptile-l">Hours</div><div class="ptile-v">${s.hours}</div></div>
+    <div class="ptile"><div class="ptile-l">Website</div><div class="ptile-v">${s.website}</div></div>
+    <div class="ptile"><div class="ptile-l">Established</div><div class="ptile-v">${s.est}</div></div>`;
+  document.getElementById('profMapAddr').textContent = s.address;
+  document.getElementById('profMapBtn').onclick = () =>
+    window.open('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(s.address),'_blank');
 
-  marker.addTo(map);
-  markers[s.id] = marker;
-});
+  document.getElementById('profPage').classList.add('open');
+  document.getElementById('profPage').scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+}
 
-// Initial render
-renderAll();
+function closeProfile() {
+  document.getElementById('profPage').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── SIGNUP ──
+function openSignup() { document.getElementById('signupOv').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeSignup() { document.getElementById('signupOv').classList.remove('open'); document.body.style.overflow=''; }
+
+function submitForm() {
+  const name = document.getElementById('f-name').value.trim();
+  const est  = document.getElementById('f-est').value.trim();
+  const addr = document.getElementById('f-addr').value.trim();
+  const phone= document.getElementById('f-phone').value.trim();
+  const web  = document.getElementById('f-web').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  const about= document.getElementById('f-about').value.trim();
+  const email= document.getElementById('f-email').value.trim();
+  if (!name||!addr||!about||!email) { alert('Please fill in all required fields.'); return; }
+  const inst = [...document.querySelectorAll('#signupOv input[type=checkbox]:checked')].map(i=>i.value).join(', ') || 'None';
+  const subject = encodeURIComponent(`New Store Listing: ${name}`);
+  const body = encodeURIComponent(`STORE NAME: ${name}\nESTABLISHED: ${est||'N/A'}\nADDRESS: ${addr}\nCITY: ${city||'N/A'}\nPHONE: ${phone||'N/A'}\nWEBSITE: ${web||'N/A'}\n\nABOUT:\n${about}\n\nINSTRUMENTS/SERVICES: ${inst}\n\nCONTACT: ${email}\n\n---\nSubmitted via musicstorefinds.co`);
+  window.location.href = `mailto:musicstorefinds@gmail.com?subject=${subject}&body=${body}`;
+  document.getElementById('submitBtn').textContent = '✓ Opening your email app...';
+  document.getElementById('submitBtn').style.background = '#2A6B3C';
+  setTimeout(() => closeSignup(), 2500);
+}
+
+// ── START ──
+document.addEventListener('DOMContentLoaded', initMap);
 </script>
 </body>
 </html>
