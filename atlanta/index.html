@@ -3,98 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Music Stores in Atlanta · Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Atlanta. Find guitar shops, drum stores, vintage gear, lessons, and more. Bringing Music and Communities Together.">
+<title>Best Music Stores in Atlanta | Music Store Finds</title>
+<meta name="description" content="Discover the best independent music stores in Atlanta. Atlanta's music scene is one of the most vibrant in the South, and its music stores reflect that energy. From Buckhead a... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
 <link rel="canonical" href="https://musicstorefinds.co/atlanta/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F2EDE3;--parchment:#E8E0D0;--ink:#1A1209;--blue:#1B6EF3;--pale:#E8F0FF;--muted:#8C7B65;--border:rgba(92,74,50,0.12);--bark:#5C4A32;}
+:root{
+  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
+  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
+  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
+  --border:rgba(92,74,50,0.12);
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-nav{height:58px;display:flex;align-items:center;padding:0 20px;background:var(--ink);}
+
+/* NAV */
+nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;}
+.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
 .ln b{color:#3D85FF;}
 .lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.hero{background:var(--ink);padding:36px 20px;text-align:center;}
-.hero h1{font-family:"Fraunces",serif;font-size:32px;font-weight:900;color:#F2EDE3;margin-bottom:6px;}
-.hero p{font-size:13px;color:rgba(242,237,227,0.5);}
-.stores{max-width:700px;margin:0 auto;padding:20px;}
-.card{background:#fff;border-radius:10px;margin-bottom:12px;border:1px solid var(--border);overflow:hidden;display:flex;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.slab{width:68px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
-.body{flex:1;padding:12px 14px;}
-.name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.desc{font-size:12px;color:#5A4E3C;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.arr{font-size:20px;color:var(--blue);padding:0 14px;display:flex;align-items:center;flex-shrink:0;}
-.back{text-align:center;padding:20px;font-size:13px;color:var(--muted);}
-.back a{color:var(--blue);font-weight:700;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
+.btn-list:hover{background:var(--bb);}
+
+/* HERO */
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:720px;position:relative;z-index:1;}
+.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
+.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.stat{text-align:left;}
+.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
+.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+
+/* SORT BAR */
+.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
+.sort-bar::-webkit-scrollbar{display:none;}
+.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
+.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+
+/* CONTENT */
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* TOP PICKS */
+.section{padding:36px 0 0;}
+.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
+.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
+.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* NEIGHBORHOODS */
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
+.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
+
+/* STORES LIST */
+.stores-section{padding:36px 0 48px;}
+.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
+.store-info{flex:1;min-width:0;}
+.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-web:hover{text-decoration:underline;}
+.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
+.store-arr{font-size:22px;color:var(--blue);}
+
+/* TOUR CTA */
+.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
+.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
+.tour-cta p b{color:#3D85FF;}
+.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+.tour-btn:hover{background:var(--bb);}
+
+/* FOOTER */
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
+.f-logo b{color:#3D85FF;}
+.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
+.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+.f-back:hover{color:#F2EDE3;}
+
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .store-card{flex-wrap:wrap;}
+  .store-right{flex-direction:row;align-items:center;width:100%;}
+  .picks-grid,.hood-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
+  <div class="nav-right">
+    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
+  </div>
 </nav>
+
+<!-- HERO -->
 <div class="hero">
-  <h1>Music Stores in Atlanta</h1>
-  <p>6 top independent music stores · Instruments, repairs, lessons, and more</p>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="/">Music Store Finds</a> › Atlanta</div>
+    <h1>Best Music Stores<br><em>in Atlanta</em></h1>
+    <p class="hero-intro">Atlanta's music scene is one of the most vibrant in the South, and its music stores reflect that energy. From Buckhead acoustic shops to Little Five Points vintage destinations, Atlanta has gear for every style of player.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">12</div><div class="stat-l">Stores Listed</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
+      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Always</div></div>
+    </div>
+  </div>
 </div>
-<div class="stores">
-<a class="card" href="/atlanta/maple-street-guitars/">
-  <div class="slab" style="background:#3d2a0a">🎸</div>
-  <div class="body">
-    <div class="name">Maple Street Guitars</div>
-    <div class="hood">📍 Buckhead</div>
-    <div class="desc">Family-owned acoustic guitar specialist for 42 years. Atlanta's most beloved guitar shop.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/atlanta/big-house-guitars/">
-  <div class="slab" style="background:#1a2a4d">🎸</div>
-  <div class="body">
-    <div class="name">Big House Guitars</div>
-    <div class="hood">📍 Little Five Points</div>
-    <div class="desc">Atlanta's coolest guitar shop. Lounge vibes, live performances, and an incredible guitar wall.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/atlanta/earthshaking-music/">
-  <div class="slab" style="background:#2a3d1f">🥁</div>
-  <div class="body">
-    <div class="name">Earthshaking Music</div>
-    <div class="hood">📍 Inman Park</div>
-    <div class="desc">Atlanta's go-to drum and percussion shop. New, used, and vintage drums and cymbals.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/atlanta/atlanta-discount-music/">
-  <div class="slab" style="background:#1f1a3d">🎸</div>
-  <div class="body">
-    <div class="name">Atlanta Discount Music</div>
-    <div class="hood">📍 Norcross</div>
-    <div class="desc">Atlanta's best-value music store. Guitars, amps, and accessories at great prices.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/atlanta/atlanta-musicians-exchange/">
-  <div class="slab" style="background:#2d2010">🎵</div>
-  <div class="body">
-    <div class="name">Atlanta Musicians Exchange</div>
-    <div class="hood">📍 Buckhead</div>
-    <div class="desc">Atlanta's buy, sell, and trade music hub. Instruments, repairs, and PA rentals.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/atlanta/sandy-springs-music/">
-  <div class="slab" style="background:#1a3d2a">🎹</div>
-  <div class="body">
-    <div class="name">Sandy Springs Music</div>
-    <div class="hood">📍 Sandy Springs</div>
-    <div class="desc">Sandy Springs full-service music store since 1975. Instruments, lessons, and repairs.</div>
-  </div>
-  <div class="arr">›</div>
-</a>
-<div class="back"><a href="/">← Music Store Finds Home</a></div>
+
+<!-- SORT BAR -->
+<div class="sort-bar">
+  <span class="sort-label">Browse by:</span>
+  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
+  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
+  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
+  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
+  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
+  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
+  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
+  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
 </div>
+
+<div class="wrap">
+
+  <!-- TOP PICKS -->
+  <div class="section">
+    <div class="sec-head">🏆 Top Picks in Atlanta</div>
+    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="picks-grid">
+      <a class="pick-card" href="/atlanta/maple-street-guitars/">
+        <div>
+          <div class="pick-name">Maple Street Guitars</div>
+          <div class="pick-why">Atlanta's most beloved acoustic guitar shop for 42 years</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/atlanta/big-house-guitars/">
+        <div>
+          <div class="pick-name">Big House Guitars</div>
+          <div class="pick-why">Top-rated guitar shop with rehearsal rooms and live music</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/atlanta/righteous-guitars/">
+        <div>
+          <div class="pick-name">Righteous Guitars</div>
+          <div class="pick-why">Atlanta's premier boutique guitar destination</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/atlanta/earthshaking-music/">
+        <div>
+          <div class="pick-name">Earthshaking Music</div>
+          <div class="pick-why">Best drum and percussion shop in the city</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/atlanta/criminal-records/">
+        <div>
+          <div class="pick-name">Criminal Records</div>
+          <div class="pick-why">Atlanta's iconic independent record store in Little Five Points</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/atlanta/wuxtry-records-athens/">
+        <div>
+          <div class="pick-name">Wuxtry Records Athens</div>
+          <div class="pick-why">The legendary Athens record store that launched REM and the B-52s</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEIGHBORHOODS -->
+  <div class="section" style="padding-top:32px;">
+    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
+    <div class="sec-sub">The best areas for music shopping in Atlanta — organized so you can hit multiple stores in one trip.</div>
+    <div class="hood-grid">
+      <div class="hood-card">
+        <div class="hood-name">📍 Little Five Points</div>
+        <div class="hood-desc">Big House Guitars and Criminal Records make L5P Atlanta's most musical neighborhood for gear and records.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Buckhead & Sandy Springs</div>
+        <div class="hood-desc">Maple Street Guitars and Sandy Springs Music serve Atlanta's north side with quality instruments.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Roswell & North Atlanta</div>
+        <div class="hood-desc">Righteous Guitars offers an exceptional boutique guitar experience north of the city.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Athens, GA</div>
+        <div class="hood-desc">Wuxtry Records and the legendary Athens music scene are just 90 minutes away — worth the drive.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ALL STORES -->
+  <div class="stores-section">
+    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Atlanta</div>
+    <div class="sec-sub">Every music store in Atlanta — instruments, records, repairs, lessons, and more.</div>
+    <div id="store-list">
+    <a class="store-card" href="/atlanta/maple-street-guitars/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Maple Street Guitars</div>
+        <div class="store-hood">📍 Buckhead</div>
+        <span class="store-tag">Acoustic Guitars</span>
+        <div class="store-desc">Family-owned acoustic guitar specialist for 42 years.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://maplestreetguitars.com" target="_blank" rel="noopener">maplestreetguitars.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/big-house-guitars/" data-tags="guitars vintage">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Big House Guitars</div>
+        <div class="store-hood">📍 Little Five Points</div>
+        <span class="store-tag">Vintage & Guitars</span>
+        <div class="store-desc">Atlanta's top-rated guitar shop with rehearsal rooms.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://bighouseguitars.com" target="_blank" rel="noopener">bighouseguitars.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/earthshaking-music/" data-tags="drums">
+      <div class="store-icon">🥁</div>
+      <div class="store-info">
+        <div class="store-name">Earthshaking Music</div>
+        <div class="store-hood">📍 Inman Park</div>
+        <span class="store-tag">Drums</span>
+        <div class="store-desc">Atlanta's go-to drum and percussion shop since 1990.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://earthshakingmusic.com" target="_blank" rel="noopener">earthshakingmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/righteous-guitars/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Righteous Guitars</div>
+        <div class="store-hood">📍 Roswell</div>
+        <span class="store-tag">Boutique</span>
+        <div class="store-desc">Atlanta's premier boutique guitar destination.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://righteousguitars.com" target="_blank" rel="noopener">righteousguitars.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/atlanta-discount-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Atlanta Discount Music</div>
+        <div class="store-hood">📍 Norcross</div>
+        <span class="store-tag">Guitars & Amps</span>
+        <div class="store-desc">Home of Tone for the Atlanta music community since 1978.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://atlantadiscountmusic.com" target="_blank" rel="noopener">atlantadiscountmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/atlanta-musicians-exchange/" data-tags="">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Atlanta Musicians Exchange</div>
+        <div class="store-hood">📍 Buckhead</div>
+        <span class="store-tag">Buy Sell Trade</span>
+        <div class="store-desc">Atlanta's buy, sell, and trade music hub.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://atlantamusiciansexchange.com" target="_blank" rel="noopener">atlantamusiciansexchange.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/sandy-springs-music/" data-tags="fullservice">
+      <div class="store-icon">🎹</div>
+      <div class="store-info">
+        <div class="store-name">Sandy Springs Music</div>
+        <div class="store-hood">📍 Sandy Springs</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">Sandy Springs full-service music store since 1975.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://sandyspringsmusic.com" target="_blank" rel="noopener">sandyspringsmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/criminal-records/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Criminal Records</div>
+        <div class="store-hood">📍 Little Five Points</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Atlanta's beloved independent record store since 1991.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://criminalatl.com" target="_blank" rel="noopener">criminalatl.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/ken-stanton-music/" data-tags="fullservice">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Ken Stanton Music</div>
+        <div class="store-hood">📍 Marietta</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">Atlanta's full-service music store since 1948.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://kenstantonmusic.com" target="_blank" rel="noopener">kenstantonmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/wuxtry-records-athens/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Wuxtry Records Athens</div>
+        <div class="store-hood">📍 Athens</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Athens' legendary record store. Home of the Athens music scene.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://wuxtryrecords.com" target="_blank" rel="noopener">wuxtryrecords.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/whipkeys-music/" data-tags="fullservice">
+      <div class="store-icon">🎻</div>
+      <div class="store-info">
+        <div class="store-name">Whipkey's Music</div>
+        <div class="store-hood">📍 Dunwoody</div>
+        <span class="store-tag">Orchestral</span>
+        <div class="store-desc">Metro Atlanta's most respected orchestral instrument dealer.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://whipkeysmusic.com" target="_blank" rel="noopener">whipkeysmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/atlanta/tone-republic/" data-tags="guitars vintage">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Tone Republic</div>
+        <div class="store-hood">📍 Decatur</div>
+        <span class="store-tag">Boutique</span>
+        <div class="store-desc">Decatur's boutique guitar shop. Used, vintage, and boutique gear.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+
+    </div>
+  </div>
+
+  <!-- TOUR CTA -->
+  <div class="tour-cta">
+    <div>
+      <h3>Own a music store in Atlanta?</h3>
+      <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
+    </div>
+    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Atlanta&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <a href="/" class="f-back">← All Cities</a>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<script>
+function filterStores(type, el) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.store-card').forEach(card => {
+    if (type === 'all') { card.style.display = ''; return; }
+    const tags = card.dataset.tags || '';
+    card.style.display = tags.includes(type) ? '' : 'none';
+  });
+}
+</script>
+
 </body>
 </html>

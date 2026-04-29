@@ -3,90 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Music Stores in Boston · Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Boston. Find guitar shops, drum stores, vintage gear, lessons, and more. Bringing Music and Communities Together.">
+<title>Best Music Stores in Boston | Music Store Finds</title>
+<meta name="description" content="Discover the best independent music stores in Boston. Boston's music store scene is as storied as its history. From Cambridge's legendary folk shops to Somerville's vinyl des... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
 <link rel="canonical" href="https://musicstorefinds.co/boston/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F2EDE3;--parchment:#E8E0D0;--ink:#1A1209;--blue:#1B6EF3;--pale:#E8F0FF;--muted:#8C7B65;--border:rgba(92,74,50,0.12);--bark:#5C4A32;}
+:root{
+  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
+  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
+  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
+  --border:rgba(92,74,50,0.12);
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-nav{height:58px;display:flex;align-items:center;padding:0 20px;background:var(--ink);}
+
+/* NAV */
+nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;}
+.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
 .ln b{color:#3D85FF;}
 .lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.hero{background:var(--ink);padding:36px 20px;text-align:center;}
-.hero h1{font-family:"Fraunces",serif;font-size:32px;font-weight:900;color:#F2EDE3;margin-bottom:6px;}
-.hero p{font-size:13px;color:rgba(242,237,227,0.5);}
-.stores{max-width:700px;margin:0 auto;padding:20px;}
-.card{background:#fff;border-radius:10px;margin-bottom:12px;border:1px solid var(--border);overflow:hidden;display:flex;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.slab{width:68px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
-.body{flex:1;padding:12px 14px;}
-.name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.desc{font-size:12px;color:#5A4E3C;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.arr{font-size:20px;color:var(--blue);padding:0 14px;display:flex;align-items:center;flex-shrink:0;}
-.back{text-align:center;padding:20px;font-size:13px;color:var(--muted);}
-.back a{color:var(--blue);font-weight:700;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
+.btn-list:hover{background:var(--bb);}
+
+/* HERO */
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:720px;position:relative;z-index:1;}
+.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
+.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.stat{text-align:left;}
+.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
+.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+
+/* SORT BAR */
+.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
+.sort-bar::-webkit-scrollbar{display:none;}
+.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
+.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+
+/* CONTENT */
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* TOP PICKS */
+.section{padding:36px 0 0;}
+.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
+.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
+.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* NEIGHBORHOODS */
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
+.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
+
+/* STORES LIST */
+.stores-section{padding:36px 0 48px;}
+.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
+.store-info{flex:1;min-width:0;}
+.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-web:hover{text-decoration:underline;}
+.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
+.store-arr{font-size:22px;color:var(--blue);}
+
+/* TOUR CTA */
+.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
+.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
+.tour-cta p b{color:#3D85FF;}
+.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+.tour-btn:hover{background:var(--bb);}
+
+/* FOOTER */
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
+.f-logo b{color:#3D85FF;}
+.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
+.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+.f-back:hover{color:#F2EDE3;}
+
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .store-card{flex-wrap:wrap;}
+  .store-right{flex-direction:row;align-items:center;width:100%;}
+  .picks-grid,.hood-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
+  <div class="nav-right">
+    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
+  </div>
 </nav>
+
+<!-- HERO -->
 <div class="hero">
-  <h1>Music Stores in Boston</h1>
-  <p>5 top independent music stores · Instruments, repairs, lessons, and more</p>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="/">Music Store Finds</a> › Boston</div>
+    <h1>Best Music Stores<br><em>in Boston</em></h1>
+    <p class="hero-intro">Boston's music store scene is as storied as its history. From Cambridge's legendary folk shops to Somerville's vinyl destinations, Greater Boston serves one of America's most musically educated communities.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">12</div><div class="stat-l">Stores Listed</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
+      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Always</div></div>
+    </div>
+  </div>
 </div>
-<div class="stores">
-<a class="card" href="/boston/the-music-emporium/">
-  <div class="slab" style="background:#2a3d1f">🎸</div>
-  <div class="body">
-    <div class="name">The Music Emporium</div>
-    <div class="hood">📍 Lexington</div>
-    <div class="desc">Boston's premier acoustic guitar store since 1968. Boutique and vintage guitars, mandolins, banjos.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/boston/mass-vintage/">
-  <div class="slab" style="background:#2d1a0a">🎸</div>
-  <div class="body">
-    <div class="name">Mass Vintage</div>
-    <div class="hood">📍 Somerville</div>
-    <div class="desc">Boston's premier vintage guitar shop. Rare and vintage guitars, amps, and effects.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/boston/guitar-stop-cambridge/">
-  <div class="slab" style="background:#1a2a4d">🎸</div>
-  <div class="body">
-    <div class="name">Guitar Stop Cambridge</div>
-    <div class="hood">📍 Cambridge</div>
-    <div class="desc">Cambridge's beloved guitar store near Harvard Square. Guitars, lessons, and repairs since 1962.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/boston/old-south-music/">
-  <div class="slab" style="background:#1f3d2a">🎸</div>
-  <div class="body">
-    <div class="name">Old South Music</div>
-    <div class="hood">📍 Jamaica Plain</div>
-    <div class="desc">Jamaica Plain's legendary guitar and folk instrument shop since 1978.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/boston/teds-keyboard-world/">
-  <div class="slab" style="background:#1f1a3d">🎹</div>
-  <div class="body">
-    <div class="name">Ted's Keyboard World</div>
-    <div class="hood">📍 Waltham</div>
-    <div class="desc">New England's premier keyboard and piano specialist since 1976.</div>
-  </div>
-  <div class="arr">›</div>
-</a>
-<div class="back"><a href="/">← Music Store Finds Home</a></div>
+
+<!-- SORT BAR -->
+<div class="sort-bar">
+  <span class="sort-label">Browse by:</span>
+  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
+  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
+  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
+  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
+  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
+  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
+  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
+  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
 </div>
+
+<div class="wrap">
+
+  <!-- TOP PICKS -->
+  <div class="section">
+    <div class="sec-head">🏆 Top Picks in Boston</div>
+    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="picks-grid">
+      <a class="pick-card" href="/boston/the-music-emporium/">
+        <div>
+          <div class="pick-name">The Music Emporium</div>
+          <div class="pick-why">Boston's premier acoustic guitar store since 1968</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/boston/mass-vintage/">
+        <div>
+          <div class="pick-name">Mass Vintage</div>
+          <div class="pick-why">Boston's go-to vintage guitar destination in Somerville</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/boston/nuggets-records/">
+        <div>
+          <div class="pick-name">Nuggets Records</div>
+          <div class="pick-why">Boston's legendary used record store near Fenway since 1973</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/boston/guitar-stop-cambridge/">
+        <div>
+          <div class="pick-name">Guitar Stop Cambridge</div>
+          <div class="pick-why">Cambridge's beloved guitar store near Harvard Square since 1962</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/boston/newbury-comics/">
+        <div>
+          <div class="pick-name">Newbury Comics</div>
+          <div class="pick-why">Boston's iconic alternative music and pop culture retailer</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/boston/weirdo-records/">
+        <div>
+          <div class="pick-name">Weirdo Records</div>
+          <div class="pick-why">Cambridge's eclectic indie record store in Central Square</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEIGHBORHOODS -->
+  <div class="section" style="padding-top:32px;">
+    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
+    <div class="sec-sub">The best areas for music shopping in Boston — organized so you can hit multiple stores in one trip.</div>
+    <div class="hood-grid">
+      <div class="hood-card">
+        <div class="hood-name">📍 Cambridge</div>
+        <div class="hood-desc">Guitar Stop, Sandy's Music, Weirdo Records, Disc Diggers, and Cheapo Records make Cambridge the hub of Boston's music store scene.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Somerville</div>
+        <div class="hood-desc">Mass Vintage and Disc Diggers serve Somerville's musicians and record collectors.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Kenmore & Fenway</div>
+        <div class="hood-desc">Nuggets Records and Newbury Comics serve the BU and Fenway community.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Jamaica Plain & South Shore</div>
+        <div class="hood-desc">Old South Music in JP and Bob's Guitars in Dedham serve the south side.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ALL STORES -->
+  <div class="stores-section">
+    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Boston</div>
+    <div class="sec-sub">Every music store in Boston — instruments, records, repairs, lessons, and more.</div>
+    <div id="store-list">
+    <a class="store-card" href="/boston/the-music-emporium/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">The Music Emporium</div>
+        <div class="store-hood">📍 Lexington</div>
+        <span class="store-tag">Acoustic Guitars</span>
+        <div class="store-desc">Boston's premier acoustic guitar store since 1968.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://themusicemporium.com" target="_blank" rel="noopener">themusicemporium.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/mass-vintage/" data-tags="guitars vintage">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Mass Vintage</div>
+        <div class="store-hood">📍 Somerville</div>
+        <span class="store-tag">Vintage Guitars</span>
+        <div class="store-desc">Boston's premier vintage guitar shop.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://massvintage.com" target="_blank" rel="noopener">massvintage.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/guitar-stop-cambridge/" data-tags="guitars fullservice">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Guitar Stop Cambridge</div>
+        <div class="store-hood">📍 Cambridge</div>
+        <span class="store-tag">Guitars & Lessons</span>
+        <div class="store-desc">Cambridge's beloved guitar store near Harvard Square since 1962.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://guitarstop.com" target="_blank" rel="noopener">guitarstop.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/old-south-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Old South Music</div>
+        <div class="store-hood">📍 Jamaica Plain</div>
+        <span class="store-tag">Folk & Acoustic</span>
+        <div class="store-desc">Jamaica Plain's legendary guitar and folk shop since 1978.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://oldsouthmusic.com" target="_blank" rel="noopener">oldsouthmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/teds-keyboard-world/" data-tags="">
+      <div class="store-icon">🎹</div>
+      <div class="store-info">
+        <div class="store-name">Ted's Keyboard World</div>
+        <div class="store-hood">📍 Waltham</div>
+        <span class="store-tag">Keyboards</span>
+        <div class="store-desc">New England's premier keyboard and piano specialist since 1976.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://tedskeyboardworld.com" target="_blank" rel="noopener">tedskeyboardworld.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/weirdo-records/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Weirdo Records</div>
+        <div class="store-hood">📍 Central Square</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Cambridge's eclectic indie record store.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://weirdorecords.com" target="_blank" rel="noopener">weirdorecords.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/disc-diggers/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Disc Diggers</div>
+        <div class="store-hood">📍 Somerville</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Somerville's legendary record store since 1982.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://discdiggers.com" target="_blank" rel="noopener">discdiggers.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/nuggets-records/" data-tags="records vintage">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Nuggets Records</div>
+        <div class="store-hood">📍 Kenmore Square</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Boston's legendary used record store since 1973.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://nuggetsrecords.com" target="_blank" rel="noopener">nuggetsrecords.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/newbury-comics/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Newbury Comics</div>
+        <div class="store-hood">📍 Downtown Crossing</div>
+        <span class="store-tag">Records & Culture</span>
+        <div class="store-desc">Boston's iconic alternative music and pop culture retailer.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://newburycomics.com" target="_blank" rel="noopener">newburycomics.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/sandys-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Sandy's Music</div>
+        <div class="store-hood">📍 Cambridge</div>
+        <span class="store-tag">Folk & Acoustic</span>
+        <div class="store-desc">Cambridge's legendary folk and acoustic music store since 1970.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://sandysmusic.com" target="_blank" rel="noopener">sandysmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/bobs-guitars/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Bob's Guitars</div>
+        <div class="store-hood">📍 Dedham</div>
+        <span class="store-tag">Guitars</span>
+        <div class="store-desc">South Shore's go-to guitar shop since 1985.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://bobsguitars.com" target="_blank" rel="noopener">bobsguitars.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/boston/in-your-ear-music/" data-tags="guitars vintage">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">In Your Ear Music</div>
+        <div class="store-hood">📍 Providence RI</div>
+        <span class="store-tag">Used & Vintage</span>
+        <div class="store-desc">Providence's beloved independent guitar and used gear shop.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+
+    </div>
+  </div>
+
+  <!-- TOUR CTA -->
+  <div class="tour-cta">
+    <div>
+      <h3>Own a music store in Boston?</h3>
+      <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
+    </div>
+    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Boston&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <a href="/" class="f-back">← All Cities</a>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<script>
+function filterStores(type, el) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.store-card').forEach(card => {
+    if (type === 'all') { card.style.display = ''; return; }
+    const tags = card.dataset.tags || '';
+    card.style.display = tags.includes(type) ? '' : 'none';
+  });
+}
+</script>
+
 </body>
 </html>

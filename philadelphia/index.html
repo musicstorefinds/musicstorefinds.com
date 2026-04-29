@@ -3,82 +3,398 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Music Stores in Philadelphia · Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Philadelphia. Find guitar shops, drum stores, vintage gear, lessons, and more. Bringing Music and Communities Together.">
+<title>Best Music Stores in Philadelphia | Music Store Finds</title>
+<meta name="description" content="Discover the best independent music stores in Philadelphia. Philadelphia's music store scene is as gritty and authentic as the city itself. From South Street's legendary shops to F... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
 <link rel="canonical" href="https://musicstorefinds.co/philadelphia/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F2EDE3;--parchment:#E8E0D0;--ink:#1A1209;--blue:#1B6EF3;--pale:#E8F0FF;--muted:#8C7B65;--border:rgba(92,74,50,0.12);--bark:#5C4A32;}
+:root{
+  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
+  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
+  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
+  --border:rgba(92,74,50,0.12);
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-nav{height:58px;display:flex;align-items:center;padding:0 20px;background:var(--ink);}
+
+/* NAV */
+nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;}
+.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
 .ln b{color:#3D85FF;}
 .lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.hero{background:var(--ink);padding:36px 20px;text-align:center;}
-.hero h1{font-family:"Fraunces",serif;font-size:32px;font-weight:900;color:#F2EDE3;margin-bottom:6px;}
-.hero p{font-size:13px;color:rgba(242,237,227,0.5);}
-.stores{max-width:700px;margin:0 auto;padding:20px;}
-.card{background:#fff;border-radius:10px;margin-bottom:12px;border:1px solid var(--border);overflow:hidden;display:flex;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.slab{width:68px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
-.body{flex:1;padding:12px 14px;}
-.name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.desc{font-size:12px;color:#5A4E3C;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.arr{font-size:20px;color:var(--blue);padding:0 14px;display:flex;align-items:center;flex-shrink:0;}
-.back{text-align:center;padding:20px;font-size:13px;color:var(--muted);}
-.back a{color:var(--blue);font-weight:700;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
+.btn-list:hover{background:var(--bb);}
+
+/* HERO */
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:720px;position:relative;z-index:1;}
+.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
+.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.stat{text-align:left;}
+.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
+.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+
+/* SORT BAR */
+.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
+.sort-bar::-webkit-scrollbar{display:none;}
+.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
+.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+
+/* CONTENT */
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* TOP PICKS */
+.section{padding:36px 0 0;}
+.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
+.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
+.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* NEIGHBORHOODS */
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
+.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
+
+/* STORES LIST */
+.stores-section{padding:36px 0 48px;}
+.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
+.store-info{flex:1;min-width:0;}
+.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-web:hover{text-decoration:underline;}
+.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
+.store-arr{font-size:22px;color:var(--blue);}
+
+/* TOUR CTA */
+.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
+.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
+.tour-cta p b{color:#3D85FF;}
+.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+.tour-btn:hover{background:var(--bb);}
+
+/* FOOTER */
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
+.f-logo b{color:#3D85FF;}
+.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
+.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+.f-back:hover{color:#F2EDE3;}
+
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .store-card{flex-wrap:wrap;}
+  .store-right{flex-direction:row;align-items:center;width:100%;}
+  .picks-grid,.hood-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
+  <div class="nav-right">
+    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
+  </div>
 </nav>
+
+<!-- HERO -->
 <div class="hero">
-  <h1>Music Stores in Philadelphia</h1>
-  <p>4 top independent music stores · Instruments, repairs, lessons, and more</p>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="/">Music Store Finds</a> › Philadelphia</div>
+    <h1>Best Music Stores<br><em>in Philadelphia</em></h1>
+    <p class="hero-intro">Philadelphia's music store scene is as gritty and authentic as the city itself. From South Street's legendary shops to Fishtown's vinyl destinations, Philly serves musicians and collectors with deep local character.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">10</div><div class="stat-l">Stores Listed</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
+      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Always</div></div>
+    </div>
+  </div>
 </div>
-<div class="stores">
-<a class="card" href="/philadelphia/philadelphia-guitar-and-bass/">
-  <div class="slab" style="background:#2d1a0a">🎸</div>
-  <div class="body">
-    <div class="name">Philadelphia Guitar and Bass</div>
-    <div class="hood">📍 Center City</div>
-    <div class="desc">Philadelphia's premier guitar boutique since 1985. New, used, and vintage guitars.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/philadelphia/riffs-music/">
-  <div class="slab" style="background:#1a2a4d">🎵</div>
-  <div class="body">
-    <div class="name">Riff's Music</div>
-    <div class="hood">📍 South Philly</div>
-    <div class="desc">South Philly's independent music store since 1975. Guitars, drums, and full repairs.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/philadelphia/house-of-guitars-philly/">
-  <div class="slab" style="background:#3d2010">🎸</div>
-  <div class="body">
-    <div class="name">House of Guitars Philly</div>
-    <div class="hood">📍 Cheltenham</div>
-    <div class="desc">Philadelphia area guitar specialist since 1980. Acoustic, electric, and bass guitars.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/philadelphia/medley-music/">
-  <div class="slab" style="background:#1f3d2a">🎵</div>
-  <div class="body">
-    <div class="name">Medley Music</div>
-    <div class="hood">📍 Bryn Mawr</div>
-    <div class="desc">Main Line's full-service music store since 1953. Instruments, lessons, and repairs.</div>
-  </div>
-  <div class="arr">›</div>
-</a>
-<div class="back"><a href="/">← Music Store Finds Home</a></div>
+
+<!-- SORT BAR -->
+<div class="sort-bar">
+  <span class="sort-label">Browse by:</span>
+  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
+  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
+  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
+  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
+  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
+  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
+  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
+  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
 </div>
+
+<div class="wrap">
+
+  <!-- TOP PICKS -->
+  <div class="section">
+    <div class="sec-head">🏆 Top Picks in Philadelphia</div>
+    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="picks-grid">
+      <a class="pick-card" href="/philadelphia/vinyl-altar/">
+        <div>
+          <div class="pick-name">Vinyl Altar</div>
+          <div class="pick-why">Consistently rated Philadelphia's best vinyl record store</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/philadelphia/long-in-the-tooth/">
+        <div>
+          <div class="pick-name">Long In The Tooth</div>
+          <div class="pick-why">Named best record shop by the Philadelphia Inquirer</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/philadelphia/south-street-sounds/">
+        <div>
+          <div class="pick-name">South Street Sounds</div>
+          <div class="pick-why">South Street's beloved independent music store since 1981</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/philadelphia/repo-records/">
+        <div>
+          <div class="pick-name">Repo Records</div>
+          <div class="pick-why">South Street's legendary record store since 1985</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/philadelphia/georges-music/">
+        <div>
+          <div class="pick-name">George's Music</div>
+          <div class="pick-why">Philadelphia's full-service music store with multiple locations</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/philadelphia/medley-music/">
+        <div>
+          <div class="pick-name">Medley Music</div>
+          <div class="pick-why">Main Line's full-service music institution since 1953</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEIGHBORHOODS -->
+  <div class="section" style="padding-top:32px;">
+    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
+    <div class="sec-sub">The best areas for music shopping in Philadelphia — organized so you can hit multiple stores in one trip.</div>
+    <div class="hood-grid">
+      <div class="hood-card">
+        <div class="hood-name">📍 South Street</div>
+        <div class="hood-desc">South Street Sounds and Repo Records make South Street Philadelphia's most musical street for instruments and records.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Fishtown & Kensington</div>
+        <div class="hood-desc">Philadelphia Record Exchange and Vinyl Altar serve Philly's most vibrant arts neighborhood.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Manayunk</div>
+        <div class="hood-desc">Main Street Music serves the Manayunk community with new and used instruments.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Main Line</div>
+        <div class="hood-desc">Medley Music in Bryn Mawr has served the western suburbs with quality instruments since 1953.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ALL STORES -->
+  <div class="stores-section">
+    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Philadelphia</div>
+    <div class="sec-sub">Every music store in Philadelphia — instruments, records, repairs, lessons, and more.</div>
+    <div id="store-list">
+    <a class="store-card" href="/philadelphia/south-street-sounds/" data-tags="">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">South Street Sounds</div>
+        <div class="store-hood">📍 South Street</div>
+        <span class="store-tag">Instruments</span>
+        <div class="store-desc">South Street's beloved independent music store since 1981.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/repo-records/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Repo Records</div>
+        <div class="store-hood">📍 South Street</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">South Street's legendary record store since 1985.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://reporecords.com" target="_blank" rel="noopener">reporecords.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/georges-music/" data-tags="fullservice">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">George's Music</div>
+        <div class="store-hood">📍 Plymouth Meeting</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">Philadelphia's full-service music store with multiple locations.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://georgesmusic.com" target="_blank" rel="noopener">georgesmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/main-street-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Main Street Music</div>
+        <div class="store-hood">📍 Manayunk</div>
+        <span class="store-tag">Guitars</span>
+        <div class="store-desc">Manayunk's beloved guitar and instrument shop since 1990.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://mainstreetmusic.net" target="_blank" rel="noopener">mainstreetmusic.net</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/philadelphia-record-exchange/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Philadelphia Record Exchange</div>
+        <div class="store-hood">📍 Fishtown</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Fishtown's legendary record store since 1985.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/riffs-music/" data-tags="fullservice">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Riff's Music</div>
+        <div class="store-hood">📍 South Philly</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">South Philly's independent music store since 1975.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://riffsmusic.com" target="_blank" rel="noopener">riffsmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/medley-music/" data-tags="fullservice">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Medley Music</div>
+        <div class="store-hood">📍 Bryn Mawr</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">Main Line's full-service music store since 1953.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://medleymusic.com" target="_blank" rel="noopener">medleymusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/house-of-guitars/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">House of Guitars</div>
+        <div class="store-hood">📍 Cheltenham</div>
+        <span class="store-tag">Guitars</span>
+        <div class="store-desc">Philadelphia area guitar specialist since 1980.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://houseofguitars.net" target="_blank" rel="noopener">houseofguitars.net</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/vinyl-altar/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Vinyl Altar</div>
+        <div class="store-hood">📍 Kensington</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Philadelphia's top-rated vinyl record store.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://vinylaltar.com" target="_blank" rel="noopener">vinylaltar.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/philadelphia/long-in-the-tooth/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Long In The Tooth</div>
+        <div class="store-hood">📍 Fishtown</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Named best record shop by the Philadelphia Inquirer.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://longinthetooth.com" target="_blank" rel="noopener">longinthetooth.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+
+    </div>
+  </div>
+
+  <!-- TOUR CTA -->
+  <div class="tour-cta">
+    <div>
+      <h3>Own a music store in Philadelphia?</h3>
+      <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
+    </div>
+    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Philadelphia&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <a href="/" class="f-back">← All Cities</a>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<script>
+function filterStores(type, el) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.store-card').forEach(card => {
+    if (type === 'all') { card.style.display = ''; return; }
+    const tags = card.dataset.tags || '';
+    card.style.display = tags.includes(type) ? '' : 'none';
+  });
+}
+</script>
+
 </body>
 </html>

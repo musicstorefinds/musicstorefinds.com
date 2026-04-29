@@ -3,90 +3,424 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Best Music Stores in New Orleans · Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in New Orleans. Find guitar shops, drum stores, vintage gear, lessons, and more. Bringing Music and Communities Together.">
+<title>Best Music Stores in New Orleans | Music Store Finds</title>
+<meta name="description" content="Discover the best independent music stores in New Orleans. New Orleans is America's most musical city, and its music stores are as soulful as the city itself. From Frenchmen Stree... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
 <link rel="canonical" href="https://musicstorefinds.co/neworleans/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#F2EDE3;--parchment:#E8E0D0;--ink:#1A1209;--blue:#1B6EF3;--pale:#E8F0FF;--muted:#8C7B65;--border:rgba(92,74,50,0.12);--bark:#5C4A32;}
+:root{
+  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
+  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
+  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
+  --border:rgba(92,74,50,0.12);
+}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-nav{height:58px;display:flex;align-items:center;padding:0 20px;background:var(--ink);}
+
+/* NAV */
+nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
 .logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;}
+.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
 .ln b{color:#3D85FF;}
 .lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.hero{background:var(--ink);padding:36px 20px;text-align:center;}
-.hero h1{font-family:"Fraunces",serif;font-size:32px;font-weight:900;color:#F2EDE3;margin-bottom:6px;}
-.hero p{font-size:13px;color:rgba(242,237,227,0.5);}
-.stores{max-width:700px;margin:0 auto;padding:20px;}
-.card{background:#fff;border-radius:10px;margin-bottom:12px;border:1px solid var(--border);overflow:hidden;display:flex;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.slab{width:68px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:26px;}
-.body{flex:1;padding:12px 14px;}
-.name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.desc{font-size:12px;color:#5A4E3C;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.arr{font-size:20px;color:var(--blue);padding:0 14px;display:flex;align-items:center;flex-shrink:0;}
-.back{text-align:center;padding:20px;font-size:13px;color:var(--muted);}
-.back a{color:var(--blue);font-weight:700;text-decoration:none;}
+.nav-right{display:flex;align-items:center;gap:12px;}
+.btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
+.btn-list:hover{background:var(--bb);}
+
+/* HERO */
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:720px;position:relative;z-index:1;}
+.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
+.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
+.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
+.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
+.stat{text-align:left;}
+.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
+.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+
+/* SORT BAR */
+.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
+.sort-bar::-webkit-scrollbar{display:none;}
+.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
+.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
+.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+
+/* CONTENT */
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
+
+/* TOP PICKS */
+.section{padding:36px 0 0;}
+.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
+.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
+.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
+.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
+
+/* NEIGHBORHOODS */
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
+.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
+.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
+.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
+
+/* STORES LIST */
+.stores-section{padding:36px 0 48px;}
+.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
+.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
+.store-info{flex:1;min-width:0;}
+.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
+.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-web:hover{text-decoration:underline;}
+.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
+.store-arr{font-size:22px;color:var(--blue);}
+
+/* TOUR CTA */
+.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
+.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
+.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
+.tour-cta p b{color:#3D85FF;}
+.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+.tour-btn:hover{background:var(--bb);}
+
+/* FOOTER */
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
+.f-logo b{color:#3D85FF;}
+.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
+.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+.f-back:hover{color:#F2EDE3;}
+
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .store-card{flex-wrap:wrap;}
+  .store-right{flex-direction:row;align-items:center;width:100%;}
+  .picks-grid,.hood-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
+  <div class="nav-right">
+    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
+  </div>
 </nav>
+
+<!-- HERO -->
 <div class="hero">
-  <h1>Music Stores in New Orleans</h1>
-  <p>5 top independent music stores · Instruments, repairs, lessons, and more</p>
+  <div class="hero-inner">
+    <div class="breadcrumb"><a href="/">Music Store Finds</a> › New Orleans</div>
+    <h1>Best Music Stores<br><em>in New Orleans</em></h1>
+    <p class="hero-intro">New Orleans is America's most musical city, and its music stores are as soulful as the city itself. From Frenchmen Street's Louisiana Music Factory to the Bywater's beloved shops, NOLA's gear scene is deeply rooted in community.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">12</div><div class="stat-l">Stores Listed</div></div>
+      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
+      <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Always</div></div>
+    </div>
+  </div>
 </div>
-<div class="stores">
-<a class="card" href="/neworleans/werleins-for-music/">
-  <div class="slab" style="background:#2d1b4e">🎵</div>
-  <div class="body">
-    <div class="name">Werlein's for Music</div>
-    <div class="hood">📍 Canal Street</div>
-    <div class="desc">One of America's oldest music stores, operating since 1842 in New Orleans.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/neworleans/euclid-records/">
-  <div class="slab" style="background:#4a1a1a">💿</div>
-  <div class="body">
-    <div class="name">Euclid Records</div>
-    <div class="hood">📍 Bywater</div>
-    <div class="desc">New Orleans' beloved independent record store. Vinyl spanning every genre in the Bywater.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/neworleans/uptown-music/">
-  <div class="slab" style="background:#1f3d2a">🎸</div>
-  <div class="body">
-    <div class="name">Uptown Music</div>
-    <div class="hood">📍 Uptown</div>
-    <div class="desc">Uptown New Orleans' independent music shop. Guitars, bass, and brass on Magazine Street.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/neworleans/new-orleans-music-exchange/">
-  <div class="slab" style="background:#3d2010">🎵</div>
-  <div class="body">
-    <div class="name">New Orleans Music Exchange</div>
-    <div class="hood">📍 Mid-City</div>
-    <div class="desc">New Orleans' buy, sell, and trade music exchange. Guitars, amps, and all musical gear.</div>
-  </div>
-  <div class="arr">›</div>
-</a><a class="card" href="/neworleans/piety-street-recordings/">
-  <div class="slab" style="background:#0d2010">🎙️</div>
-  <div class="body">
-    <div class="name">Piety Street Recordings</div>
-    <div class="hood">📍 Bywater</div>
-    <div class="desc">Bywater recording studio and instrument shop. New Orleans' coolest music destination.</div>
-  </div>
-  <div class="arr">›</div>
-</a>
-<div class="back"><a href="/">← Music Store Finds Home</a></div>
+
+<!-- SORT BAR -->
+<div class="sort-bar">
+  <span class="sort-label">Browse by:</span>
+  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
+  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
+  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
+  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
+  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
+  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
+  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
+  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
 </div>
+
+<div class="wrap">
+
+  <!-- TOP PICKS -->
+  <div class="section">
+    <div class="sec-head">🏆 Top Picks in New Orleans</div>
+    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="picks-grid">
+      <a class="pick-card" href="/neworleans/louisiana-music-factory/">
+        <div>
+          <div class="pick-name">Louisiana Music Factory</div>
+          <div class="pick-why">The definitive source for Louisiana and New Orleans music on vinyl</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/neworleans/strange-guitarworks/">
+        <div>
+          <div class="pick-name">Strange Guitarworks</div>
+          <div class="pick-why">New Orleans' most trusted guitar repair and custom build shop</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/neworleans/euclid-records/">
+        <div>
+          <div class="pick-name">Euclid Records</div>
+          <div class="pick-why">The Bywater's beloved independent record store</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/neworleans/uptown-music-exchange/">
+        <div>
+          <div class="pick-name">Uptown Music Exchange</div>
+          <div class="pick-why">Magazine Street's go-to buy, sell, and trade destination</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/neworleans/webbs-bywater-music/">
+        <div>
+          <div class="pick-name">Webb's Bywater Music</div>
+          <div class="pick-why">The Bywater's community music shop for folk and acoustic players</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+      <a class="pick-card" href="/neworleans/new-orleans-music-exchange/">
+        <div>
+          <div class="pick-name">New Orleans Music Exchange</div>
+          <div class="pick-why">Mid-City's instrument buy and sell hub</div>
+        </div>
+        <div class="pick-badge">Top Pick</div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- NEIGHBORHOODS -->
+  <div class="section" style="padding-top:32px;">
+    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
+    <div class="sec-sub">The best areas for music shopping in New Orleans — organized so you can hit multiple stores in one trip.</div>
+    <div class="hood-grid">
+      <div class="hood-card">
+        <div class="hood-name">📍 Frenchmen Street & Marigny</div>
+        <div class="hood-desc">Louisiana Music Factory sits at the heart of New Orleans' live music corridor — the best place to find authentic Louisiana music on vinyl.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Bywater</div>
+        <div class="hood-desc">Webb's Bywater Music, Euclid Records, and Piety Street Recordings make the Bywater a destination for music lovers.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Magazine Street & Uptown</div>
+        <div class="hood-desc">Uptown Music Exchange and Uptown Music serve the Magazine Street corridor's musicians.</div>
+      </div>
+      <div class="hood-card">
+        <div class="hood-name">📍 Mid-City & Kenner</div>
+        <div class="hood-desc">New Orleans Music Exchange and Fret Buzz Guitars serve the west bank and Mid-City communities.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ALL STORES -->
+  <div class="stores-section">
+    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in New Orleans</div>
+    <div class="sec-sub">Every music store in New Orleans — instruments, records, repairs, lessons, and more.</div>
+    <div id="store-list">
+    <a class="store-card" href="/neworleans/louisiana-music-factory/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Louisiana Music Factory</div>
+        <div class="store-hood">📍 Faubourg Marigny</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">Award-winning indie record shop on Frenchmen Street since 1992.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://louisianamusicfactory.com" target="_blank" rel="noopener">louisianamusicfactory.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/webbs-bywater-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Webb's Bywater Music</div>
+        <div class="store-hood">📍 Bywater</div>
+        <span class="store-tag">Folk & Acoustic</span>
+        <div class="store-desc">Bywater's beloved independent music shop.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/strange-guitarworks/" data-tags="guitars repairs">
+      <div class="store-icon">🔧</div>
+      <div class="store-info">
+        <div class="store-name">Strange Guitarworks</div>
+        <div class="store-hood">📍 Mid-City</div>
+        <span class="store-tag">Guitar Repair</span>
+        <div class="store-desc">New Orleans' premier guitar repair and custom build shop.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://strangeguitarworks.com" target="_blank" rel="noopener">strangeguitarworks.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/uptown-music-exchange/" data-tags="">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Uptown Music Exchange</div>
+        <div class="store-hood">📍 Uptown</div>
+        <span class="store-tag">Buy Sell Trade</span>
+        <div class="store-desc">Magazine Street's buy, sell, and trade music store.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://uptownmusicexchange.com" target="_blank" rel="noopener">uptownmusicexchange.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/euclid-records/" data-tags="records">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Euclid Records</div>
+        <div class="store-hood">📍 Bywater</div>
+        <span class="store-tag">Records</span>
+        <div class="store-desc">New Orleans' beloved independent record store in the Bywater.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://euclidrecords.com" target="_blank" rel="noopener">euclidrecords.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/new-orleans-music-exchange/" data-tags="">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">New Orleans Music Exchange</div>
+        <div class="store-hood">📍 Mid-City</div>
+        <span class="store-tag">Buy Sell Trade</span>
+        <div class="store-desc">Mid-City's instrument buy and sell hub.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://neworleansmusic.com" target="_blank" rel="noopener">neworleansmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/piety-street-recordings/" data-tags="records">
+      <div class="store-icon">🎙️</div>
+      <div class="store-info">
+        <div class="store-name">Piety Street Recordings</div>
+        <div class="store-hood">📍 Bywater</div>
+        <span class="store-tag">Studio & Store</span>
+        <div class="store-desc">Bywater recording studio and boutique instrument shop.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/beckhams-bookshop/" data-tags="records vintage">
+      <div class="store-icon">💿</div>
+      <div class="store-info">
+        <div class="store-name">Beckham's Bookshop</div>
+        <div class="store-hood">📍 French Quarter</div>
+        <span class="store-tag">Books & Vinyl</span>
+        <div class="store-desc">French Quarter's legendary used book and vinyl store since 1967.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/michons-music/" data-tags="fullservice">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Michon's Music</div>
+        <div class="store-hood">📍 Metairie</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">Metairie's full-service music store since 1975.</div>
+      </div>
+      <div class="store-right">
+        <span class="no-web">No website</span>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/uptown-music/" data-tags="guitars">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Uptown Music</div>
+        <div class="store-hood">📍 Uptown</div>
+        <span class="store-tag">Guitars</span>
+        <div class="store-desc">Uptown's independent music shop on Magazine Street since 1988.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://uptownmusic.com" target="_blank" rel="noopener">uptownmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/todds-music-express/" data-tags="fullservice repairs">
+      <div class="store-icon">🎵</div>
+      <div class="store-info">
+        <div class="store-name">Todd's Music Express</div>
+        <div class="store-hood">📍 Harahan</div>
+        <span class="store-tag">Full Service</span>
+        <div class="store-desc">West Bank music store with instruments, lessons, and repairs.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://toddsmusic.com" target="_blank" rel="noopener">toddsmusic.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+    <a class="store-card" href="/neworleans/fret-buzz-guitars/" data-tags="guitars repairs">
+      <div class="store-icon">🎸</div>
+      <div class="store-info">
+        <div class="store-name">Fret Buzz Guitars</div>
+        <div class="store-hood">📍 Kenner</div>
+        <span class="store-tag">Guitars & Repairs</span>
+        <div class="store-desc">Kenner's independent guitar shop.</div>
+      </div>
+      <div class="store-right">
+        <a class="store-web" href="https://fretbuzzguitars.com" target="_blank" rel="noopener">fretbuzzguitars.com</a>
+        <div class="store-arr">›</div>
+      </div>
+    </a>
+
+    </div>
+  </div>
+
+  <!-- TOUR CTA -->
+  <div class="tour-cta">
+    <div>
+      <h3>Own a music store in New Orleans?</h3>
+      <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
+    </div>
+    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in New Orleans&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="f-logo">Music Store <b>Finds</b></div>
+  <a href="/" class="f-back">← All Cities</a>
+  <div class="f-copy">© 2025 · Built for musicians, by musicians.</div>
+</footer>
+
+<script>
+function filterStores(type, el) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+  el.classList.add('on');
+  document.querySelectorAll('.store-card').forEach(card => {
+    if (type === 'all') { card.style.display = ''; return; }
+    const tags = card.dataset.tags || '';
+    card.style.display = tags.includes(type) ? '' : 'none';
+  });
+}
+</script>
+
 </body>
 </html>
