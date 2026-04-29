@@ -69,6 +69,24 @@ nav{position:sticky;top:0;z-index:1000;height:58px;display:flex;align-items:cent
 .pu-dir:hover{border-color:var(--ink);}
 .pu-profile{width:100%;background:var(--ink);color:rgba(242,237,227,0.75)!important;border:none;padding:7px;font-family:'Epilogue',sans-serif;font-size:10px;font-weight:700;cursor:pointer;text-align:center;display:block;letter-spacing:0.5px;}
 .pu-profile:hover{background:#2a1f12;color:var(--cream)!important;}
+
+/* CITY GUIDE BUTTON */
+.city-guide-bar{padding:8px 12px;border-bottom:1px solid var(--border);flex-shrink:0;}
+.city-guide-btn{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--pale);border:1.5px solid var(--blue);border-radius:8px;padding:9px 13px;text-decoration:none;transition:background 0.15s;}
+.city-guide-btn:hover{background:#dae8ff;}
+.city-guide-btn-l{font-family:"Fraunces",serif;font-size:13px;font-weight:700;color:var(--blue);line-height:1.2;}
+.city-guide-btn-sub{font-size:10px;color:var(--muted);font-weight:500;margin-top:1px;}
+.city-guide-btn-arr{font-size:18px;color:var(--blue);font-weight:700;}
+
+/* EXPLORE BY CITY */
+.explore-section{padding:14px 12px;border-top:2px solid var(--border);flex-shrink:0;}
+.explore-title{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+.city-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;}
+.city-link{display:block;background:var(--parchment);border-radius:6px;padding:7px 9px;text-decoration:none;transition:background 0.15s;}
+.city-link:hover{background:var(--tan);}
+.city-link-name{font-size:11px;font-weight:700;color:var(--ink);}
+.city-link-state{font-size:9px;color:var(--muted);}
+
 /* PROFILE PAGE */
 .prof-page{position:fixed;inset:0;z-index:2000;background:var(--cream);transform:translateX(100%);transition:transform 0.35s cubic-bezier(0.32,0.72,0,1);overflow-y:auto;}
 .prof-page.open{transform:translateX(0);}
@@ -198,7 +216,42 @@ nav{position:sticky;top:0;z-index:1000;height:58px;display:flex;align-items:cent
       <button class="chip" onclick="setFilter('vintage',this)">Vintage</button>
       <button class="chip" onclick="setFilter('venue',this)">Venue</button>
     </div>
+
+    <div class="city-guide-bar" id="cityGuideBar">
+      <a class="city-guide-btn" id="cityGuideLink" href="/la/">
+        <div>
+          <div class="city-guide-btn-l" id="cityGuideName">📖 Full Los Angeles Guide</div>
+          <div class="city-guide-btn-sub">Top picks, neighborhoods & more →</div>
+        </div>
+        <div class="city-guide-btn-arr">›</div>
+      </a>
+    </div>
     <div class="store-list" id="storeList"></div>
+    <div class="explore-section">
+      <div class="explore-title">🗺 Explore by City</div>
+      <div class="city-grid">
+        <a class="city-link" href="/la/"><div class="city-link-name">Los Angeles</div><div class="city-link-state">California</div></a>
+        <a class="city-link" href="/nyc/"><div class="city-link-name">New York City</div><div class="city-link-state">New York</div></a>
+        <a class="city-link" href="/nashville/"><div class="city-link-name">Nashville</div><div class="city-link-state">Tennessee</div></a>
+        <a class="city-link" href="/chicago/"><div class="city-link-name">Chicago</div><div class="city-link-state">Illinois</div></a>
+        <a class="city-link" href="/austin/"><div class="city-link-name">Austin</div><div class="city-link-state">Texas</div></a>
+        <a class="city-link" href="/sf/"><div class="city-link-name">San Francisco</div><div class="city-link-state">California</div></a>
+        <a class="city-link" href="/seattle/"><div class="city-link-name">Seattle</div><div class="city-link-state">Washington</div></a>
+        <a class="city-link" href="/portland/"><div class="city-link-name">Portland</div><div class="city-link-state">Oregon</div></a>
+        <a class="city-link" href="/atlanta/"><div class="city-link-name">Atlanta</div><div class="city-link-state">Georgia</div></a>
+        <a class="city-link" href="/miami/"><div class="city-link-name">Miami</div><div class="city-link-state">Florida</div></a>
+        <a class="city-link" href="/denver/"><div class="city-link-name">Denver</div><div class="city-link-state">Colorado</div></a>
+        <a class="city-link" href="/neworleans/"><div class="city-link-name">New Orleans</div><div class="city-link-state">Louisiana</div></a>
+        <a class="city-link" href="/boston/"><div class="city-link-name">Boston</div><div class="city-link-state">Massachusetts</div></a>
+        <a class="city-link" href="/detroit/"><div class="city-link-name">Detroit</div><div class="city-link-state">Michigan</div></a>
+        <a class="city-link" href="/minneapolis/"><div class="city-link-name">Minneapolis</div><div class="city-link-state">Minnesota</div></a>
+        <a class="city-link" href="/philadelphia/"><div class="city-link-name">Philadelphia</div><div class="city-link-state">Pennsylvania</div></a>
+        <a class="city-link" href="/dallas/"><div class="city-link-name">Dallas</div><div class="city-link-state">Texas</div></a>
+        <a class="city-link" href="/houston/"><div class="city-link-name">Houston</div><div class="city-link-state">Texas</div></a>
+        <a class="city-link" href="/phoenix/"><div class="city-link-name">Phoenix</div><div class="city-link-state">Arizona</div></a>
+        <a class="city-link" href="/sandiego/"><div class="city-link-name">San Diego</div><div class="city-link-state">California</div></a>
+      </div>
+    </div>
   </div>
   <div id="map"></div>
 </div>
@@ -545,6 +598,13 @@ function switchCity(city) {
   map.setView(meta.center, meta.zoom);
   document.getElementById('sbTitle').textContent = meta.name;
   document.getElementById('citySelect').value = city;
+  // Update city guide link
+  const guideLink = document.getElementById('cityGuideLink');
+  const guideName = document.getElementById('cityGuideName');
+  if (guideLink) {
+    guideLink.href = '/' + city + '/';
+    guideName.textContent = '📖 Full ' + meta.name.replace(' Music Stores','') + ' Guide';
+  }
 
   // Add new markers
   const stores = allStores[city] || [];
