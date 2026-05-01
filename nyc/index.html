@@ -4,131 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Music Stores in New York City | Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in New York City. New York City is the undisputed mecca for working musicians. From Brooklyn vintage shops to Midtown music institutions, ... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
+<meta name="description" content="Discover the best music stores in New York City. From Retrofret in Brooklyn to Carmine Street Guitars — the ultimate guide to music stores NYC.">
 <link rel="canonical" href="https://musicstorefinds.co/nyc/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
-  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
-  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
-  --border:rgba(92,74,50,0.12);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;--border:rgba(92,74,50,0.12);--white:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
 nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
-.ln b{color:#3D85FF;}
-.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}.ln b{color:#3D85FF;}.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
 .btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
-.btn-list:hover{background:var(--bb);}
-
-/* HERO */
-.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
-.hero-inner{max-width:720px;position:relative;z-index:1;}
-.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
-.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
-.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
-.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
-.stat{text-align:left;}
-.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
-.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
-
-/* SORT BAR */
-.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.sort-bar::-webkit-scrollbar{display:none;}
-.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
-.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
-.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* CONTENT */
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-
-/* TOP PICKS */
-.section{padding:36px 0 0;}
-.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
-.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
-.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
-.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* NEIGHBORHOODS */
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
-.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
-.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
-.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
-
-/* STORES LIST */
-.stores-section{padding:36px 0 48px;}
-.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
-.store-info{flex:1;min-width:0;}
-.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
-.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
-.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
-.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
-.store-web:hover{text-decoration:underline;}
-.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
-.store-arr{font-size:22px;color:var(--blue);}
-
-/* TOUR CTA */
-.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
-.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
-.tour-cta p b{color:#3D85FF;}
-.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
-.tour-btn:hover{background:var(--bb);}
-
-/* FOOTER */
-footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
-.f-logo b{color:#3D85FF;}
-.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
-.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
-.f-back:hover{color:#F2EDE3;}
-
-@media(max-width:600px){
-  .hero h1{font-size:30px;}
-  .store-card{flex-wrap:wrap;}
-  .store-right{flex-direction:row;align-items:center;width:100%;}
-  .picks-grid,.hood-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:780px;position:relative;z-index:1;}.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,58px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:16px;letter-spacing:-0.5px;}h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.8;color:rgba(242,237,227,0.6);max-width:620px;margin-bottom:12px;}.hero-intro p{margin-bottom:12px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+.filter-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90;}.filter-bar::-webkit-scrollbar{display:none;}
+.filter-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;flex-shrink:0;}
+.fbtn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 16px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0;}.fbtn:hover{border-color:var(--blue);color:var(--blue);}.fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}.section{padding:40px 0 0;}
+.sec-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}.sec-head{font-family:"Fraunces",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.1;}.sec-sub{font-size:14px;color:var(--bark);line-height:1.7;margin-bottom:22px;max-width:640px;}
+.featured-card{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.feat-header{background:var(--ink);padding:22px 24px 18px;position:relative;}.feat-header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 50%,rgba(27,110,243,0.15),transparent 70%);}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,133,255,0.2);border:1px solid rgba(61,133,255,0.3);color:#3D85FF;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px;position:relative;z-index:1;}
+.feat-name{font-family:"Fraunces",serif;font-size:24px;font-weight:900;color:#F2EDE3;line-height:1.1;margin-bottom:4px;position:relative;z-index:1;}.feat-hood{font-size:12px;color:rgba(242,237,227,0.45);position:relative;z-index:1;}
+.feat-body{padding:22px 24px;}.feat-story{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:18px;}.feat-story p{margin-bottom:12px;}.feat-story p:last-child{margin-bottom:0;}
+.feat-best{font-size:10px;font-weight:800;color:var(--blue);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}.feat-bullets{list-style:none;margin-bottom:18px;}.feat-bullets li{font-size:13px;color:var(--bark);padding:5px 0;padding-left:18px;position:relative;line-height:1.5;}.feat-bullets li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.feat-who{background:var(--pale);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--blue);font-weight:600;margin-bottom:16px;}.feat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.feat-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border);}.feat-link{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;transition:background 0.15s;}.feat-link:hover{background:var(--bb);}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px;}.pick-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:8px;}.pick-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}.pick-name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.pick-best{font-size:11px;font-weight:700;color:var(--amber);}.pick-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:8px;}.seo-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:box-shadow 0.2s;display:block;}.seo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}.seo-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.seo-desc{font-size:12px;color:var(--bark);line-height:1.5;margin-bottom:8px;}.seo-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}.tag-vintage{background:#FEF3E2;color:#B45309;}.tag-repairs{background:#EFF6FF;color:#1D4ED8;}.tag-lessons{background:#F0FDF4;color:#166534;}.tag-highend{background:#FDF4FF;color:#7E22CE;}.tag-beginner{background:#F0FDF4;color:#166534;}.tag-pro{background:#FFF1F2;color:#BE123C;}.tag-synths{background:#F0F9FF;color:#0369A1;}.tag-rare{background:#FEF3E2;color:#B45309;}.tag-records{background:#FDF4FF;color:#7E22CE;}.tag-acoustic{background:#F0FDF4;color:#166534;}.tag-drums{background:#FFF1F2;color:#BE123C;}.tag-guitars{background:#F0EDE5;color:#5C4A32;}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}.store-card.hidden{display:none;}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;margin-top:2px;}.store-body{flex:1;min-width:0;}.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}.store-hood{font-size:11px;color:var(--muted);margin-bottom:6px;}.store-desc{font-size:13px;color:var(--bark);line-height:1.6;margin-bottom:8px;}.store-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}.store-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-verified{font-size:10px;font-weight:700;color:#166534;background:#F0FDF4;padding:2px 7px;border-radius:4px;}.trust-updated{font-size:10px;color:var(--muted);}.claim-link{font-size:10px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;min-width:90px;}.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap;}.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}.store-arr{font-size:22px;color:var(--blue);}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}.hood-card{background:var(--parchment);border-radius:10px;padding:16px;}.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}.hood-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.empty-state{text-align:center;padding:40px 20px;display:none;}.empty-state.show{display:block;}.empty-icon{font-size:36px;margin-bottom:10px;}.empty-msg{font-size:14px;color:var(--muted);}
+.cta-box{background:var(--ink);border-radius:14px;padding:28px 24px;margin:40px 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}.cta-box h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}.cta-box p{font-size:13px;color:rgba(242,237,227,0.45);}.cta-box p b{color:#3D85FF;}.cta-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}.f-logo b{color:#3D85FF;}.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+@media(max-width:600px){.picks-grid,.seo-grid,.hood-grid{grid-template-columns:1fr;}.store-card{flex-wrap:wrap;}.store-right{flex-direction:row;width:100%;}}
+</style></head><body>
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
-  <div class="nav-right">
-    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
-  </div>
+  <a href="mailto:musicstorefinds@gmail.com?subject=List My Store in New York City" class="btn-list">+ List Your Store</a>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="breadcrumb"><a href="/">Music Store Finds</a> › New York City</div>
     <h1>Best Music Stores<br><em>in New York City</em></h1>
-    <p class="hero-intro">New York City is the undisputed mecca for working musicians. From Brooklyn vintage shops to Midtown music institutions, NYC's music store scene is as diverse and world-class as the city itself.</p>
+    <div class="hero-intro"><p>New York City is the undisputed mecca for working musicians. Once home to the legendary 'Music Row' on West 48th Street — where guitar shops, brass dealers, and keyboard stores lined an entire city block — NYC's music store scene has evolved and scattered across five boroughs. What remains is a collection of deeply specialist shops that reward the curious player.</p><p>From Retrofret's world-class vintage instrument repair shop in Carroll Gardens to Carmine Street Guitars' custom-built axes made from reclaimed NYC timber in Greenwich Village, the best music stores in New York aren't chains — they're institutions run by obsessives. Whether you're hunting vintage gear, boutique synths, rare records, or just need a setup before a gig, this guide covers the best music shops NYC has to offer.</p><p>Brooklyn has emerged as the new center of gravity for independent music retail, with Williamsburg's Main Drag Music and Control Voltage synth boutique drawing players from across the metro. Meanwhile Midtown still holds its own with Rudy's Music, Drummers World, and Sam Ash. Here's everything you need to know.</p></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">15</div><div class="stat-l">Stores Listed</div></div>
       <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
@@ -136,313 +64,431 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
     </div>
   </div>
 </div>
-
-<!-- SORT BAR -->
-<div class="sort-bar">
-  <span class="sort-label">Browse by:</span>
-  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
-  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
-  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
-  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
-  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
-  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
-  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
-  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="fbtn on" onclick="filter('all',this)">🗂 All Stores</button>
+  <button class="fbtn" onclick="filter('guitars',this)">🎸 Guitars</button>
+  <button class="fbtn" onclick="filter('records',this)">💿 Records</button>
+  <button class="fbtn" onclick="filter('drums',this)">🥁 Drums</button>
+  <button class="fbtn" onclick="filter('synths',this)">🎛️ Synths</button>
+  <button class="fbtn" onclick="filter('vintage',this)">⭐ Vintage</button>
+  <button class="fbtn" onclick="filter('repairs',this)">🔧 Repairs</button>
+  <button class="fbtn" onclick="filter('lessons',this)">🎓 Lessons</button>
+  <button class="fbtn" onclick="filter('pro',this)">🏆 Pro Level</button>
+  <button class="fbtn" onclick="filter('beginner',this)">🌱 Beginner</button>
 </div>
-
 <div class="wrap">
-
-  <!-- TOP PICKS -->
   <div class="section">
-    <div class="sec-head">🏆 Top Picks in New York City</div>
-    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="sec-eyebrow">Featured Stores</div>
+    <h2 class="sec-head">✨ The Stories Behind the Best Stores</h2>
+    <p class="sec-sub">Not just listings — the history, the legacy, and why musicians love these places.</p>
+    
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Retrofret Vintage Guitars</div>
+      <div class="feat-hood">📍 Carroll Gardens, Brooklyn</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🎸 Brooklyn's Essential Vintage Shop</div>
+      <div class="feat-story"><p>Retrofret Vintage Guitars in Carroll Gardens, Brooklyn is widely considered the finest vintage stringed instrument shop on the East Coast — and many would argue in the entire country. Founded in 1990, Retrofret has built its reputation on two things: an extraordinary inventory of rare and vintage fretted instruments, and a lutherie and repair operation that rivals the best in the world.</p><p>The inventory spans far beyond vintage guitars. Retrofret regularly stocks pre-war Martin acoustics, vintage Gibson mandolins, rare banjos, ukuleles, and the occasional exotic instrument that defies easy categorization. Every instrument is carefully vetted, and the staff's depth of knowledge is remarkable even by New York standards.</p><p>The repair shop is the crown jewel. Retrofret's luthiers handle everything from basic setups to complete instrument restorations — including work on instruments so rare and valuable that their owners won't trust them to anyone else. If you're serious about vintage fretted instruments anywhere on the East Coast, Retrofret is the pilgrimage.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the most complete lutherie and repair facilities on the entire East Coast</li><li>Rare inventory spanning vintage guitars, mandolins, banjos, ukuleles, and folk instruments</li><li>Staff knowledge is encyclopedic — every instrument is deeply researched before purchase</li><li>Trusted by serious collectors who won't take their instruments anywhere else</li></ul>
+      <div class="feat-who">Best for: Vintage collectors, folk instrument players, and anyone needing expert luthier work in NYC.</div>
+      <div class="feat-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Retrofret Vintage Guitars">Claim this listing</a>
+        <a class="feat-link" href="https://retrofret.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Carmine Street Guitars</div>
+      <div class="feat-hood">📍 Greenwich Village</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🌟 Greenwich Village Legend</div>
+      <div class="feat-story"><p>Carmine Street Guitars in Greenwich Village is one of the most unique guitar shops anywhere in the world. Luthier Rick Kelly has been building custom guitars by hand in the same tiny shop since 1990 — and what makes his instruments truly singular is the wood he uses. Kelly builds from reclaimed New York City timber: floorboards pulled from old hotels, bars, churches, and historic buildings throughout the five boroughs.</p><p>Each guitar is a piece of New York City history. A Kelly guitar might contain wood from the same floors that Louis Armstrong walked on, or from a 19th century building that survived multiple generations of the city's constant reinvention. The instruments are extraordinary — tonally rich from decades of aging, and utterly irreplaceable.</p><p>Carmine Street Guitars was the subject of a 2018 documentary film, which brought the shop international attention and a global waiting list for Kelly's custom builds. The shop is a working studio as much as a store — you may walk in and find Rick at his bench, sawdust on the floor, building the next instrument from the next piece of New York's past.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>Rick Kelly builds custom guitars from reclaimed NYC timber — hotel floors, old bars, historic buildings</li><li>Each guitar contains a piece of New York City history — tonally rich from decades of aging</li><li>Subject of a celebrated 2018 documentary film</li><li>A working studio and bucket-list destination for any serious guitar player visiting New York</li></ul>
+      <div class="feat-who">Best for: Players seeking a truly one-of-a-kind handbuilt instrument with an extraordinary story.</div>
+      <div class="feat-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-highend">💎 High-End</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Carmine Street Guitars">Claim this listing</a>
+        <a class="feat-link" href="https://carminestreetguitars.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Editors' Picks</div>
+    <h2 class="sec-head">🏆 Top Music Stores in New York City</h2>
+    <p class="sec-sub">Our hand-picked selection of the best music stores in New York City — chosen for quality, reputation, and community impact.</p>
     <div class="picks-grid">
-      <a class="pick-card" href="/nyc/retrofret-vintage-guitars/">
-        <div>
-          <div class="pick-name">Retrofret Vintage Guitars</div>
-          <div class="pick-why">Best vintage stringed instruments in Brooklyn</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/rudys-music/">
+        <div class="pick-top"><div class="pick-name">Rudy's Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best guitar shop in Midtown</div>
+        <div class="pick-desc">One of the most celebrated guitar shops in NYC for 45+ years. Best brands, expert advice, welcoming atmosphere.</div>
       </a>
-      <a class="pick-card" href="/nyc/rudys-music/">
-        <div>
-          <div class="pick-name">Rudy's Music</div>
-          <div class="pick-why">NYC's most celebrated guitar shop for 45+ years</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/control-voltage/">
+        <div class="pick-top"><div class="pick-name">Control Voltage</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best synth boutique in NYC</div>
+        <div class="pick-desc">Williamsburg storefront lined with Eurorack modules and vintage synthesizers. The definitive electronic music destination.</div>
       </a>
-      <a class="pick-card" href="/nyc/carmine-street-guitars/">
-        <div>
-          <div class="pick-name">Carmine Street Guitars</div>
-          <div class="pick-why">Legendary custom guitars from reclaimed NYC timber</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/main-drag-music/">
+        <div class="pick-top"><div class="pick-name">Main Drag Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service shop in Brooklyn</div>
+        <div class="pick-desc">Williamsburg's go-to for guitars, drums, keys, and repair since 2003. The heartbeat of Brooklyn music retail.</div>
       </a>
-      <a class="pick-card" href="/nyc/control-voltage/">
-        <div>
-          <div class="pick-name">Control Voltage</div>
-          <div class="pick-why">Premier modular synth boutique in Williamsburg</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/sam-ash-music-nyc/">
+        <div class="pick-top"><div class="pick-name">Sam Ash Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service superstore</div>
+        <div class="pick-desc">Family-owned since 1924. The original NYC music superstore — 100 years strong.</div>
       </a>
-      <a class="pick-card" href="/nyc/sam-ash-music/">
-        <div>
-          <div class="pick-name">Sam Ash Music</div>
-          <div class="pick-why">NYC's original full-service music superstore since 1924</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-      <a class="pick-card" href="/nyc/drummers-world/">
-        <div>
-          <div class="pick-name">Drummers World</div>
-          <div class="pick-why">NYC's go-to drum specialist since 1976</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-
-    </div>
+      <a class="pick-card" href="/drummers-world/">
+        <div class="pick-top"><div class="pick-name">Drummers World</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best drum shop in NYC</div>
+        <div class="pick-desc">NYC's legendary drum specialist since 1976. The go-to for professional drummers in New York.</div>
+      </a></div>
   </div>
-
-  <!-- NEIGHBORHOODS -->
-  <div class="section" style="padding-top:32px;">
-    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
-    <div class="sec-sub">The best areas for music shopping in New York City — organized so you can hit multiple stores in one trip.</div>
-    <div class="hood-grid">
-      <div class="hood-card">
-        <div class="hood-name">📍 Williamsburg & Brooklyn</div>
-        <div class="hood-desc">Main Drag Music, Retrofret, and Control Voltage make Williamsburg a must for guitarists and synth players.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Greenwich Village & LES</div>
-        <div class="hood-desc">Carmine Street Guitars, Music Inn World Instruments, and Ludlow Guitars — the soul of downtown NYC guitar culture.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Midtown Manhattan</div>
-        <div class="hood-desc">Rudy's Music, Drummers World, 30th Street Guitars, and Sam Ash cluster here for one-stop music shopping.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Staten Island</div>
-        <div class="hood-desc">Mandolin Brothers and Tin Pan Music serve the borough with acoustic expertise.</div>
-      </div>
-
-    </div>
+  <div class="section">
+    <div class="sec-eyebrow">Guitar Stores New York City</div>
+    <h2 class="sec-head">🎸 Best Guitar Stores in New York City</h2>
+    <p class="sec-sub">From vintage dealers to full-line showrooms — the best guitar shops in New York City for every kind of player.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/rudys-music/">
+        <div class="seo-name">Rudy's Music</div>
+        <div class="seo-desc">Midtown's go-to for serious players. 45+ years of guitars, amps, and expert knowledge.</div>
+        <div class="seo-tags"><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-highend">💎 High-End</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+      </a>
+      <a class="seo-card" href="/retrofret-vintage-guitars/">
+        <div class="seo-name">Retrofret Vintage Guitars</div>
+        <div class="seo-desc">Brooklyn's finest vintage instrument shop. World-class on-site repair. Best vintage selection in NYC.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/carmine-street-guitars/">
+        <div class="seo-name">Carmine Street Guitars</div>
+        <div class="seo-desc">Custom guitars built from reclaimed NYC timber. A Greenwich Village bucket-list destination.</div>
+        <div class="seo-tags"><span class="tag tag-highend">💎 High-End</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a>
+      <a class="seo-card" href="/30th-street-guitars/">
+        <div class="seo-name">30th Street Guitars</div>
+        <div class="seo-desc">Chelsea institution since 1997. Vintage and used guitars, expert luthier Matt Brewster with 30+ years experience.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/ludlow-guitars/">
+        <div class="seo-name">Ludlow Guitars</div>
+        <div class="seo-desc">Lower East Side boutique with hand-picked new, used, and vintage guitars. Community-focused with regular events.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/rivington-guitars/">
+        <div class="seo-name">Rivington Guitars</div>
+        <div class="seo-desc">East Village's go-to guitar shop. Used and vintage gear, knowledgeable repair shop, welcoming vibe.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
   </div>
-
-  <!-- ALL STORES -->
-  <div class="stores-section">
-    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in New York City</div>
-    <div class="sec-sub">Every music store in New York City — instruments, records, repairs, lessons, and more.</div>
+  <div class="section">
+    <div class="sec-eyebrow">Vintage Music Stores New York City</div>
+    <h2 class="sec-head">⭐ Best Vintage Music Shops in New York City</h2>
+    <p class="sec-sub">The best shops for rare gear, vintage instruments, and collectible records in New York City.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/retrofret-vintage-guitars/">
+        <div class="seo-name">Retrofret Vintage Guitars</div>
+        <div class="seo-desc">The gold standard for vintage fretted instruments in NYC. Mandolins, banjos, ukuleles, and world-class lutherie.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/30th-street-guitars/">
+        <div class="seo-name">30th Street Guitars</div>
+        <div class="seo-desc">Chelsea's veteran vintage guitar dealer. Well-curated with expert in-house luthier since 1997.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/rogue-music/">
+        <div class="seo-name">Rogue Music</div>
+        <div class="seo-desc">Chelsea veteran carrying vintage and used guitars, basses, and amps. 30+ years serving NYC musicians.</div>
+        <div class="seo-tags"><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Instrument Repair New York City</div>
+    <h2 class="sec-head">🔧 Where to Get Instruments Repaired in New York City</h2>
+    <p class="sec-sub">Need a setup, refret, or full restoration? The best repair shops in New York City for every instrument.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/retrofret-vintage-guitars/">
+        <div class="seo-name">Retrofret Vintage Guitars</div>
+        <div class="seo-desc">One of the most complete lutherie and repair facilities on the East Coast. Best for complex restorations.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/30th-street-guitars/">
+        <div class="seo-name">30th Street Guitars</div>
+        <div class="seo-desc">Luthier Matt Brewster has 30+ years of experience. Expert setups, refrets, and restorations in Chelsea.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/carmine-street-guitars/">
+        <div class="seo-name">Carmine Street Guitars</div>
+        <div class="seo-desc">Custom builds and expert repairs by Rick Kelly, one of NYC's most celebrated luthiers.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-highend">💎 High-End</span></div>
+      </a>
+      <a class="seo-card" href="/main-drag-music/">
+        <div class="seo-name">Main Drag Music</div>
+        <div class="seo-desc">Full repair shop in Williamsburg. Fast turnaround, fair prices. Best for Brooklyn musicians.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Plan Your Visit</div>
+    <h2 class="sec-head">🗺 Plan Your New York City Music Store Tour</h2>
+    <p class="sec-sub">The best music stores in New York City by neighborhood — plan your trip to hit multiple shops in one day.</p>
+    <div class="hood-grid"><div class="hood-card"><div class="hood-name">📍 Williamsburg, Brooklyn</div><div class="hood-desc">Main Drag Music and Control Voltage make Williamsburg the best single neighborhood for music shopping in NYC. Add Retrofret in Carroll Gardens for a full Brooklyn day.</div></div><div class="hood-card"><div class="hood-name">📍 Greenwich Village & LES</div><div class="hood-desc">Carmine Street Guitars, Music Inn World Instruments, and Ludlow Guitars cluster in and around the Village and Lower East Side — the soul of downtown NYC guitar culture.</div></div><div class="hood-card"><div class="hood-name">📍 Midtown Manhattan</div><div class="hood-desc">Rudy's Music, Drummers World, 30th Street Guitars, and Sam Ash are all within walking distance. Best for a one-stop Midtown sweep.</div></div><div class="hood-card"><div class="hood-name">📍 Staten Island</div><div class="hood-desc">Mandolin Brothers is one of the world's great acoustic instrument shops. Worth the ferry ride for serious acoustic and folk players.</div></div></div>
+  </div>
+  <div class="section" style="padding-top:40px;">
+    <div class="sec-eyebrow">Complete Directory</div>
+    <h2 class="sec-head">All Music Stores in New York City</h2>
+    <p class="sec-sub">Every music store listed in New York City — use the filters above to narrow by type.</p>
     <div id="store-list">
-    <a class="store-card" href="/nyc/rudys-music/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Rudy's Music</div>
-        <div class="store-hood">📍 Midtown West</div>
-        <span class="store-tag">Guitars</span>
-        <div class="store-desc">One of the most celebrated guitar shops in NYC for 45+ years.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://rudysmusic.com" target="_blank" rel="noopener">rudysmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/retrofret-vintage-guitars/" data-tags="guitars vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Retrofret Vintage Guitars</div>
-        <div class="store-hood">📍 Carroll Gardens</div>
-        <span class="store-tag">Vintage Strings</span>
-        <div class="store-desc">Brooklyn's most respected vintage stringed instrument shop.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://retrofret.com" target="_blank" rel="noopener">retrofret.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/main-drag-music/" data-tags="guitars drums fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Main Drag Music</div>
-        <div class="store-hood">📍 Williamsburg</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Williamsburg's go-to for guitars, drums, keyboards, and boutique effects.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://maindragmusic.com" target="_blank" rel="noopener">maindragmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/control-voltage/" data-tags="synths">
-      <div class="store-icon">🎛️</div>
-      <div class="store-info">
-        <div class="store-name">Control Voltage</div>
-        <div class="store-hood">📍 Williamsburg</div>
-        <span class="store-tag">Synths</span>
-        <div class="store-desc">NYC's premier modular synth boutique.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://controlvoltage.net" target="_blank" rel="noopener">controlvoltage.net</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/30th-street-guitars/" data-tags="guitars vintage repairs">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">30th Street Guitars</div>
-        <div class="store-hood">📍 Chelsea</div>
-        <span class="store-tag">Vintage Guitars</span>
-        <div class="store-desc">NYC institution since 1997. Vintage guitars and expert repairs.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://30thstreetguitars.com" target="_blank" rel="noopener">30thstreetguitars.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/carmine-street-guitars/" data-tags="guitars repairs">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Carmine Street Guitars</div>
-        <div class="store-hood">📍 Greenwich Village</div>
-        <span class="store-tag">Custom Builds</span>
-        <div class="store-desc">Custom-built guitars from reclaimed NYC timber.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://carminestreetguitars.com" target="_blank" rel="noopener">carminestreetguitars.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/rivington-guitars/" data-tags="guitars vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Rivington Guitars</div>
-        <div class="store-hood">📍 East Village</div>
-        <span class="store-tag">Used & Vintage</span>
-        <div class="store-desc">The East Village's favorite guitar shop.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/mandolin-brothers/" data-tags="guitars">
-      <div class="store-icon">🪕</div>
-      <div class="store-info">
-        <div class="store-name">Mandolin Brothers</div>
-        <div class="store-hood">📍 Staten Island</div>
-        <span class="store-tag">Acoustic</span>
-        <div class="store-desc">Staten Island's legendary acoustic instrument destination since 1971.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://mandoweb.com" target="_blank" rel="noopener">mandoweb.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/sam-ash-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Sam Ash Music</div>
-        <div class="store-hood">📍 Midtown</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">NYC's original full-service music superstore since 1924.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://samash.com" target="_blank" rel="noopener">samash.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/proaudiostar/" data-tags="">
-      <div class="store-icon">🎙️</div>
-      <div class="store-info">
-        <div class="store-name">ProAudioStar</div>
-        <div class="store-hood">📍 Brooklyn</div>
-        <span class="store-tag">Pro Audio</span>
-        <div class="store-desc">NYC's top pro audio and DJ equipment retailer.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://proaudiostar.com" target="_blank" rel="noopener">proaudiostar.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/drummers-world/" data-tags="drums">
-      <div class="store-icon">🥁</div>
-      <div class="store-info">
-        <div class="store-name">Drummers World</div>
-        <div class="store-hood">📍 Midtown</div>
-        <span class="store-tag">Drums</span>
-        <div class="store-desc">NYC's legendary drum specialist since 1976.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://drummersworld.com" target="_blank" rel="noopener">drummersworld.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/music-inn-world-instruments/" data-tags="">
-      <div class="store-icon">🌍</div>
-      <div class="store-info">
-        <div class="store-name">Music Inn World Instruments</div>
-        <div class="store-hood">📍 Greenwich Village</div>
-        <span class="store-tag">World Music</span>
-        <div class="store-desc">World instrument shop since 1958. Ouds, sitars, and global instruments.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://musicinnworldinstruments.com" target="_blank" rel="noopener">musicinnworldinstruments.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/ludlow-guitars/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Ludlow Guitars</div>
-        <div class="store-hood">📍 Lower East Side</div>
-        <span class="store-tag">Boutique</span>
-        <div class="store-desc">The Lower East Side's coolest boutique guitar shop.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://ludlowguitars.com" target="_blank" rel="noopener">ludlowguitars.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/tin-pan-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Tin Pan Music</div>
-        <div class="store-hood">📍 Staten Island</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Staten Island's full-service music store since 1980.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://tinpanmusic.com" target="_blank" rel="noopener">tinpanmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/nyc/rogue-music/" data-tags="guitars vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Rogue Music</div>
-        <div class="store-hood">📍 Chelsea</div>
-        <span class="store-tag">Vintage</span>
-        <div class="store-desc">Chelsea's veteran guitar and vintage gear shop.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://roguemusic.com" target="_blank" rel="noopener">roguemusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-
+      <a class="store-card" href="/rudys-music/" data-tags="guitars pro highend vintage">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Rudy's Music</div>
+          <div class="store-hood">📍 Midtown West</div>
+          <div class="store-desc">One of the most celebrated guitar shops in NYC for over 45 years. Stocks the best brands alongside genuinely expert advice — rare in Midtown Manhattan.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-highend">💎 High-End</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rudy's Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://rudysmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">rudysmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/retrofret-vintage-guitars/" data-tags="guitars vintage rare repairs pro">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Retrofret Vintage Guitars</div>
+          <div class="store-hood">📍 Carroll Gardens, Brooklyn</div>
+          <div class="store-desc">Brooklyn's essential vintage instrument shop with one of the most complete lutherie and repair facilities on the East Coast. Not just guitars — mandolins, banjos, ukuleles, and rare folk instruments.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Retrofret Vintage Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://retrofret.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">retrofret.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/main-drag-music/" data-tags="guitars drums repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Main Drag Music</div>
+          <div class="store-hood">📍 Williamsburg, Brooklyn</div>
+          <div class="store-desc">Williamsburg's full-service music hub since 2003. Guitars, drums, keyboards, boutique effects, repair shop, and event space all under one roof.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Main Drag Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://maindragmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">maindragmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/control-voltage/" data-tags="synths rare pro">
+        <div class="store-icon">🎛️</div>
+        <div class="store-body">
+          <div class="store-name">Control Voltage</div>
+          <div class="store-hood">📍 Williamsburg, Brooklyn</div>
+          <div class="store-desc">NYC's premier modular synthesizer boutique. Walls lined with Eurorack modules and vintage synthesizers — all available to demo. The definitive electronic music destination in New York.</div>
+          <div class="store-tags"><span class="tag tag-synths">🎛️ Synths</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Control Voltage" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://controlvoltage.net" target="_blank" rel="noopener" onclick="event.stopPropagation()">controlvoltage.net</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/30th-street-guitars/" data-tags="guitars vintage repairs pro">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">30th Street Guitars</div>
+          <div class="store-hood">📍 Chelsea</div>
+          <div class="store-desc">Chelsea institution since 1997. Vintage and used guitars, boutique effects, expert luthier Matt Brewster with 30+ years of experience.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: 30th Street Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://30thstreetguitars.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">30thstreetguitars.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/carmine-street-guitars/" data-tags="guitars highend rare repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Carmine Street Guitars</div>
+          <div class="store-hood">📍 Greenwich Village</div>
+          <div class="store-desc">Greenwich Village legend Rick Kelly builds custom guitars from reclaimed NYC timber. Featured in a 2018 documentary. A bucket-list visit for any serious guitar player.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-highend">💎 High-End</span><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Carmine Street Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://carminestreetguitars.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">carminestreetguitars.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rivington-guitars/" data-tags="guitars vintage repairs beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Rivington Guitars</div>
+          <div class="store-hood">📍 East Village</div>
+          <div class="store-desc">The East Village's favorite guitar shop. Heaps of used and vintage gear, knowledgeable repair shop, genuinely welcoming atmosphere for players of all levels.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rivington Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/mandolin-brothers/" data-tags="guitars acoustic vintage pro">
+        <div class="store-icon">🪕</div>
+        <div class="store-body">
+          <div class="store-name">Mandolin Brothers</div>
+          <div class="store-hood">📍 Staten Island</div>
+          <div class="store-desc">One of the world's most respected acoustic guitar shops since 1971. Mandolins, banjos, ukuleles, and folk instruments alongside an extraordinary acoustic guitar selection.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Mandolin Brothers" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://mandoweb.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">mandoweb.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/sam-ash-music-nyc/" data-tags="guitars drums beginner lessons repairs">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Sam Ash Music NYC</div>
+          <div class="store-hood">📍 Midtown</div>
+          <div class="store-desc">Family-owned since 1924, Sam Ash operates the largest musical instrument showrooms in NYC. Every instrument imaginable, staffed by working musicians.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Sam Ash Music NYC" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://samash.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">samash.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/proaudiostar/" data-tags="pro highend">
+        <div class="store-icon">🎙️</div>
+        <div class="store-body">
+          <div class="store-name">ProAudioStar</div>
+          <div class="store-hood">📍 Brooklyn</div>
+          <div class="store-desc">NYC's top pro audio and DJ equipment retailer since 2006. Competitive prices on new pro audio gear, microphones, and studio equipment.</div>
+          <div class="store-tags"><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-highend">💎 High-End</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: ProAudioStar" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://proaudiostar.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">proaudiostar.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/drummers-world/" data-tags="drums pro">
+        <div class="store-icon">🥁</div>
+        <div class="store-body">
+          <div class="store-name">Drummers World</div>
+          <div class="store-hood">📍 Midtown</div>
+          <div class="store-desc">NYC's legendary drum specialist since 1976. Comprehensive selection of drums, cymbals, and percussion from all major brands.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Drummers World" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://drummersworld.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">drummersworld.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/music-inn-world-instruments/" data-tags="rare vintage">
+        <div class="store-icon">🌍</div>
+        <div class="store-body">
+          <div class="store-name">Music Inn World Instruments</div>
+          <div class="store-hood">📍 Greenwich Village</div>
+          <div class="store-desc">Greenwich Village treasure selling instruments from around the world since 1958. Ouds, sitars, world percussion — unique in the entire city.</div>
+          <div class="store-tags"><span class="tag tag-rare">🔍 Rare Gear</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Music Inn World Instruments" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://musicinnworldinstruments.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">musicinnworldinstruments.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/ludlow-guitars/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Ludlow Guitars</div>
+          <div class="store-hood">📍 Lower East Side</div>
+          <div class="store-desc">Lower East Side boutique with hand-picked new, used, and vintage guitars. Community-focused with regular in-store events. A neighborhood gem.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Ludlow Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://ludlowguitars.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">ludlowguitars.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/tin-pan-music/" data-tags="guitars drums lessons repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Tin Pan Music</div>
+          <div class="store-hood">📍 Staten Island</div>
+          <div class="store-desc">Staten Island's full-service music store since 1980. Guitars, bass, drums, keyboards, brass, and woodwinds alongside accessories, lessons, and expert repairs.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Tin Pan Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://tinpanmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">tinpanmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rogue-music/" data-tags="guitars vintage repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Rogue Music</div>
+          <div class="store-hood">📍 Chelsea</div>
+          <div class="store-desc">Chelsea veteran carrying curated vintage and used guitars, basses, and amps. Expert repair technicians and fair prices. 30+ years serving NYC musicians.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rogue Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://roguemusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">roguemusic.com</a><div class="store-arr">›</div></div>
+      </a></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎵</div>
+      <div class="empty-msg">No stores match that filter. Try a different category.</div>
     </div>
   </div>
-
-  <!-- TOUR CTA -->
-  <div class="tour-cta">
+  <div class="cta-box">
     <div>
       <h3>Own a music store in New York City?</h3>
       <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
     </div>
-    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in New York City&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+    <a class="cta-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in New York City">List Your Store →</a>
   </div>
-
 </div>
-
 <footer>
   <div class="f-logo">Music Store <b>Finds</b></div>
   <a href="/" class="f-back">← All Cities</a>
@@ -450,16 +496,20 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
 </footer>
 
 <script>
-function filterStores(type, el) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+function filter(type, el) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
-  document.querySelectorAll('.store-card').forEach(card => {
-    if (type === 'all') { card.style.display = ''; return; }
-    const tags = card.dataset.tags || '';
-    card.style.display = tags.includes(type) ? '' : 'none';
+  const cards = document.querySelectorAll('.store-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); visible++; }
+    else {
+      const tags = (card.dataset.tags || '').split(' ');
+      if (tags.includes(type)) { card.classList.remove('hidden'); visible++; }
+      else { card.classList.add('hidden'); }
+    }
   });
+  document.getElementById('emptyState').classList.toggle('show', visible === 0);
 }
 </script>
-
-</body>
-</html>
+</body></html>

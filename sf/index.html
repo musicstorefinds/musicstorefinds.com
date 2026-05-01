@@ -4,131 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Music Stores in San Francisco | Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in San Francisco. From the fog-kissed Outer Sunset to the tech-fueled East Bay, the San Francisco Bay Area has one of the most eclectic mu... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
+<meta name="description" content="The best music stores in San Francisco. From Amoeba Music to Haight Street — the ultimate guide to music shops and guitar stores in SF.">
 <link rel="canonical" href="https://musicstorefinds.co/sf/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
-  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
-  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
-  --border:rgba(92,74,50,0.12);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;--border:rgba(92,74,50,0.12);--white:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
 nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
-.ln b{color:#3D85FF;}
-.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}.ln b{color:#3D85FF;}.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
 .btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
-.btn-list:hover{background:var(--bb);}
-
-/* HERO */
-.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
-.hero-inner{max-width:720px;position:relative;z-index:1;}
-.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
-.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
-.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
-.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
-.stat{text-align:left;}
-.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
-.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
-
-/* SORT BAR */
-.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.sort-bar::-webkit-scrollbar{display:none;}
-.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
-.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
-.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* CONTENT */
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-
-/* TOP PICKS */
-.section{padding:36px 0 0;}
-.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
-.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
-.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
-.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* NEIGHBORHOODS */
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
-.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
-.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
-.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
-
-/* STORES LIST */
-.stores-section{padding:36px 0 48px;}
-.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
-.store-info{flex:1;min-width:0;}
-.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
-.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
-.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
-.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
-.store-web:hover{text-decoration:underline;}
-.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
-.store-arr{font-size:22px;color:var(--blue);}
-
-/* TOUR CTA */
-.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
-.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
-.tour-cta p b{color:#3D85FF;}
-.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
-.tour-btn:hover{background:var(--bb);}
-
-/* FOOTER */
-footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
-.f-logo b{color:#3D85FF;}
-.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
-.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
-.f-back:hover{color:#F2EDE3;}
-
-@media(max-width:600px){
-  .hero h1{font-size:30px;}
-  .store-card{flex-wrap:wrap;}
-  .store-right{flex-direction:row;align-items:center;width:100%;}
-  .picks-grid,.hood-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:780px;position:relative;z-index:1;}.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,58px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:16px;letter-spacing:-0.5px;}h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.8;color:rgba(242,237,227,0.6);max-width:620px;margin-bottom:12px;}.hero-intro p{margin-bottom:12px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+.filter-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90;}.filter-bar::-webkit-scrollbar{display:none;}
+.filter-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;flex-shrink:0;}
+.fbtn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 16px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0;}.fbtn:hover{border-color:var(--blue);color:var(--blue);}.fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}.section{padding:40px 0 0;}
+.sec-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}.sec-head{font-family:"Fraunces",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.1;}.sec-sub{font-size:14px;color:var(--bark);line-height:1.7;margin-bottom:22px;max-width:640px;}
+.featured-card{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.feat-header{background:var(--ink);padding:22px 24px 18px;position:relative;}.feat-header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 50%,rgba(27,110,243,0.15),transparent 70%);}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,133,255,0.2);border:1px solid rgba(61,133,255,0.3);color:#3D85FF;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px;position:relative;z-index:1;}
+.feat-name{font-family:"Fraunces",serif;font-size:24px;font-weight:900;color:#F2EDE3;line-height:1.1;margin-bottom:4px;position:relative;z-index:1;}.feat-hood{font-size:12px;color:rgba(242,237,227,0.45);position:relative;z-index:1;}
+.feat-body{padding:22px 24px;}.feat-story{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:18px;}.feat-story p{margin-bottom:12px;}.feat-story p:last-child{margin-bottom:0;}
+.feat-best{font-size:10px;font-weight:800;color:var(--blue);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}.feat-bullets{list-style:none;margin-bottom:18px;}.feat-bullets li{font-size:13px;color:var(--bark);padding:5px 0;padding-left:18px;position:relative;line-height:1.5;}.feat-bullets li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.feat-who{background:var(--pale);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--blue);font-weight:600;margin-bottom:16px;}.feat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.feat-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border);}.feat-link{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;transition:background 0.15s;}.feat-link:hover{background:var(--bb);}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px;}.pick-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:8px;}.pick-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}.pick-name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.pick-best{font-size:11px;font-weight:700;color:var(--amber);}.pick-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:8px;}.seo-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:box-shadow 0.2s;display:block;}.seo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}.seo-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.seo-desc{font-size:12px;color:var(--bark);line-height:1.5;margin-bottom:8px;}.seo-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}.tag-vintage{background:#FEF3E2;color:#B45309;}.tag-repairs{background:#EFF6FF;color:#1D4ED8;}.tag-lessons{background:#F0FDF4;color:#166534;}.tag-highend{background:#FDF4FF;color:#7E22CE;}.tag-beginner{background:#F0FDF4;color:#166534;}.tag-pro{background:#FFF1F2;color:#BE123C;}.tag-synths{background:#F0F9FF;color:#0369A1;}.tag-rare{background:#FEF3E2;color:#B45309;}.tag-records{background:#FDF4FF;color:#7E22CE;}.tag-acoustic{background:#F0FDF4;color:#166534;}.tag-drums{background:#FFF1F2;color:#BE123C;}.tag-guitars{background:#F0EDE5;color:#5C4A32;}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}.store-card.hidden{display:none;}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;margin-top:2px;}.store-body{flex:1;min-width:0;}.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}.store-hood{font-size:11px;color:var(--muted);margin-bottom:6px;}.store-desc{font-size:13px;color:var(--bark);line-height:1.6;margin-bottom:8px;}.store-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}.store-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-verified{font-size:10px;font-weight:700;color:#166534;background:#F0FDF4;padding:2px 7px;border-radius:4px;}.trust-updated{font-size:10px;color:var(--muted);}.claim-link{font-size:10px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;min-width:90px;}.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap;}.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}.store-arr{font-size:22px;color:var(--blue);}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}.hood-card{background:var(--parchment);border-radius:10px;padding:16px;}.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}.hood-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.empty-state{text-align:center;padding:40px 20px;display:none;}.empty-state.show{display:block;}.empty-icon{font-size:36px;margin-bottom:10px;}.empty-msg{font-size:14px;color:var(--muted);}
+.cta-box{background:var(--ink);border-radius:14px;padding:28px 24px;margin:40px 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}.cta-box h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}.cta-box p{font-size:13px;color:rgba(242,237,227,0.45);}.cta-box p b{color:#3D85FF;}.cta-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}.f-logo b{color:#3D85FF;}.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+@media(max-width:600px){.picks-grid,.seo-grid,.hood-grid{grid-template-columns:1fr;}.store-card{flex-wrap:wrap;}.store-right{flex-direction:row;width:100%;}}
+</style></head><body>
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
-  <div class="nav-right">
-    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
-  </div>
+  <a href="mailto:musicstorefinds@gmail.com?subject=List My Store in San Francisco" class="btn-list">+ List Your Store</a>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="breadcrumb"><a href="/">Music Store Finds</a> › San Francisco</div>
     <h1>Best Music Stores<br><em>in San Francisco</em></h1>
-    <p class="hero-intro">From the fog-kissed Outer Sunset to the tech-fueled East Bay, the San Francisco Bay Area has one of the most eclectic music store scenes in the country. Acoustic gems, synth boutiques, and legendary record stores all coexist here.</p>
+    <div class="hero-intro"><p>San Francisco's music store scene carries the legacy of the city that gave the world the Grateful Dead, Jefferson Airplane, and the Summer of Love. Haight-Ashbury, where the psychedelic revolution was born, is still home to several independent music shops that maintain the neighborhood's countercultural spirit. And Amoeba Music's San Francisco location remains one of the greatest record stores on earth.</p><p>The city's independent music retail scene has contracted with San Francisco's brutal real estate market, but what survives is genuinely exceptional. Haight Street Guitars has built a reputation as one of the best acoustic guitar shops in Northern California. Subway Guitars in Berkeley — just across the Bay — is a legendary low-key destination for working players seeking quality instruments at honest prices.</p><p>San Francisco's music community is intensely DIY and community-oriented. The best shops reflect that — they're run by musicians, for musicians, with a genuine investment in the local music scene that no chain store can replicate.</p></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">14</div><div class="stat-l">Stores Listed</div></div>
       <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
@@ -136,300 +64,396 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
     </div>
   </div>
 </div>
-
-<!-- SORT BAR -->
-<div class="sort-bar">
-  <span class="sort-label">Browse by:</span>
-  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
-  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
-  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
-  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
-  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
-  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
-  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
-  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="fbtn on" onclick="filter('all',this)">🗂 All Stores</button>
+  <button class="fbtn" onclick="filter('guitars',this)">🎸 Guitars</button>
+  <button class="fbtn" onclick="filter('records',this)">💿 Records</button>
+  <button class="fbtn" onclick="filter('drums',this)">🥁 Drums</button>
+  <button class="fbtn" onclick="filter('synths',this)">🎛️ Synths</button>
+  <button class="fbtn" onclick="filter('vintage',this)">⭐ Vintage</button>
+  <button class="fbtn" onclick="filter('repairs',this)">🔧 Repairs</button>
+  <button class="fbtn" onclick="filter('lessons',this)">🎓 Lessons</button>
+  <button class="fbtn" onclick="filter('pro',this)">🏆 Pro Level</button>
+  <button class="fbtn" onclick="filter('beginner',this)">🌱 Beginner</button>
 </div>
-
 <div class="wrap">
-
-  <!-- TOP PICKS -->
   <div class="section">
-    <div class="sec-head">🏆 Top Picks in San Francisco</div>
-    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="sec-eyebrow">Featured Stores</div>
+    <h2 class="sec-head">✨ The Stories Behind the Best Stores</h2>
+    <p class="sec-sub">Not just listings — the history, the legacy, and why musicians love these places.</p>
+    
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Amoeba Music San Francisco</div>
+      <div class="feat-hood">📍 Haight-Ashbury</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">💿 One of the World's Great Record Stores</div>
+      <div class="feat-story"><p>Amoeba Music's San Francisco location on Haight Street is one of the most extraordinary record stores in the world. Founded in Berkeley in 1990 and expanded to the Haight in 1997, Amoeba has built an inventory that is almost incomprehensible in scope — hundreds of thousands of new and used LPs, CDs, cassettes, DVDs, and music-related merchandise spanning every genre and era.</p><p>The San Francisco store occupies a former bowling alley on Haight Street, giving it a cavernous, cathedral-like quality that suits the experience of spending hours lost in the stacks. The staff are experts across a remarkable range of musical genres, and the store's buying operation means the inventory is constantly refreshed with interesting collections.</p><p>Amoeba is more than a record store — it's a San Francisco cultural institution. Regular in-store performances have featured everyone from local Bay Area artists to major touring acts. If you're a music lover in San Francisco and you haven't spent a full afternoon here, correct that immediately.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the largest and most respected record stores in the world</li><li>Hundreds of thousands of new and used LPs, CDs, and cassettes across every genre</li><li>Regular in-store performances featuring local and major touring artists</li><li>The staff expertise across genres is exceptional — ask them anything</li></ul>
+      <div class="feat-who">Best for: Record collectors, music lovers, and anyone who wants to spend a perfect afternoon in San Francisco.</div>
+      <div class="feat-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Amoeba Music San Francisco">Claim this listing</a>
+        <a class="feat-link" href="https://amoeba.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Haight Street Guitars</div>
+      <div class="feat-hood">📍 Haight-Ashbury</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🎸 Haight-Ashbury Guitar Shop</div>
+      <div class="feat-story"><p>Haight Street Guitars sits in the heart of the neighborhood that defined San Francisco's musical identity — and the shop lives up to its address. Specializing in acoustic and folk instruments, Haight Street has built a reputation as one of the best acoustic guitar shops in Northern California, with a selection that reflects the Haight's enduring folk and roots music tradition.</p><p>The shop stocks new and used acoustic guitars from quality builders alongside a selection of vintage instruments that reward careful inspection. The staff are acoustic specialists who can speak knowledgeably about tonewoods, construction, and playability in a way that generic music store staff simply can't.</p><p>Shopping at Haight Street Guitars feels like the right way to experience the neighborhood — independent, a little eccentric, deeply musical, and completely authentic to San Francisco's spirit.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the best acoustic guitar shops in Northern California</li><li>Staff are genuine acoustic specialists — deep knowledge of tonewoods and construction</li><li>New, used, and vintage acoustic instruments in a classic Haight-Ashbury setting</li><li>Reflects the neighborhood's enduring folk and roots music tradition</li></ul>
+      <div class="feat-who">Best for: Acoustic guitar players, folk musicians, and anyone seeking quality acoustic instruments in SF.</div>
+      <div class="feat-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Haight Street Guitars">Claim this listing</a>
+        <a class="feat-link" href="https://haightstreetguitars.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Editors' Picks</div>
+    <h2 class="sec-head">🏆 Top Music Stores in San Francisco</h2>
+    <p class="sec-sub">Our hand-picked selection of the best music stores in San Francisco — chosen for quality, reputation, and community impact.</p>
     <div class="picks-grid">
-      <a class="pick-card" href="/sf/gryphon-stringed-instruments/">
-        <div>
-          <div class="pick-name">Gryphon Stringed Instruments</div>
-          <div class="pick-why">One of the world's best acoustic instrument shops</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/amoeba-music-sf/">
+        <div class="pick-top"><div class="pick-name">Amoeba Music SF</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best record store in SF</div>
+        <div class="pick-desc">One of the world's great record stores. Hundreds of thousands of records in a former bowling alley on Haight Street.</div>
       </a>
-      <a class="pick-card" href="/sf/robotspeak/">
-        <div>
-          <div class="pick-name">ROBOTSPEAk</div>
-          <div class="pick-why">Northern California's preeminent synthesizer boutique</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/haight-street-guitars/">
+        <div class="pick-top"><div class="pick-name">Haight Street Guitars</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best acoustic guitar shop</div>
+        <div class="pick-desc">The best acoustic and folk guitar shop in the Haight. Deep knowledge, quality selection.</div>
       </a>
-      <a class="pick-card" href="/sf/amoeba-music-sf/">
-        <div>
-          <div class="pick-name">Amoeba Music SF</div>
-          <div class="pick-why">The iconic Haight Street record store institution</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/subway-guitars/">
+        <div class="pick-top"><div class="pick-name">Subway Guitars</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best no-frills guitar shop</div>
+        <div class="pick-desc">Berkeley legend known for quality guitars at honest prices. No BS, all music.</div>
       </a>
-      <a class="pick-card" href="/sf/guitar-solo/">
-        <div>
-          <div class="pick-name">Guitar Solo</div>
-          <div class="pick-why">SF's legendary acoustic and classical guitar destination since 1974</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/gryphon-stringed/">
+        <div class="pick-top"><div class="pick-name">Gryphon Stringed Instruments</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best vintage and classical</div>
+        <div class="pick-desc">Palo Alto institution specializing in vintage and classical stringed instruments. World-class repair shop.</div>
       </a>
-      <a class="pick-card" href="/sf/wildwood-guitars/">
-        <div>
-          <div class="pick-name">WildWood Guitars</div>
-          <div class="pick-why">One of the world's top acoustic guitar dealers in Louisville CO</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-      <a class="pick-card" href="/sf/subway-guitars/">
-        <div>
-          <div class="pick-name">Subway Guitars</div>
-          <div class="pick-why">Berkeley's legendary budget guitar shop with 3,000+ instruments</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-
-    </div>
+      <a class="pick-card" href="/gelb-music/">
+        <div class="pick-top"><div class="pick-name">Gelb Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service shop</div>
+        <div class="pick-desc">Redwood City institution since 1913. Full-service music store serving Bay Area musicians for over a century.</div>
+      </a></div>
   </div>
-
-  <!-- NEIGHBORHOODS -->
-  <div class="section" style="padding-top:32px;">
-    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
-    <div class="sec-sub">The best areas for music shopping in San Francisco — organized so you can hit multiple stores in one trip.</div>
-    <div class="hood-grid">
-      <div class="hood-card">
-        <div class="hood-name">📍 Haight-Ashbury</div>
-        <div class="hood-desc">Amoeba Music and ROBOTSPEAk make Haight Street essential for record collectors and synth enthusiasts.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 The Peninsula</div>
-        <div class="hood-desc">Gryphon Strings in Palo Alto and Gelb Music in Redwood City serve the Silicon Valley music community with exceptional instruments.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Berkeley & East Bay</div>
-        <div class="hood-desc">Subway Guitars, Starving Musician, Rasputin Music, and Berkeley MIEX make Telegraph Avenue and surroundings a must-visit.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Marin County & North Bay</div>
-        <div class="hood-desc">Bananas at Large in San Rafael is the North Bay's beloved full-service destination.</div>
-      </div>
-
-    </div>
+  <div class="section">
+    <div class="sec-eyebrow">Guitar Stores San Francisco</div>
+    <h2 class="sec-head">🎸 Best Guitar Stores in San Francisco</h2>
+    <p class="sec-sub">From vintage dealers to full-line showrooms — the best guitar shops in San Francisco for every kind of player.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/haight-street-guitars/">
+        <div class="seo-name">Haight Street Guitars</div>
+        <div class="seo-desc">Best acoustic guitar shop in San Francisco. Folk and acoustic specialists on Haight Street.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a>
+      <a class="seo-card" href="/gryphon-stringed/">
+        <div class="seo-name">Gryphon Stringed Instruments</div>
+        <div class="seo-desc">World-class vintage and classical stringed instrument shop in Palo Alto. Luthiers on staff.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/subway-guitars/">
+        <div class="seo-name">Subway Guitars</div>
+        <div class="seo-desc">Berkeley legend. Quality guitars at honest prices. No-frills, all music.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
   </div>
-
-  <!-- ALL STORES -->
-  <div class="stores-section">
-    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in San Francisco</div>
-    <div class="sec-sub">Every music store in San Francisco — instruments, records, repairs, lessons, and more.</div>
+  <div class="section">
+    <div class="sec-eyebrow">Vintage Music Stores San Francisco</div>
+    <h2 class="sec-head">⭐ Best Vintage Music Shops in San Francisco</h2>
+    <p class="sec-sub">The best shops for rare gear, vintage instruments, and collectible records in San Francisco.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/amoeba-music-sf/">
+        <div class="seo-name">Amoeba Music SF</div>
+        <div class="seo-desc">One of the world's great record stores. Hundreds of thousands of used records across every genre.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      </a>
+      <a class="seo-card" href="/gryphon-stringed/">
+        <div class="seo-name">Gryphon Stringed Instruments</div>
+        <div class="seo-desc">Vintage and antique stringed instruments of the highest quality. Expert restoration and appraisals.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a>
+      <a class="seo-card" href="/haight-street-guitars/">
+        <div class="seo-name">Haight Street Guitars</div>
+        <div class="seo-desc">New, used, and vintage acoustic guitars in the heart of Haight-Ashbury.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Instrument Repair San Francisco</div>
+    <h2 class="sec-head">🔧 Where to Get Instruments Repaired in San Francisco</h2>
+    <p class="sec-sub">Need a setup, refret, or full restoration? The best repair shops in San Francisco for every instrument.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/gryphon-stringed/">
+        <div class="seo-name">Gryphon Stringed Instruments</div>
+        <div class="seo-desc">World-class repair and restoration of stringed instruments. Best luthier shop in the Bay Area.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+      </a>
+      <a class="seo-card" href="/haight-street-guitars/">
+        <div class="seo-name">Haight Street Guitars</div>
+        <div class="seo-desc">Expert acoustic guitar setup and repair in the Haight. Trusted by SF musicians.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-acoustic">🎵 Acoustic</span></div>
+      </a>
+      <a class="seo-card" href="/subway-guitars/">
+        <div class="seo-name">Subway Guitars</div>
+        <div class="seo-desc">Affordable repairs and setups at Subway Guitars in Berkeley. Trusted for decades.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Plan Your Visit</div>
+    <h2 class="sec-head">🗺 Plan Your San Francisco Music Store Tour</h2>
+    <p class="sec-sub">The best music stores in San Francisco by neighborhood — plan your trip to hit multiple shops in one day.</p>
+    <div class="hood-grid"><div class="hood-card"><div class="hood-name">📍 Haight-Ashbury</div><div class="hood-desc">Amoeba Music and Haight Street Guitars make this the best single neighborhood for music shopping in SF.</div></div><div class="hood-card"><div class="hood-name">📍 Mission District</div><div class="hood-desc">Several independent record stores and music shops serve the Mission's vibrant musician community.</div></div><div class="hood-card"><div class="hood-name">📍 Berkeley (East Bay)</div><div class="hood-desc">Subway Guitars and Amoeba Berkeley are both must-visits for players willing to cross the Bay.</div></div><div class="hood-card"><div class="hood-name">📍 Peninsula (Palo Alto / Redwood City)</div><div class="hood-desc">Gryphon Stringed Instruments and Gelb Music serve the South Bay musician community.</div></div></div>
+  </div>
+  <div class="section" style="padding-top:40px;">
+    <div class="sec-eyebrow">Complete Directory</div>
+    <h2 class="sec-head">All Music Stores in San Francisco</h2>
+    <p class="sec-sub">Every music store listed in San Francisco — use the filters above to narrow by type.</p>
     <div id="store-list">
-    <a class="store-card" href="/sf/guitar-solo/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Guitar Solo</div>
-        <div class="store-hood">📍 Mission</div>
-        <span class="store-tag">Acoustic & Classical</span>
-        <div class="store-desc">SF's legendary acoustic and classical guitar destination since 1974.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://guitarsolo.com" target="_blank" rel="noopener">guitarsolo.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/sunset-music-co/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Sunset Music Co</div>
-        <div class="store-hood">📍 Outer Sunset</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">SF's oldest music store founded in 1948. Largest sheet music selection.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/robotspeak/" data-tags="synths">
-      <div class="store-icon">🎛️</div>
-      <div class="store-info">
-        <div class="store-name">ROBOTSPEAk</div>
-        <div class="store-hood">📍 Haight-Ashbury</div>
-        <span class="store-tag">Synths</span>
-        <div class="store-desc">Northern California's preeminent synthesizer boutique.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://robotspeak.com" target="_blank" rel="noopener">robotspeak.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/union-music-company/" data-tags="fullservice">
-      <div class="store-icon">🎺</div>
-      <div class="store-info">
-        <div class="store-name">Union Music Company</div>
-        <div class="store-hood">📍 Tenderloin</div>
-        <span class="store-tag">Band & Orchestra</span>
-        <div class="store-desc">SF's premiere band and orchestra instrument store since 1922.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://unionmusiccompany.com" target="_blank" rel="noopener">unionmusiccompany.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/berkeley-miex/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Berkeley MIEX</div>
-        <div class="store-hood">📍 Berkeley</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">East Bay's integral music institution since 1974.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://miex.com" target="_blank" rel="noopener">miex.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/gryphon-stringed-instruments/" data-tags="guitars">
-      <div class="store-icon">🎻</div>
-      <div class="store-info">
-        <div class="store-name">Gryphon Stringed Instruments</div>
-        <div class="store-hood">📍 Palo Alto</div>
-        <span class="store-tag">Acoustic</span>
-        <div class="store-desc">Peninsula's legendary folk and acoustic instrument shop since 1969.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://gryphonstrings.com" target="_blank" rel="noopener">gryphonstrings.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/gelb-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Gelb Music</div>
-        <div class="store-hood">📍 Redwood City</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Peninsula full-service music store since 1948.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://gelbmusic.com" target="_blank" rel="noopener">gelbmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/bananas-at-large/" data-tags="fullservice">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Bananas at Large</div>
-        <div class="store-hood">📍 San Rafael</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Marin County's full-service music store since 1972.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://bananasatlarge.com" target="_blank" rel="noopener">bananasatlarge.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/amoeba-music-sf/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Amoeba Music SF</div>
-        <div class="store-hood">📍 Haight-Ashbury</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">One of the world's most beloved independent record stores.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://amoeba.com" target="_blank" rel="noopener">amoeba.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/subway-guitars/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Subway Guitars</div>
-        <div class="store-hood">📍 Berkeley</div>
-        <span class="store-tag">Budget Guitars</span>
-        <div class="store-desc">Berkeley's legendary guitar shop. 3,000+ guitars at budget prices.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/danville-music/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Danville Music</div>
-        <div class="store-hood">📍 Danville</div>
-        <span class="store-tag">Boutique</span>
-        <div class="store-desc">East Bay's premier boutique guitar shop. PRS, Gibson, Taylor, Suhr.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://danvillemusic.com" target="_blank" rel="noopener">danvillemusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/guitar-showcase/" data-tags="guitars vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Guitar Showcase</div>
-        <div class="store-hood">📍 San Jose</div>
-        <span class="store-tag">Vintage Guitars</span>
-        <div class="store-desc">San Jose's legendary guitar shop since 1966.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://guitarshowcase.com" target="_blank" rel="noopener">guitarshowcase.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/rasputin-music/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Rasputin Music</div>
-        <div class="store-hood">📍 Berkeley</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">The Bay Area's largest independent record store chain since 1971.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://rasputinmusic.com" target="_blank" rel="noopener">rasputinmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/sf/starving-musician/" data-tags="">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Starving Musician</div>
-        <div class="store-hood">📍 Berkeley</div>
-        <span class="store-tag">Budget</span>
-        <div class="store-desc">Berkeley's go-to for budget instruments and gear.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://starvingmusician.com" target="_blank" rel="noopener">starvingmusician.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-
+      <a class="store-card" href="/amoeba-music-sf/" data-tags="records vintage rare">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Amoeba Music SF</div>
+          <div class="store-hood">📍 Haight-Ashbury</div>
+          <div class="store-desc">One of the world's great record stores. Hundreds of thousands of new and used records across every genre in a former Haight Street bowling alley. Regular in-store performances.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Amoeba Music SF" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://amoeba.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">amoeba.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/haight-street-guitars/" data-tags="guitars acoustic vintage repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Haight Street Guitars</div>
+          <div class="store-hood">📍 Haight-Ashbury</div>
+          <div class="store-desc">Best acoustic guitar shop in San Francisco. Folk and acoustic specialists with deep knowledge of tonewoods, construction, and vintage instruments.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Haight Street Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://haightstreetguitars.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">haightstreetguitars.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/subway-guitars/" data-tags="guitars vintage beginner repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Subway Guitars</div>
+          <div class="store-hood">📍 Berkeley</div>
+          <div class="store-desc">Berkeley legend known for quality guitars at honest prices. No-frills atmosphere, all music. Beloved by working Bay Area musicians for decades.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Subway Guitars" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/gryphon-stringed/" data-tags="guitars acoustic vintage repairs pro">
+        <div class="store-icon">🎻</div>
+        <div class="store-body">
+          <div class="store-name">Gryphon Stringed Instruments</div>
+          <div class="store-hood">📍 Palo Alto</div>
+          <div class="store-desc">World-class vintage and classical stringed instrument shop. Expert luthiers, extraordinary inventory, and some of the best repair work in California.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Gryphon Stringed Instruments" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://gryphon.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">gryphon.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/gelb-music/" data-tags="guitars lessons repairs beginner rentals">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Gelb Music</div>
+          <div class="store-hood">📍 Redwood City</div>
+          <div class="store-desc">Bay Area institution since 1913. Full-service music store with instruments, lessons, rentals, and repairs for students and professionals alike.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Gelb Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://gelbmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">gelbmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/sunset-music/" data-tags="guitars beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Sunset Music Co</div>
+          <div class="store-hood">📍 Sunset District</div>
+          <div class="store-desc">SF's neighborhood music store in the Sunset District. Guitars, accessories, and friendly service for local musicians.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Sunset Music Co" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-center-sf/" data-tags="guitars drums beginner rentals repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Center SF</div>
+          <div class="store-hood">📍 SOMA</div>
+          <div class="store-desc">Full-service music superstore in SOMA. Widest new instrument selection in SF with rentals and repairs available.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Center SF" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarcenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rasputin-music/" data-tags="records vintage beginner">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Rasputin Music</div>
+          <div class="store-hood">📍 San Francisco</div>
+          <div class="store-desc">Used CDs, vinyl, and DVDs at great prices. Multiple Bay Area locations. Reliable source for used music at fair prices.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rasputin Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://rasputinmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">rasputinmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/101-music/" data-tags="guitars vintage records">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">101 Music</div>
+          <div class="store-hood">📍 North Beach</div>
+          <div class="store-desc">North Beach music institution. Used and vintage guitars alongside a curated record selection. A neighborhood gem with decades of history.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-records">💿 Records</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: 101 Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-showcase/" data-tags="guitars repairs beginner pro">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Showcase</div>
+          <div class="store-hood">📍 San Jose</div>
+          <div class="store-desc">San Jose's premier guitar shop. Large selection of new and used guitars, expert repairs, and competitive pricing.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Showcase" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarshowcase.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarshowcase.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/coliseum-music/" data-tags="guitars lessons repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Coliseum Music</div>
+          <div class="store-hood">📍 San Jose</div>
+          <div class="store-desc">Full-service music store serving the South Bay musician and student community for decades.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Coliseum Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rainbow-music/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Rainbow Music</div>
+          <div class="store-hood">📍 San Francisco</div>
+          <div class="store-desc">Used instruments and gear at affordable prices. A reliable resource for San Francisco musicians on a budget.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rainbow Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/starving-musician/" data-tags="guitars drums beginner vintage">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Starving Musician</div>
+          <div class="store-hood">📍 Multiple Bay Area</div>
+          <div class="store-desc">Bay Area chain specializing in used instruments at student-friendly prices. Multiple locations across the East Bay.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Starving Musician" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://starvingmusician.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">starvingmusician.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/johnson-string/" data-tags="repairs lessons beginner pro">
+        <div class="store-icon">🎻</div>
+        <div class="store-body">
+          <div class="store-name">Johnson String Instrument</div>
+          <div class="store-hood">📍 San Francisco Area</div>
+          <div class="store-desc">Specialist in orchestral string instruments — violins, violas, cellos, and basses. Sales, rentals, and expert repairs for students and professionals.</div>
+          <div class="store-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Johnson String Instrument" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://johnsonstring.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">johnsonstring.com</a><div class="store-arr">›</div></div>
+      </a></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎵</div>
+      <div class="empty-msg">No stores match that filter. Try a different category.</div>
     </div>
   </div>
-
-  <!-- TOUR CTA -->
-  <div class="tour-cta">
+  <div class="cta-box">
     <div>
       <h3>Own a music store in San Francisco?</h3>
       <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
     </div>
-    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in San Francisco&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+    <a class="cta-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in San Francisco">List Your Store →</a>
   </div>
-
 </div>
-
 <footer>
   <div class="f-logo">Music Store <b>Finds</b></div>
   <a href="/" class="f-back">← All Cities</a>
@@ -437,16 +461,20 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
 </footer>
 
 <script>
-function filterStores(type, el) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+function filter(type, el) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
-  document.querySelectorAll('.store-card').forEach(card => {
-    if (type === 'all') { card.style.display = ''; return; }
-    const tags = card.dataset.tags || '';
-    card.style.display = tags.includes(type) ? '' : 'none';
+  const cards = document.querySelectorAll('.store-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); visible++; }
+    else {
+      const tags = (card.dataset.tags || '').split(' ');
+      if (tags.includes(type)) { card.classList.remove('hidden'); visible++; }
+      else { card.classList.add('hidden'); }
+    }
   });
+  document.getElementById('emptyState').classList.toggle('show', visible === 0);
 }
 </script>
-
-</body>
-</html>
+</body></html>
