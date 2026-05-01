@@ -4,131 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Music Stores in Minneapolis | Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Minneapolis. The Twin Cities punch well above their weight musically — Prince, Bob Dylan, and The Replacements all called Minnesota h... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
+<meta name="description" content="Best music stores in Minneapolis. From Electric Fetus to Groth Music — the complete guide to music shops and guitar stores in Minneapolis, MN.">
 <link rel="canonical" href="https://musicstorefinds.co/minneapolis/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
-  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
-  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
-  --border:rgba(92,74,50,0.12);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;--border:rgba(92,74,50,0.12);--white:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
 nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
-.ln b{color:#3D85FF;}
-.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}.ln b{color:#3D85FF;}.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
 .btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
-.btn-list:hover{background:var(--bb);}
-
-/* HERO */
-.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
-.hero-inner{max-width:720px;position:relative;z-index:1;}
-.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
-.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
-.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
-.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
-.stat{text-align:left;}
-.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
-.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
-
-/* SORT BAR */
-.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.sort-bar::-webkit-scrollbar{display:none;}
-.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
-.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
-.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* CONTENT */
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-
-/* TOP PICKS */
-.section{padding:36px 0 0;}
-.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
-.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
-.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
-.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* NEIGHBORHOODS */
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
-.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
-.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
-.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
-
-/* STORES LIST */
-.stores-section{padding:36px 0 48px;}
-.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
-.store-info{flex:1;min-width:0;}
-.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
-.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
-.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
-.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
-.store-web:hover{text-decoration:underline;}
-.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
-.store-arr{font-size:22px;color:var(--blue);}
-
-/* TOUR CTA */
-.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
-.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
-.tour-cta p b{color:#3D85FF;}
-.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
-.tour-btn:hover{background:var(--bb);}
-
-/* FOOTER */
-footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
-.f-logo b{color:#3D85FF;}
-.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
-.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
-.f-back:hover{color:#F2EDE3;}
-
-@media(max-width:600px){
-  .hero h1{font-size:30px;}
-  .store-card{flex-wrap:wrap;}
-  .store-right{flex-direction:row;align-items:center;width:100%;}
-  .picks-grid,.hood-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:780px;position:relative;z-index:1;}.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,58px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:16px;letter-spacing:-0.5px;}h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.8;color:rgba(242,237,227,0.6);max-width:620px;margin-bottom:12px;}.hero-intro p{margin-bottom:12px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+.filter-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90;}.filter-bar::-webkit-scrollbar{display:none;}
+.filter-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;flex-shrink:0;}
+.fbtn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 16px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0;}.fbtn:hover{border-color:var(--blue);color:var(--blue);}.fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}.section{padding:40px 0 0;}
+.sec-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}.sec-head{font-family:"Fraunces",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.1;}.sec-sub{font-size:14px;color:var(--bark);line-height:1.7;margin-bottom:22px;max-width:640px;}
+.featured-card{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.feat-header{background:var(--ink);padding:22px 24px 18px;position:relative;}.feat-header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 50%,rgba(27,110,243,0.15),transparent 70%);}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,133,255,0.2);border:1px solid rgba(61,133,255,0.3);color:#3D85FF;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px;position:relative;z-index:1;}
+.feat-name{font-family:"Fraunces",serif;font-size:24px;font-weight:900;color:#F2EDE3;line-height:1.1;margin-bottom:4px;position:relative;z-index:1;}.feat-hood{font-size:12px;color:rgba(242,237,227,0.45);position:relative;z-index:1;}
+.feat-body{padding:22px 24px;}.feat-story{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:18px;}.feat-story p{margin-bottom:12px;}.feat-story p:last-child{margin-bottom:0;}
+.feat-best{font-size:10px;font-weight:800;color:var(--blue);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}.feat-bullets{list-style:none;margin-bottom:18px;}.feat-bullets li{font-size:13px;color:var(--bark);padding:5px 0;padding-left:18px;position:relative;line-height:1.5;}.feat-bullets li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.feat-who{background:var(--pale);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--blue);font-weight:600;margin-bottom:16px;}.feat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.feat-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border);}.feat-link{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;transition:background 0.15s;}.feat-link:hover{background:var(--bb);}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px;}.pick-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:8px;}.pick-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}.pick-name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.pick-best{font-size:11px;font-weight:700;color:var(--amber);}.pick-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:8px;}.seo-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:box-shadow 0.2s;display:block;}.seo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}.seo-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.seo-desc{font-size:12px;color:var(--bark);line-height:1.5;margin-bottom:8px;}.seo-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}.tag-vintage{background:#FEF3E2;color:#B45309;}.tag-repairs{background:#EFF6FF;color:#1D4ED8;}.tag-lessons{background:#F0FDF4;color:#166534;}.tag-highend{background:#FDF4FF;color:#7E22CE;}.tag-beginner{background:#F0FDF4;color:#166534;}.tag-pro{background:#FFF1F2;color:#BE123C;}.tag-synths{background:#F0F9FF;color:#0369A1;}.tag-rare{background:#FEF3E2;color:#B45309;}.tag-records{background:#FDF4FF;color:#7E22CE;}.tag-acoustic{background:#F0FDF4;color:#166534;}.tag-drums{background:#FFF1F2;color:#BE123C;}.tag-guitars{background:#F0EDE5;color:#5C4A32;}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}.store-card.hidden{display:none;}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;margin-top:2px;}.store-body{flex:1;min-width:0;}.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}.store-hood{font-size:11px;color:var(--muted);margin-bottom:6px;}.store-desc{font-size:13px;color:var(--bark);line-height:1.6;margin-bottom:8px;}.store-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}.store-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-verified{font-size:10px;font-weight:700;color:#166534;background:#F0FDF4;padding:2px 7px;border-radius:4px;}.trust-updated{font-size:10px;color:var(--muted);}.claim-link{font-size:10px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;min-width:90px;}.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap;}.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}.store-arr{font-size:22px;color:var(--blue);}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}.hood-card{background:var(--parchment);border-radius:10px;padding:16px;}.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}.hood-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.empty-state{text-align:center;padding:40px 20px;display:none;}.empty-state.show{display:block;}.empty-icon{font-size:36px;margin-bottom:10px;}.empty-msg{font-size:14px;color:var(--muted);}
+.cta-box{background:var(--ink);border-radius:14px;padding:28px 24px;margin:40px 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}.cta-box h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}.cta-box p{font-size:13px;color:rgba(242,237,227,0.45);}.cta-box p b{color:#3D85FF;}.cta-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}.f-logo b{color:#3D85FF;}.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+@media(max-width:600px){.picks-grid,.seo-grid,.hood-grid{grid-template-columns:1fr;}.store-card{flex-wrap:wrap;}.store-right{flex-direction:row;width:100%;}}
+</style></head><body>
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
-  <div class="nav-right">
-    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
-  </div>
+  <a href="mailto:musicstorefinds@gmail.com?subject=List My Store in Minneapolis" class="btn-list">+ List Your Store</a>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="breadcrumb"><a href="/">Music Store Finds</a> › Minneapolis</div>
-    <h1>Best Music Stores<br><em>in Minneapolis</em></h1>
-    <p class="hero-intro">The Twin Cities punch well above their weight musically — Prince, Bob Dylan, and The Replacements all called Minnesota home. The Minneapolis music store scene reflects that outsized musical identity with institutions spanning folk, hip hop, and everything in between.</p>
+    <h1>Best Music Stores<br><em>in Minneapolis, Minnesota</em></h1>
+    <div class="hero-intro"><p>Minneapolis punches way above its weight class musically. The city that gave the world Prince, Bob Dylan, The Replacements, Husker Du, and Soul Asylum has a music store scene that reflects that outsized creative output. Electric Fetus — one of the great American independent record stores — has been a Minneapolis institution since 1968, outlasting every challenge the music industry has thrown at it.</p><p>The Minneapolis music store scene benefits from a city that genuinely invests in its arts community. Groth Music in Bloomington is one of the most comprehensive instrument dealers in the Midwest. Fifth Element, the flagship store of Rhymesayers Entertainment, is a destination for hip-hop fans and record collectors from across the country.</p><p>Minnesota winters create a particular kind of musician — one who practices intensely, supports local venues, and builds a musical community that sustains itself through the cold months. The city's music stores are part of that infrastructure, providing the instruments, repairs, and community that keep Minneapolis musicians playing.</p></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">12</div><div class="stat-l">Stores Listed</div></div>
       <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
@@ -136,274 +64,361 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
     </div>
   </div>
 </div>
-
-<!-- SORT BAR -->
-<div class="sort-bar">
-  <span class="sort-label">Browse by:</span>
-  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
-  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
-  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
-  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
-  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
-  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
-  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
-  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="fbtn on" onclick="filter('all',this)">🗂 All Stores</button>
+  <button class="fbtn" onclick="filter('guitars',this)">🎸 Guitars</button>
+  <button class="fbtn" onclick="filter('records',this)">💿 Records</button>
+  <button class="fbtn" onclick="filter('drums',this)">🥁 Drums</button>
+  <button class="fbtn" onclick="filter('synths',this)">🎛️ Synths</button>
+  <button class="fbtn" onclick="filter('vintage',this)">⭐ Vintage</button>
+  <button class="fbtn" onclick="filter('repairs',this)">🔧 Repairs</button>
+  <button class="fbtn" onclick="filter('lessons',this)">🎓 Lessons</button>
+  <button class="fbtn" onclick="filter('pro',this)">🏆 Pro Level</button>
+  <button class="fbtn" onclick="filter('beginner',this)">🌱 Beginner</button>
 </div>
-
 <div class="wrap">
-
-  <!-- TOP PICKS -->
   <div class="section">
-    <div class="sec-head">🏆 Top Picks in Minneapolis</div>
-    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="sec-eyebrow">Featured Stores</div>
+    <h2 class="sec-head">✨ The Stories Behind the Best Stores</h2>
+    <p class="sec-sub">Not just listings — the history, the legacy, and why musicians love these places.</p>
+    
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Electric Fetus</div>
+      <div class="feat-hood">📍 Cedar-Riverside</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">💿 Minneapolis Legend Since 1968</div>
+      <div class="feat-story"><p>Electric Fetus is one of the great American independent record stores — a Minneapolis institution since 1968 that has survived every disruption the music industry has faced by remaining genuinely essential to its community. The store carries an extraordinary selection of new and used vinyl, CDs, and music-adjacent merchandise spanning every genre.</p><p>Prince was a regular customer. Bob Dylan grew up in the region. The Replacements formed a few miles away. Electric Fetus has served the musical community that produced all of them, and it continues to serve Minneapolis musicians, music lovers, and record collectors with the same passion that has defined it for over 55 years.</p><p>Shopping at Electric Fetus is one of the great independent record store experiences in America. The staff knowledge is exceptional, the selection is remarkable, and the store's role in Minneapolis musical culture is irreplaceable. If you're visiting Minneapolis and you love music, this is the first stop.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>Minneapolis institution since 1968 — 55+ years of independent music advocacy</li><li>Prince was a regular customer. The Replacements, Husker Du, and Bob Dylan are all part of its story</li><li>Extraordinary selection of new and used vinyl, CDs, and music merchandise</li><li>One of the great independent record store experiences in America</li></ul>
+      <div class="feat-who">Best for: Record collectors, music lovers, and anyone wanting to experience Minneapolis's musical legacy.</div>
+      <div class="feat-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Electric Fetus">Claim this listing</a>
+        <a class="feat-link" href="https://electricfetus.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Groth Music</div>
+      <div class="feat-hood">📍 Bloomington</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🎸 The Midwest's Most Comprehensive Music Store</div>
+      <div class="feat-story"><p>Groth Music in Bloomington has built a reputation as one of the most comprehensive independent music stores in the Midwest. The store carries an extraordinary range of instruments across every category — guitars, basses, drums, keyboards, band and orchestra instruments, DJ gear, and recording equipment — alongside a serious repair operation and active music school.</p><p>What sets Groth apart from a typical full-service store is the depth of inventory within each category. This isn't a shop where guitars are an afterthought while drums get the prime floor space. Every instrument category is taken seriously, staffed by specialists, and stocked with real depth.</p><p>For Minneapolis and Twin Cities musicians who want a genuine alternative to the big-box chains, Groth Music is the answer — a shop with the selection and expertise of a specialist combined with the breadth of a full-service store.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the most comprehensive independent music stores in the Midwest</li><li>Every instrument category staffed by genuine specialists with real depth of inventory</li><li>Active repair shop and music school serving the Twin Cities community</li><li>A genuine full-service alternative to the big-box chains</li></ul>
+      <div class="feat-who">Best for: Twin Cities musicians of all levels seeking any instrument category with genuine expertise.</div>
+      <div class="feat-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Groth Music">Claim this listing</a>
+        <a class="feat-link" href="https://grothmusic.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Editors' Picks</div>
+    <h2 class="sec-head">🏆 Top Music Stores in Minneapolis</h2>
+    <p class="sec-sub">Our hand-picked selection of the best music stores in Minneapolis — chosen for quality, reputation, and community impact.</p>
     <div class="picks-grid">
-      <a class="pick-card" href="/minneapolis/electric-fetus/">
-        <div>
-          <div class="pick-name">Electric Fetus</div>
-          <div class="pick-why">Minneapolis' legendary independent record store since 1968</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/electric-fetus/">
+        <div class="pick-top"><div class="pick-name">Electric Fetus</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best record store in Minneapolis</div>
+        <div class="pick-desc">Minneapolis legend since 1968. Prince shopped here. One of the great American record stores.</div>
       </a>
-      <a class="pick-card" href="/minneapolis/fifth-element-records/">
-        <div>
-          <div class="pick-name">Fifth Element Records</div>
-          <div class="pick-why">The legendary hip hop record store founded by Atmosphere</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/groth-music/">
+        <div class="pick-top"><div class="pick-name">Groth Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service shop</div>
+        <div class="pick-desc">The Midwest's most comprehensive independent music store. Every instrument, real depth.</div>
       </a>
-      <a class="pick-card" href="/minneapolis/schmitt-music/">
-        <div>
-          <div class="pick-name">Schmitt Music</div>
-          <div class="pick-why">One of America's oldest music retailers since 1896</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/fifth-element/">
+        <div class="pick-top"><div class="pick-name">Fifth Element</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best hip-hop record shop</div>
+        <div class="pick-desc">Rhymesayers Entertainment's flagship store. Best hip-hop vinyl in the Upper Midwest.</div>
       </a>
-      <a class="pick-card" href="/minneapolis/groth-music/">
-        <div>
-          <div class="pick-name">Groth Music</div>
-          <div class="pick-why">The Twin Cities' full-service music superstore</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/guitar-center-minneapolis/">
+        <div class="pick-top"><div class="pick-name">Guitar Center Minneapolis</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best for new gear</div>
+        <div class="pick-desc">Full-service music superstore serving the Twin Cities musician community.</div>
       </a>
-      <a class="pick-card" href="/minneapolis/down-in-the-valley/">
-        <div>
-          <div class="pick-name">Down in the Valley</div>
-          <div class="pick-why">Twin Cities' beloved music and instrument store since 1971</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-      <a class="pick-card" href="/minneapolis/prichards-music/">
-        <div>
-          <div class="pick-name">Prichard's Music</div>
-          <div class="pick-why">St Paul's beloved community music store since 1970</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-
-    </div>
+      <a class="pick-card" href="/minnehaha-music/">
+        <div class="pick-top"><div class="pick-name">Minnehaha Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best neighborhood shop</div>
+        <div class="pick-desc">Minneapolis neighborhood music store. Instruments, lessons, and community.</div>
+      </a></div>
   </div>
-
-  <!-- NEIGHBORHOODS -->
-  <div class="section" style="padding-top:32px;">
-    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
-    <div class="sec-sub">The best areas for music shopping in Minneapolis — organized so you can hit multiple stores in one trip.</div>
-    <div class="hood-grid">
-      <div class="hood-card">
-        <div class="hood-name">📍 Uptown & South Minneapolis</div>
-        <div class="hood-desc">Electric Fetus, Fifth Element, and Midwest Guitar Exchange serve Uptown's creative music community.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Downtown Minneapolis</div>
-        <div class="hood-desc">Schmitt Music anchors downtown with one of America's oldest music retail traditions.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 St Paul</div>
-        <div class="hood-desc">Prichard's Music and Foxes Records serve the capital city's music community.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Brooklyn Park & Bloomington</div>
-        <div class="hood-desc">Groth Music and Music Go Round serve the suburbs with full-service instrument needs.</div>
-      </div>
-
-    </div>
+  <div class="section">
+    <div class="sec-eyebrow">Guitar Stores Minneapolis</div>
+    <h2 class="sec-head">🎸 Best Guitar Stores in Minneapolis</h2>
+    <p class="sec-sub">From vintage dealers to full-line showrooms — the best guitar shops in Minneapolis for every kind of player.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/groth-music/">
+        <div class="seo-name">Groth Music</div>
+        <div class="seo-desc">The Midwest's most comprehensive music store. Guitars, repairs, and lessons in Bloomington.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/guitar-center-minneapolis/">
+        <div class="seo-name">Guitar Center Minneapolis</div>
+        <div class="seo-desc">Widest new guitar selection in Minneapolis. Full-service with rentals and repairs.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a>
+      <a class="seo-card" href="/minnehaha-music/">
+        <div class="seo-name">Minnehaha Music</div>
+        <div class="seo-desc">Minneapolis neighborhood guitar shop. Community-focused with instruments and lessons.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
   </div>
-
-  <!-- ALL STORES -->
-  <div class="stores-section">
-    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Minneapolis</div>
-    <div class="sec-sub">Every music store in Minneapolis — instruments, records, repairs, lessons, and more.</div>
+  <div class="section">
+    <div class="sec-eyebrow">Vintage Music Stores Minneapolis</div>
+    <h2 class="sec-head">⭐ Best Vintage Music Shops in Minneapolis</h2>
+    <p class="sec-sub">The best shops for rare gear, vintage instruments, and collectible records in Minneapolis.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/electric-fetus/">
+        <div class="seo-name">Electric Fetus</div>
+        <div class="seo-desc">Minneapolis legend since 1968. Extraordinary vinyl selection. Prince was a regular.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      </a>
+      <a class="seo-card" href="/fifth-element/">
+        <div class="seo-name">Fifth Element</div>
+        <div class="seo-desc">Rhymesayers' flagship. Best hip-hop vinyl in the Upper Midwest alongside Minnesotan music.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+      </a>
+      <a class="seo-card" href="/cheapo-records/">
+        <div class="seo-name">Cheapo Records</div>
+        <div class="seo-desc">Twin Cities used record institution. Great prices on used vinyl across all genres.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Instrument Repair Minneapolis</div>
+    <h2 class="sec-head">🔧 Where to Get Instruments Repaired in Minneapolis</h2>
+    <p class="sec-sub">Need a setup, refret, or full restoration? The best repair shops in Minneapolis for every instrument.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/groth-music/">
+        <div class="seo-name">Groth Music</div>
+        <div class="seo-desc">Full repair shop at Groth Music. Expert service for all instruments in Bloomington.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/guitar-center-minneapolis/">
+        <div class="seo-name">Guitar Center Minneapolis</div>
+        <div class="seo-desc">Full repair services at Guitar Center Minneapolis. All instrument categories.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Plan Your Visit</div>
+    <h2 class="sec-head">🗺 Plan Your Minneapolis Music Store Tour</h2>
+    <p class="sec-sub">The best music stores in Minneapolis by neighborhood — plan your trip to hit multiple shops in one day.</p>
+    <div class="hood-grid"><div class="hood-card"><div class="hood-name">📍 Cedar-Riverside / South Minneapolis</div><div class="hood-desc">Electric Fetus anchors South Minneapolis. The heart of the city's independent music culture.</div></div><div class="hood-card"><div class="hood-name">📍 Uptown</div><div class="hood-desc">Several record shops and music stores serve Minneapolis's most creative neighborhood.</div></div><div class="hood-card"><div class="hood-name">📍 Bloomington (South Metro)</div><div class="hood-desc">Groth Music is the anchor. Best for comprehensive instrument shopping in the Twin Cities.</div></div><div class="hood-card"><div class="hood-name">📍 St. Paul</div><div class="hood-desc">Twin Cities musicians cross the river for Cheapo Records and several St. Paul music shops.</div></div></div>
+  </div>
+  <div class="section" style="padding-top:40px;">
+    <div class="sec-eyebrow">Complete Directory</div>
+    <h2 class="sec-head">All Music Stores in Minneapolis</h2>
+    <p class="sec-sub">Every music store listed in Minneapolis — use the filters above to narrow by type.</p>
     <div id="store-list">
-    <a class="store-card" href="/minneapolis/groth-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Groth Music</div>
-        <div class="store-hood">📍 Brooklyn Park</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Twin Cities' full-service music superstore since 1982.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://grothmusic.com" target="_blank" rel="noopener">grothmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/schmitt-music/" data-tags="">
-      <div class="store-icon">🎹</div>
-      <div class="store-info">
-        <div class="store-name">Schmitt Music</div>
-        <div class="store-hood">📍 Downtown Minneapolis</div>
-        <span class="store-tag">Piano & Instruments</span>
-        <div class="store-desc">One of America's oldest music retailers since 1896.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://schmittmusic.com" target="_blank" rel="noopener">schmittmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/electric-fetus/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Electric Fetus</div>
-        <div class="store-hood">📍 Minneapolis</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">Minneapolis' legendary independent record store since 1968.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://electricfetus.com" target="_blank" rel="noopener">electricfetus.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/down-in-the-valley/" data-tags="guitars records">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Down in the Valley</div>
-        <div class="store-hood">📍 Golden Valley</div>
-        <span class="store-tag">Guitars & Records</span>
-        <div class="store-desc">Twin Cities' beloved music store since 1971.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://downinthevalley.com" target="_blank" rel="noopener">downinthevalley.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/minnehaha-music/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Minnehaha Music</div>
-        <div class="store-hood">📍 South Minneapolis</div>
-        <span class="store-tag">Guitars</span>
-        <div class="store-desc">South Minneapolis' independent guitar shop.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/music-go-round/" data-tags="">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Music Go Round</div>
-        <div class="store-hood">📍 Bloomington</div>
-        <span class="store-tag">Buy Sell Trade</span>
-        <div class="store-desc">Bloomington's buy, sell, and trade music store.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://musicgoround.com" target="_blank" rel="noopener">musicgoround.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/prichards-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Prichard's Music</div>
-        <div class="store-hood">📍 St Paul</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">St Paul's beloved independent music store since 1970.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://prichardmusic.com" target="_blank" rel="noopener">prichardmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/midwest-musical-imports/" data-tags="">
-      <div class="store-icon">🎺</div>
-      <div class="store-info">
-        <div class="store-name">Midwest Musical Imports</div>
-        <div class="store-hood">📍 Northeast Minneapolis</div>
-        <span class="store-tag">Woodwinds</span>
-        <div class="store-desc">Minneapolis' premier woodwind specialist since 1983.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://mmimports.com" target="_blank" rel="noopener">mmimports.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/midwest-guitar-exchange/" data-tags="guitars vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Midwest Guitar Exchange</div>
-        <div class="store-hood">📍 Uptown</div>
-        <span class="store-tag">Used & Vintage</span>
-        <div class="store-desc">Uptown's go-to for used and vintage guitars.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/fifth-element-records/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Fifth Element Records</div>
-        <div class="store-hood">📍 Uptown</div>
-        <span class="store-tag">Hip Hop Records</span>
-        <div class="store-desc">Minneapolis' legendary hip hop record store by Rhymesayers.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/foxes-records/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Foxes Records</div>
-        <div class="store-hood">📍 St Paul</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">St Paul's veteran record store since 1965.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/minneapolis/guitar-center-minneapolis/" data-tags="guitars">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Guitar Center Minneapolis</div>
-        <div class="store-hood">📍 Minneapolis</div>
-        <span class="store-tag">Full Line</span>
-        <div class="store-desc">Minneapolis Guitar Center. Full selection of instruments and gear.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener">guitarcenter.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-
+      <a class="store-card" href="/electric-fetus/" data-tags="records vintage rare">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Electric Fetus</div>
+          <div class="store-hood">📍 Cedar-Riverside</div>
+          <div class="store-desc">Minneapolis legend since 1968. Extraordinary new and used vinyl selection across every genre. Prince, The Replacements, and Husker Du are all part of its story.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Electric Fetus" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://electricfetus.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">electricfetus.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/groth-music/" data-tags="guitars drums lessons repairs pro beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Groth Music</div>
+          <div class="store-hood">📍 Bloomington</div>
+          <div class="store-desc">The Midwest's most comprehensive independent music store. Every instrument category staffed by specialists with real depth — guitars, drums, keys, band, DJ, and recording.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Groth Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://grothmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">grothmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/fifth-element/" data-tags="records vintage rare">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Fifth Element</div>
+          <div class="store-hood">📍 Downtown Minneapolis</div>
+          <div class="store-desc">Rhymesayers Entertainment's flagship retail store. The best hip-hop vinyl selection in the Upper Midwest alongside exclusive releases and Minnesotan music.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Fifth Element" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://fifthelementonline.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">fifthelementonline.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-center-minneapolis/" data-tags="guitars drums beginner rentals repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Center Minneapolis</div>
+          <div class="store-hood">📍 Multiple Locations</div>
+          <div class="store-desc">Twin Cities full-service music superstore. Widest new instrument selection with rentals and repairs.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Center Minneapolis" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarcenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/minnehaha-music/" data-tags="guitars lessons beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Minnehaha Music</div>
+          <div class="store-hood">📍 Minneapolis</div>
+          <div class="store-desc">Minneapolis neighborhood music store. Instruments, lessons, and a community connection to the city's musician culture.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Minnehaha Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/cheapo-records/" data-tags="records vintage beginner">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Cheapo Records</div>
+          <div class="store-hood">📍 Multiple Locations</div>
+          <div class="store-desc">Twin Cities used record institution. Great prices on used vinyl across all genres at multiple convenient locations.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Cheapo Records" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://cheaporecords.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">cheaporecords.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/hymies-vintage/" data-tags="records vintage">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Hymie's Vintage Records</div>
+          <div class="store-hood">📍 St. Paul</div>
+          <div class="store-desc">St. Paul's beloved independent record shop. New and used vinyl with a warm neighborhood atmosphere.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Hymie's Vintage Records" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://hymiesrecords.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">hymiesrecords.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/midwest-guitar-exchange-mn/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Midwest Guitar Exchange</div>
+          <div class="store-hood">📍 Minneapolis Area</div>
+          <div class="store-desc">Used and vintage guitar exchange serving the Twin Cities. Fair prices and rotating inventory.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Midwest Guitar Exchange" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/maplewood-music/" data-tags="guitars lessons repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Maplewood Music</div>
+          <div class="store-hood">📍 Maplewood</div>
+          <div class="store-desc">Suburban Twin Cities music store. Instruments, lessons, and repairs for East Metro musicians.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Maplewood Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/schmitt-music/" data-tags="lessons repairs beginner">
+        <div class="store-icon">🎹</div>
+        <div class="store-body">
+          <div class="store-name">Schmitt Music</div>
+          <div class="store-hood">📍 Multiple Locations</div>
+          <div class="store-desc">Minnesota piano and music institution since 1905. Pianos, band instruments, and music education across the Twin Cities.</div>
+          <div class="store-tags"><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Schmitt Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://schmittmusic.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">schmittmusic.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-center-roseville/" data-tags="guitars drums beginner rentals repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Center Roseville</div>
+          <div class="store-hood">📍 Roseville</div>
+          <div class="store-desc">North suburban Twin Cities Guitar Center. Full-service with rentals and repairs.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Center Roseville" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarcenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/music-go-round-mn/" data-tags="guitars drums vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Music Go Round Minneapolis</div>
+          <div class="store-hood">📍 Minneapolis Area</div>
+          <div class="store-desc">Used instrument franchise with fair prices. Good source for affordable used gear in the Twin Cities.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Music Go Round Minneapolis" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://musicgoround.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">musicgoround.com</a><div class="store-arr">›</div></div>
+      </a></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎵</div>
+      <div class="empty-msg">No stores match that filter. Try a different category.</div>
     </div>
   </div>
-
-  <!-- TOUR CTA -->
-  <div class="tour-cta">
+  <div class="cta-box">
     <div>
       <h3>Own a music store in Minneapolis?</h3>
       <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
     </div>
-    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Minneapolis&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+    <a class="cta-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Minneapolis">List Your Store →</a>
   </div>
-
 </div>
-
 <footer>
   <div class="f-logo">Music Store <b>Finds</b></div>
   <a href="/" class="f-back">← All Cities</a>
@@ -411,16 +426,20 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
 </footer>
 
 <script>
-function filterStores(type, el) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+function filter(type, el) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
-  document.querySelectorAll('.store-card').forEach(card => {
-    if (type === 'all') { card.style.display = ''; return; }
-    const tags = card.dataset.tags || '';
-    card.style.display = tags.includes(type) ? '' : 'none';
+  const cards = document.querySelectorAll('.store-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); visible++; }
+    else {
+      const tags = (card.dataset.tags || '').split(' ');
+      if (tags.includes(type)) { card.classList.remove('hidden'); visible++; }
+      else { card.classList.add('hidden'); }
+    }
   });
+  document.getElementById('emptyState').classList.toggle('show', visible === 0);
 }
 </script>
-
-</body>
-</html>
+</body></html>

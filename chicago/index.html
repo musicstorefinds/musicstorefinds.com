@@ -4,131 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Music Stores in Chicago | Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Chicago. Chicago's music store scene is as deep and diverse as its legendary music history. From the Cathedral of Tone at CME to ... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
+<meta name="description" content="The best music stores in Chicago. From Chicago Music Exchange to Dusty Groove — the ultimate guide to guitar stores and music shops in Chicago.">
 <link rel="canonical" href="https://musicstorefinds.co/chicago/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
-  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
-  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
-  --border:rgba(92,74,50,0.12);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;--border:rgba(92,74,50,0.12);--white:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
 nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
-.ln b{color:#3D85FF;}
-.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}.ln b{color:#3D85FF;}.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
 .btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
-.btn-list:hover{background:var(--bb);}
-
-/* HERO */
-.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
-.hero-inner{max-width:720px;position:relative;z-index:1;}
-.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
-.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
-.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
-.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
-.stat{text-align:left;}
-.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
-.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
-
-/* SORT BAR */
-.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.sort-bar::-webkit-scrollbar{display:none;}
-.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
-.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
-.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* CONTENT */
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-
-/* TOP PICKS */
-.section{padding:36px 0 0;}
-.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
-.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
-.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
-.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* NEIGHBORHOODS */
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
-.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
-.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
-.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
-
-/* STORES LIST */
-.stores-section{padding:36px 0 48px;}
-.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
-.store-info{flex:1;min-width:0;}
-.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
-.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
-.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
-.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
-.store-web:hover{text-decoration:underline;}
-.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
-.store-arr{font-size:22px;color:var(--blue);}
-
-/* TOUR CTA */
-.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
-.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
-.tour-cta p b{color:#3D85FF;}
-.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
-.tour-btn:hover{background:var(--bb);}
-
-/* FOOTER */
-footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
-.f-logo b{color:#3D85FF;}
-.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
-.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
-.f-back:hover{color:#F2EDE3;}
-
-@media(max-width:600px){
-  .hero h1{font-size:30px;}
-  .store-card{flex-wrap:wrap;}
-  .store-right{flex-direction:row;align-items:center;width:100%;}
-  .picks-grid,.hood-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:780px;position:relative;z-index:1;}.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,58px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:16px;letter-spacing:-0.5px;}h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.8;color:rgba(242,237,227,0.6);max-width:620px;margin-bottom:12px;}.hero-intro p{margin-bottom:12px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+.filter-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90;}.filter-bar::-webkit-scrollbar{display:none;}
+.filter-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;flex-shrink:0;}
+.fbtn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 16px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0;}.fbtn:hover{border-color:var(--blue);color:var(--blue);}.fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}.section{padding:40px 0 0;}
+.sec-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}.sec-head{font-family:"Fraunces",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.1;}.sec-sub{font-size:14px;color:var(--bark);line-height:1.7;margin-bottom:22px;max-width:640px;}
+.featured-card{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.feat-header{background:var(--ink);padding:22px 24px 18px;position:relative;}.feat-header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 50%,rgba(27,110,243,0.15),transparent 70%);}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,133,255,0.2);border:1px solid rgba(61,133,255,0.3);color:#3D85FF;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px;position:relative;z-index:1;}
+.feat-name{font-family:"Fraunces",serif;font-size:24px;font-weight:900;color:#F2EDE3;line-height:1.1;margin-bottom:4px;position:relative;z-index:1;}.feat-hood{font-size:12px;color:rgba(242,237,227,0.45);position:relative;z-index:1;}
+.feat-body{padding:22px 24px;}.feat-story{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:18px;}.feat-story p{margin-bottom:12px;}.feat-story p:last-child{margin-bottom:0;}
+.feat-best{font-size:10px;font-weight:800;color:var(--blue);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}.feat-bullets{list-style:none;margin-bottom:18px;}.feat-bullets li{font-size:13px;color:var(--bark);padding:5px 0;padding-left:18px;position:relative;line-height:1.5;}.feat-bullets li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.feat-who{background:var(--pale);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--blue);font-weight:600;margin-bottom:16px;}.feat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.feat-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border);}.feat-link{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;transition:background 0.15s;}.feat-link:hover{background:var(--bb);}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px;}.pick-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:8px;}.pick-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}.pick-name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.pick-best{font-size:11px;font-weight:700;color:var(--amber);}.pick-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:8px;}.seo-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:box-shadow 0.2s;display:block;}.seo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}.seo-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.seo-desc{font-size:12px;color:var(--bark);line-height:1.5;margin-bottom:8px;}.seo-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}.tag-vintage{background:#FEF3E2;color:#B45309;}.tag-repairs{background:#EFF6FF;color:#1D4ED8;}.tag-lessons{background:#F0FDF4;color:#166534;}.tag-highend{background:#FDF4FF;color:#7E22CE;}.tag-beginner{background:#F0FDF4;color:#166534;}.tag-pro{background:#FFF1F2;color:#BE123C;}.tag-synths{background:#F0F9FF;color:#0369A1;}.tag-rare{background:#FEF3E2;color:#B45309;}.tag-records{background:#FDF4FF;color:#7E22CE;}.tag-acoustic{background:#F0FDF4;color:#166534;}.tag-drums{background:#FFF1F2;color:#BE123C;}.tag-guitars{background:#F0EDE5;color:#5C4A32;}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}.store-card.hidden{display:none;}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;margin-top:2px;}.store-body{flex:1;min-width:0;}.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}.store-hood{font-size:11px;color:var(--muted);margin-bottom:6px;}.store-desc{font-size:13px;color:var(--bark);line-height:1.6;margin-bottom:8px;}.store-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}.store-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-verified{font-size:10px;font-weight:700;color:#166534;background:#F0FDF4;padding:2px 7px;border-radius:4px;}.trust-updated{font-size:10px;color:var(--muted);}.claim-link{font-size:10px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;min-width:90px;}.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap;}.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}.store-arr{font-size:22px;color:var(--blue);}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}.hood-card{background:var(--parchment);border-radius:10px;padding:16px;}.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}.hood-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.empty-state{text-align:center;padding:40px 20px;display:none;}.empty-state.show{display:block;}.empty-icon{font-size:36px;margin-bottom:10px;}.empty-msg{font-size:14px;color:var(--muted);}
+.cta-box{background:var(--ink);border-radius:14px;padding:28px 24px;margin:40px 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}.cta-box h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}.cta-box p{font-size:13px;color:rgba(242,237,227,0.45);}.cta-box p b{color:#3D85FF;}.cta-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}.f-logo b{color:#3D85FF;}.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+@media(max-width:600px){.picks-grid,.seo-grid,.hood-grid{grid-template-columns:1fr;}.store-card{flex-wrap:wrap;}.store-right{flex-direction:row;width:100%;}}
+</style></head><body>
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
-  <div class="nav-right">
-    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
-  </div>
+  <a href="mailto:musicstorefinds@gmail.com?subject=List My Store in Chicago" class="btn-list">+ List Your Store</a>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="breadcrumb"><a href="/">Music Store Finds</a> › Chicago</div>
     <h1>Best Music Stores<br><em>in Chicago</em></h1>
-    <p class="hero-intro">Chicago's music store scene is as deep and diverse as its legendary music history. From the Cathedral of Tone at CME to the world-famous Dusty Groove, the Windy City has something for every musician.</p>
+    <div class="hero-intro"><p>Chicago's music store scene is as deep and soulful as the city's musical legacy. From the blues clubs of the South Side to the indie rock venues of Wicker Park, Chicago has always been a city where musicians work, and its instrument shops reflect that. The city has produced some of the most distinctive music retail destinations in the country.</p><p>Chicago Music Exchange on North Clark Street has become one of the most respected guitar shops in the Midwest — a destination shop that draws serious players from across the region. Dusty Groove America has built a global reputation as one of the world's great used record stores, specializing in soul, jazz, and hip-hop vinyl that attracts collectors from every continent.</p><p>Whether you're looking for a vintage Stratocaster, a rare soul 45, a custom drum kit, or lessons from a working jazz musician, Chicago's music stores deliver. The city's DIY ethos means many of the best shops are independently owned, deeply knowledgeable, and genuinely invested in the local music community.</p></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">15</div><div class="stat-l">Stores Listed</div></div>
       <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
@@ -136,313 +64,411 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
     </div>
   </div>
 </div>
-
-<!-- SORT BAR -->
-<div class="sort-bar">
-  <span class="sort-label">Browse by:</span>
-  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
-  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
-  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
-  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
-  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
-  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
-  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
-  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="fbtn on" onclick="filter('all',this)">🗂 All Stores</button>
+  <button class="fbtn" onclick="filter('guitars',this)">🎸 Guitars</button>
+  <button class="fbtn" onclick="filter('records',this)">💿 Records</button>
+  <button class="fbtn" onclick="filter('drums',this)">🥁 Drums</button>
+  <button class="fbtn" onclick="filter('synths',this)">🎛️ Synths</button>
+  <button class="fbtn" onclick="filter('vintage',this)">⭐ Vintage</button>
+  <button class="fbtn" onclick="filter('repairs',this)">🔧 Repairs</button>
+  <button class="fbtn" onclick="filter('lessons',this)">🎓 Lessons</button>
+  <button class="fbtn" onclick="filter('pro',this)">🏆 Pro Level</button>
+  <button class="fbtn" onclick="filter('beginner',this)">🌱 Beginner</button>
 </div>
-
 <div class="wrap">
-
-  <!-- TOP PICKS -->
   <div class="section">
-    <div class="sec-head">🏆 Top Picks in Chicago</div>
-    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="sec-eyebrow">Featured Stores</div>
+    <h2 class="sec-head">✨ The Stories Behind the Best Stores</h2>
+    <p class="sec-sub">Not just listings — the history, the legacy, and why musicians love these places.</p>
+    
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Chicago Music Exchange</div>
+      <div class="feat-hood">📍 Lakeview</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🎸 Chicago's Premier Guitar Destination</div>
+      <div class="feat-story"><p>Chicago Music Exchange on North Clark Street has established itself as one of the most respected independent guitar shops in the Midwest. The floor is packed with new, used, and vintage guitars spanning every price point and style — from entry-level acoustics to museum-quality vintage electrics that would be at home in a collector's vault.</p><p>What sets CME apart is the combination of extraordinary inventory and genuine expertise. The staff are working musicians who know the instruments deeply, and the shop's repair and setup operation is considered among the best in Chicago. They also run a robust online presence that ships gear worldwide.</p><p>CME hosts regular in-store events, artist visits, and gear demos that make it a cultural hub as much as a retail destination. If you're a guitar player visiting Chicago, this is the first stop on your list.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the deepest guitar inventories in the Midwest — new, used, and vintage</li><li>Expert repair and setup shop staffed by working Chicago musicians</li><li>Regular in-store events and artist visits</li><li>Online store ships worldwide — a true destination shop</li></ul>
+      <div class="feat-who">Best for: Guitar players of all levels seeking the widest selection in Chicago.</div>
+      <div class="feat-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Chicago Music Exchange">Claim this listing</a>
+        <a class="feat-link" href="https://chicagomusicexchange.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Dusty Groove America</div>
+      <div class="feat-hood">📍 Wicker Park</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">💿 World-Famous Record Store</div>
+      <div class="feat-story"><p>Dusty Groove America has built a global reputation over 25+ years as one of the world's great used record stores. Specializing in soul, jazz, funk, hip-hop, and Brazilian music, Dusty Groove attracts collectors from every continent — and their online store ships to music fans worldwide who can't make the trip to Wicker Park.</p><p>The physical store on North Milwaukee Avenue is a treasure hunter's paradise. Tens of thousands of used LPs and 45s organized with genuine curatorial care. The staff know their inventory with encyclopedic depth, and the selection is refreshed constantly as they buy collections from across the country.</p><p>Dusty Groove is as important to Chicago's cultural identity as any blues club or jazz venue. If you're a record collector and you visit Chicago without stopping here, you've made a serious mistake.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>One of the world's most respected soul, jazz, funk, and hip-hop record stores</li><li>Tens of thousands of used LPs and 45s with expert curation</li><li>Online store ships worldwide — attracts collectors from every continent</li><li>Constantly refreshed inventory — no two visits are the same</li></ul>
+      <div class="feat-who">Best for: Vinyl collectors, DJs, and music fans seeking rare soul, jazz, and hip-hop records.</div>
+      <div class="feat-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Dusty Groove America">Claim this listing</a>
+        <a class="feat-link" href="https://dustygroove.com" target="_blank" rel="noopener">Visit Website →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Editors' Picks</div>
+    <h2 class="sec-head">🏆 Top Music Stores in Chicago</h2>
+    <p class="sec-sub">Our hand-picked selection of the best music stores in Chicago — chosen for quality, reputation, and community impact.</p>
     <div class="picks-grid">
-      <a class="pick-card" href="/chicago/chicago-music-exchange/">
-        <div>
-          <div class="pick-name">Chicago Music Exchange</div>
-          <div class="pick-why">The Cathedral of Tone — one of the best guitar shops in the world</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/dusty-groove-america/">
+        <div class="pick-top"><div class="pick-name">Dusty Groove America</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best record store in Chicago</div>
+        <div class="pick-desc">World-famous soul and jazz vinyl destination. One of the great record stores on earth.</div>
       </a>
-      <a class="pick-card" href="/chicago/rock-n-roll-vintage/">
-        <div>
-          <div class="pick-name">Rock N Roll Vintage</div>
-          <div class="pick-why">Best vintage guitars and synths in the city</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/beaten-path-music/">
+        <div class="pick-top"><div class="pick-name">Beaten Path Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best neighborhood guitar shop</div>
+        <div class="pick-desc">Logan Square's beloved independent guitar shop. Friendly, knowledgeable, community-focused.</div>
       </a>
-      <a class="pick-card" href="/chicago/dusty-groove/">
-        <div>
-          <div class="pick-name">Dusty Groove</div>
-          <div class="pick-why">World-famous jazz, soul, and funk vinyl destination</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/vics-drum-shop/">
+        <div class="pick-top"><div class="pick-name">Vic's Drum Shop</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best drum shop in Chicago</div>
+        <div class="pick-desc">Chicago's legendary drum specialist. Every drummer in the city knows Vic's.</div>
       </a>
-      <a class="pick-card" href="/chicago/old-town-school-music-store/">
-        <div>
-          <div class="pick-name">Old Town School Music Store</div>
-          <div class="pick-why">Chicago's beloved folk music nonprofit store</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/evolution-music/">
+        <div class="pick-top"><div class="pick-name">Evolution Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best used gear shop</div>
+        <div class="pick-desc">Chicago's go-to for used and vintage gear at fair prices. Constantly rotating inventory.</div>
       </a>
-      <a class="pick-card" href="/chicago/gordon-woodwinds/">
-        <div>
-          <div class="pick-name">Gordon Woodwinds</div>
-          <div class="pick-why">Chicago's premier woodwind and brass specialist</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-      <a class="pick-card" href="/chicago/acme-guitar-works/">
-        <div>
-          <div class="pick-name">Acme Guitar Works</div>
-          <div class="pick-why">The city's most trusted guitar repair shop</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-
-    </div>
+      <a class="pick-card" href="/wills-music/">
+        <div class="pick-top"><div class="pick-name">Wills Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service shop</div>
+        <div class="pick-desc">Full-service music store serving Chicago families and musicians for decades.</div>
+      </a></div>
   </div>
-
-  <!-- NEIGHBORHOODS -->
-  <div class="section" style="padding-top:32px;">
-    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
-    <div class="sec-sub">The best areas for music shopping in Chicago — organized so you can hit multiple stores in one trip.</div>
-    <div class="hood-grid">
-      <div class="hood-card">
-        <div class="hood-name">📍 Lincoln Square</div>
-        <div class="hood-desc">Chicago Music Exchange and Old Town School Music Store make this neighborhood a must for guitarists and folk musicians.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Wicker Park & Ukrainian Village</div>
-        <div class="hood-desc">Rock N Roll Vintage, Beaten Path Music, and Dusty Groove make this one of Chicago's richest music shopping corridors.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Lakeview & Andersonville</div>
-        <div class="hood-desc">Guitar Chicago, Evolution Music, and Russo Music serve Chicago's north side music community.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 The Loop & Near North</div>
-        <div class="hood-desc">Gordon Woodwinds serves professional orchestral players steps from the Chicago Symphony Orchestra.</div>
-      </div>
-
-    </div>
+  <div class="section">
+    <div class="sec-eyebrow">Guitar Stores Chicago</div>
+    <h2 class="sec-head">🎸 Best Guitar Stores in Chicago</h2>
+    <p class="sec-sub">From vintage dealers to full-line showrooms — the best guitar shops in Chicago for every kind of player.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/chicago-music-exchange/">
+        <div class="seo-name">Chicago Music Exchange</div>
+        <div class="seo-desc">The most respected independent guitar shop in Chicago. Deep inventory of new, used, and vintage guitars.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/beaten-path-music/">
+        <div class="seo-name">Beaten Path Music</div>
+        <div class="seo-desc">Logan Square's community guitar shop. Friendly staff, good selection, excellent repairs.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/evolution-music/">
+        <div class="seo-name">Evolution Music</div>
+        <div class="seo-desc">Great source for used and vintage guitars at competitive Chicago prices.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
   </div>
-
-  <!-- ALL STORES -->
-  <div class="stores-section">
-    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Chicago</div>
-    <div class="sec-sub">Every music store in Chicago — instruments, records, repairs, lessons, and more.</div>
+  <div class="section">
+    <div class="sec-eyebrow">Vintage Music Stores Chicago</div>
+    <h2 class="sec-head">⭐ Best Vintage Music Shops in Chicago</h2>
+    <p class="sec-sub">The best shops for rare gear, vintage instruments, and collectible records in Chicago.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/chicago-music-exchange/">
+        <div class="seo-name">Chicago Music Exchange</div>
+        <div class="seo-desc">Deep vintage guitar selection alongside new instruments. One of the Midwest's best vintage shops.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a>
+      <a class="seo-card" href="/dusty-groove-america/">
+        <div class="seo-name">Dusty Groove America</div>
+        <div class="seo-desc">World-famous vintage vinyl destination. Soul, jazz, funk, and hip-hop records from every era.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      </a>
+      <a class="seo-card" href="/evolution-music/">
+        <div class="seo-name">Evolution Music</div>
+        <div class="seo-desc">Chicago's best source for used and vintage gear at fair prices.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Instrument Repair Chicago</div>
+    <h2 class="sec-head">🔧 Where to Get Instruments Repaired in Chicago</h2>
+    <p class="sec-sub">Need a setup, refret, or full restoration? The best repair shops in Chicago for every instrument.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/chicago-music-exchange/">
+        <div class="seo-name">Chicago Music Exchange</div>
+        <div class="seo-desc">Expert repair and setup shop staffed by working Chicago musicians. One of the best in the Midwest.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span></div>
+      </a>
+      <a class="seo-card" href="/beaten-path-music/">
+        <div class="seo-name">Beaten Path Music</div>
+        <div class="seo-desc">Reliable repairs and setups in Logan Square. Fast turnaround for Chicago musicians.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/wills-music/">
+        <div class="seo-name">Wills Music</div>
+        <div class="seo-desc">Full repair shop serving Chicago musicians and students.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Plan Your Visit</div>
+    <h2 class="sec-head">🗺 Plan Your Chicago Music Store Tour</h2>
+    <p class="sec-sub">The best music stores in Chicago by neighborhood — plan your trip to hit multiple shops in one day.</p>
+    <div class="hood-grid"><div class="hood-card"><div class="hood-name">📍 Lakeview / North Clark</div><div class="hood-desc">Chicago Music Exchange anchors this strip. Best for guitar players making the rounds.</div></div><div class="hood-card"><div class="hood-name">📍 Wicker Park / Logan Square</div><div class="hood-desc">Dusty Groove and Beaten Path Music are both here. Chicago's most creative neighborhood for music retail.</div></div><div class="hood-card"><div class="hood-name">📍 South Side</div><div class="hood-desc">Deep blues and gospel music heritage. Several instrument and record shops serve Chicago's South Side musician community.</div></div><div class="hood-card"><div class="hood-name">📍 Lincoln Square</div><div class="hood-desc">Chicago's German-heritage neighborhood has a strong classical music tradition and several instrument shops.</div></div></div>
+  </div>
+  <div class="section" style="padding-top:40px;">
+    <div class="sec-eyebrow">Complete Directory</div>
+    <h2 class="sec-head">All Music Stores in Chicago</h2>
+    <p class="sec-sub">Every music store listed in Chicago — use the filters above to narrow by type.</p>
     <div id="store-list">
-    <a class="store-card" href="/chicago/chicago-music-exchange/" data-tags="guitars drums">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Chicago Music Exchange</div>
-        <div class="store-hood">📍 Lincoln Square</div>
-        <span class="store-tag">Guitars & More</span>
-        <div class="store-desc">Like walking into a cathedral. World-class guitars, basses, and drums.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://chicagomusicexchange.com" target="_blank" rel="noopener">chicagomusicexchange.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/rock-n-roll-vintage/" data-tags="guitars synths vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Rock N Roll Vintage</div>
-        <div class="store-hood">📍 Ukrainian Village</div>
-        <span class="store-tag">Vintage & Synths</span>
-        <div class="store-desc">Chicago's premier vintage guitar, synth, and effects destination.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://rocknrollvintage.com" target="_blank" rel="noopener">rocknrollvintage.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/old-town-school-music-store/" data-tags="">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Old Town School Music Store</div>
-        <div class="store-hood">📍 Lincoln Square</div>
-        <span class="store-tag">Folk & Community</span>
-        <div class="store-desc">Chicago's beloved folk music nonprofit. All proceeds support music education.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://oldtownschool.org" target="_blank" rel="noopener">oldtownschool.org</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/flatts-and-sharpe-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Flatts and Sharpe Music</div>
-        <div class="store-hood">📍 Norwood Park</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Small town music store in a big city. Two Chicago locations.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://flattsandsharpe.com" target="_blank" rel="noopener">flattsandsharpe.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/the-guitar-works/" data-tags="guitars repairs">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">The Guitar Works</div>
-        <div class="store-hood">📍 Evanston</div>
-        <span class="store-tag">Guitars & Repairs</span>
-        <div class="store-desc">North Shore's premier guitar shop and repair center since 1981.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://theguitarworks.com" target="_blank" rel="noopener">theguitarworks.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/beaten-path-music/" data-tags="vintage">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Beaten Path Music</div>
-        <div class="store-hood">📍 Wicker Park</div>
-        <span class="store-tag">Used & Vintage</span>
-        <div class="store-desc">Wicker Park's boutique instrument shop.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/gordon-woodwinds/" data-tags="">
-      <div class="store-icon">🎺</div>
-      <div class="store-info">
-        <div class="store-name">Gordon Woodwinds</div>
-        <div class="store-hood">📍 The Loop</div>
-        <span class="store-tag">Woodwinds & Brass</span>
-        <div class="store-desc">Chicago's specialist woodwind and brass shop near the Symphony.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://gordonwoodwinds.com" target="_blank" rel="noopener">gordonwoodwinds.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/guitar-chicago/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Guitar Chicago</div>
-        <div class="store-hood">📍 Lakeview</div>
-        <span class="store-tag">Boutique</span>
-        <div class="store-desc">Chicago's boutique guitar shop. Handpicked selection.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://guitarchicago.com" target="_blank" rel="noopener">guitarchicago.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/evolution-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Evolution Music</div>
-        <div class="store-hood">📍 Lakeview</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Full-service instrument store and music school in Lakeview.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/acme-guitar-works/" data-tags="guitars repairs">
-      <div class="store-icon">🔧</div>
-      <div class="store-info">
-        <div class="store-name">Acme Guitar Works</div>
-        <div class="store-hood">📍 Back of the Yards</div>
-        <span class="store-tag">Guitar Repair</span>
-        <div class="store-desc">Chicago's top guitar repair and restoration shop.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://acmeguitarworks.com" target="_blank" rel="noopener">acmeguitarworks.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/vics-drum-shop/" data-tags="drums">
-      <div class="store-icon">🥁</div>
-      <div class="store-info">
-        <div class="store-name">Vic's Drum Shop</div>
-        <div class="store-hood">📍 Lincoln Park</div>
-        <span class="store-tag">Drums</span>
-        <div class="store-desc">Chicago's legendary drum shop since 1979.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/beverly-records/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Beverly Records</div>
-        <div class="store-hood">📍 Beverly</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">Chicago's legendary independent record store since 1967.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://beverlyrecords.com" target="_blank" rel="noopener">beverlyrecords.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/dusty-groove/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Dusty Groove</div>
-        <div class="store-hood">📍 Wicker Park</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">World-famous jazz, soul, and funk vinyl. Ships to 100+ countries.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://dustygroove.com" target="_blank" rel="noopener">dustygroove.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/wills-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Wills Music</div>
-        <div class="store-hood">📍 Lake Forest</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">North Shore's independent music store since 1934.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/chicago/russo-music/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Russo Music</div>
-        <div class="store-hood">📍 Andersonville</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Full-service music store on Chicago's north side since 1989.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://russomusic.com" target="_blank" rel="noopener">russomusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-
+      <a class="store-card" href="/chicago-music-exchange/" data-tags="guitars vintage repairs pro beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Chicago Music Exchange</div>
+          <div class="store-hood">📍 Lakeview</div>
+          <div class="store-desc">One of the most respected independent guitar shops in the Midwest. Deep inventory of new, used, and vintage guitars alongside expert repair and setup.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Chicago Music Exchange" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://chicagomusicexchange.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">chicagomusicexchange.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/dusty-groove-america/" data-tags="records vintage rare">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Dusty Groove America</div>
+          <div class="store-hood">📍 Wicker Park</div>
+          <div class="store-desc">World-famous soul, jazz, funk, and hip-hop vinyl destination. Tens of thousands of used LPs and 45s. Ships worldwide.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Dusty Groove America" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://dustygroove.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">dustygroove.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/beaten-path-music/" data-tags="guitars repairs beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Beaten Path Music</div>
+          <div class="store-hood">📍 Logan Square</div>
+          <div class="store-desc">Logan Square's beloved independent guitar shop. Friendly, knowledgeable staff and a great selection of new and used instruments.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Beaten Path Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/vics-drum-shop/" data-tags="drums pro beginner">
+        <div class="store-icon">🥁</div>
+        <div class="store-body">
+          <div class="store-name">Vic's Drum Shop</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Chicago's legendary drum specialist. Every drummer in the city has been through these doors. Expert staff and comprehensive inventory.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Vic's Drum Shop" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/evolution-music/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Evolution Music</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Great source for used and vintage gear at competitive Chicago prices. Constantly rotating inventory of guitars, amps, and effects.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Evolution Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/wills-music/" data-tags="guitars lessons repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Wills Music</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Full-service music store serving Chicago families and musicians. Instruments, lessons, and repairs across all categories.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Wills Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/accent-music/" data-tags="guitars lessons beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Ac'cent Music</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Chicago neighborhood music store offering instruments, accessories, and lessons. A reliable resource for students and working musicians.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Ac'cent Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rock-n-roll-land/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Rock N Roll Land</div>
+          <div class="store-hood">📍 Lincoln Park</div>
+          <div class="store-desc">Used and vintage gear shop in Lincoln Park. Good selection of affordable guitars, amps, and accessories.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rock N Roll Land" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/old-town-school/" data-tags="guitars acoustic lessons beginner">
+        <div class="store-icon">🪕</div>
+        <div class="store-body">
+          <div class="store-name">Old Town School of Folk Music Store</div>
+          <div class="store-hood">📍 Lincoln Square</div>
+          <div class="store-desc">The retail store of Chicago's legendary folk music school. Acoustic instruments, folk records, and music books alongside the famous school.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Old Town School of Folk Music Store" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://oldtownschool.org" target="_blank" rel="noopener" onclick="event.stopPropagation()">oldtownschool.org</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-center-chicago/" data-tags="guitars drums beginner rentals repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Center Chicago</div>
+          <div class="store-hood">📍 Lincoln Park</div>
+          <div class="store-desc">The Chicago flagship with the widest new instrument selection in the city. Full rental and repair services.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Center Chicago" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarcenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/sam-ash-chicago/" data-tags="guitars drums beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Sam Ash Chicago</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Full-service music superstore with comprehensive instrument selection and competitive pricing.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Sam Ash Chicago" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://samash.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">samash.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/chicago-drum-exchange/" data-tags="drums vintage beginner">
+        <div class="store-icon">🥁</div>
+        <div class="store-body">
+          <div class="store-name">Chicago Drum Exchange</div>
+          <div class="store-hood">📍 Chicago</div>
+          <div class="store-desc">Specialty drum shop carrying used and vintage drums, cymbals, and hardware. Great prices for drummers on a budget.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Chicago Drum Exchange" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/beverly-records/" data-tags="records vintage">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Beverly Records</div>
+          <div class="store-hood">📍 Beverly</div>
+          <div class="store-desc">Chicago's South Side vinyl institution. New and used records across all genres with deep local music knowledge.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Beverly Records" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/reckless-records/" data-tags="records vintage">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Reckless Records</div>
+          <div class="store-hood">📍 Wicker Park</div>
+          <div class="store-desc">Chicago's beloved independent record store chain. New and used vinyl across all genres. Multiple Chicago locations.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Reckless Records" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://reckless.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">reckless.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/lauries-planet-of-sound/" data-tags="records vintage">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Laurie's Planet of Sound</div>
+          <div class="store-hood">📍 Lincoln Square</div>
+          <div class="store-desc">Lincoln Square's community record store. New and used vinyl, CDs, and an incredibly knowledgeable staff.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Laurie's Planet of Sound" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎵</div>
+      <div class="empty-msg">No stores match that filter. Try a different category.</div>
     </div>
   </div>
-
-  <!-- TOUR CTA -->
-  <div class="tour-cta">
+  <div class="cta-box">
     <div>
       <h3>Own a music store in Chicago?</h3>
       <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
     </div>
-    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Chicago&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+    <a class="cta-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Chicago">List Your Store →</a>
   </div>
-
 </div>
-
 <footer>
   <div class="f-logo">Music Store <b>Finds</b></div>
   <a href="/" class="f-back">← All Cities</a>
@@ -450,16 +476,20 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
 </footer>
 
 <script>
-function filterStores(type, el) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+function filter(type, el) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
-  document.querySelectorAll('.store-card').forEach(card => {
-    if (type === 'all') { card.style.display = ''; return; }
-    const tags = card.dataset.tags || '';
-    card.style.display = tags.includes(type) ? '' : 'none';
+  const cards = document.querySelectorAll('.store-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); visible++; }
+    else {
+      const tags = (card.dataset.tags || '').split(' ');
+      if (tags.includes(type)) { card.classList.remove('hidden'); visible++; }
+      else { card.classList.add('hidden'); }
+    }
   });
+  document.getElementById('emptyState').classList.toggle('show', visible === 0);
 }
 </script>
-
-</body>
-</html>
+</body></html>

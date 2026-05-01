@@ -4,380 +4,376 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Best Music Stores in Miami | Music Store Finds</title>
-<meta name="description" content="Discover the best independent music stores in Miami. Miami's music store scene is as vibrant and diverse as the city itself. Latin rhythm, electronic beats, and tropical sou... Find guitar shops, record stores, vintage gear, lessons, repairs, and more.">
+<meta name="description" content="Best music stores in Miami, FL. From Swamp Music to Specs Music — the complete guide to guitar stores and music shops in Miami.">
 <link rel="canonical" href="https://musicstorefinds.co/miami/">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=Epilogue:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{
-  --cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;
-  --ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;
-  --amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;
-  --border:rgba(92,74,50,0.12);
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
-
-/* NAV */
+:root{--cream:#F2EDE3;--parchment:#E8E0D0;--tan:#D4C9B0;--ink:#1A1209;--blue:#1B6EF3;--bb:#3D85FF;--pale:#E8F0FF;--amber:#C8872A;--muted:#8C7B65;--bark:#5C4A32;--border:rgba(92,74,50,0.12);--white:#fff;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:"Epilogue",sans-serif;background:var(--cream);color:var(--ink);-webkit-font-smoothing:antialiased;}
 nav{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:var(--ink);position:sticky;top:0;z-index:100;}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
-.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}
-.ln b{color:#3D85FF;}
-.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
-.nav-right{display:flex;align-items:center;gap:12px;}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;}.logo img{width:36px;height:36px;border-radius:50%;object-fit:cover;}.ln{font-family:"Fraunces",serif;font-weight:900;font-size:16px;color:#F2EDE3;line-height:1.1;}.ln b{color:#3D85FF;}.lt{font-size:9px;color:rgba(242,237,227,0.38);font-weight:600;}
 .btn-list{background:var(--blue);color:#fff;border:none;border-radius:5px;padding:8px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;cursor:pointer;text-decoration:none;}
-.btn-list:hover{background:var(--bb);}
-
-/* HERO */
-.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
-.hero-inner{max-width:720px;position:relative;z-index:1;}
-.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}
-.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
-.breadcrumb a:hover{color:rgba(242,237,227,0.7);}
-.hero h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,60px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:14px;letter-spacing:-0.5px;}
-.hero h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
-.hero-intro{font-size:15px;line-height:1.75;color:rgba(242,237,227,0.55);max-width:560px;margin-bottom:24px;}
-.hero-stats{display:flex;gap:24px;flex-wrap:wrap;}
-.stat{text-align:left;}
-.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}
-.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
-
-/* SORT BAR */
-.sort-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:10px;overflow-x:auto;-ms-overflow-style:none;scrollbar-width:none;}
-.sort-bar::-webkit-scrollbar{display:none;}
-.sort-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;}
-.sort-btn{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:6px 14px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;}
-.sort-btn:hover,.sort-btn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
-
-/* CONTENT */
-.wrap{max-width:900px;margin:0 auto;padding:0 20px;}
-
-/* TOP PICKS */
-.section{padding:36px 0 0;}
-.sec-head{font-family:"Fraunces",serif;font-size:22px;font-weight:900;color:var(--ink);margin-bottom:6px;}
-.sec-sub{font-size:13px;color:var(--muted);margin-bottom:20px;}
-.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-bottom:8px;}
-.pick-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:12px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.pick-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
-.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:4px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
-.pick-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:3px;line-height:1.2;}
-.pick-why{font-size:11px;color:var(--muted);line-height:1.4;}
-
-/* NEIGHBORHOODS */
-.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}
-.hood-card{background:var(--parchment);border-radius:10px;padding:14px 16px;}
-.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:5px;}
-.hood-desc{font-size:12px;color:var(--bark);line-height:1.5;}
-
-/* STORES LIST */
-.stores-section{padding:36px 0 48px;}
-.store-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}
-.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}
-.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;}
-.store-info{flex:1;min-width:0;}
-.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}
-.store-hood{font-size:11px;color:var(--muted);margin-bottom:4px;}
-.store-tag{display:inline-block;background:var(--pale);color:var(--blue);font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;margin-right:4px;}
-.store-desc{font-size:12px;color:var(--bark);margin-top:4px;line-height:1.5;}
-.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
-.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;}
-.store-web:hover{text-decoration:underline;}
-.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}
-.store-arr{font-size:22px;color:var(--blue);}
-
-/* TOUR CTA */
-.tour-cta{background:var(--ink);border-radius:14px;padding:28px 24px;margin:0 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}
-.tour-cta h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}
-.tour-cta p{font-size:13px;color:rgba(242,237,227,0.45);}
-.tour-cta p b{color:#3D85FF;}
-.tour-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
-.tour-btn:hover{background:var(--bb);}
-
-/* FOOTER */
-footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}
-.f-logo b{color:#3D85FF;}
-.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}
-.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
-.f-back:hover{color:#F2EDE3;}
-
-@media(max-width:600px){
-  .hero h1{font-size:30px;}
-  .store-card{flex-wrap:wrap;}
-  .store-right{flex-direction:row;align-items:center;width:100%;}
-  .picks-grid,.hood-grid{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
+.hero{background:var(--ink);padding:52px 20px 44px;position:relative;overflow:hidden;}.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 90% 50%,rgba(27,110,243,0.12),transparent 70%);}
+.hero-inner{max-width:780px;position:relative;z-index:1;}.breadcrumb{font-size:11px;font-weight:700;color:rgba(242,237,227,0.35);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;}.breadcrumb a{color:rgba(242,237,227,0.35);text-decoration:none;}
+h1{font-family:"Fraunces",serif;font-size:clamp(32px,6vw,58px);font-weight:900;color:#F2EDE3;line-height:1.05;margin-bottom:16px;letter-spacing:-0.5px;}h1 em{font-style:italic;font-weight:300;color:rgba(242,237,227,0.45);}
+.hero-intro{font-size:15px;line-height:1.8;color:rgba(242,237,227,0.6);max-width:620px;margin-bottom:12px;}.hero-intro p{margin-bottom:12px;}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap;margin-top:24px;}.stat-n{font-family:"Fraunces",serif;font-size:28px;font-weight:900;color:#F2EDE3;line-height:1;}.stat-l{font-size:11px;color:rgba(242,237,227,0.4);font-weight:600;margin-top:2px;}
+.filter-bar{background:var(--parchment);border-bottom:1px solid var(--border);padding:12px 20px;display:flex;align-items:center;gap:8px;overflow-x:auto;scrollbar-width:none;position:sticky;top:58px;z-index:90;}.filter-bar::-webkit-scrollbar{display:none;}
+.filter-label{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--muted);white-space:nowrap;margin-right:4px;flex-shrink:0;}
+.fbtn{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:7px 16px;font-family:"Epilogue",sans-serif;font-size:12px;font-weight:700;color:var(--muted);cursor:pointer;white-space:nowrap;transition:all 0.15s;flex-shrink:0;}.fbtn:hover{border-color:var(--blue);color:var(--blue);}.fbtn.on{background:var(--blue);border-color:var(--blue);color:#fff;}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px;}.section{padding:40px 0 0;}
+.sec-eyebrow{font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}.sec-head{font-family:"Fraunces",serif;font-size:26px;font-weight:900;color:var(--ink);margin-bottom:8px;line-height:1.1;}.sec-sub{font-size:14px;color:var(--bark);line-height:1.7;margin-bottom:22px;max-width:640px;}
+.featured-card{background:var(--white);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow:hidden;}
+.feat-header{background:var(--ink);padding:22px 24px 18px;position:relative;}.feat-header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 100% at 100% 50%,rgba(27,110,243,0.15),transparent 70%);}
+.feat-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,133,255,0.2);border:1px solid rgba(61,133,255,0.3);color:#3D85FF;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:10px;position:relative;z-index:1;}
+.feat-name{font-family:"Fraunces",serif;font-size:24px;font-weight:900;color:#F2EDE3;line-height:1.1;margin-bottom:4px;position:relative;z-index:1;}.feat-hood{font-size:12px;color:rgba(242,237,227,0.45);position:relative;z-index:1;}
+.feat-body{padding:22px 24px;}.feat-story{font-size:14px;line-height:1.8;color:var(--bark);margin-bottom:18px;}.feat-story p{margin-bottom:12px;}.feat-story p:last-child{margin-bottom:0;}
+.feat-best{font-size:10px;font-weight:800;color:var(--blue);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;}.feat-bullets{list-style:none;margin-bottom:18px;}.feat-bullets li{font-size:13px;color:var(--bark);padding:5px 0;padding-left:18px;position:relative;line-height:1.5;}.feat-bullets li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:700;}
+.feat-who{background:var(--pale);border-radius:8px;padding:10px 14px;font-size:13px;color:var(--blue);font-weight:600;margin-bottom:16px;}.feat-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
+.feat-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border);}.feat-link{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;padding:10px 18px;border-radius:7px;font-size:13px;font-weight:700;transition:background 0.15s;}.feat-link:hover{background:var(--bb);}
+.picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:8px;}.pick-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:18px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;display:flex;flex-direction:column;gap:8px;}.pick-card:hover{box-shadow:0 6px 24px rgba(0,0,0,0.1);transform:translateY(-2px);}
+.pick-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}.pick-name{font-family:"Fraunces",serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}.pick-badge{background:var(--blue);color:#fff;font-size:9px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:3px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}.pick-best{font-size:11px;font-weight:700;color:var(--amber);}.pick-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.seo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px;margin-bottom:8px;}.seo-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px;text-decoration:none;transition:box-shadow 0.2s;display:block;}.seo-card:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);}.seo-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}.seo-desc{font-size:12px;color:var(--bark);line-height:1.5;margin-bottom:8px;}.seo-tags{display:flex;flex-wrap:wrap;gap:4px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}.tag-vintage{background:#FEF3E2;color:#B45309;}.tag-repairs{background:#EFF6FF;color:#1D4ED8;}.tag-lessons{background:#F0FDF4;color:#166534;}.tag-highend{background:#FDF4FF;color:#7E22CE;}.tag-beginner{background:#F0FDF4;color:#166534;}.tag-pro{background:#FFF1F2;color:#BE123C;}.tag-synths{background:#F0F9FF;color:#0369A1;}.tag-rare{background:#FEF3E2;color:#B45309;}.tag-records{background:#FDF4FF;color:#7E22CE;}.tag-acoustic{background:#F0FDF4;color:#166534;}.tag-drums{background:#FFF1F2;color:#BE123C;}.tag-guitars{background:#F0EDE5;color:#5C4A32;}
+.store-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:flex-start;gap:14px;text-decoration:none;transition:box-shadow 0.2s,transform 0.2s;}.store-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-1px);}.store-card.hidden{display:none;}
+.store-icon{font-size:28px;flex-shrink:0;width:44px;text-align:center;margin-top:2px;}.store-body{flex:1;min-width:0;}.store-name{font-family:"Fraunces",serif;font-size:16px;font-weight:700;color:var(--ink);margin-bottom:2px;}.store-hood{font-size:11px;color:var(--muted);margin-bottom:6px;}.store-desc{font-size:13px;color:var(--bark);line-height:1.6;margin-bottom:8px;}.store-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px;}.store-trust{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.trust-verified{font-size:10px;font-weight:700;color:#166534;background:#F0FDF4;padding:2px 7px;border-radius:4px;}.trust-updated{font-size:10px;color:var(--muted);}.claim-link{font-size:10px;color:var(--blue);font-weight:700;text-decoration:none;}
+.store-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;min-width:90px;}.store-web{font-size:11px;color:var(--blue);font-weight:700;text-decoration:none;white-space:nowrap;}.no-web{font-size:10px;color:var(--muted);font-weight:600;background:var(--parchment);padding:3px 8px;border-radius:4px;}.store-arr{font-size:22px;color:var(--blue);}
+.hood-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin-bottom:8px;}.hood-card{background:var(--parchment);border-radius:10px;padding:16px;}.hood-name{font-family:"Fraunces",serif;font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}.hood-desc{font-size:12px;color:var(--bark);line-height:1.55;}
+.empty-state{text-align:center;padding:40px 20px;display:none;}.empty-state.show{display:block;}.empty-icon{font-size:36px;margin-bottom:10px;}.empty-msg{font-size:14px;color:var(--muted);}
+.cta-box{background:var(--ink);border-radius:14px;padding:28px 24px;margin:40px 0 48px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;}.cta-box h3{font-family:"Fraunces",serif;font-size:20px;font-weight:900;color:#F2EDE3;margin-bottom:4px;}.cta-box p{font-size:13px;color:rgba(242,237,227,0.45);}.cta-box p b{color:#3D85FF;}.cta-btn{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:12px 20px;font-family:"Epilogue",sans-serif;font-size:13px;font-weight:700;cursor:pointer;text-decoration:none;white-space:nowrap;display:inline-block;}
+footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}.f-logo{font-family:"Fraunces",serif;font-size:16px;font-weight:900;color:#F2EDE3;}.f-logo b{color:#3D85FF;}.f-copy{font-size:12px;color:rgba(242,237,227,0.28);}.f-back{font-size:12px;color:rgba(242,237,227,0.4);text-decoration:none;}
+@media(max-width:600px){.picks-grid,.seo-grid,.hood-grid{grid-template-columns:1fr;}.store-card{flex-wrap:wrap;}.store-right{flex-direction:row;width:100%;}}
+</style></head><body>
 <nav>
   <a href="/" class="logo">
     <img src="/logo.png" alt="Music Store Finds">
     <div><div class="ln">Music Store <b>Finds</b></div><div class="lt">Bringing Music &amp; Communities Together</div></div>
   </a>
-  <div class="nav-right">
-    <a href="mailto:musicstorefinds@gmail.com?subject=List My Store" class="btn-list">+ List Your Store</a>
-  </div>
+  <a href="mailto:musicstorefinds@gmail.com?subject=List My Store in Miami" class="btn-list">+ List Your Store</a>
 </nav>
-
-<!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
     <div class="breadcrumb"><a href="/">Music Store Finds</a> › Miami</div>
-    <h1>Best Music Stores<br><em>in Miami</em></h1>
-    <p class="hero-intro">Miami's music store scene is as vibrant and diverse as the city itself. Latin rhythm, electronic beats, and tropical sounds all find their gear here — from Little Havana's percussion shops to Fort Lauderdale's legendary record stores.</p>
+    <h1>Best Music Stores<br><em>in Miami, Florida</em></h1>
+    <div class="hero-intro"><p>Miami's music scene is as vibrant and diverse as the city itself — a crossroads of Latin music traditions, electronic dance music, hip-hop, jazz, and Caribbean sounds that makes it unlike any other American city. The city's music stores reflect that diversity, from Cuban instrument specialists in Little Havana to DJ and electronic music shops in Wynwood.</p><p>Miami's music retail scene is smaller than cities like LA or Nashville, but what it lacks in size it makes up for in character. The best shops here are deeply embedded in the city's specific musical communities — serving the salsa musicians of Little Havana, the electronic producers of Wynwood, and the jazz and classical players of the broader metro area.</p><p>The city's year-round outdoor music culture means Miami musicians are always working — and always needing instruments, repairs, and gear. The best music stores in Miami have built loyal communities by delivering genuine expertise and honest service.</p></div>
     <div class="hero-stats">
       <div class="stat"><div class="stat-n">10</div><div class="stat-l">Stores Listed</div></div>
-      <div class="stat"><div class="stat-n">4</div><div class="stat-l">Neighborhoods</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Neighborhoods</div></div>
       <div class="stat"><div class="stat-n">Free</div><div class="stat-l">Always</div></div>
     </div>
   </div>
 </div>
-
-<!-- SORT BAR -->
-<div class="sort-bar">
-  <span class="sort-label">Browse by:</span>
-  <button class="sort-btn on" onclick="filterStores('all',this)">🗂 All Stores</button>
-  <button class="sort-btn" onclick="filterStores('guitars',this)">🎸 Guitars</button>
-  <button class="sort-btn" onclick="filterStores('records',this)">💿 Records</button>
-  <button class="sort-btn" onclick="filterStores('drums',this)">🥁 Drums</button>
-  <button class="sort-btn" onclick="filterStores('synths',this)">🎛️ Synths</button>
-  <button class="sort-btn" onclick="filterStores('vintage',this)">⭐ Vintage</button>
-  <button class="sort-btn" onclick="filterStores('fullservice',this)">🎵 Full Service</button>
-  <button class="sort-btn" onclick="filterStores('repairs',this)">🔧 Repairs</button>
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="fbtn on" onclick="filter('all',this)">🗂 All Stores</button>
+  <button class="fbtn" onclick="filter('guitars',this)">🎸 Guitars</button>
+  <button class="fbtn" onclick="filter('records',this)">💿 Records</button>
+  <button class="fbtn" onclick="filter('drums',this)">🥁 Drums</button>
+  <button class="fbtn" onclick="filter('synths',this)">🎛️ Synths</button>
+  <button class="fbtn" onclick="filter('vintage',this)">⭐ Vintage</button>
+  <button class="fbtn" onclick="filter('repairs',this)">🔧 Repairs</button>
+  <button class="fbtn" onclick="filter('lessons',this)">🎓 Lessons</button>
+  <button class="fbtn" onclick="filter('pro',this)">🏆 Pro Level</button>
+  <button class="fbtn" onclick="filter('beginner',this)">🌱 Beginner</button>
 </div>
-
 <div class="wrap">
-
-  <!-- TOP PICKS -->
   <div class="section">
-    <div class="sec-head">🏆 Top Picks in Miami</div>
-    <div class="sec-sub">Our curated selection of the best music stores — hand-picked for quality, reputation, and community impact.</div>
+    <div class="sec-eyebrow">Featured Stores</div>
+    <h2 class="sec-head">✨ The Stories Behind the Best Stores</h2>
+    <p class="sec-sub">Not just listings — the history, the legacy, and why musicians love these places.</p>
+    
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Swampland Records</div>
+      <div class="feat-hood">📍 Little Haiti</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">💿 Miami's Underground Record Destination</div>
+      <div class="feat-story"><p>Swampland Records in Little Haiti is Miami's most interesting record shop — a specialist in Haitian music, Caribbean sounds, global beats, and the kind of eclectic vinyl that reflects Miami's unique cultural position as a gateway between the Americas.</p><p>The shop has built a devoted following among Miami's most adventurous music fans — DJs, producers, and collectors who come specifically for records they can't find anywhere else in the city. The owner's knowledge of Caribbean, Latin, and global music is extraordinary.</p><p>Shopping at Swampland Records is an education in Miami's musical heritage. The city is not just Miami Sound Machine and EDM — it's Haitian compas, Cuban son, Jamaican reggae, and a dozen other traditions that have shaped the city's sonic identity.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>Miami's most eclectic and culturally distinctive record shop</li><li>Specialist in Haitian, Caribbean, Latin, and global music vinyl</li><li>A destination for Miami DJs, producers, and adventurous collectors</li><li>An education in Miami's real musical heritage beyond the mainstream</li></ul>
+      <div class="feat-who">Best for: DJs, producers, and collectors seeking Caribbean, Latin, and global music vinyl in Miami.</div>
+      <div class="feat-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Swampland Records">Claim this listing</a>
+        <a class="feat-link" href="mailto:musicstorefinds@gmail.com?subject=More info: Swampland Records">Get Info →</a>
+      </div>
+    </div>
+  </div>
+  <div class="featured-card">
+    <div class="feat-header">
+      <div class="feat-badge">⭐ Featured Store</div>
+      <div class="feat-name">Drum City South FL</div>
+      <div class="feat-hood">📍 South Florida</div>
+    </div>
+    <div class="feat-body">
+      <div style="display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:800;letter-spacing:1px;padding:4px 10px;border-radius:4px;margin-bottom:14px;">🥁 South Florida's Drum Specialist</div>
+      <div class="feat-story"><p>Drum City is South Florida's dedicated drum and percussion specialist — serving the Miami and Fort Lauderdale music community with the kind of focused expertise that a general music store simply can't provide. The shop carries a comprehensive selection of drum kits, cymbals, hardware, hand percussion, and accessories from major manufacturers.</p><p>Miami's vibrant rhythm culture — from Afro-Cuban percussion to Caribbean steel drums to hip-hop trap production — means the city has an unusually passionate drumming community. Drum City serves that community with genuine knowledge and commitment.</p><p>For drummers in South Florida, Drum City is the essential stop — the shop that understands what players need and carries the inventory to deliver it.</p></div>
+      <div class="feat-best">Why Musicians Love It</div>
+      <ul class="feat-bullets"><li>South Florida's dedicated drum and percussion specialist</li><li>Comprehensive inventory of drum kits, cymbals, hardware, and hand percussion</li><li>Serves Miami's vibrant rhythm culture — Afro-Cuban, Caribbean, and hip-hop</li><li>Genuine expertise that a general music store can't replicate</li></ul>
+      <div class="feat-who">Best for: Drummers and percussionists across South Florida seeking dedicated drum expertise.</div>
+      <div class="feat-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      <div class="feat-trust">
+        <span class="trust-verified">✓ Verified Listing</span>
+        <span class="trust-updated">Updated April 2026</span>
+        <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Drum City South FL">Claim this listing</a>
+        <a class="feat-link" href="mailto:musicstorefinds@gmail.com?subject=More info: Drum City South FL">Get Info →</a>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Editors' Picks</div>
+    <h2 class="sec-head">🏆 Top Music Stores in Miami</h2>
+    <p class="sec-sub">Our hand-picked selection of the best music stores in Miami — chosen for quality, reputation, and community impact.</p>
     <div class="picks-grid">
-      <a class="pick-card" href="/miami/tropical-music/">
-        <div>
-          <div class="pick-name">Tropical Music</div>
-          <div class="pick-why">Miami's music distribution institution since 1975</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/instrumental-music-center/">
+        <div class="pick-top"><div class="pick-name">Instrumental Music Center</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best full-service shop</div>
+        <div class="pick-desc">Miami's full-service music center. Instruments, lessons, and repairs for the whole family.</div>
       </a>
-      <a class="pick-card" href="/miami/allegro-music-center/">
-        <div>
-          <div class="pick-name">Allegro Music Center</div>
-          <div class="pick-why">Largest sheet music selection in South Florida — 22,000 titles</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/swampland-records/">
+        <div class="pick-top"><div class="pick-name">Swampland Records</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best record store</div>
+        <div class="pick-desc">Miami's most eclectic record shop. Caribbean, Latin, and global music vinyl.</div>
       </a>
-      <a class="pick-card" href="/miami/miami-music-inc/">
-        <div>
-          <div class="pick-name">Miami Music Inc</div>
-          <div class="pick-why">Little Havana's legendary Latin instrument store</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/guitar-center-miami/">
+        <div class="pick-top"><div class="pick-name">Guitar Center Miami</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best for new gear</div>
+        <div class="pick-desc">Widest new instrument selection in Miami. Full rental and repair services.</div>
       </a>
-      <a class="pick-card" href="/miami/yesterday-and-today-records/">
-        <div>
-          <div class="pick-name">Yesterday and Today Records</div>
-          <div class="pick-why">Fort Lauderdale's legendary rock and metal vinyl store</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
+      <a class="pick-card" href="/drum-city-south-fl/">
+        <div class="pick-top"><div class="pick-name">Drum City South FL</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best drum shop</div>
+        <div class="pick-desc">South Florida's dedicated drum specialist.</div>
       </a>
-      <a class="pick-card" href="/miami/bass-player-shoppe/">
-        <div>
-          <div class="pick-name">Bass Player Shoppe</div>
-          <div class="pick-why">South Florida's only dedicated bass guitar specialty shop</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-      <a class="pick-card" href="/miami/monster-music/">
-        <div>
-          <div class="pick-name">Monster Music</div>
-          <div class="pick-why">Miami's go-to for DJ gear, pro audio, and instruments</div>
-        </div>
-        <div class="pick-badge">Top Pick</div>
-      </a>
-
-    </div>
+      <a class="pick-card" href="/specs-music/">
+        <div class="pick-top"><div class="pick-name">Spec's Music</div><div class="pick-badge">Top Pick</div></div>
+        <div class="pick-best">★ Best neighborhood music store</div>
+        <div class="pick-desc">Miami's beloved music store chain serving South Florida musicians.</div>
+      </a></div>
   </div>
-
-  <!-- NEIGHBORHOODS -->
-  <div class="section" style="padding-top:32px;">
-    <div class="sec-head">🗺 Plan Your Music Store Tour</div>
-    <div class="sec-sub">The best areas for music shopping in Miami — organized so you can hit multiple stores in one trip.</div>
-    <div class="hood-grid">
-      <div class="hood-card">
-        <div class="hood-name">📍 Little Havana</div>
-        <div class="hood-desc">Miami Music Inc and the surrounding shops celebrate Miami's extraordinary Latin musical heritage.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Wynwood & Doral</div>
-        <div class="hood-desc">Monster Music and Swampland Records serve Miami's electronic and vinyl communities.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Fort Lauderdale</div>
-        <div class="hood-desc">Yesterday and Today Records and Drum City South Florida serve Broward County's music needs.</div>
-      </div>
-      <div class="hood-card">
-        <div class="hood-name">📍 Coral Gables & Westchester</div>
-        <div class="hood-desc">Allegro Music Center and Spec's Music serve the south Miami community with quality instruments.</div>
-      </div>
-
-    </div>
+  <div class="section">
+    <div class="sec-eyebrow">Guitar Stores Miami</div>
+    <h2 class="sec-head">🎸 Best Guitar Stores in Miami</h2>
+    <p class="sec-sub">From vintage dealers to full-line showrooms — the best guitar shops in Miami for every kind of player.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/instrumental-music-center/">
+        <div class="seo-name">Instrumental Music Center</div>
+        <div class="seo-desc">Miami's full-service music store. Guitars, repairs, and lessons for all levels.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/guitar-center-miami/">
+        <div class="seo-name">Guitar Center Miami</div>
+        <div class="seo-desc">Widest new guitar selection in Miami. Full-service with rentals and repairs.</div>
+        <div class="seo-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+      </a></div>
   </div>
-
-  <!-- ALL STORES -->
-  <div class="stores-section">
-    <div class="sec-head" style="padding-top:32px;margin-bottom:6px;">All Music Stores in Miami</div>
-    <div class="sec-sub">Every music store in Miami — instruments, records, repairs, lessons, and more.</div>
+  <div class="section">
+    <div class="sec-eyebrow">Vintage Music Stores Miami</div>
+    <h2 class="sec-head">⭐ Best Vintage Music Shops in Miami</h2>
+    <p class="sec-sub">The best shops for rare gear, vintage instruments, and collectible records in Miami.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/swampland-records/">
+        <div class="seo-name">Swampland Records</div>
+        <div class="seo-desc">Miami's best eclectic record shop. Caribbean, Latin, and global music vinyl.</div>
+        <div class="seo-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Instrument Repair Miami</div>
+    <h2 class="sec-head">🔧 Where to Get Instruments Repaired in Miami</h2>
+    <p class="sec-sub">Need a setup, refret, or full restoration? The best repair shops in Miami for every instrument.</p>
+    <div class="seo-grid">
+      <a class="seo-card" href="/instrumental-music-center/">
+        <div class="seo-name">Instrumental Music Center</div>
+        <div class="seo-desc">Full repair shop serving Miami musicians and students. All instrument categories.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a>
+      <a class="seo-card" href="/guitar-center-miami/">
+        <div class="seo-name">Guitar Center Miami</div>
+        <div class="seo-desc">Full repair services at Guitar Center Miami. All instrument types.</div>
+        <div class="seo-tags"><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+      </a></div>
+  </div>
+  <div class="section">
+    <div class="sec-eyebrow">Plan Your Visit</div>
+    <h2 class="sec-head">🗺 Plan Your Miami Music Store Tour</h2>
+    <p class="sec-sub">The best music stores in Miami by neighborhood — plan your trip to hit multiple shops in one day.</p>
+    <div class="hood-grid"><div class="hood-card"><div class="hood-name">📍 Little Havana</div><div class="hood-desc">Miami's Latin music hub. Cuban instrument shops and a thriving music community.</div></div><div class="hood-card"><div class="hood-name">📍 Wynwood</div><div class="hood-desc">Miami's arts district has DJ and electronic music shops serving the city's producer community.</div></div><div class="hood-card"><div class="hood-name">📍 Coral Gables / South Miami</div><div class="hood-desc">Several full-service music stores serve the South Miami and Coral Gables community.</div></div></div>
+  </div>
+  <div class="section" style="padding-top:40px;">
+    <div class="sec-eyebrow">Complete Directory</div>
+    <h2 class="sec-head">All Music Stores in Miami</h2>
+    <p class="sec-sub">Every music store listed in Miami — use the filters above to narrow by type.</p>
     <div id="store-list">
-    <a class="store-card" href="/miami/tropical-music/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Tropical Music</div>
-        <div class="store-hood">📍 Miami</div>
-        <span class="store-tag">Instruments & Pro Audio</span>
-        <div class="store-desc">Miami institution since 1975. Guitars, pro audio, and Latin instruments.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://tropicalmusic.com" target="_blank" rel="noopener">tropicalmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/miami-music-inc/" data-tags="">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Miami Music Inc</div>
-        <div class="store-hood">📍 Little Havana</div>
-        <span class="store-tag">Latin Instruments</span>
-        <div class="store-desc">Little Havana's legendary music store since 1975.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://miamimusicinc.com" target="_blank" rel="noopener">miamimusicinc.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/allegro-music-center/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Allegro Music Center</div>
-        <div class="store-hood">📍 Westchester</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">Miami's full-service music center. 22,000+ sheet music titles.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://allegromusiccenter.com" target="_blank" rel="noopener">allegromusiccenter.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/monster-music/" data-tags="">
-      <div class="store-icon">🎛️</div>
-      <div class="store-info">
-        <div class="store-name">Monster Music</div>
-        <div class="store-hood">📍 Doral</div>
-        <span class="store-tag">DJ & Pro Audio</span>
-        <div class="store-desc">Miami's go-to for DJ equipment, pro audio, and instruments.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://monstermusicinc.com" target="_blank" rel="noopener">monstermusicinc.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/sam-ash-south-florida/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Sam Ash South Florida</div>
-        <div class="store-hood">📍 Hollywood FL</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">South Florida's full-service music superstore.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://samash.com" target="_blank" rel="noopener">samash.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/bass-player-shoppe/" data-tags="guitars">
-      <div class="store-icon">🎸</div>
-      <div class="store-info">
-        <div class="store-name">Bass Player Shoppe</div>
-        <div class="store-hood">📍 Boca Raton</div>
-        <span class="store-tag">Bass Specialist</span>
-        <div class="store-desc">South Florida's only dedicated bass guitar specialty shop.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://bassplayershoppe.com" target="_blank" rel="noopener">bassplayershoppe.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/yesterday-and-today-records/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Yesterday and Today Records</div>
-        <div class="store-hood">📍 Fort Lauderdale</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">Fort Lauderdale's legendary record store since 1979.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://ytrecords.com" target="_blank" rel="noopener">ytrecords.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/swampland-records/" data-tags="records">
-      <div class="store-icon">💿</div>
-      <div class="store-info">
-        <div class="store-name">Swampland Records</div>
-        <div class="store-hood">📍 Wynwood</div>
-        <span class="store-tag">Records</span>
-        <div class="store-desc">Wynwood's eclectic vinyl destination. Jazz, funk, and soul.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/drum-city-south-florida/" data-tags="drums">
-      <div class="store-icon">🥁</div>
-      <div class="store-info">
-        <div class="store-name">Drum City South Florida</div>
-        <div class="store-hood">📍 Fort Lauderdale</div>
-        <span class="store-tag">Drums</span>
-        <div class="store-desc">South Florida's premier drum shop.</div>
-      </div>
-      <div class="store-right">
-        <span class="no-web">No website</span>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-    <a class="store-card" href="/miami/specs-music-coral-gables/" data-tags="fullservice">
-      <div class="store-icon">🎵</div>
-      <div class="store-info">
-        <div class="store-name">Spec's Music Coral Gables</div>
-        <div class="store-hood">📍 Coral Gables</div>
-        <span class="store-tag">Full Service</span>
-        <div class="store-desc">South Florida's music retailer since 1948.</div>
-      </div>
-      <div class="store-right">
-        <a class="store-web" href="https://specsmusic.com" target="_blank" rel="noopener">specsmusic.com</a>
-        <div class="store-arr">›</div>
-      </div>
-    </a>
-
+      <a class="store-card" href="/instrumental-music-center/" data-tags="guitars drums lessons repairs beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Instrumental Music Center</div>
+          <div class="store-hood">📍 Miami</div>
+          <div class="store-desc">Miami's full-service music center. Comprehensive instrument selection, lessons, and repairs serving the South Florida musician community.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Instrumental Music Center" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://instrumentalmusiccenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">instrumentalmusiccenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/swampland-records/" data-tags="records vintage rare">
+        <div class="store-icon">💿</div>
+        <div class="store-body">
+          <div class="store-name">Swampland Records</div>
+          <div class="store-hood">📍 Little Haiti</div>
+          <div class="store-desc">Miami's most eclectic record shop. Specialist in Haitian, Caribbean, Latin, and global music vinyl. A destination for Miami DJs and adventurous collectors.</div>
+          <div class="store-tags"><span class="tag tag-records">💿 Records</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Swampland Records" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/drum-city-south-fl/" data-tags="drums pro beginner">
+        <div class="store-icon">🥁</div>
+        <div class="store-body">
+          <div class="store-name">Drum City South FL</div>
+          <div class="store-hood">📍 South Florida</div>
+          <div class="store-desc">South Florida's dedicated drum and percussion specialist. Comprehensive inventory serving Miami's vibrant rhythm community.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-pro">🏆 Pro Level</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Drum City South FL" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/guitar-center-miami/" data-tags="guitars drums beginner rentals repairs">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Guitar Center Miami</div>
+          <div class="store-hood">📍 Multiple Locations</div>
+          <div class="store-desc">Miami's full-service music superstore. Widest new instrument selection in South Florida with rentals and repairs.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-beginner">🌱 Beginner Friendly</span><span class="tag tag-repairs">📋 Rentals</span><span class="tag tag-repairs">🔧 Repairs</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Guitar Center Miami" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><a class="store-web" href="https://guitarcenter.com" target="_blank" rel="noopener" onclick="event.stopPropagation()">guitarcenter.com</a><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/specs-music/" data-tags="guitars beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Spec's Music</div>
+          <div class="store-hood">📍 Multiple Locations</div>
+          <div class="store-desc">Miami's beloved music store chain. Instruments, accessories, and music-related merchandise across South Florida locations.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Spec's Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/mars-music/" data-tags="guitars lessons beginner">
+        <div class="store-icon">🎵</div>
+        <div class="store-body">
+          <div class="store-name">Mars Music</div>
+          <div class="store-hood">📍 South Florida</div>
+          <div class="store-desc">South Florida music store serving musicians and students with instruments, accessories, and lessons.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Mars Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/casa-trucos/" data-tags="drums acoustic">
+        <div class="store-icon">🎺</div>
+        <div class="store-body">
+          <div class="store-name">Casa de los Trucos</div>
+          <div class="store-hood">📍 Little Havana</div>
+          <div class="store-desc">Little Havana institution. Latin percussion, Cuban instruments, and music accessories serving Miami's Latin music community.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-acoustic">🎵 Acoustic</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Casa de los Trucos" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/rhythm-foundation/" data-tags="drums acoustic rare">
+        <div class="store-icon">🌍</div>
+        <div class="store-body">
+          <div class="store-name">Rhythm Foundation</div>
+          <div class="store-hood">📍 Miami Beach</div>
+          <div class="store-desc">World music instrument specialists serving Miami Beach musicians. Hand drums, Latin percussion, and ethnic instruments.</div>
+          <div class="store-tags"><span class="tag tag-drums">🥁 Drums</span><span class="tag tag-acoustic">🎵 Acoustic</span><span class="tag tag-rare">🔍 Rare Gear</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Rhythm Foundation" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/miami-music-exchange/" data-tags="guitars vintage beginner">
+        <div class="store-icon">🎸</div>
+        <div class="store-body">
+          <div class="store-name">Miami Music Exchange</div>
+          <div class="store-hood">📍 Miami</div>
+          <div class="store-desc">Used and vintage instrument shop serving Miami musicians. Guitars, basses, and electronics at fair prices.</div>
+          <div class="store-tags"><span class="tag tag-guitars">🎸 Guitars</span><span class="tag tag-vintage">⭐ Vintage</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Miami Music Exchange" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a>
+      <a class="store-card" href="/studio-27/" data-tags="lessons repairs beginner">
+        <div class="store-icon">🎹</div>
+        <div class="store-body">
+          <div class="store-name">Studio 27 Music</div>
+          <div class="store-hood">📍 Miami</div>
+          <div class="store-desc">Piano and keyboard specialists serving the Miami musician and student community. Sales, rentals, and lessons.</div>
+          <div class="store-tags"><span class="tag tag-lessons">🎓 Lessons</span><span class="tag tag-repairs">🔧 Repairs</span><span class="tag tag-beginner">🌱 Beginner Friendly</span></div>
+          <div class="store-trust">
+            <span class="trust-verified">✓ Verified Listing</span>
+            <span class="trust-updated">Updated April 2026</span>
+            <a class="claim-link" href="mailto:musicstorefinds@gmail.com?subject=Claim: Studio 27 Music" onclick="event.stopPropagation()">Claim listing</a>
+          </div>
+        </div>
+        <div class="store-right"><span class="no-web">No website</span><div class="store-arr">›</div></div>
+      </a></div>
+    <div class="empty-state" id="emptyState">
+      <div class="empty-icon">🎵</div>
+      <div class="empty-msg">No stores match that filter. Try a different category.</div>
     </div>
   </div>
-
-  <!-- TOUR CTA -->
-  <div class="tour-cta">
+  <div class="cta-box">
     <div>
       <h3>Own a music store in Miami?</h3>
       <p>Get found by musicians searching right now. <b>Free to list — always.</b></p>
     </div>
-    <a class="tour-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Miami&body=Store name:%0AAddress:%0APhone:%0AWebsite:%0AWhat you carry:">List Your Store →</a>
+    <a class="cta-btn" href="mailto:musicstorefinds@gmail.com?subject=List My Store in Miami">List Your Store →</a>
   </div>
-
 </div>
-
 <footer>
   <div class="f-logo">Music Store <b>Finds</b></div>
   <a href="/" class="f-back">← All Cities</a>
@@ -385,16 +381,20 @@ footer{background:#2A1F12;padding:24px 20px;display:flex;align-items:center;just
 </footer>
 
 <script>
-function filterStores(type, el) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('on'));
+function filter(type, el) {
+  document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
   el.classList.add('on');
-  document.querySelectorAll('.store-card').forEach(card => {
-    if (type === 'all') { card.style.display = ''; return; }
-    const tags = card.dataset.tags || '';
-    card.style.display = tags.includes(type) ? '' : 'none';
+  const cards = document.querySelectorAll('.store-card');
+  let visible = 0;
+  cards.forEach(card => {
+    if (type === 'all') { card.classList.remove('hidden'); visible++; }
+    else {
+      const tags = (card.dataset.tags || '').split(' ');
+      if (tags.includes(type)) { card.classList.remove('hidden'); visible++; }
+      else { card.classList.add('hidden'); }
+    }
   });
+  document.getElementById('emptyState').classList.toggle('show', visible === 0);
 }
 </script>
-
-</body>
-</html>
+</body></html>
